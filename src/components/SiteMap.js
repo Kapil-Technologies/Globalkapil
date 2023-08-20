@@ -14,7 +14,7 @@ import { Navigation } from "../pages/Contact";
 // ----------------------------------------------------------------
 
 export const MainSiteMap = styled("div")(({ theme, image }) => ({
-  backgroundColor: "#012C54",
+  backgroundColor: "#162438",
   color: "white",
   width: "100%",
 }));

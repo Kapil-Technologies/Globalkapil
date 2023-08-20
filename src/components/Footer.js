@@ -7,7 +7,7 @@ import { FaCopyright } from "react-icons/fa6";
 // ----------------------------------------------------------------
 
 export const MainFooter = styled("footer")(({ theme, image }) => ({
-  backgroundColor: "#012C54",
+  backgroundColor: "#162438",
 }));
 
 // ---------------------------------------------------------------

@@ -8,6 +8,7 @@ import Consulting from "../pages/Consulting";
 import Erp from "../pages/ERP/Erp";
 import ERPLayout from "../pages/ERP/ERPLayout";
 import GlobalPresence from "../pages/GlobalPresence";
+import NotFound from "../components/NotFound";
 // import Industries from "../pages/Industries/Industries";
 
 function Routes() {
@@ -19,10 +20,10 @@ function Routes() {
           path: "home",
           element: <Home />,
         },
-        // {
-        //   path: "404",
-        //   element: <NotFound />,
-        // },
+        {
+          path: "404",
+          element: <NotFound />,
+        },
         {
           path: "/",
           element: <Navigate to="/home" exact replace />,

@@ -4,7 +4,7 @@ import HomepageBanner from "../components/Sliders/HomepageBanner";
 import { Box, Button, Stack, Tab, Typography,Tabs } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import Clients from "../components/Sliders/Clients";
-import HomeAboutBanner from '../assets/Banners/contactus.jpeg'
+import HomeAboutBanner from '../assets/Banners/ctaBanner.png'
 import ClientBI from "../assets/Banners/ClientsHome.jpeg";
 import Industries from "../components/Sliders/Industries";
 import { TabContext, TabList,TabPanel  } from "@mui/lab";

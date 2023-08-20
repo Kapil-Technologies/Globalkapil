@@ -89,22 +89,22 @@ export const SiteMapLinks = [
     submenu: [
       {
         submenuid: 1,
-        title: "Infor Consulting Services ",
+        title: "ERP ",
         path: "",
       },
       {
         submenuid: 2,
-        title: "SAP Consulting Services  ",
+        title: "Cloud",
         path: "",
       },
       {
         submenuid: 3,
-        title: "Oracle Consulting Services",
+        title: "Application Development",
         path: "",
       },
       {
-        submenuid: 3,
-        title: "Work Day Consulting Services",
+        submenuid: 4,
+        title: "Digital",
         path: "",
       },
     ],
@@ -117,7 +117,7 @@ export const SiteMapLinks = [
       {
         submenuid: 1,
         title: "Infor",
-        path: "",
+        path: "https://partners.infor.com/?q=pt+kcs&ch=false&al=false&dv=false&apac=false&emea=false&gl=false&la=false&na=false#1666",
       },
       {
         submenuid: 2,
@@ -127,11 +127,6 @@ export const SiteMapLinks = [
       {
         submenuid: 3,
         title: "Enstrapp",
-        path: "",
-      },
-      {
-        submenuid: 4,
-        title: "Work Day",
         path: "",
       },
     ],
