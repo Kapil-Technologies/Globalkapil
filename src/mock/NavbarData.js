@@ -70,7 +70,7 @@ export const Services = [
   },
   {
     submenuid: 3,
-    Mtitle: " Applicaion Development",
+    Mtitle: " Application Development",
     menu3: [
       {
         tlmenuid: 1,
@@ -182,11 +182,11 @@ export const AboutData = [
     title: "Our Story",
     path: "/about-us/our-story",
   },
-  {
-    submenuid: 2,
-    title: "Our Battalion",
-    path: "/about-us/our-battalion",
-  },
+  // {
+  //   submenuid: 2,
+  //   title: "Our Battalion",
+  //   path: "/about-us/our-battalion",
+  // },
   {
     submenuid: 3,
     title: "Our Customers",

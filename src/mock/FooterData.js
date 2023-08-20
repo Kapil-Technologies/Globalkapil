@@ -117,17 +117,17 @@ export const SiteMapLinks = [
       {
         submenuid: 1,
         title: "Infor",
-        path: "https://partners.infor.com/?q=pt+kcs&ch=false&al=false&dv=false&apac=false&emea=false&gl=false&la=false&na=false#1666",
+        path: "https://www.infor.com/",
       },
       {
         submenuid: 2,
         title: "K-Mobillor",
-        path: "",
+        path: "/solutions/k-mobillor",
       },
       {
         submenuid: 3,
         title: "Enstrapp",
-        path: "",
+        path: "/solutions/enstrapp",
       },
     ],
   },

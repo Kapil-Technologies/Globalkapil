@@ -10,7 +10,8 @@ import Industries from "../components/Sliders/Industries";
 import { TabContext, TabList,TabPanel  } from "@mui/lab";
 import Page from "../components/Page";
 import { FiChevronRight, FiSend } from "react-icons/fi";
-// ---------------------------------------------------------------
+import HAboutBanner from '../assets/Banners/cta.jpeg'
+ // ---------------------------------------------------------------
 
 export const HomeContainer = styled("div")(({ theme }) => ({}));
 
@@ -19,11 +20,13 @@ export const NavDiv = styled("div")(({ theme }) => ({
 }));
 
 export const AboutSection = styled(Stack)(({ theme, image }) => ({
-  height: 300,
-  backgroundColor: "#d3e1ea",
-//   border: "0.5px solid black",
+  height: "400px",
   padding: "10px",
- 
+  backgroundImage: `url(${image})`,
+  backgroundRepeat: `no-repeat`,
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+marginTop:'-3px'
 }));
 
 export const WhySection = styled(Stack)(({ theme }) => ({
@@ -38,8 +41,7 @@ export const WhatSection = styled(Stack)(({ theme }) => ({
   padding: "10px",
 }));
 
-export const CTASection = styled(Stack)(({ theme,image }) => ({
-  backgroundColor: "#d3e1ea",
+export const CTASection = styled(Stack)(({ theme, image }) => ({
   height: "300px",
   padding: "10px",
   backgroundImage: `url(${image})`,
@@ -152,7 +154,7 @@ export const CTA = ({text,buttonText} ) => {
       alignItems="center"
       justifyContent="center"
       spacing={2}
-      sx={{ textAlign: "center" }}
+      sx={{ textAlign: "center",background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)" }}
       image={HomeAboutBanner}
     >
       <Typography variant="h5" sx={{ opacity: 1, color: "white", width: 500 }}>
@@ -184,34 +186,29 @@ function Home() {
       <Page name="Home" content="" />
       <NavDiv>.</NavDiv>
       <HomepageBanner />
-      {/* <WhatSection direction="row" alignItems="center" justifyContent="center">
-        <TabsMenu />
-      </WhatSection> */}
-      {/* <WhySection
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        spacing={2}
-        sx={{ textAlign: "center" }}
-      >
-        <Typography variant="h4">What's unique about KCS</Typography>
-      </WhySection> */}
       <AboutSection
         direction="column"
         alignItems="center"
         justifyContent="center"
         spacing={2}
         sx={{ textAlign: "center" }}
+        image={HAboutBanner}
       >
-        <Typography variant="h5">Welcome to Kapil Technologies</Typography>
-        <Typography variant="body">
-          A global leader in digital services and consulting. With a focus on
-          innovation and personalized solutions, we empower clients across 56
-          countries on their digital transformation journey. Let's redefine
-          possibilities together!
+        <Typography variant="h5" sx={{ width: 450, color: "whitesmoke" }}>
+          <b>
+            Leading tech company specializing in ERP solutions, streamlining
+            business operations through integrated software. Industry pioneer,
+            delivering tailored solutions for efficient resource management,
+            data analytics, and process optimization
+          </b>
         </Typography>
-        <Button variant="contained" component={Link} to="/about-us">
-          Discover More
+        <Button
+          variant="contained"
+          sx={{ background: "orange", color: "#162438" }}
+          component={Link}
+          to="/about-us/our-strory"
+        >
+          <b>Discover More</b>
         </Button>
       </AboutSection>
       <IndustrySection
