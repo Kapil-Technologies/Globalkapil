@@ -17,7 +17,7 @@ export const ERPServices = [
     id: 3,
     title: "Oracle",
     path: "/services/enterprise-software/erp/Oracle",
-    desc: "Minim deserunt eiusmod sint labore commodo ad est aliquip ut in ad eiusmod. Reprehenderit fugiat aute ad velit eu anim est voluptate id ut dolore pariatur. Excepteur occaecat culpa reprehenderit in ipsum minim. Non adipisicing consequat ut aliquip quis consequat excepteur pariatur elit excepteur Lorem laboris.",
+    desc: "NetSuite, acquired by Oracle, is a cloud-based ERP software suite. It integrates financials, CRM, e-commerce, and more to streamline business operations, offering scalability and real-time data for effective decision-making across various industries.",
   },
 ];
 

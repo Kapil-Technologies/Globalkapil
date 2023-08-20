@@ -186,11 +186,11 @@ function Home() {
         {ZigZagData.map((item) => {
           if (item.type === "image") {
             return (
-              <Grid item xs={4} md={6} sx={{ height: 320 }}>
+              <Grid item xs={4} md={6} sx={{ height: 400 }}>
                 <img
                   src={item.url}
                   alt="Kapil Technologies"
-                  height="320px"
+                  height="400px"
                   width="100%"
                 />
               </Grid>
@@ -203,7 +203,7 @@ function Home() {
                 md={6}
                 sx={{
                   // border: "1px solid blue",
-                  height: 320,
+                  height: 400,
                   background: item.bgcolor,
                 }}
               >

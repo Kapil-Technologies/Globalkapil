@@ -1,13 +1,13 @@
 import AwalGuf from '../assets/clients/4.png'
 import SaudiExtra from "../assets/clients/5.png";
-import Abyat from "../assets/clients/5.png";
+import Abyat from "../assets/clients/zv.png";
 import HyndaiSteel from "../assets/clients/c.png";
 import Hamiltonjet from "../assets/clients/b.png";
-import PTPI from "../assets/clients/5.png";
+import PTPI from "../assets/clients/zx.png";
 import LNT from "../assets/clients/d.png";
 import GSB from "../assets/clients/i.png";
 import PHI from "../assets/clients/m.png";
-import MAL from "../assets/clients/5.png";
+import MAL from "../assets/clients/zu.png";
 
 
 

@@ -2,7 +2,7 @@ import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import Zz1 from '../assets/Zigzag/1.jpg'
 import Zz2 from "../assets/Zigzag/2.jpg";
 import Zz3 from "../assets/Zigzag/3.jpg";
-import Zz4 from "../assets/Zigzag/1.jpg";
+import Zz4 from "../assets/Zigzag/4.png";
 import Zz5 from "../assets/Zigzag/5.jpg";
 import Zz6 from "../assets/Zigzag/6.jpg";
 
@@ -388,7 +388,7 @@ export const ZigZagData = [
       txt1: "Reimagine. Build. Grow.",
       txt2: "Business Intelligence",
       txt3: "",
-      para: "Transform your core business operations with web technologies to enable better human interaction and end user experiences..",
+      para: "Transform your core business operations with web technologies to enable better human interaction and end user experiences.",
     },
     bgcolor: "#D7D7D7",
     textalign: "right",
@@ -413,7 +413,7 @@ export const ZigZagData = [
       txt1: "Develop. Test. Deploy.",
       txt2: "Resolve",
       txt3: "Application Dvelopment",
-      para: "When you need most - Ensuring Business continuity all times  .",
+      para: "When you need the most - Ensuring Business continuity all times  .",
     },
     bgcolor: "#C7D9CD",
     textalign: "left",
@@ -425,10 +425,10 @@ export const ZigZagData = [
     id: 11,
     type: "text",
     content: {
-      txt1: "New. Now. Always.",
+      txt1: "New. Now. Always",
       txt2: "Disruptive Technologies",
       txt3: "Application Dvelopment",
-      para: "Transform your core business operations with emerging technologies to enable better human interaction and end user experiences",
+      para: "Transform your core business operations with emerging technologies to enable better human interaction and end user experiences.",
     },
     bgcolor: "#D7D7D7",
     textalign: "right",
