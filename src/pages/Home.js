@@ -1,17 +1,18 @@
 import React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import HomepageBanner from "../components/Sliders/HomepageBanner";
-import { Box, Button, Stack, Tab, Typography,Tabs } from "@mui/material";
+import { Box, Button, Stack, Tab, Typography, Tabs, Grid } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import Clients from "../components/Sliders/Clients";
-import HomeAboutBanner from '../assets/Banners/ctaBanner.png'
+import HomeAboutBanner from "../assets/Banners/ctaBanner.png";
 import ClientBI from "../assets/Banners/ClientsHome.jpeg";
 import Industries from "../components/Sliders/Industries";
-import { TabContext, TabList,TabPanel  } from "@mui/lab";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
 import Page from "../components/Page";
 import { FiChevronRight, FiSend } from "react-icons/fi";
-import HAboutBanner from '../assets/Banners/cta.jpeg'
- // ---------------------------------------------------------------
+import HAboutBanner from "../assets/Banners/cta.jpeg";
+import { ZigZagData } from "../mock/NavbarData";
+// ---------------------------------------------------------------
 
 export const HomeContainer = styled("div")(({ theme }) => ({}));
 
@@ -26,7 +27,7 @@ export const AboutSection = styled(Stack)(({ theme, image }) => ({
   backgroundRepeat: `no-repeat`,
   backgroundPosition: "center",
   backgroundSize: "cover",
-marginTop:'-3px'
+  marginTop: "-3px",
 }));
 
 export const WhySection = styled(Stack)(({ theme }) => ({
@@ -47,9 +48,7 @@ export const CTASection = styled(Stack)(({ theme, image }) => ({
   backgroundImage: `url(${image})`,
   backgroundRepeat: `no-repeat`,
   backgroundPosition: "center",
-backgroundSize: "cover",
-    
-     
+  backgroundSize: "cover",
 }));
 
 export const IndustrySection = styled(Stack)(({ theme }) => ({
@@ -58,7 +57,7 @@ export const IndustrySection = styled(Stack)(({ theme }) => ({
   padding: "10px",
 }));
 
-export const ClientSections = styled(Stack)(({ theme,image }) => ({
+export const ClientSections = styled(Stack)(({ theme, image }) => ({
   backgroundColor: "#d3e1ea",
   height: "350px",
 
@@ -72,24 +71,21 @@ export const ClientSectionsLayer = styled(Stack)(({ theme, image }) => ({
   background: "rgba(0, 0, 0, 0.25)",
   height: "350px",
   padding: "10px",
- 
 }));
 
 // ---------------------------------------------------------------
 
-
-
 const TabsMenu = () => {
-   const [value, setValue] = React.useState("1");
+  const [value, setValue] = React.useState("1");
 
-   const handleChange = (event, newValue) => {
-     setValue(newValue);
-   };
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <Stack
       direction="row"
-      alignItems='flex-start'
-      justifyContent='center'
+      alignItems="flex-start"
+      justifyContent="center"
       sx={{
         width: "100%",
         typography: "body1",
@@ -106,7 +102,7 @@ const TabsMenu = () => {
             onChange={handleChange}
             aria-label="lab API tabs example"
             sx={{
-               textTransform:'capitalize',
+              textTransform: "capitalize",
               "& button": {
                 borderRadius: 2,
                 fontSize: "18px",
@@ -122,7 +118,6 @@ const TabsMenu = () => {
                 background: "#012C54",
                 borderRadius: 2,
                 fontSize: "18px",
-                
               },
               padding: "5px",
             }}
@@ -144,35 +139,36 @@ const TabsMenu = () => {
       </TabContext>
     </Stack>
   );
-}
+};
 
-
-export const CTA = ({text,buttonText} ) => {
+export const CTA = ({ text, buttonText }) => {
   return (
     <CTASection
       direction="column"
       alignItems="center"
       justifyContent="center"
       spacing={2}
-      sx={{ textAlign: "center",background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)" }}
+      sx={{
+        textAlign: "center",
+        background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
+      }}
       image={HomeAboutBanner}
     >
       <Typography variant="h5" sx={{ opacity: 1, color: "white", width: 500 }}>
-       {text}
+        {text}
       </Typography>
       <Button
-      
         variant="contained"
         sx={{ background: "orange", color: "#162438" }}
         startIcon={<FiSend />}
         component={Link}
-        to="/contact"
+        to="/contact/contact-us"
       >
-        <b>{ buttonText}</b>
+        <b>{buttonText}</b>
       </Button>
     </CTASection>
   );
-}
+};
 // ---------------------------------------------------------------
 
 function Home() {
@@ -186,31 +182,58 @@ function Home() {
       <Page name="Home" content="" />
       <NavDiv>.</NavDiv>
       <HomepageBanner />
-      <AboutSection
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        spacing={2}
-        sx={{ textAlign: "center" }}
-        image={HAboutBanner}
-      >
-        <Typography variant="h5" sx={{ width: 450, color: "whitesmoke" }}>
-          <b>
-            Leading tech company specializing in ERP solutions, streamlining
-            business operations through integrated software. Industry pioneer,
-            delivering tailored solutions for efficient resource management,
-            data analytics, and process optimization
-          </b>
-        </Typography>
-        <Button
-          variant="contained"
-          sx={{ background: "orange", color: "#162438" }}
-          component={Link}
-          to="/about-us/our-strory"
-        >
-          <b>Discover More</b>
-        </Button>
-      </AboutSection>
+      <Grid container>
+        {ZigZagData.map((item) => {
+          if (item.type === "image") {
+            return (
+              <Grid item xs={4} md={6} sx={{ height: 320 }}>
+                <img
+                  src={item.url}
+                  alt="Kapil Technologies"
+                  height="320px"
+                  width="100%"
+                />
+              </Grid>
+            );
+          } else {
+            return (
+              <Grid
+                item
+                xs={4}
+                md={6}
+                sx={{
+                  // border: "1px solid blue",
+                  height: 320,
+                  background: item.bgcolor,
+                }}
+              >
+                <Stack
+                  direction="column"
+                  alignItems={item.textalign}
+                  justifyContent="center"
+                  sx={{ textAlign: item.textalign, height: "inherit", px: 4 }}
+                >
+                  <Typography variant="h3" sx={{ color: item.txt1color }}>
+                    <b>{item.content.txt1}</b>
+                  </Typography>
+                  <Typography variant="h4" sx={{ color: item.txt1color }}>
+                    <b>{item.content.txt2}</b>
+                  </Typography>
+                  <Typography variant="h5" sx={{ color: item.txt1color }}>
+                    <b>{item.content.txt3}</b>
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: item.paracolor, lineHeight: "25px" }}
+                  >
+                    {item.content.para}
+                  </Typography>
+                </Stack>
+              </Grid>
+            );
+          }
+        })}
+      </Grid>
       <IndustrySection
         direction="column"
         alignItems="center"

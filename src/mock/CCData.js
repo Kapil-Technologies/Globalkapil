@@ -4,7 +4,7 @@ import Abyat from "../assets/clients/5.png";
 import HyndaiSteel from "../assets/clients/c.png";
 import Hamiltonjet from "../assets/clients/b.png";
 import PTPI from "../assets/clients/5.png";
-import LNT from "../assets/clients/5.png";
+import LNT from "../assets/clients/d.png";
 import GSB from "../assets/clients/i.png";
 import PHI from "../assets/clients/m.png";
 import MAL from "../assets/clients/5.png";

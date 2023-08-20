@@ -1,4 +1,10 @@
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
+import Zz1 from '../assets/Zigzag/1.jpg'
+import Zz2 from "../assets/Zigzag/2.jpg";
+import Zz3 from "../assets/Zigzag/3.jpg";
+import Zz4 from "../assets/Zigzag/1.jpg";
+import Zz5 from "../assets/Zigzag/5.jpg";
+import Zz6 from "../assets/Zigzag/6.jpg";
 
 export const Services = [
   {
@@ -149,10 +155,6 @@ export const Services = [
   // {
 ];
 
-
-
-
-
 export const Solutions = [
   {
     submenuid: 1,
@@ -227,27 +229,27 @@ export const NavData = [
     closeicon: <FaCaretUp />,
     submenudata: 2,
     submenu: [
-  {
-    submenuid: 1,
-    title: "Our Story",
-    path: "/about-us/our-story",
-  },
-  {
-    submenuid: 2,
-    title: "Our Battalion",
-    path: "/about-us/our-battalion",
-  },
-  {
-    submenuid: 3,
-    title: "Our Customers",
-    path: "/about-us/our-customers",
-  },
-  {
-    submenuid: 4,
-    title: "Our Alliances",
-    path: "/about-us/our-alliances",
-  },
-],
+      {
+        submenuid: 1,
+        title: "Our Story",
+        path: "/about-us/our-story",
+      },
+      {
+        submenuid: 2,
+        title: "Our Battalion",
+        path: "/about-us/our-battalion",
+      },
+      {
+        submenuid: 3,
+        title: "Our Customers",
+        path: "/about-us/our-customers",
+      },
+      {
+        submenuid: 4,
+        title: "Our Alliances",
+        path: "/about-us/our-alliances",
+      },
+    ],
   },
   {
     id: 3,
@@ -313,5 +315,129 @@ export const NavData = [
         path: "/contact/our-global-presence",
       },
     ],
+  },
+];
+
+export const ZigZagData = [
+  {
+    id: 1,
+    type: "image",
+    url: Zz1,
+  },
+
+  {
+    id: 2,
+    type: "text",
+    content: {
+      txt1: "Get Closure to",
+      txt2: "Digital Future",
+      txt3: "CRM Practice",
+      para: "Simple, predictable & robust applications to drive meaningful digital transformation and optimize your service delivery.",
+    },
+    bgcolor: "#B0DAE3",
+    txt1color: "#0E366A",
+    paracolor: "black",
+    textalign: "left",
+  },
+
+  {
+    id: 3,
+    type: "text",
+    content: {
+      txt1: "A clear path to ",
+      txt2: "good business",
+      txt3: "ERP Practice",
+      para: "Efficiently manage day to day business activities, ensure effective control real time.",
+    },
+    bgcolor: "#05E2DB",
+    textalign: "right",
+    txt1color: "#0E366A",
+    paracolor: "black",
+  },
+  {
+    id: 4,
+    type: "image",
+    url: Zz2,
+  },
+
+  {
+    id: 5,
+    type: "image",
+    url: Zz3,
+  },
+
+  {
+    id: 6,
+    type: "text",
+    content: {
+      txt1: "Meet. Greet. Motivate.",
+      txt2: "Collabrate",
+      txt3: "Professional Services",
+      para: "For everlasting Customer relationships.",
+    },
+    bgcolor: "#C7D9CD",
+    textalign: "left",
+    txt1color: "#0E366A",
+    paracolor: "black",
+  },
+
+  {
+    id: 7,
+    type: "text",
+    content: {
+      txt1: "Reimagine. Build. Grow.",
+      txt2: "Business Intelligence",
+      txt3: "",
+      para: "Transform your core business operations with web technologies to enable better human interaction and end user experiences..",
+    },
+    bgcolor: "#D7D7D7",
+    textalign: "right",
+    txt1color: "#0E366A",
+    paracolor: "black",
+  },
+  {
+    id: 8,
+    type: "image",
+    url: Zz4,
+  },
+  {
+    id: 9,
+    type: "image",
+    url: Zz5,
+  },
+
+  {
+    id: 10,
+    type: "text",
+    content: {
+      txt1: "Develop. Test. Deploy.",
+      txt2: "Resolve",
+      txt3: "Application Dvelopment",
+      para: "When you need most - Ensuring Business continuity all times  .",
+    },
+    bgcolor: "#C7D9CD",
+    textalign: "left",
+    txt1color: "#0E366A",
+    paracolor: "black",
+  },
+
+  {
+    id: 11,
+    type: "text",
+    content: {
+      txt1: "New. Now. Always.",
+      txt2: "Disruptive Technologies",
+      txt3: "Application Dvelopment",
+      para: "Transform your core business operations with emerging technologies to enable better human interaction and end user experiences",
+    },
+    bgcolor: "#D7D7D7",
+    textalign: "right",
+    txt1color: "#0E366A",
+    paracolor: "black",
+  },
+  {
+    id: 12,
+    type: "image",
+    url: Zz6,
   },
 ];

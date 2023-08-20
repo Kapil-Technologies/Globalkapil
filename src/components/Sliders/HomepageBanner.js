@@ -48,7 +48,7 @@ export const SliderData = styled(Slider)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   color: 'green',
-  marginBottom:'-1px'
+  marginBottom:'-4px'
 }));
 
 export const HomeBanner = styled("img")(({ theme }) => ({
