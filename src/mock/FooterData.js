@@ -48,37 +48,42 @@ export const SiteMapLinks = [
       {
         submenuid: 1,
         title: "Our Story",
-        path: "",
+        path: "/about-us/our-story",
       },
-      {
-        submenuid: 2,
-        title: "Our Battalion ",
-        path: "",
-      },
+      // {
+      //   submenuid: 2,
+      //   title: "Our Battalion ",
+      //   path: "/about-us/our-battalion",
+      // },
       {
         submenuid: 3,
         title: "Our Customers",
-        path: "",
+        path: "/about-us/our-customers",
       },
       {
         submenuid: 4,
         title: "Our Alliances",
-        path: "",
+        path: "/about-us/our-alliances",
       },
       {
         submenuid: 5,
         title: "Careers",
-        path: "",
+        path: "/careers",
       },
       {
         submenuid: 6,
         title: "Contact Us",
-        path: "",
+        path: "/contact/contact-us",
+      },
+      {
+        submenuid: 6,
+        title: "Our Global Presence",
+        path: "/contact/our-global-presence",
       },
       {
         submenuid: 7,
         title: "Privacy Policy",
-        path: "",
+        path: "/privacy-policy",
       },
     ],
   },

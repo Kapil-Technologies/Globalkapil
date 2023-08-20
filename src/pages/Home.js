@@ -182,15 +182,23 @@ function Home() {
       <Page name="Home" content="" />
       <NavDiv>.</NavDiv>
       <HomepageBanner />
-      <Grid container>
+      <Grid container sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
         {ZigZagData.map((item) => {
           if (item.type === "image") {
             return (
-              <Grid item xs={4} md={6} sx={{ height: 400 }}>
+              <Grid
+                item
+                xs={4}
+                sm={5}
+                md={6}
+                lg={6}
+                xl={6}
+                sx={{ height: 380 }}
+              >
                 <img
                   src={item.url}
                   alt="Kapil Technologies"
-                  height="400px"
+                  height="380px"
                   width="100%"
                 />
               </Grid>
@@ -200,10 +208,13 @@ function Home() {
               <Grid
                 item
                 xs={4}
+                sm={5}
                 md={6}
+                lg={6}
+                xl={6}
                 sx={{
                   // border: "1px solid blue",
-                  height: 400,
+                  height: 380,
                   background: item.bgcolor,
                 }}
               >

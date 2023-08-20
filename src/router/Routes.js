@@ -3,12 +3,15 @@ import { Navigate, useRoutes } from "react-router-dom";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import Careers from "../pages/Careers";
-import About from "../pages/About";
+import About from "../pages/About/About";
 import Consulting from "../pages/Consulting";
 import Erp from "../pages/ERP/Erp";
 import ERPLayout from "../pages/ERP/ERPLayout";
 import GlobalPresence from "../pages/GlobalPresence";
 import NotFound from "../components/NotFound";
+import Customers from "../pages/About/Customers";
+import Patners from "../pages/About/Patners";
+import Ppolicy from "../pages/About/Ppolicy";
 // import Industries from "../pages/Industries/Industries";
 
 function Routes() {
@@ -53,11 +56,11 @@ function Routes() {
             },
             {
               path: "our-customers",
-              element: <About />,
+              element: <Customers />,
             },
             {
               path: "our-alliances",
-              element: <About />,
+              element: <Patners />,
             },
           ],
         },
@@ -121,7 +124,6 @@ function Routes() {
             {
               path: "our-global-presence",
               element: <GlobalPresence />,
-            
             },
 
             {
@@ -134,6 +136,10 @@ function Routes() {
         {
           path: "careers",
           element: <Careers />,
+        },
+        {
+          path: "privacy-policy",
+          element: <Ppolicy />,
         },
       ],
     },

@@ -234,11 +234,11 @@ export const NavData = [
         title: "Our Story",
         path: "/about-us/our-story",
       },
-      {
-        submenuid: 2,
-        title: "Our Battalion",
-        path: "/about-us/our-battalion",
-      },
+      // {
+      //   submenuid: 2,
+      //   title: "Our Battalion",
+      //   path: "/about-us/our-battalion",
+      // },
       {
         submenuid: 3,
         title: "Our Customers",
