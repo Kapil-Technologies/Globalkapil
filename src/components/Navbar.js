@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import KTLogo from "../assets/Logo/KTlogo.png";
 
 import {
@@ -81,6 +81,7 @@ export const SubNavItem = styled("li")(({ theme }) => ({
 export const SpanItem = styled("span")(({ theme }) => ({
   paddingTop: "5px",
   fontSize: "20px",
+  cursor:'pointer'
 }));
 
 export const ButtonBase = styled(Box)(({ theme }) => ({
@@ -144,9 +145,9 @@ export const KapilNavStyle = ({ isActive }) => {
     },
     display: "flex",
     alignItems: "center",
-    '&:hover': {
-      color:'orange'
-    }
+    "&:hover": {
+      color: "orange",
+    },
   };
 };
 
@@ -167,6 +168,12 @@ export const KapilNavStyle2 = ({ isActive }) => {
 };
 
 function Navbar() {
+  const { pathname } = useLocation();
+
+  const condition1 = pathname.split("/")[1];
+
+  console.log(condition1)
+
   const [open, setopen] = useState(false);
   const [id, setid] = useState(0);
   const [show, setShow] = useState(false);
@@ -205,7 +212,13 @@ function Navbar() {
                   sx={{ color: "white" }}
                   key={item.id}
                 >
-                  <Typography variant="body" sx={{ cursor: "pointer" }}>
+                  <Typography
+                    variant="body"
+                    sx={{
+                      cursor: "pointer",
+                      color: "white",
+                    }}
+                  >
                     {item.title}
                   </Typography>
                   <SpanItem>

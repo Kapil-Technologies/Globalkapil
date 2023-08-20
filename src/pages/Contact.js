@@ -12,6 +12,7 @@ import {
   IconButton,
   Stack,
   Tab,
+  TextField,
   Typography,
   colors,
 } from "@mui/material";
@@ -26,22 +27,20 @@ import {
   FaShare,
   FaShareNodes,
 } from "react-icons/fa6";
-import { FiMoreVertical, FiShare } from "react-icons/fi";
+import { FiArrowRight, FiMoreVertical, FiShare } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { SocialMedia } from "../components/SiteMap";
+import ContactBanner from "../assets/Banners/contact.png";
 import { SMedia } from "../mock/FooterData";
-import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { TabsData } from "../mock/ContactData";
-
-import { CareersBanner } from "./Careers";
 import { BannerImage } from "./ERP/Erp";
+import FormBanner from "../assets/Banners/Form.jpeg";
+import GlobalBanner from "../assets/Banners/Global.jpeg";
 
 // --------------------------------------------------------------------
 export const BackContainer = styled("div")(({ theme, image }) => ({
   backgroundColor: "#012C54",
   color: "white",
   width: "100%",
-  height: 300,
+  height: 370,
   margin: "auto",
   display: "flex",
   alignItems: "center",
@@ -140,6 +139,29 @@ export const Share = styled(Box)(({ theme, image }) => ({
     color: "white",
   },
 }));
+export const Form = styled(Stack)(({ theme, image }) => ({
+  display: "flex",
+  alignItems: "left",
+  justifyContent: "left",
+  backgroundImage: `url(${image})`,
+  backgroundRepeat: `no-repeat`,
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  width: "100%",
+  height: "auto",
+}));
+
+export const Global = styled(Stack)(({ theme, image }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "Center",
+  backgroundImage: `url(${image})`,
+  backgroundRepeat: `no-repeat`,
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  width: "100%",
+  height: 500,
+}));
 
 // -------------------------------------------------------------------------------------- Reusable Components
 
@@ -167,11 +189,14 @@ export const BranchCards = ({
         border: "1px solid #d3e1ea",
       }}
     >
-      <Stack direction="row" alignItems='center' justifyContent='space-between' sx={{p:1}}>
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-between"
+        sx={{ p: 1 }}
+      >
         <Typography>
-          <b>
-            {cname}
-          </b>
+          <b>{cname}</b>
         </Typography>
         <Share>
           <FiShare />
@@ -216,20 +241,16 @@ export const BranchCards = ({
 // ---------------------------------------------------------------------
 
 function Contact() {
-  const [value, setValue] = React.useState(1);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
   return (
     <div>
       <Page name="Contact Us" content="" />
       <NavDiv>.</NavDiv>
-      <CareersBanner>
-        <Typography variant="h2" sx={{ color: "white" }}>
-          <b>CONTACT US</b>
-        </Typography>
-      </CareersBanner>
+      <BackContainer>
+        <BannerImage
+          src={ContactBanner}
+          alt="Kapil Technologies Contact Banner"
+        />
+      </BackContainer>
 
       <MainDetails>
         <Grid
@@ -241,13 +262,13 @@ function Contact() {
             alignItems: "center",
             justifyContent: "center",
 
-            p: 2,
+            p: 1,
           }}
         >
           <Grid
             item
             xs={2.5}
-            sx={{ p: 1, textAlign: "center" }}
+            sx={{ p: 0.5, textAlign: "center" }}
             component={Stack}
             direction="column"
             alignItems="center"
@@ -262,7 +283,7 @@ function Contact() {
           <Grid
             item
             xs={2}
-            sx={{ p: 1 }}
+            sx={{ p: 0.5 }}
             component={Stack}
             direction="column"
             alignItems="center"
@@ -276,7 +297,7 @@ function Contact() {
           <Grid
             item
             xs={2.5}
-            sx={{ p: 1 }}
+            sx={{ p: 0.5 }}
             component={Stack}
             direction="column"
             alignItems="center"
@@ -291,7 +312,7 @@ function Contact() {
           <Grid
             item
             xs={2.5}
-            sx={{ p: 1 }}
+            sx={{ p: 0.5 }}
             component={Stack}
             direction="column"
             alignItems="center"
@@ -308,6 +329,119 @@ function Contact() {
           </Grid>
         </Grid>
       </MainDetails>
+      <Form image={FormBanner}>
+        <Stack
+          sx={{
+            width: 500,
+            margin: 3,
+            p: 2,
+            borderRadius: 2,
+            // background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
+            background: "linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)",
+            color: "#162438",
+          }}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          component="form"
+          spacing={2}
+          aria-disabled="true"
+        >
+          <Typography variant="h6">
+            <b>Connect with Us – Your Thoughts Matter!</b>
+          </Typography>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+          >
+            <TextField label="First Name" size="small" disabled />
+            <TextField label="Last Name" size="small" disabled />
+          </Stack>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+          >
+            <TextField label="Country" size="small" />
+            <TextField label="Designation" size="small" />
+          </Stack>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+          >
+            <TextField label="Company" size="small" />
+            <TextField label="Email" size="small" />
+          </Stack>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+          >
+            <TextField label="Phone" size="small" />
+            <TextField label="Industries" size="small" />
+          </Stack>
+          <TextField label="Message" multiline rows={5} sx={{ width:450}} />
+          <Button variant="contained">
+            Submit
+          </Button>
+        </Stack>
+      </Form>
+
+      <Global image={GlobalBanner}>
+        <Box
+          sx={{
+            background: "white",
+            p: 3,
+            boxShadow: 2,
+            border: "1px solid #d3e1ea",
+            borderRadius: 3,
+            width: 300,
+            textAlign: "left",
+          }}
+          component={Stack}
+          direction="column"
+          alignItems="left"
+          justifyContent="left"
+          spacing={1}
+        >
+          <Typography variant="h5">
+            <b>Global facilities</b>
+          </Typography>
+
+          <Typography variant="body1">
+            Our worldwide presence narrates the tale of our collective voyage,
+            imprinting itself in every corner of the globe.
+          </Typography>
+
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={1}
+            sx={{
+              fontSize: "20px",
+              color: "darkblue",
+              "&:hover": {
+                color: "orange",
+              },
+            }}
+          >
+            <Typography
+              sx={{ textDecoration: "none", cursor: "pointer" }}
+              component={Link}
+              to="/contact/our-global-presence"
+            >
+              Check Offices
+            </Typography>
+            <FiArrowRight />
+          </Stack>
+        </Box>
+      </Global>
     </div>
   );
 }

@@ -157,13 +157,13 @@ export const Solutions = [
   {
     submenuid: 1,
     title: "Infor",
-    path: "/solutions/infor",
+    path: "https://www.infor.com/",
   },
-  // {
-  //   submenuid: 2,
-  //   title: "SAP",
-  //   path: "/solutions/SAP",
-  // },
+  {
+    submenuid: 2,
+    title: "K-Mobillor",
+    path: "/solutions/k-mobillor",
+  },
   {
     submenuid: 3,
     title: "Enstrapp",

@@ -11,6 +11,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import India from '../assets/Banners/india.png'
 import USA from '../assets/Banners/usa.png'
 import Indonesia from '../assets/Banners/indonesia.png'
+import Opening from '../assets/Banners/Opening Soon.png'
 
 export const ClientSections = styled(Stack)(({ theme, image }) => ({
   backgroundColor: "#d3e1ea",
@@ -106,33 +107,32 @@ function GlobalPresence() {
           }}
         >
           {TabsData.map((item) => (
-            <TabPanel
-              value={item.tabvalue}
-              
-            >
-              <Stack direction="row" alignItems='center' spacing={2}>
+            <TabPanel value={item.tabvalue}>
+              <Stack direction="row" alignItems="center" spacing={2}>
                 {item.subbranches.length === 0 ? (
-                  <Typography>
-                    Opening Soon
-                  </Typography>
-                ) :item.subbranches.map((cdetails) => (
-                  <BranchCards
-                    name={cdetails.title}
-                    subtitle={cdetails.subtitle}
-                    add1={cdetails.add1}
-                    add2={cdetails.add2}
-                    add3={cdetails.add3}
-                    image={cdetails.image}
-                    cname={cdetails.cName}
-                    cManager={cdetails.cManager}
-                    cManagerli={cdetails.cManagerlinkedin}
-                    email={cdetails.email}
-                    mailto={cdetails.mailto}
-                    mobile={cdetails.mobile}
-                    mobileto={cdetails.mobileto}
-                    location={cdetails.location}
-                  />
-                ))}
+                  <Stack direction="row" alignItems="center" justifyContent='center'>
+                    <img src={Opening} width="100%" height='300px' />
+                  </Stack>
+                ) : (
+                  item.subbranches.map((cdetails) => (
+                    <BranchCards
+                      name={cdetails.title}
+                      subtitle={cdetails.subtitle}
+                      add1={cdetails.add1}
+                      add2={cdetails.add2}
+                      add3={cdetails.add3}
+                      image={cdetails.image}
+                      cname={cdetails.cName}
+                      cManager={cdetails.cManager}
+                      cManagerli={cdetails.cManagerlinkedin}
+                      email={cdetails.email}
+                      mailto={cdetails.mailto}
+                      mobile={cdetails.mobile}
+                      mobileto={cdetails.mobileto}
+                      location={cdetails.location}
+                    />
+                  ))
+                )}
               </Stack>
             </TabPanel>
           ))}

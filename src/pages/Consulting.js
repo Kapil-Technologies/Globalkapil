@@ -1,15 +1,16 @@
 import React from 'react'
 import { NavDiv } from './Home'
 import Page from '../components/Page'
+import CommingSoon from '../components/CommingSoon'
 
 function Consulting() {
   return (
       <div>
-          <Page name="Consulting  " />
+          <Page name="Solutions" />
           <NavDiv>
               .
           </NavDiv>
-          Consulting
+          <CommingSoon />
     </div>
   )
 }
