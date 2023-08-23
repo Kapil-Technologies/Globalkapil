@@ -244,9 +244,9 @@ export const NavData = [
  
   {
     id: 3,
-    title: "Offerings",
+    title: "What We Do",
     // path: "/services",
-    openicon: <FaCaretDown />,
+    openicon: <FaCaretDown style={{marginTop:'2px'}} />,
     closeicon: <FaCaretUp />,
     submenudata: 3,
     submenu: true,

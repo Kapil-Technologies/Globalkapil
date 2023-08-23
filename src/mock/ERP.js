@@ -235,11 +235,11 @@ export const InforTrainingTabs1 = [
     tabname: "Solutions",
     tabvalue: "1",
   },
-  // {
-  //   id: 2,
-  //   tabname: "categories",
-  //   tabvalue: "2",
-  // },
+  {
+    id: 2,
+    tabname: "categories",
+    tabvalue: "2",
+  },
   // {
   //   id: 3,
   //   tabname: "levels",
@@ -287,7 +287,7 @@ export const InforTProducts = [
   },
   {
     id: 10,
-    pname: "CPQ",
+    pname: "Infor CPQ & Infor de/EPM",
   },
   {
     id: 11,
@@ -324,56 +324,76 @@ export const InforTrainigBenefits = [
 ];
 
 
+export const InforCategories = [
+  {
+    id: 1,
+    desc1: "Adminisraton",
+    desc2: "Ideal for : System Administration",
+  },
+  {
+    id: 2,
+    desc1: "Developers",
+    desc2: "Ideal for : Developers / Programmers",
+  },
+  {
+    id: 3,
+    desc1: "Functional",
+    desc2: "Ideal for : Business Analysis, Function Managers, End Users ",
+  },
+];
+
+
 // -----------------------------------------------------------------------------------------  SAP
 
 export const ERPDataSAP = [
   {
     id: 1,
-    mtitle: "SAP Financial Accounting and Controlling",
+    mtitle: "SAP Technical Services",
     icon: "icon",
-    desc: "SAP Financial Accounting (FI) handles transactions and reporting, while Controlling (CO) manages costs and analysis. Together, they provide integrated financial insights for precise record-keeping, cost control, and strategic decision-making within organizations using SAP ERP.",
+    desc: "Ours is an exceptionally excellent technical service team, that works efficiently to handle all the technical needs that arise at your organization to block your growth",
   },
   {
     id: 2,
-    mtitle: "SAP Material Management",
+    mtitle: "SAP Fiori & UI5",
     icon: "icon",
-    desc: "SAP Material Management (MM) optimizes procurement, inventory, and logistics processes. It ensures efficient stock control, seamless vendor collaboration, and accurate valuation methods. Integrated with other SAP modules, MM enhances operational efficiency, cost control, and informed decision-making in supply chain management.",
+    desc: "Just enhance the app user experience and performance using Fiori. Increase your content layers and expand your app with ease using this wonderful technology.",
   },
+
   {
     id: 3,
-    mtitle: "SAP Production Planning",
+    mtitle: "SAP BI/BO",
     icon: "icon",
-    desc: "SAP Production Planning (PP) module optimizes manufacturing processes through demand forecasting, resource allocation, and scheduling. It integrates with other SAP modules, enhancing operational efficiency, minimizing lead times, and ensuring timely delivery of products while maintaining quality standards.",
+    desc: "For fortifying the enterprises a comprehensive BI/BO solution will be vastly helpful. We will ease your business friction by offering management, reporting, and data warehousing tools.",
   },
   {
     id: 4,
-    mtitle: "SAP Sales and Distribution",
+    mtitle: "SAP Implementation, Rollout Upgrade & Support",
     icon: "icon",
-    desc: "SAP Sales and Distribution (SD) module manages end-to-end sales processes. It enables efficient order management, pricing, delivery, and invoicing. Integration with other SAP modules ensures seamless data flow, enhancing customer service, optimizing inventory, and enabling businesses to effectively handle sales operations within the SAP ERP ecosystem.",
+    desc: "A capable SAP solution provider supported by SAP Center of Excellence to offer you implementation, rollout upgrade, and support solutions efficiently to augment your business.",
   },
   {
     id: 5,
-    mtitle: "SAP Warehouse Management",
+    mtitle: "SAP Functional Services",
     icon: "icon",
-    desc: "SAP Warehouse Management optimizes warehouse operations by orchestrating tasks like goods receipt, storage, and order fulfillment. It integrates with other SAP modules, streamlining logistics processes, enhancing inventory accuracy, and ensuring efficient movement of goods within the supply chain.",
-  },
-  {
-    id: 5,
-    mtitle: "SAP Human Capital Management",
-    icon: "icon",
-    desc: "SAP Human Capital Management (HCM) module oversees HR functions, from personnel admin to talent management. Integrated within SAP ERP, it enhances workforce management, streamlines processes, and supports employee engagement and development.",
+    desc: "We offer efficient Functional Services as it is necessary to track your company’s system and keep it upgraded so as to have it function well.",
   },
   {
     id: 6,
-    mtitle: "SAP S/4HANA Upgrades",
+    mtitle: "SAP S4 HANA",
     icon: "icon",
-    desc: "SAP S/4HANA upgrades involve migrating to a cutting-edge ERP platform, ensuring real-time insights and streamlined processes. Businesses gain increased efficiency, advanced features, and the flexibility required to excel in today's fast-paced market, enabling them to embrace digital transformation and remain competitive.",
+    desc: "Plan your resources systematically by having your business database well secured, stored and maintained through S4 Hana and accelerate your enterprise processes.",
   },
   {
     id: 7,
-    mtitle: "SAP SuccessFactors Support",
+    mtitle: "SAP HANA",
     icon: "icon",
-    desc: "SAP SuccessFactors Support provides expert assistance for optimizing HR processes. It covers modules like payroll and talent management, helping businesses effectively manage their workforce, enhance productivity, and drive meaningful HR advancements within the organization.",
+    desc: "Get a wonderful HANA solution developed to analyze your enterprise data for your growth and benefit through analytics in this technological era of information and Data.",
+  },
+  {
+    id: 8,
+    mtitle: "SAP HCM",
+    icon: "icon",
+    desc: "Through HCM an enterprise’s payroll and other human resource related difficulties will be streamlined. We make your organization work for you aptly through our SAP HCM proficiency",
   },
 ];
 

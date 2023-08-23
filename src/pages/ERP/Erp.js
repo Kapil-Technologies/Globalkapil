@@ -45,7 +45,7 @@ export const BannerImage = styled("img")(({ theme }) => ({
 
 export const CareersBanner = styled("div")(({ theme, image }) => ({
   width: "100%",
-  height: "250px",
+  height: "500px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

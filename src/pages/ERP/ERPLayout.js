@@ -2,14 +2,16 @@ import React, { Fragment, useRef, useState } from "react";
 import { CTA, NavDiv } from "../Home";
 import Page from "../../components/Page";
 import { Link, useParams } from "react-router-dom";
-import SAPBanner from "../../assets/Banners/sap.png";
+import SAPBanner from "../../assets/Banners/sapBanner.png";
 import OracleBanner from "../../assets/Banners/oracle.png";
+import InforBanner1 from '../../assets/Partners/infor1.png'
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box, Button, Card, Grid, Stack, Tab, Typography } from "@mui/material";
 import {
   CustomizationBenefits,
   ERPDataInfor,
   ERPDataSAP,
+  InforCategories,
   InforTProducts,
   InforTrainigBenefits,
   InforTrainingTabs,
@@ -22,7 +24,9 @@ import {
 import { FaArrowRight, FaAsterisk, FaListOl } from "react-icons/fa6";
 import { TbSettingsUp } from "react-icons/tb";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import InforBanner from '../../assets/Banners/BInfor1.png'
+import InforBanner from "../../assets/Banners/BInfor1.png";
+import InforCustomization from "../../components/Sliders/InforCustomization";
+import InforManagement from "../../components/Sliders/InforManagement";
 
 // ---------------------------------------------------------------------- Styled Components
 
@@ -30,7 +34,6 @@ export const ERPBanner = styled("div")(({ theme }) => ({
   width: "100%",
   height: "auto",
   // position:'relative'
-  
 }));
 
 export const BannerImage = styled("img")(({ theme }) => ({
@@ -38,7 +41,6 @@ export const BannerImage = styled("img")(({ theme }) => ({
   width: "100%",
   height: "auto",
   position: "relative",
- 
 }));
 
 export const Section = styled("section")(({ theme }) => ({
@@ -69,7 +71,7 @@ export const RightArraow = styled(FaArrowRight)(({ theme, image }) => ({
 
 // ---------------------------------------------------------------------- Layout Components
 
-const InforLayout = ({
+const SAPLaout2 = ({
   icon,
   title,
   desc,
@@ -80,86 +82,35 @@ const InforLayout = ({
   scrollRef4,
   scrollRef5,
 }) => {
-  const handleScroll = (mid) => {
-    if (mid === 1) {
-      scrollRef1();
-    } else if (mid === 2) {
-      scrollRef2();
-    } else if (mid === 3) {
-      scrollRef3();
-    } else if (mid === 4) {
-      scrollRef4();
-    } else if (mid === 5) {
-      scrollRef5();
-    }
-  };
-
   return (
-    <Stack
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{ width: "100%" }}
-    >
+    <Stack direction="row" alignItems="center" justifyContent="center">
       <Card
         sx={{
-          border: "1px solid #d3e1ea",
-          height: "auto",
-          borderRadius: 3,
-          width: "80%",
-          p: 1,
+          // boxShadow: 2,
+          height: 240,
+          width: 240,
+          p: 3,
+          "&:hover": {
+            background: "white",
+            border: "1px solid #d3e1ea",
+            boxShadow: 2,
+            height: 240,
+            width: 240,
+          },
         }}
+        className="SAP-cards"
       >
-        <Stack direction="column" sx={{ height: "inherit" }}>
-          <Stack
-            direction="column"
-            alignItems="start"
-            spacing={1}
-            sx={{
-              width: "100%",
-              height: "inherit",
-              p: 1,
-              textAlign: "left",
-              flexWrap: "wrap",
-            }}
-          >
-            <Stack
-              direction="row"
-              alignItems="center"
-              justifyContent="center"
-              sx={{
-                height: 40,
-                width: 40,
-                background: "#0098DC",
-                color: "white",
-                borderRadius: "50%",
-                p: 1,
-                textAlign: "left",
-                fontSize: "30px",
-              }}
-            >
-              {icon}
-            </Stack>
-            <Typography variant="h6" sx={{ color: "#0098DC" }}>
-              <b>{title}</b>
-            </Typography>
-            <Typography variant="body" gutterBottom sx={{ paddingRight: 1 }}>
-              {desc}
-            </Typography>
-          </Stack>
-          {/* <Stack
-            direction="row"
-            alignItems="right"
-            justifyContent="right"
-            sx={{ cursor: "pointer", textAlign: "right", p: 1 }}
-            onClick={() => {
-              handleScroll(id);
-            }}
-          >
-            <Typography variant="body" gutterBottom>
-              <b>... Read More</b>
-            </Typography>
-          </Stack> */}
+        <Stack
+          direction="column"
+          alignItems="left"
+          justifyContent="left"
+          spacing={1}
+          sx={{ textAlign: "left" }}
+        >
+          <Typography variant="h6" sx={{ lineHeight: "25px" }}>
+            <b>{title}</b>
+          </Typography>
+          <Typography variant="body">{desc}</Typography>
         </Stack>
       </Card>
     </Stack>
@@ -167,8 +118,6 @@ const InforLayout = ({
 };
 
 const SAPLayout = ({
- 
-
   icon,
   title,
   desc,
@@ -197,16 +146,16 @@ const SAPLayout = ({
     }
   };
 
-   const [hover, setHover] = useState(false)
-  
+  const [hover, setHover] = useState(false);
+
   const handleHover = () => {
-    setHover(true)
-  }
-   const handleHoverClose = () => {
-     setHover(false);
-   };
+    setHover(true);
+  };
+  const handleHoverClose = () => {
+    setHover(false);
+  };
   return (
-    <Stack direction="column" alignItems="center" >
+    <Stack direction="column" alignItems="center">
       <Grid container columnGap={2} rowGap={2}>
         <Card
           sx={{
@@ -217,7 +166,7 @@ const SAPLayout = ({
             alignItems: "center",
             justifyContent: "start",
             flexDirection: "column",
-            textAlign: "left",
+            textAlign: "center",
             gap: 1,
             p: 1,
             borderRadius: 3,
@@ -247,7 +196,7 @@ const SAPLayout = ({
             direction="column"
             alignItems="center"
             justifyContent="center"
-            sx={{ textAlign: "left" }}
+            sx={{ textAlign: "center" }}
           >
             <Typography
               variant="h5"
@@ -268,13 +217,13 @@ const SAPLayout = ({
           </Stack>
           <Box
             sx={{
-              textAlign: "right",
+              textAlign: "center",
               cursor: "pointer",
               p: 3,
               position: "absolute",
               bottom: 0,
               width: "100% ",
-              right: 10,
+             
             }}
             onClick={() => {
               handleScroll(id);
@@ -282,7 +231,7 @@ const SAPLayout = ({
           >
             <Typography
               variant="body2"
-              sx={{ color: hover ? "white" : "black" }}
+              sx={{ color: hover ? "white" : color }}
             >
               <b>... Read More</b>
             </Typography>
@@ -341,7 +290,20 @@ function ERPLayout() {
       <Page name={CapitalizedHeading} content="" />
       <ERPBanner>
         {subpage === "SAP" ? (
-          <BannerImage src={SAPBanner} alt="Kapil SAP Consulting Services" />
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Typography>Soumya</Typography>
+            <img
+              src={SAPBanner}
+              alt="Kapil SAP Consulting Services"
+              width="500px"
+              height="500px"
+              style={{ marginTop: "10vh" }}
+            />
+          </Stack>
         ) : subpage === "infor" ? (
           <BannerImage src={InforBanner} alt="Kapil SAP Consulting Services" />
         ) : subpage === "Oracle" ? (
@@ -354,9 +316,60 @@ function ERPLayout() {
         justifyContent="center"
         sx={{ textAlign: "center", background: "#F1F7FD" }}
       >
-        <Typography variant="h5" sx={{ p: 2, marginBottom: -4 }}>
-          <b> Featured Services</b>
-        </Typography>
+        {subpage === "SAP" ? (
+          <Stack
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+            sx={{ p: 1 }}
+          >
+            <Typography variant="h4" sx={{ width: "80%" }}>
+              <b>
+                The ever expanding SAP technology can be implied affluently for
+                business development
+              </b>
+            </Typography>
+            <Typography variant="body1">
+              We handle all the technology related necessity with expertise as
+              an experienced SAP Consulting Company
+            </Typography>
+          </Stack>
+        ) : subpage === "infor" ? (
+          <Stack
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            sx={{ p: 1 }}
+          >
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+              spacing={1}
+              sx={{ p: 1 }}
+            >
+              <img
+                src={InforBanner1}
+                alt="Infor Services"
+                width="60px"
+                height="60px"
+              />
+              <Typography variant="h4">
+                <b>Services</b>
+              </Typography>
+            </Stack>
+            <Typography variant="subtitle1" gutterBottom>
+              Develop digital agility to satisfy business demands with Infor
+            </Typography>
+            <Typography variant="subtitle1" gutterBottom sx={{ p: 2 }}>
+              Metamorphose your business, deliver customer satisfaction, and
+              improve efficiency with KCS the foremost trusted Infor alliance
+              partner. Our Infor experts are committed to meet client’s business
+              objectives by delivering best in class solutions and services.
+            </Typography>
+          </Stack>
+        ) : null}
 
         <Grid
           container
@@ -390,14 +403,14 @@ function ERPLayout() {
             ))
           ) : subpage === "SAP" ? (
             ERPDataSAP.map((item) => (
-              <InforLayout
+              <SAPLaout2
                 icon={item.icon}
                 title={item.mtitle}
                 desc={item.desc}
               />
             ))
           ) : subpage === "oracle" ? (
-            <InforLayout />
+            <SAPLaout2 />
           ) : null}
         </Grid>
         {subpage === "infor" ? (
@@ -413,9 +426,23 @@ function ERPLayout() {
                 alignItems="center"
                 sx={{ marginTop: "70px" }}
               >
-                <Typography variant="h4" gutterBottom sx={{ color: "#CB333B" }}>
-                  <b>Infor Upgrade Services</b>
-                </Typography>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  spacing={1}
+                  sx={{ p: 1 }}
+                >
+                  <img
+                    src={InforBanner1}
+                    alt="Infor Services"
+                    width="60px"
+                    height="60px"
+                  />
+                  <Typography variant="h4" sx={{ color: "#D5000E" }}>
+                    <b>Upgrade Services</b>
+                  </Typography>
+                </Stack>
                 <Box
                   sx={{
                     width: 80,
@@ -582,9 +609,24 @@ function ERPLayout() {
                 alignItems="center"
                 sx={{ marginTop: "75px" }}
               >
-                <Typography variant="h4" gutterBottom sx={{ color: "#CB333B" }}>
-                  <b>Infor Migration Services</b>
-                </Typography>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  spacing={1}
+                  sx={{ p: 1 }}
+                >
+                  <img
+                    src={InforBanner1}
+                    alt="Infor Services"
+                    width="60px"
+                    height="60px"
+                  />
+                  <Typography variant="h4" sx={{ color: "#D5000E" }}>
+                    <b>Mirgration Services</b>
+                  </Typography>
+                </Stack>
+
                 <Box
                   sx={{
                     width: 80,
@@ -771,9 +813,24 @@ function ERPLayout() {
                 alignItems="center"
                 sx={{ marginBottom: "10px", marginTop: "75px" }}
               >
-                <Typography variant="h4" gutterBottom sx={{ color: "#CB333B" }}>
-                  <b>Infor Customization Services</b>
-                </Typography>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  spacing={1}
+                  sx={{ p: 1 }}
+                >
+                  <img
+                    src={InforBanner1}
+                    alt="Infor Services"
+                    width="60px"
+                    height="60px"
+                  />
+                  <Typography variant="h4" sx={{ color: "#D5000E" }}>
+                    <b>Customization Services</b>
+                  </Typography>
+                </Stack>
+
                 <Box
                   sx={{
                     width: 80,
@@ -782,172 +839,20 @@ function ERPLayout() {
                     background: "#CB333B",
                     borderRadius: "5px",
                     color: "#CB333B",
+                    marginBottom: "15px",
                   }}
                 ></Box>
+
+                <Typography variant="body">
+                  Every enterprise is unique and operates in its own way. As a
+                  result, rather than using the standard software that is
+                  commonly available in their industry segment, many enterprises
+                  need customized services that aids them to manage their
+                  operations efficiently.
+                </Typography>
               </Stack>
 
-              <Grid
-                container
-                columnGap={2}
-                rowGap={2}
-                sx={{
-                  display: "flex",
-                  alignItems: "start",
-                  justifyContent: "center",
-                }}
-              >
-                <Grid item xs={5.5}>
-                  <Stack
-                    direction="row"
-                    alignItems="start"
-                    spacing={1}
-                    sx={{ p: 1, textAlign: "left" }}
-                  >
-                    <IconBase>
-                      <FaAsterisk />
-                    </IconBase>
-                    <Stack
-                      direction="column"
-                      alignItems="start"
-                      spacing={0.5}
-                      sx={{ p: 1 }}
-                    >
-                      <Typography
-                        variant="body"
-                        sx={{ color: "#CB333B", textTransform: "uppercase" }}
-                      >
-                        <b>How can Kapil Technologies Help ?</b>
-                      </Typography>
-                      <Typography variant="body">
-                        At Kapil Technologies we have a large pool of Infor
-                        Technical and Functional consultants who have vast in
-                        working with Infor Products
-                      </Typography>
-                      <Typography variant="body">
-                        By Taking advantages of Our Expertise having with Infor
-                        Development methodology as well as the internal workings
-                        of the many products with in the Infor Suite.
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Grid>
-                <Grid item xs={5.5}>
-                  <Stack
-                    direction="row"
-                    alignItems="start"
-                    spacing={1}
-                    sx={{ p: 1, textAlign: "left" }}
-                  >
-                    <IconBase>
-                      <FaAsterisk />
-                    </IconBase>
-                    <Stack
-                      direction="column"
-                      alignItems="start"
-                      spacing={0.5}
-                      sx={{ p: 1 }}
-                    >
-                      <Typography
-                        variant="body"
-                        sx={{ color: "#CB333B", textTransform: "uppercase" }}
-                      >
-                        <b>Our Customization Methodology</b>
-                      </Typography>
-                      <Typography variant="body">
-                        Based on the client requirements, we develop customizze
-                        processes using a systematic software methodology that
-                        ensures every project is delivered at highest possible
-                        standard.
-                      </Typography>
-
-                      <Typography variant="body">
-                        With our expertise in Infor Customization and
-                        Development, we guarantee that each project is
-                        successfully delivered and results in client
-                        satisfaction.
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Grid>
-                <Grid item xs={5.5}>
-                  <Stack
-                    direction="row"
-                    alignItems="start"
-                    spacing={1}
-                    sx={{ p: 1, textAlign: "left" }}
-                  >
-                    <IconBase>
-                      <FaAsterisk />
-                    </IconBase>
-                    <Stack
-                      direction="column"
-                      alignItems="start"
-                      spacing={1}
-                      sx={{ p: 1 }}
-                    >
-                      <Typography
-                        variant="body"
-                        sx={{ color: "#CB333B", textTransform: "uppercase" }}
-                      >
-                        <b>What does Customization Invovles ?</b>
-                      </Typography>
-                      <Typography variant="body" gutterBottom>
-                        Developing a new module or customizing existing
-                        functionality goes beyond creating code. It needs a
-                        proper planing to ensure that the designed code meets
-                        the customer's requirements.
-                      </Typography>
-
-                      <Typography variant="body">
-                        Kapil Technologies Infor experts has in depth knowledge
-                        of techniques, tools and processes necessary for
-                        successful implementations
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Grid>
-                <Grid item xs={5.5}>
-                  <Stack
-                    direction="row"
-                    alignItems="start"
-                    spacing={1}
-                    sx={{ p: 1 }}
-                  >
-                    <IconBase>
-                      <FaListOl />
-                    </IconBase>
-                    <Stack
-                      direction="column"
-                      alignItems="start"
-                      spacing={1}
-                      sx={{ p: 1 }}
-                    >
-                      <Typography
-                        variant="body"
-                        sx={{ color: "#CB333B", textTransform: "uppercase" }}
-                      >
-                        <b>Benefits</b>
-                      </Typography>
-
-                      {CustomizationBenefits.map((item) => (
-                        <Stack
-                          direction="row"
-                          alignItems="flex-start"
-                          justifyContent="start"
-                          spacing={2}
-                          sx={{ textAlign: "left" }}
-                          key={item.id}
-                        >
-                          <RightArraow />
-                          <Typography variant="body" gutterBottom>
-                            {item.li}
-                          </Typography>
-                        </Stack>
-                      ))}
-                    </Stack>
-                  </Stack>
-                </Grid>
-              </Grid>
+              <InforCustomization />
             </Section>
             {/* ------------------- Management Consulting ------------------------------------------------------ */}
 
@@ -957,9 +862,24 @@ function ERPLayout() {
                 alignItems="center"
                 sx={{ marginBottom: "10px", marginTop: "75px" }}
               >
-                <Typography variant="h4" gutterBottom sx={{ color: "#CB333B" }}>
-                  <b>Infor Management Consulting</b>
-                </Typography>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  spacing={1}
+                  sx={{ p: 1 }}
+                >
+                  <img
+                    src={InforBanner1}
+                    alt="Infor Services"
+                    width="60px"
+                    height="60px"
+                  />
+                  <Typography variant="h4" sx={{ color: "#D5000E" }}>
+                    <b>Management Services</b>
+                  </Typography>
+                </Stack>
+
                 <Box
                   sx={{
                     width: 80,
@@ -968,154 +888,19 @@ function ERPLayout() {
                     background: "#CB333B",
                     borderRadius: "5px",
                     color: "#CB333B",
+                    marginBottom: "15px",
                   }}
                 ></Box>
-              </Stack>
-              <Grid
-                container
-                sx={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  justifyContent: "center",
-                  p: 3,
-                }}
-              >
-                <Grid item xs={5.5}>
-                  <Stack
-                    direction="row"
-                    alignItems="start"
-                    spacing={1}
-                    sx={{ p: 1, textAlign: "left" }}
-                  >
-                    <IconBase>
-                      <FaAsterisk />
-                    </IconBase>
-                    <Stack
-                      direction="column"
-                      alignItems="start"
-                      spacing={0.5}
-                      sx={{ p: 1 }}
-                    >
-                      <Typography
-                        variant="body"
-                        sx={{ color: "#CB333B", textTransform: "uppercase" }}
-                      >
-                        <b>Integrated Demand & Supply Planning</b>
-                      </Typography>
-                      <Typography variant="body">
-                        An integrated demand and supply planning practice is
-                        only meaningful when inputs and outputs leads to improve
-                        decision-making. Our pragmatic approach directs on
-                        supply optimization and demand-driven plans in enhance
-                        margins, agility, forecast accuracy, lower inventory and
-                        business visibility.
-                      </Typography>
 
-                      <Typography variant="body">
-                        Kapil Technologies help in end-to-end perspective to
-                        plan more efficiently, operate more efficiently and meet
-                        client requirements.
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Grid>
-                <Grid item xs={5.5}>
-                  <Stack
-                    direction="row"
-                    alignItems="start"
-                    spacing={1}
-                    sx={{ p: 1, textAlign: "left" }}
-                  >
-                    <IconBase>
-                      <FaAsterisk />
-                    </IconBase>
-                    <Stack
-                      direction="column"
-                      alignItems="start"
-                      spacing={0.5}
-                      sx={{ p: 1 }}
-                    >
-                      <Typography
-                        variant="body"
-                        sx={{ color: "#CB333B", textTransform: "uppercase" }}
-                      >
-                        <b>Logicstics & Distribution</b>
-                      </Typography>
-                      <Typography variant="body">
-                        The major challenges of Logistics & Distribution are an
-                        evolving global network and changing customer demands.
-                        Our experienced professionals provide quick results that
-                        optimize service through rapid cost reduction,
-                        transformation, operational excellence and network
-                        strategy design.
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Grid>
-                <Grid item xs={5.5}>
-                  <Stack
-                    direction="row"
-                    alignItems="start"
-                    spacing={1}
-                    sx={{ p: 1, textAlign: "left" }}
-                  >
-                    <IconBase>
-                      <FaAsterisk />
-                    </IconBase>
-                    <Stack
-                      direction="column"
-                      alignItems="start"
-                      spacing={0.5}
-                      sx={{ p: 1 }}
-                    >
-                      <Typography
-                        variant="body"
-                        sx={{ color: "#CB333B", textTransform: "uppercase" }}
-                      >
-                        <b>Services Delivery Management</b>
-                      </Typography>
-                      <Typography variant="body">
-                        From omnichannel integration to delivery remedy, clients
-                        touch points are changing. We work to increase order
-                        visibility, returns, manage customer delivery and
-                        improve the customer experience.
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Grid>
-                <Grid item xs={5.5}>
-                  <Stack
-                    direction="row"
-                    alignItems="start"
-                    spacing={1}
-                    sx={{ p: 1, textAlign: "left" }}
-                  >
-                    <IconBase>
-                      <FaAsterisk />
-                    </IconBase>
-                    <Stack
-                      direction="column"
-                      alignItems="start"
-                      spacing={0.5}
-                      sx={{ p: 1 }}
-                    >
-                      <Typography
-                        variant="body"
-                        sx={{ color: "#CB333B", textTransform: "uppercase" }}
-                      >
-                        <b>Manufacturing & Operations</b>
-                      </Typography>
-                      <Typography variant="body">
-                        From job site to shop floor, we take a lean-focused
-                        approach in improving quality, productivity, and
-                        efficiency in the field. The ability to effectively and
-                        quickly respond to client’s requirements by eliminating
-                        waste is utmost to our techniques and tactics.
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Grid>
-              </Grid>
+                <Typography variant="body1">
+                  Kapil Technologies collaborative approach in solving complex
+                  end-to-end problems, which helps dramatically cut down costs,
+                  transform organizations and improve performance. We combine
+                  world class consulting and industry experts to deliver a
+                  strategic approach to delivering bottom-line results.
+                </Typography>
+              </Stack>
+              <InforManagement />
             </Section>
 
             <Section ref={ref5}>
@@ -1124,9 +909,23 @@ function ERPLayout() {
                 alignItems="center"
                 sx={{ marginTop: "75px" }}
               >
-                <Typography variant="h4" gutterBottom sx={{ color: "#CB333B" }}>
-                  <b>Infor Training Services</b>
-                </Typography>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  spacing={1}
+                  sx={{ p: 1 }}
+                >
+                  <img
+                    src={InforBanner1}
+                    alt="Infor Services"
+                    width="60px"
+                    height="60px"
+                  />
+                  <Typography variant="h4" sx={{ color: "#D5000E" }}>
+                    <b>Training </b>
+                  </Typography>
+                </Stack>
                 <Box
                   sx={{
                     width: 80,
@@ -1252,14 +1051,25 @@ function ERPLayout() {
                       direction="column"
                       alignItems="left"
                       justifyContent="left"
+                      textAlign='left'
                     >
-                      <RightArraow />
-                      <Typography variant="h6" gutterBottom>
-                        <b>Title</b>
-                      </Typography>
-                      <Typography variant="subtitle1" gutterBottom>
-                        Title
-                      </Typography>
+                      <Stack
+                        direction="column"
+                        alignItems="left"
+                        justifyContent="left"
+                      >
+                        {InforCategories.map((item) => (
+                          <Fragment>
+                            <RightArraow />
+                            <Typography variant="h6" gutterBottom>
+                              <b>{item.desc1}</b>
+                            </Typography>
+                            <Typography variant="subtitle1" gutterBottom>
+                              {item.desc2}
+                            </Typography>
+                          </Fragment>
+                        ))}
+                      </Stack>
                     </Stack>
                   </TabPanel>
                   <TabPanel value="3">1</TabPanel>
@@ -1290,10 +1100,6 @@ function ERPLayout() {
             </Section>
           </Stack>
         ) : null}
-        <CTA
-          text="Want To discuss about a Project"
-          buttonText="Connect with us"
-        />
       </Stack>
     </div>
   );

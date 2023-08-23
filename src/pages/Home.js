@@ -19,7 +19,7 @@ import { AboutText } from "../mock/MockData";
 export const HomeContainer = styled("div")(({ theme }) => ({}));
 export const MainBanner = styled("div")(({ theme }) => ({
   width: "100%",
-  height: 500,
+  height: 580,
   background: "#B0DAE3",
 }));
 
@@ -93,7 +93,7 @@ export const MVDesign2 = styled(Stack)(({ theme, image }) => ({
 }));
 
 export const ClientSectionsLayer = styled(Stack)(({ theme, image }) => ({
-  background: "black",
+  background: "#001222",
   height: "auto",
   padding: "10px",
 }));
@@ -139,7 +139,7 @@ function Home() {
   return (
     <HomeContainer>
       <Page name="Home" content="" />
-      <NavDiv>.</NavDiv>
+      
       <MainBanner
         sx={{
           display: "flex",
@@ -313,7 +313,7 @@ function Home() {
         sx={{ textAlign: "center" }}
       >
         <Typography variant="h4" sx={{ color: "white" }}>
-          <b>Our High Value Customers</b>
+          <b>Our Growing  Clientele</b>
         </Typography>
         <Clients />
       </ClientSectionsLayer>

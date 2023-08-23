@@ -24,16 +24,31 @@ import { FiExternalLink } from "react-icons/fi";
 
 // -------------------------------------------------------------------------------
 
-export const MainHeader = styled("header")(({ theme, InforColor }) => ({
-  position: "absolute",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  width: InforColor ? "60%" : "100%",
-  height: "15vh",
-  backgroundColor: "transparent",
-  zIndex: 999,
-}));
+export const Header = styled("header")(
+  ({ theme, InforColor, click, SAPColor }) => ({
+    // position: "absolute",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "space-between",
+    width:  "100%",
+    // height: "15vh",
+    backgroundColor: click ? "#F5F5F5" : "transparent",
+    // zIndex: 999,
+  })
+);
+
+export const MainHeader = styled("nav")(
+  ({ theme, InforColor, click, SAPColor }) => ({
+    position: "absolute",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: InforColor || SAPColor ? "50%" : "100%",
+    height: "15vh",
+    backgroundColor: click ? "#F5F5F5" : "transparent",
+    zIndex: 999,
+  })
+);
 
 export const Logo = styled("img")(({ theme }) => ({
   height: "70px",
@@ -56,7 +71,7 @@ export const MainNavItem = styled("li")(({ theme }) => ({
   },
 }));
 
-export const SubmenuList = styled("div")(({ theme, click, mid, sapColor }) => ({
+export const SubmenuList = styled("div")(({ theme, click, mid, SAP }) => ({
   display: "flex",
   alignItems: mid === 3 ? "start" : "center",
   justifyContent: "space-between",
@@ -247,6 +262,7 @@ function Navbar() {
         InforColor={pathname === Infor}
         SAPColor={pathname === SAP}
         oracleColor={pathname === Oracle}
+        click={open}
       >
         <Link
           to="/home"
