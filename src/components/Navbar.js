@@ -24,12 +24,12 @@ import { FiExternalLink } from "react-icons/fi";
 
 // -------------------------------------------------------------------------------
 
-export const MainHeader = styled("header")(({ theme,InforColor }) => ({
+export const MainHeader = styled("header")(({ theme, InforColor }) => ({
   position: "absolute",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  width: InforColor ? "60%":"100%",
+  width: InforColor ? "60%" : "100%",
   height: "15vh",
   backgroundColor: "transparent",
   zIndex: 999,
@@ -78,11 +78,14 @@ export const SubNavItem = styled("li")(({ theme }) => ({
   padding: "15px",
 }));
 
-export const SpanItem = styled("span")(({ theme,color }) => ({
+export const SpanItem = styled("span")(({ theme, color }) => ({
   paddingTop: "5px",
   fontSize: "20px",
-  cursor: 'pointer',
-  color:color ? "":'black'
+  cursor: "pointer",
+  color: color ? "" : "black",
+  "&:hover": {
+    color: "red",
+  },
 }));
 
 export const ButtonBase = styled(Box)(({ theme }) => ({
@@ -133,7 +136,7 @@ export const ServicesItem = styled("li")(({ theme }) => ({
 export const RightArrow = styled(FiExternalLink)(({ theme }) => ({
   marginTop: "3px",
 }));
-export const NavLinkStyle = styled(NavLink)(({ theme,isActive }) => ({
+export const NavLinkStyle = styled(NavLink)(({ theme, isActive }) => ({
   color: isActive ? "orange" : "black",
   fontWeight: "bold",
   textDecoration: "none",
@@ -143,7 +146,6 @@ export const NavLinkStyle = styled(NavLink)(({ theme,isActive }) => ({
   },
   display: "flex",
   alignItems: "center",
- 
 }));
 
 // ------------------------------------------------------------------------------
@@ -152,7 +154,7 @@ export const KapilNavStyle = ({ isActive }) => {
     // color: isActive ? "#ff8217" : "#174F7A",
     // color: isActive ? "orange" : "#012a5c",
     color: isActive ? "orange" : "#012a5c",
-fontWeight:"bold",
+    fontWeight: "bold",
     textDecoration: "none",
     // textTransform: "uppercase",
     "&:hover": {
@@ -189,8 +191,7 @@ function Navbar() {
   const SAP = "/offerings/enterprise-software/erp/SAP";
   const Oracle = "/offerings/enterprise-software/erp/SAP";
 
-
-   const KapilNavStyle = ({ isActive }) => {
+  const KapilNavStyle = ({ isActive }) => {
     return {
       // color: isActive ? "#ff8217" : "#174F7A",
       color: isActive ? "orange" : "#012a5c",
@@ -207,10 +208,10 @@ function Navbar() {
     };
   };
 
-   const KapilNavStyle2 = ({ isActive }) => {
+  const KapilNavStyle2 = ({ isActive }) => {
     return {
       // color: isActive ? "#ff8217" : "#174F7A",
-      color: isActive ? "orange"  : "#162438",
+      color: isActive ? "orange" : "#162438",
       // color:'black',
       textDecoration: "none",
 
@@ -225,7 +226,7 @@ function Navbar() {
 
   const condition1 = pathname.split("/")[1];
 
-  console.log(condition1)
+  console.log(condition1);
 
   const [open, setopen] = useState(false);
   const [id, setid] = useState(0);
@@ -266,25 +267,34 @@ function Navbar() {
                   direction="row"
                   alignItems="center"
                   justifyContent="center"
-                  sx={{ color: "white" }}
+                  sx={{
+                    color: "white",
+                    "&:hover": {
+                      color: "red",
+                    },
+                  }}
                   key={item.id}
                 >
                   <Typography
                     variant="body"
                     sx={{
                       cursor: "pointer",
-                     color:'black'
+                      color: "black",
+                      "&:hover": {
+                        color: "red",
+                      },
+                      display: "flex",
+                      alignItems: "center",
                     }}
                   >
                     <b> {item.title}</b>
-                  </Typography>
-                  <SpanItem >
+
                     {item.submenudata === id && item.submenu && open
                       ? item.closeicon
                       : item.submenu
                       ? item.openicon
                       : null}
-                  </SpanItem>
+                  </Typography>
                 </Stack>
               ) : (
                 <NavLinkStyle to={item.path}>
