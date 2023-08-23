@@ -14,13 +14,18 @@ import HAboutBanner from "../assets/Banners/cta.jpeg";
 import { ZigZagData } from "../mock/NavbarData";
 import Home1 from "../assets/Banners/home2.png";
 import { AboutText } from "../mock/MockData";
+import Homepageb from '../assets/Banners/HomeIndustries.png'
 // ---------------------------------------------------------------
 
 export const HomeContainer = styled("div")(({ theme }) => ({}));
-export const MainBanner = styled("div")(({ theme }) => ({
+export const MainBanner = styled("div")(({ theme,image }) => ({
   width: "100%",
   height: 580,
   background: "#B0DAE3",
+  backgroundImage: `url(${image})`,
+  backgroundRepeat: `no-repeat`,
+  backgroundPosition: "center",
+  backgroundSize: "cover",
 }));
 
 export const NavDiv = styled("div")(({ theme }) => ({
@@ -96,6 +101,7 @@ export const ClientSectionsLayer = styled(Stack)(({ theme, image }) => ({
   background: "#001222",
   height: "auto",
   padding: "10px",
+  border:'2px solid #d3e1ea'
 }));
 
 // ---------------------------------------------------------------
@@ -139,13 +145,15 @@ function Home() {
   return (
     <HomeContainer>
       <Page name="Home" content="" />
-      
+
       <MainBanner
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
+
+        image={Homepageb}
       >
         <Grid
           container
@@ -156,6 +164,8 @@ function Home() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            background: "rgba(0,0,0,0.5)",
+            height:580
           }}
         >
           <Grid
@@ -165,17 +175,20 @@ function Home() {
               p: 1,
               display: "flex",
               alignItems: "left",
-              justifyContent: "center",
-              flexDirection: "column",
+              justifyContent: "left",
+              // flexDirection: "column",
               color: "white",
               gap: 2,
+              marginTop:"70vh"
             }}
-            xs={5}
+            xs={12}
           >
-            <Typography variant="h2" sx={{ color: "#162438" }}>
-              <b>Preferred Technology Partner with the Perfect Fit</b>
+            <Typography variant="h3" sx={{ color: "white" }}>
+              <b>
+                Transforming your <br/> Digital Future
+              </b>
             </Typography>
-            <Typography variant="h5" sx={{ color: "#162438" }}>
+            {/* <Typography variant="h5" sx={{ color: "#162438" }}>
               Compact Enough to Show Compassion, Expansive Enough to Drive
               Change
             </Typography>
@@ -197,9 +210,9 @@ function Home() {
               to="/contact-us"
             >
               Explore Now
-            </Button>
+            </Button> */}
           </Grid>
-          <Grid
+          {/* <Grid
             item
             sx={{
               // border: "1px solid white",
@@ -216,7 +229,7 @@ function Home() {
               height="350px"
               width="600px"
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </MainBanner>
       <Stack
@@ -303,7 +316,6 @@ function Home() {
           }
         })}
       </Grid>
-      {/* <Industries /> */}
 
       <ClientSectionsLayer
         direction="column"
@@ -313,10 +325,11 @@ function Home() {
         sx={{ textAlign: "center" }}
       >
         <Typography variant="h4" sx={{ color: "white" }}>
-          <b>Our Growing  Clientele</b>
+          <b>Our Growing Clientele ...</b>
         </Typography>
         <Clients />
       </ClientSectionsLayer>
+      <Industries />
 
       <Stack
         direction="row"
@@ -349,8 +362,8 @@ function Home() {
                 <Typography variant="h6" sx={{ textTransform: "uppercase" }}>
                   <b>{item.title}</b>
                 </Typography>
-                <Typography variant="body" sx={{ fontSize:'14px' }}>
-                 {item.subtext}
+                <Typography variant="body" sx={{ fontSize: "14px" }}>
+                  {item.subtext}
                 </Typography>
               </Grid>
             </Fragment>

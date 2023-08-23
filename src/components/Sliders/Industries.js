@@ -5,15 +5,17 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import Automotive from "../../assets/Industries/automotive.png";
 import { IndustriesData } from "../../mock/SlidersAndImages";
 import { FiArrowLeft, FiChevronRight } from "react-icons/fi";
-
+import IndustriesImage from '../../assets/Banners/Industries.png'
 // ------------------------------------------- Styled Components
 
-export const MainSliderDiv = styled(Grid)(({ theme }) => ({
+export const MainSliderDiv = styled(Stack)(({ theme }) => ({
   width: "100%",
-  display: "flex",
-  alignItems: "left",
-  justifyContent: "center",
-  height:300
+  // display: "flex",
+  // alignItems: "left",
+  // justifyContent: "center",
+  // flexDirection:'column',
+  height: 'auto',
+  textAlign:'center'
 }));
 
 export const TextContainer = styled(Box)(({ theme }) => ({
@@ -31,6 +33,7 @@ export const TextContainer = styled(Box)(({ theme }) => ({
   // rotate: "270deg",
   gap: 2,
   background: "gray",
+  textAlign:'center'
 }));
 
 export const Image = styled("img")(({ theme }) => ({}));
@@ -51,13 +54,17 @@ export const LeftArrow = styled(FiArrowLeft)(({ theme }) => ({
 function Industries() {
   return (
     <MainSliderDiv>
-      <TextContainer>
+      {/* <TextContainer>
         <Stack direction='column' alignItems='center' justifyContent='center'>
           <Typography variant="h6" sx={{rotate:'270deg'}} >Soumya</Typography>
           <LeftArrow />
         </Stack>
-      </TextContainer>
-     
+      </TextContainer> */}
+
+      {/* <Typography variant="h2">
+        <b>Featured Industries</b>
+      </Typography> */}
+     <img src={IndustriesImage} alt="Kapil Technologies Industries" height='350px' />
     </MainSliderDiv>
   );
 }

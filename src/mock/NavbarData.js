@@ -1,6 +1,6 @@
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import Zz1 from '../assets/Zigzag/1.jpg'
-import Zz2 from "../assets/Zigzag/2.jpg";
+import Zz2 from "../assets/Zigzag/clearpath.png";
 import Zz3 from "../assets/Zigzag/3.jpg";
 import Zz4 from "../assets/Zigzag/4.png";
 import Zz5 from "../assets/Zigzag/5.jpg";
@@ -324,7 +324,8 @@ export const ZigZagData = [
       txt3: "",
       para: "Transform your core business operations with web technologies to enable better human interaction and end user experiences.",
     },
-    bgcolor: "#D7D7D7",
+    bdcolor:'#55B0B7',
+    // bgcolor: "#D7D7D7",
     textalign: "right",
     txt1color: "#0E366A",
     paracolor: "black",
@@ -336,7 +337,7 @@ export const ZigZagData = [
     content: {
       txt1: "Develop. Test. Deploy.",
       txt2: "Resolve",
-      txt3: "Application Dvelopment",
+      txt3: "Application Development",
       para: "When you need the most - Ensuring Business continuity all times  .",
     },
     bgcolor: "#C7D9CD",
@@ -363,7 +364,8 @@ export const ZigZagData = [
       txt3: "ERP Practice",
       para: "Efficiently manage day to day business activities, ensure effective control real time.",
     },
-    bgcolor: "#05E2DB",
+    bgcolor: "#EBB87F",
+    // bgcolor: "#05E2DB",
     textalign: "right",
     txt1color: "#0E366A",
     paracolor: "black",

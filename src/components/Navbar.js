@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState,useEffect } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import KTLogo from "../assets/Logo/KTlogo.png";
@@ -37,18 +37,17 @@ export const Header = styled("header")(
   })
 );
 
-export const MainHeader = styled("nav")(
-  ({ theme, InforColor, click, SAPColor }) => ({
-    position: "absolute",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: InforColor || SAPColor ? "50%" : "100%",
-    height: "15vh",
-    backgroundColor: click ? "#F5F5F5" : "transparent",
-    zIndex: 999,
-  })
-);
+export const MainHeader = styled("nav")(({ theme, InforColor, click, SAPColor,topvisibile }) => ({
+  position: "fixed",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  width: InforColor || SAPColor ? "50%" : "100%",
+  height: "15vh",
+  backgroundColor: click ? "#F5F5F5" : "transperant",
+  zIndex: 999,
+  top:topvisibile ? 0 : '-15vh'
+}));
 
 export const Logo = styled("img")(({ theme }) => ({
   height: "70px",
@@ -152,7 +151,7 @@ export const RightArrow = styled(FiExternalLink)(({ theme }) => ({
   marginTop: "3px",
 }));
 export const NavLinkStyle = styled(NavLink)(({ theme, isActive }) => ({
-  color: isActive ? "orange" : "black",
+  color: isActive ? "orange" : "white",
   fontWeight: "bold",
   textDecoration: "none",
   // textTransform: "uppercase",
@@ -201,6 +200,37 @@ export const KapilNavStyle2 = ({ isActive }) => {
 
 function Navbar() {
   const { pathname } = useLocation();
+
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  // --------------------------------------------------------------------
+
+  // new function:
+  const handleScroll = () => {
+    // find current scroll position
+    const currentScrollPos = window.pageYOffset;
+
+    // set state based on location info (explained in more detail below)
+    setVisible(
+      (prevScrollPos > currentScrollPos &&
+        prevScrollPos - currentScrollPos > 70) ||
+        currentScrollPos < 10
+    );
+
+    // set state to new scroll position
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  // new useEffect:
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos, visible, handleScroll]);
+
+
+  // -----------------------------------------------------------------------------
 
   const Infor = "/offerings/enterprise-software/erp/infor";
   const SAP = "/offerings/enterprise-software/erp/SAP";
@@ -263,6 +293,8 @@ function Navbar() {
         SAPColor={pathname === SAP}
         oracleColor={pathname === Oracle}
         click={open}
+        topvisibile={visible}
+        className="MainNav"
       >
         <Link
           to="/home"
@@ -295,7 +327,7 @@ function Navbar() {
                     variant="body"
                     sx={{
                       cursor: "pointer",
-                      color: "black",
+                      color: "white",
                       "&:hover": {
                         color: "red",
                       },
