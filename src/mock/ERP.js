@@ -4,19 +4,19 @@ export const ERPServices = [
   {
     id: 1,
     title: "Infor",
-    path: "/services/enterprise-software/erp/infor",
-    desc: "Metamorphose your business, deliver customer satisfaction, and improve efficiency with KCS the foremost trusted Infor alliance partner. Our Infor experts are committed to meet client’s business objectives by delivering best in class solutions and services.",
+    path: "/offerings/enterprise-software/erp/infor",
+    desc: "Metamorphose your business, deliver customer satisfaction, and improve efficiency with Kapil Technologies the foremost trusted Infor alliance partner. Our Infor experts are committed to meet client’s business objectives by delivering best in class solutions and offerings.",
   },
   {
     id: 2,
     title: "SAP",
-    path: "/services/enterprise-software/erp/SAP",
+    path: "/offerings/enterprise-software/erp/SAP",
     desc: "SAP (Systems, Applications, and Products) is a leading enterprise software company, providing integrated business solutions for various industries through its suite of software products and services.",
   },
   {
     id: 3,
-    title: "Oracle",
-    path: "/services/enterprise-software/erp/Oracle",
+    title: "Oracle NetSuite",
+    path: "/offerings/enterprise-software/erp/Oracle",
     desc: "NetSuite, acquired by Oracle, is a cloud-based ERP software suite. It integrates financials, CRM, e-commerce, and more to streamline business operations, offering scalability and real-time data for effective decision-making across various industries.",
   },
 ];
@@ -35,7 +35,7 @@ export const ERPBanner = [
   },
    {
     id: 3,
-    name: 'Oracle',
+    name: 'Oracle NetSuite',
     banner:""
   }
 ]
@@ -45,32 +45,53 @@ export const ERPDataInfor = [
     id: 1,
     mtitle: "Upgrades",
     icon: <TbSettingsUp />,
+    color: "#F68C09",
+    text: "white",
+    iconback: "white",
+    icontext: "#F68C09 ",
+
     desc: "Continuous investment in business application is necessary to maintain best performance and an competitive edge. The lack of time, budget or resources to upgrade and maintain Infor systems can be a obstacle to the continuous growth of your business",
   },
   {
     id: 2,
     mtitle: "Migrations",
     icon: <TbExchange />,
+    color: "#3175A5",
+    text: "white",
+    iconback: "white",
+    icontext: "#3175A5 ",
     desc: "Data migration is one of the crucial factors to make sure the success of upgrade or implementation. Our Infor experts will execute and guide in data migration to make sure long-term success.",
   },
   {
     id: 3,
     mtitle: "Customizations  ",
     icon: <TbPencilPlus />,
-    desc: "Customize the Infor system that suits the enterprise processes and delivers the critical data in the way which makes sense for businesses. Customizations need not be a painful process. We will do customizations as per the business objectives and train the candidate how to use the new functions within system. KCS can be one stop solutions for all Infor requirements.",
+    color: "#AF5F30",
+    text: "white",
+    iconback: "white",
+    icontext: "#AF5F30 ",
+    desc: "Customize the Infor system that suits the enterprise processes and delivers the critical data in the way which makes sense for businesses. ",
   },
   {
     id: 4,
     mtitle: "Management Consulting",
     icon: <TbUserCog />,
-    desc: "Our Infor team expertise in Infor strategy development and Business processes which allows KCS to bring transparency and foresight to the business-technology relationship. KCS has expertise in Infor CloudSuite solutions with extensive and successful large global program delivery experience.",
+    color: "#2DB6FA",
+    text: "white",
+    iconback: "white",
+    icontext: "#2DB6FA ",
+    desc: "Our Infor team expertise in Infor strategy development and Business processes which allows Kapil Technologies to bring transparency and foresight to the business-technology relationship. Kapil Technologies has expertise in Infor CloudSuite solutions with extensive and successful large global program delivery experience.",
   },
- 
+
   {
     id: 5,
     mtitle: "Training",
     icon: <TbCertificate2 />,
-    desc: "For any successful Enterprise Application implementation, well trained internal IT and end users are extremely important. KCS training services delivered by the Infor Application Experts.",
+    color: "#32770E",
+    text: "white",
+    iconback: "white",
+    icontext: "#32770E ",
+    desc: "For any successful Enterprise Application implementation, well trained internal IT and end users are extremely important. Kapil Technologies training services delivered by the Infor Application Experts.",
   },
   // {
   //   id: 7,

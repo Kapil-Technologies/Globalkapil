@@ -1,8 +1,8 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import { CTA, NavDiv } from "../Home";
 import Page from "../../components/Page";
 import { Link, useParams } from "react-router-dom";
-import SAPBanner from '../../assets/Banners/sap.png'
+import SAPBanner from "../../assets/Banners/sap.png";
 import OracleBanner from "../../assets/Banners/oracle.png";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box, Button, Card, Grid, Stack, Tab, Typography } from "@mui/material";
@@ -22,20 +22,23 @@ import {
 import { FaArrowRight, FaAsterisk, FaListOl } from "react-icons/fa6";
 import { TbSettingsUp } from "react-icons/tb";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
+import InforBanner from '../../assets/Banners/BInfor1.png'
 
 // ---------------------------------------------------------------------- Styled Components
 
 export const ERPBanner = styled("div")(({ theme }) => ({
   width: "100%",
-  height: "350px",
-  background: "#d3e1ea",
+  height: "auto",
+  // position:'relative'
+  
 }));
 
 export const BannerImage = styled("img")(({ theme }) => ({
   maxWidth: "100%",
-  width:"100%",
-  height: "350px",
-  
+  width: "100%",
+  height: "auto",
+  position: "relative",
+ 
 }));
 
 export const Section = styled("section")(({ theme }) => ({
@@ -77,8 +80,6 @@ const InforLayout = ({
   scrollRef4,
   scrollRef5,
 }) => {
-
-
   const handleScroll = (mid) => {
     if (mid === 1) {
       scrollRef1();
@@ -91,8 +92,7 @@ const InforLayout = ({
     } else if (mid === 5) {
       scrollRef5();
     }
-  }
- 
+  };
 
   return (
     <Stack
@@ -136,12 +136,11 @@ const InforLayout = ({
                 p: 1,
                 textAlign: "left",
                 fontSize: "30px",
-               
               }}
             >
               {icon}
             </Stack>
-            <Typography variant="h6"  sx={{ color: "#0098DC" }}>
+            <Typography variant="h6" sx={{ color: "#0098DC" }}>
               <b>{title}</b>
             </Typography>
             <Typography variant="body" gutterBottom sx={{ paddingRight: 1 }}>
@@ -167,36 +166,78 @@ const InforLayout = ({
   );
 };
 
-const SAPLayout = ({ icon, desc, title }) => {
+const SAPLayout = ({
+ 
+
+  icon,
+  title,
+  desc,
+  id,
+  color,
+  text,
+  iconback,
+  icontext,
+  scrollRef1,
+  scrollRef2,
+  scrollRef3,
+  scrollRef4,
+  scrollRef5,
+}) => {
+  const handleScroll = (mid) => {
+    if (mid === 1) {
+      scrollRef1();
+    } else if (mid === 2) {
+      scrollRef2();
+    } else if (mid === 3) {
+      scrollRef3();
+    } else if (mid === 4) {
+      scrollRef4();
+    } else if (mid === 5) {
+      scrollRef5();
+    }
+  };
+
+   const [hover, setHover] = useState(false)
+  
+  const handleHover = () => {
+    setHover(true)
+  }
+   const handleHoverClose = () => {
+     setHover(false);
+   };
   return (
-    <Stack direction="column" alignItems="left">
+    <Stack direction="column" alignItems="center" >
       <Grid container columnGap={2} rowGap={2}>
         <Card
           sx={{
             width: 350,
-            height: 410,
+            height: 350,
             border: "1px solid #d3e1ea",
             display: "flex",
-            alignItems: "left",
+            alignItems: "center",
             justifyContent: "start",
             flexDirection: "column",
             textAlign: "left",
             gap: 1,
             p: 1,
             borderRadius: 3,
+            backgroundColor: hover ? color : null,
+            position: "relative",
           }}
+          onMouseEnter={handleHover}
+          onMouseLeave={handleHoverClose}
         >
           <Stack
             direction="column"
             alignItems="center"
             justifyContent="center"
             sx={{
-              width: 15,
-              height: 15,
-              background: "#CB333B",
-
-              color: "white",
-              p: 3,
+              width: 25,
+              height: 25,
+              background: hover ? iconback : "#CB333B",
+              p: 1,
+              color: hover ? icontext : "white",
+              fontSize: 20,
               borderRadius: "50%",
             }}
           >
@@ -204,22 +245,48 @@ const SAPLayout = ({ icon, desc, title }) => {
           </Stack>
           <Stack
             direction="column"
-            alignItems="start"
+            alignItems="center"
             justifyContent="center"
             sx={{ textAlign: "left" }}
           >
-            <Typography variant="h5" gutterBottom sx={{ color: "#162438" }}>
+            <Typography
+              variant="h5"
+              gutterBottom
+              sx={{
+                color: hover ? text : "#CB333B",
+              }}
+            >
               <b>{title}</b>
             </Typography>
-            <Typography variant="body1" gutterBottom>
+            <Typography
+              variant="body1"
+              gutterBottom
+              sx={{ color: hover ? "white" : "black" }}
+            >
               {desc}
             </Typography>
           </Stack>
-          {/* <Box sx={{ textAlign: "right", cursor: "pointer", p: 1 }}>
-            <Typography variant="body2">
+          <Box
+            sx={{
+              textAlign: "right",
+              cursor: "pointer",
+              p: 3,
+              position: "absolute",
+              bottom: 0,
+              width: "100% ",
+              right: 10,
+            }}
+            onClick={() => {
+              handleScroll(id);
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{ color: hover ? "white" : "black" }}
+            >
               <b>... Read More</b>
             </Typography>
-          </Box> */}
+          </Box>
         </Card>
       </Grid>
     </Stack>
@@ -270,13 +337,13 @@ function ERPLayout() {
 
   return (
     <div>
-      <NavDiv>.</NavDiv>
+      {/* <NavDiv>.</NavDiv> */}
       <Page name={CapitalizedHeading} content="" />
       <ERPBanner>
         {subpage === "SAP" ? (
-          <BannerImage src={SAPBanner} alt="Kapil SAP Consulting Services"  />
+          <BannerImage src={SAPBanner} alt="Kapil SAP Consulting Services" />
         ) : subpage === "infor" ? (
-          "Infor"
+          <BannerImage src={InforBanner} alt="Kapil SAP Consulting Services" />
         ) : subpage === "Oracle" ? (
           <BannerImage src={OracleBanner} alt="Kapil SAP Consulting Services" />
         ) : null}
@@ -288,7 +355,7 @@ function ERPLayout() {
         sx={{ textAlign: "center", background: "#F1F7FD" }}
       >
         <Typography variant="h5" sx={{ p: 2, marginBottom: -4 }}>
-          <b>   Featured Services</b>
+          <b> Featured Services</b>
         </Typography>
 
         <Grid
@@ -298,6 +365,7 @@ function ERPLayout() {
             alignItems: "center",
             justifyContent: "center",
             p: 3,
+            marginBottom: "-20px",
           }}
           rowGap={2}
           columnGap={2}
@@ -309,6 +377,10 @@ function ERPLayout() {
                 title={item.mtitle}
                 desc={item.desc}
                 id={item.id}
+                color={item.color}
+                text={item.text}
+                iconback={item.iconback}
+                icontext={item.icontext}
                 scrollRef1={handleClick1}
                 scrollRef2={handleClick2}
                 scrollRef3={handleClick3}
@@ -336,7 +408,11 @@ function ERPLayout() {
             sx={{ p: 1, width: "98%" }}
           >
             <Section ref={ref1}>
-              <Stack direction="column" alignItems="center">
+              <Stack
+                direction="column"
+                alignItems="center"
+                sx={{ marginTop: "70px" }}
+              >
                 <Typography variant="h4" gutterBottom sx={{ color: "#CB333B" }}>
                   <b>Infor Upgrade Services</b>
                 </Typography>
@@ -354,14 +430,14 @@ function ERPLayout() {
               <Stack
                 direction="column"
                 alignItems="left"
-                spacing={2}
-                sx={{ p: 1, textAlign: "left", marginTop: "5px  " }}
+                spacing={1}
+                sx={{ p: 1, textAlign: "left" }}
               >
                 <Typography variant="body" gutterBottom>
-                  KCS Infor upgrade services aids business to gain the
-                  efficiency and flexibility by keeping employees focused on
-                  customers and core business. We help in mitigate risks and
-                  save on costs correlated with the upgrade.
+                  Kapil Technologies Infor upgrade services aids business to
+                  gain the efficiency and flexibility by keeping employees
+                  focused on customers and core business. We help in mitigate
+                  risks and save on costs correlated with the upgrade.
                 </Typography>
                 <Typography variant="body" gutterBottom>
                   We can help in upgrading Infor applications, freeing up
@@ -371,8 +447,8 @@ function ERPLayout() {
               </Stack>
               <Grid
                 container
-                columnGap={2}
-                rowGap={2}
+                columnGap={1}
+                rowGap={1}
                 sx={{
                   display: "flex",
                   alignItems: "start",
@@ -409,9 +485,9 @@ function ERPLayout() {
                       </Typography>
                       <br />
                       <Typography variant="body">
-                        KCS upgrade assessment service is offered as a
-                        stand-alone service to make sure a smooth and timely
-                        upgrade.
+                        Kapil Technologies upgrade assessment service is offered
+                        as a stand-alone service to make sure a smooth and
+                        timely upgrade.
                       </Typography>
                     </Stack>
                   </Stack>
@@ -501,7 +577,11 @@ function ERPLayout() {
               </Grid>
             </Section>
             <Section ref={ref2}>
-              <Stack direction="column" alignItems="center">
+              <Stack
+                direction="column"
+                alignItems="center"
+                sx={{ marginTop: "75px" }}
+              >
                 <Typography variant="h4" gutterBottom sx={{ color: "#CB333B" }}>
                   <b>Infor Migration Services</b>
                 </Typography>
@@ -537,8 +617,6 @@ function ERPLayout() {
               </Stack>
               <Grid
                 container
-                columnGap={2}
-                rowGap={2}
                 sx={{
                   display: "flex",
                   alignItems: "start",
@@ -580,7 +658,6 @@ function ERPLayout() {
                   <Stack
                     direction="row"
                     alignItems="start"
-                    spacing={1}
                     sx={{ p: 1, textAlign: "left" }}
                   >
                     <IconBase>
@@ -602,10 +679,11 @@ function ERPLayout() {
                         The common challenges of in-house migrations are go-live
                         delays and production problems due to inefficient data
                         migration processes. Instead of gambling on the outcome
-                        of a critical software implementation, use KCS Infor
-                        Data Migration Services to grow the success of
-                        implementation, decrease the costs resulting from errors
-                        and develop a strong foundation for future migration.
+                        of a critical software implementation, use Kapil
+                        Technologies Infor Data Migration Services to grow the
+                        success of implementation, decrease the costs resulting
+                        from errors and develop a strong foundation for future
+                        migration.
                       </Typography>
                     </Stack>
                   </Stack>
@@ -691,7 +769,7 @@ function ERPLayout() {
               <Stack
                 direction="column"
                 alignItems="center"
-                sx={{ marginBottom: "10px" }}
+                sx={{ marginBottom: "10px", marginTop: "75px" }}
               >
                 <Typography variant="h4" gutterBottom sx={{ color: "#CB333B" }}>
                   <b>Infor Customization Services</b>
@@ -738,12 +816,12 @@ function ERPLayout() {
                         variant="body"
                         sx={{ color: "#CB333B", textTransform: "uppercase" }}
                       >
-                        <b>How can KCS Help ?</b>
+                        <b>How can Kapil Technologies Help ?</b>
                       </Typography>
                       <Typography variant="body">
-                        At KCS we have a large pool of Infor Technical and
-                        Functional consultants who have vast in working with
-                        Infor Products
+                        At Kapil Technologies we have a large pool of Infor
+                        Technical and Functional consultants who have vast in
+                        working with Infor Products
                       </Typography>
                       <Typography variant="body">
                         By Taking advantages of Our Expertise having with Infor
@@ -821,9 +899,9 @@ function ERPLayout() {
                       </Typography>
 
                       <Typography variant="body">
-                        KCS Infor experts has in depth knowledge of techniques,
-                        tools and processes necessary for successful
-                        implementations
+                        Kapil Technologies Infor experts has in depth knowledge
+                        of techniques, tools and processes necessary for
+                        successful implementations
                       </Typography>
                     </Stack>
                   </Stack>
@@ -877,7 +955,7 @@ function ERPLayout() {
               <Stack
                 direction="column"
                 alignItems="center"
-                sx={{ marginBottom: "10px" }}
+                sx={{ marginBottom: "10px", marginTop: "75px" }}
               >
                 <Typography variant="h4" gutterBottom sx={{ color: "#CB333B" }}>
                   <b>Infor Management Consulting</b>
@@ -895,8 +973,6 @@ function ERPLayout() {
               </Stack>
               <Grid
                 container
-                columnGap={2}
-                rowGap={2}
                 sx={{
                   display: "flex",
                   alignItems: "flex-start",
@@ -936,9 +1012,9 @@ function ERPLayout() {
                       </Typography>
 
                       <Typography variant="body">
-                        KCS help in end-to-end perspective to plan more
-                        efficiently, operate more efficiently and meet client
-                        requirements.
+                        Kapil Technologies help in end-to-end perspective to
+                        plan more efficiently, operate more efficiently and meet
+                        client requirements.
                       </Typography>
                     </Stack>
                   </Stack>
@@ -1043,7 +1119,11 @@ function ERPLayout() {
             </Section>
 
             <Section ref={ref5}>
-              <Stack direction="column" alignItems="center">
+              <Stack
+                direction="column"
+                alignItems="center"
+                sx={{ marginTop: "75px" }}
+              >
                 <Typography variant="h4" gutterBottom sx={{ color: "#CB333B" }}>
                   <b>Infor Training Services</b>
                 </Typography>
@@ -1067,13 +1147,13 @@ function ERPLayout() {
                 <Typography variant="body" gutterBottom>
                   Training is important component required to utilize the full
                   value of investment and attain unparalleled advantages for
-                  business. KCS Training is a critical component needed to
-                  utilize the full value of your investment and achieve
-                  unparalleled benefits for your business.
+                  business. Kapil Technologies Training is a critical component
+                  needed to utilize the full value of your investment and
+                  achieve unparalleled benefits for your business.
                 </Typography>
                 <Typography variant="body" gutterBottom>
-                  KCS provide Learning Solutions for each stage of product
-                  lifecycle including:
+                  Kapil Technologies provide Learning Solutions for each stage
+                  of product lifecycle including:
                 </Typography>
                 {TraiingList.map((item) => (
                   <Stack

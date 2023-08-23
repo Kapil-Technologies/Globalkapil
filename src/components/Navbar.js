@@ -24,14 +24,14 @@ import { FiExternalLink } from "react-icons/fi";
 
 // -------------------------------------------------------------------------------
 
-export const MainHeader = styled("header")(({ theme }) => ({
-  position: "fixed",
+export const MainHeader = styled("header")(({ theme,InforColor }) => ({
+  position: "absolute",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  width: "100%",
+  width: InforColor ? "60%":"100%",
   height: "15vh",
-  backgroundColor: "#162438",
+  backgroundColor: "transparent",
   zIndex: 999,
 }));
 
@@ -56,15 +56,15 @@ export const MainNavItem = styled("li")(({ theme }) => ({
   },
 }));
 
-export const SubmenuList = styled("div")(({ theme, click, mid }) => ({
+export const SubmenuList = styled("div")(({ theme, click, mid, sapColor }) => ({
   display: "flex",
   alignItems: mid === 3 ? "start" : "center",
   justifyContent: "space-between",
   position: "fixed",
   // flexDirection:mid === 3 ? "column" : null,
   top: click ? "15vh" : "-100%",
-  backgroundColor: "#162438",
-  color: "black",
+  backgroundColor: "whitesmoke",
+  color: "#162438",
   height: mid === 3 ? "85vh" : "80px",
   opacity: 1,
   // right: 0,
@@ -78,10 +78,11 @@ export const SubNavItem = styled("li")(({ theme }) => ({
   padding: "15px",
 }));
 
-export const SpanItem = styled("span")(({ theme }) => ({
+export const SpanItem = styled("span")(({ theme,color }) => ({
   paddingTop: "5px",
   fontSize: "20px",
-  cursor:'pointer'
+  cursor: 'pointer',
+  color:color ? "":'black'
 }));
 
 export const ButtonBase = styled(Box)(({ theme }) => ({
@@ -91,18 +92,18 @@ export const ButtonBase = styled(Box)(({ theme }) => ({
   cursor: "pointer",
   padding: "10px",
   borderRadius: "50%",
-  color: "white",
+  color: "#162438",
   marginRight: "10px",
 
   "&:hover": {
-    background: "white",
-    color: "#162438",
+    background: "#162438",
+    color: "white",
   },
 }));
 
 export const HLine = styled("hr")(({ theme }) => ({
   width: "100%",
-  color: "white",
+  color: "#162438",
 }));
 
 // ------------------------------------------------------------------------------ Services List
@@ -132,12 +133,26 @@ export const ServicesItem = styled("li")(({ theme }) => ({
 export const RightArrow = styled(FiExternalLink)(({ theme }) => ({
   marginTop: "3px",
 }));
+export const NavLinkStyle = styled(NavLink)(({ theme,isActive }) => ({
+  color: isActive ? "orange" : "black",
+  fontWeight: "bold",
+  textDecoration: "none",
+  // textTransform: "uppercase",
+  "&:hover": {
+    color: "red",
+  },
+  display: "flex",
+  alignItems: "center",
+ 
+}));
 
 // ------------------------------------------------------------------------------
 export const KapilNavStyle = ({ isActive }) => {
   return {
     // color: isActive ? "#ff8217" : "#174F7A",
-    color: isActive ? "orange" : "white",
+    // color: isActive ? "orange" : "#012a5c",
+    color: isActive ? "orange" : "#012a5c",
+fontWeight:"bold",
     textDecoration: "none",
     // textTransform: "uppercase",
     "&:hover": {
@@ -154,7 +169,7 @@ export const KapilNavStyle = ({ isActive }) => {
 export const KapilNavStyle2 = ({ isActive }) => {
   return {
     // color: isActive ? "#ff8217" : "#174F7A",
-    color: isActive ? "orange" : "white",
+    color: isActive ? "orange" : "#162438",
     // color:'black',
     textDecoration: "none",
 
@@ -169,6 +184,44 @@ export const KapilNavStyle2 = ({ isActive }) => {
 
 function Navbar() {
   const { pathname } = useLocation();
+
+  const Infor = "/offerings/enterprise-software/erp/infor";
+  const SAP = "/offerings/enterprise-software/erp/SAP";
+  const Oracle = "/offerings/enterprise-software/erp/SAP";
+
+
+   const KapilNavStyle = ({ isActive }) => {
+    return {
+      // color: isActive ? "#ff8217" : "#174F7A",
+      color: isActive ? "orange" : "#012a5c",
+      textDecoration: "none",
+      // textTransform: "uppercase",
+      "&:hover": {
+        color: "orange",
+      },
+      display: "flex",
+      alignItems: "center",
+      "&:hover": {
+        color: "orange",
+      },
+    };
+  };
+
+   const KapilNavStyle2 = ({ isActive }) => {
+    return {
+      // color: isActive ? "#ff8217" : "#174F7A",
+      color: isActive ? "orange"  : "#162438",
+      // color:'black',
+      textDecoration: "none",
+
+      // textTransform: "uppercase",
+      "&:hover": {
+        color: "red",
+      },
+      display: "flex",
+      alignItems: "center",
+    };
+  };
 
   const condition1 = pathname.split("/")[1];
 
@@ -189,7 +242,11 @@ function Navbar() {
 
   return (
     <>
-      <MainHeader>
+      <MainHeader
+        InforColor={pathname === Infor}
+        SAPColor={pathname === SAP}
+        oracleColor={pathname === Oracle}
+      >
         <Link
           to="/home"
           style={{
@@ -216,12 +273,12 @@ function Navbar() {
                     variant="body"
                     sx={{
                       cursor: "pointer",
-                      color: "white",
+                     color:'black'
                     }}
                   >
-                    {item.title}
+                    <b> {item.title}</b>
                   </Typography>
-                  <SpanItem>
+                  <SpanItem >
                     {item.submenudata === id && item.submenu && open
                       ? item.closeicon
                       : item.submenu
@@ -230,16 +287,21 @@ function Navbar() {
                   </SpanItem>
                 </Stack>
               ) : (
-                <NavLink style={KapilNavStyle} to={item.path}>
-                  {item.title}
-                </NavLink>
+                <NavLinkStyle to={item.path}>
+                  <b> {item.title}</b>
+                </NavLinkStyle>
               )}
             </MainNavItem>
           ))}
         </MainNavList>
       </MainHeader>
       {id === 3 ? (
-        <SubmenuList mid={id} click={open} className="main-submenu">
+        <SubmenuList
+          mid={id}
+          click={open}
+          className="main-submenu"
+          sapColor={pathname === SAP}
+        >
           <Stack
             direction="column"
             alignItems="start"
@@ -249,7 +311,7 @@ function Navbar() {
               direction="row"
               alignItems="center"
               justifyContent="space-between"
-              sx={{ width: "100%", p: 1, color: "white" }}
+              sx={{ width: "100%", p: 1, color: "#162438" }}
             >
               <Typography variant="body1">
                 <b>Services</b>
@@ -270,7 +332,7 @@ function Navbar() {
                     >
                       <Typography
                         variant="body1"
-                        sx={{ width: 150, color: "white" }}
+                        sx={{ width: 150, color: "#162438" }}
                       >
                         <b>{item.Mtitle}</b>
                       </Typography>
@@ -294,54 +356,6 @@ function Navbar() {
                 ))
               : null}
           </Stack>
-        </SubmenuList>
-      ) : id === 2 ? (
-        <SubmenuList mid={id} click={open} className="main-submenu">
-          <Stack direction="row" alignItems="center" sx={{ p: 1 }}>
-            {AboutData.map((item) => (
-              <SubNavItem key={item.submenuid} onClick={handleClose}>
-                <NavLink to={item.path} style={KapilNavStyle2}>
-                  {item.title}
-                </NavLink>
-              </SubNavItem>
-            ))}
-          </Stack>
-
-          <ButtonBase onClick={handleClose}>
-            <FaX />
-          </ButtonBase>
-        </SubmenuList>
-      ) : id === 4 ? (
-        <SubmenuList mid={id} click={open} className="main-submenu">
-          <Stack direction="row" alignItems="center" sx={{ p: 1 }}>
-            {Solutions.map((item) => (
-              <SubNavItem key={item.submenuid} onClick={handleClose}>
-                <NavLink to={item.path} style={KapilNavStyle2}>
-                  {item.title}
-                </NavLink>
-              </SubNavItem>
-            ))}
-          </Stack>
-
-          <ButtonBase onClick={handleClose}>
-            <FaX />
-          </ButtonBase>
-        </SubmenuList>
-      ) : id === 6 ? (
-        <SubmenuList mid={id} click={open} className="main-submenu">
-          <Stack direction="row" alignItems="center" sx={{ p: 1 }}>
-            {ContactData.map((item) => (
-              <SubNavItem key={item.submenuid} onClick={handleClose}>
-                <NavLink to={item.path} style={KapilNavStyle2}>
-                  {item.title}
-                </NavLink>
-              </SubNavItem>
-            ))}
-          </Stack>
-
-          <ButtonBase onClick={handleClose}>
-            <FaX />
-          </ButtonBase>
         </SubmenuList>
       ) : null}
     </>

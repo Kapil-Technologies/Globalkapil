@@ -27,7 +27,7 @@ function App() {
         {/* <BreadCrums /> */}
 
         <Routes />
-        {pathname !== "/404" ? <SiteMap /> : null}
+        {/* {pathname !== "/404" ? <SiteMap /> : null} */}
         {pathname !== "/404" ? <Footer /> : null}
       </HelmetProvider>
     </ThemeProvider>

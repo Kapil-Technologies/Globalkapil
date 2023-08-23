@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box, Stack, Typography } from "@mui/material";
 import { HomePageClients } from "../../mock/CCData";
+import { LeftArrow, RightArrow } from "./Industries";
 
 // ------------------------------------------- Styled Components
 
@@ -11,7 +12,7 @@ export const MainSliderDiv = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  marginBottom: "20px",
+ 
 }));
 
 export const SliderData = styled(Slider)(({ theme }) => ({
@@ -26,7 +27,7 @@ export const SliderData = styled(Slider)(({ theme }) => ({
 export const ClientContainer = styled(Box)(({ theme }) => ({
   width: 180,
   border: "1px solid #d3e1ea",
-  height: 150,
+  height: 100,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -36,6 +37,29 @@ export const ClientContainer = styled(Box)(({ theme }) => ({
   color: "black",
   margin: "auto",
 }));
+
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <RightArrow
+      className={className}
+      // style={{ ...style, display: "block", color:'black',fontSize:'20px' }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <LeftArrow
+      className={className}
+      // style={{ ...style, display: "block",color:'black',fontSize:'80px'}}
+      onClick={onClick}
+    />
+  );
+}
 
 // ------------------------------------------- Settings
 
@@ -48,6 +72,8 @@ const settings = {
   //  centerMode:true,
   autoplay: true,
   autoplaySpeed: 3000,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
 };
 
 function Clients() {
@@ -65,9 +91,9 @@ function Clients() {
               >
                 <img
                   src={item.cImage}
-                  alt="Kapil Technologies Primium clients"
-                  width="120px"
-                  height="auto"
+                  alt="Kapil Technologies Premium clients"
+                  width={item.width}
+                  height={item.height}
                 />
                 {/* <Typography>
                   <b>{item.cName}</b>

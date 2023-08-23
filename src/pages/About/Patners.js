@@ -7,37 +7,78 @@ import Mobillor from "../../assets/Partners/Mobillor.png";
 import enstrap from "../../assets/Partners/Enstrapp.png";
 import Expenz from "../../assets/Partners/Expenz.png";
 import QR from "../../assets/Partners/QR.png";
+import ness from "../../assets/Partners/Ness.png";
+import massteh from "../../assets/Partners/masstek.png";
+import nttdata from "../../assets/Partners/nttdata.png";
+import tatat from "../../assets/Partners/tatat.png";
+import cloud4c from "../../assets/Partners/cloud.jpg";
 
 const PartnerList = [
   {
     id: 1,
     image: Infor,
-    width: 300  ,
-    height: 150,
+    width: 200,
+    height: "auto",
   },
   {
     id: 2,
-    image: Mobillor,
-    width: 300,
-    height: 130,
+    image: QR,
+    width: 200,
+    height: "auto",
   },
+
   {
     id: 3,
-    image: enstrap,
+    image: Expenz,
     width: 200,
-    height: 200,
+    height: "auto",
   },
   {
     id: 4,
-    image: Expenz,
-    width: 192,
-    height: 80,
+    image: Mobillor,
+    width: 200,
+    height: "auto",
   },
   {
     id: 5,
-    image: QR,
-    width: 400,
-    height: 150,
+    image: enstrap,
+    width: 200,
+    height: "auto",
+  },
+ 
+];
+
+export const Technical = [
+  {
+    id: 6,
+    image: ness,
+    width: 100,
+    height: 100,
+  },
+
+  {
+    id: 7,
+    image: massteh,
+    width: 200,
+    height: "auto",
+  },
+  {
+    id: 8,
+    image: nttdata,
+    width: 200,
+    height: "auto",
+  },
+  {
+    id: 9,
+    image: tatat,
+    width: 200,
+    height: "auto",
+  },
+  {
+    id: 10,
+    image: cloud4c,
+    width: 200,
+    height: "auto",
   },
 ];
 
@@ -46,45 +87,51 @@ function Patners() {
     <div>
       <NavDiv>.</NavDiv>
       <Page name="Our Partner" content="" />
-      <Stack
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        spacing={2}
-      >
-        <Typography variant="h5" sx={{ py: 3 }}>
-          <b>Our Alliances</b>
+      <Stack direction="column" alignItems="center" justifyContent="center">
+        <Typography variant="h5" gutterBottom sx={{ p: 1 }}>
+          <b>Portfolio of World Class Alliances</b>
         </Typography>
         <Grid
           container
-          columnGap={2}
-          rowGap={2}
+          columnGap={1}
+          rowGap={1}
           sx={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            p: 1,
           }}
         >
           {PartnerList.map((item) => (
-            <Grid
+            <img
+              src={item.image}
+              alt="Kapil Patners"
               key={item.id}
-              item
-              sx={{
-                border: "1px solid #d3e1ea",
-                boxShadow: 3,
-                width: 480,
-                height: 200,
-                borderRadius:2,
-                p: 1,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-                
-              }}
-            >
-              <img src={item.image} alt="Kapil Patners" width={item.width} height={ item.height} />
-            </Grid>
+              width={item.width}
+              height={item.height}
+            />
+          ))}
+        </Grid>
+        <Typography variant="h5" sx={{ p: 1 }} >
+          <b>Portfolio of Technical Alliances</b>
+        </Typography>
+        <Grid
+          container
+          columnGap={1}
+          rowGap={1}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {Technical.map((item) => (
+            <img
+              src={item.image}
+              alt="Kapil Patners"
+              key={item.id}
+              width={item.width}
+              height={item.height}
+            />
           ))}
         </Grid>
       </Stack>

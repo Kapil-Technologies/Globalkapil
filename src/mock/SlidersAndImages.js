@@ -14,6 +14,7 @@ export const IndustriesData = [
     id: 1,
     title: "Automotive",
     image: Automotive,
+    icon:"",
   },
   {
     id: 2,

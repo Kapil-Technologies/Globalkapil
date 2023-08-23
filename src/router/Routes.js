@@ -66,71 +66,90 @@ function Routes() {
         },
 
         {
-          path: "/services",
+          path: "/offerings",
           children: [
+            {
+              path: "/offerings",
+              element: (
+                <Navigate to="/offerings/digital/:digital " exact replace />
+              ),
+            },
+            // Digital
             {
               path: "digital/:digital",
               element: <Consulting />,
               index: true,
             },
+
+            // Application devlopemnt
             {
-              path: "/services",
-              element: (
-                <Navigate to="/services/digital/:digital " exact replace />
-              ),
-            },
-            {
-              path: "cloud/:cloud",
+              path: "application-development/:page",
               element: <Consulting />,
+            },
+            // Cloud
+            {
+              path: "cloud/:page",
+              element: <Consulting />,
+            },
+            // Enterprice Solutions
+            {
+              path: "enterprise-software/erp",
+              element: <Erp />,
             },
 
             {
-              path: "application-development-and-maintainance/:page",
+              path: "enterprise-software/crm",
               element: <Consulting />,
             },
             {
-              path: "enterprise-software/:page",
-              element: <Erp />,
+              path: "enterprise-software/industru-platform",
+              element: <Consulting />,
+            },
+            {
+              path: "enterprise-software/ehs",
+              element: <Consulting />,
+            },
+            {
+              path: "enterprise-software/digital-content-management",
+              element: <Consulting />,
             },
             {
               path: "enterprise-software/:page/:subpage",
               element: <ERPLayout />,
             },
-          ],
-        },
-        {
-          path: "/solutions",
-          children: [
             {
-              path: ":page",
+              path: "solutions/:page",
               element: <Consulting />,
-              index: true,
-            },
-            {
-              path: ":page",
-              element: <Navigate to="/consulting/:page" exact replace />,
             },
           ],
         },
+        // {
+        //   path: "/solutions",
+        //   children: [
+        //     {
+        //       path: ":page",
+        //       element: <Consulting />,
+        //       index: true,
+        //     },
+        //     {
+        //       path: ":page",
+        //       element: <Navigate to="/consulting/:page" exact replace />,
+        //     },
+        //   ],
+        // },
 
         {
-          path: "/contact",
-          children: [
-            {
-              path: "contact-us",
-              element: <Contact />,
-              index: true,
-            },
-            {
-              path: "our-global-presence",
-              element: <GlobalPresence />,
-            },
+          path: "/contact-us/our-global-presence",
+          element: <GlobalPresence />,
+        },
+        {
+          path: "/contact-us",
+          element: <Contact />,
+        },
 
-            {
-              path: ":page",
-              element: <Navigate to="/contact/contact-us" exact replace />,
-            },
-          ],
+        {
+          path: "/our-alliances",
+          element: <Patners />,
         },
 
         {

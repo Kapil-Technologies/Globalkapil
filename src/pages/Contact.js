@@ -34,21 +34,26 @@ import { SMedia } from "../mock/FooterData";
 import { BannerImage } from "./ERP/Erp";
 import FormBanner from "../assets/Banners/Form.jpeg";
 import GlobalBanner from "../assets/Banners/Global.jpeg";
+import { TabsData } from "../mock/ContactData";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
+import India from "../assets/Banners/india.png";
+import USA from "../assets/Banners/usa.png";
+import Indonesia from "../assets/Banners/indonesia.png";
+import Opening from "../assets/Banners/Opening Soon.png";
 
 // --------------------------------------------------------------------
 export const BackContainer = styled("div")(({ theme, image }) => ({
   backgroundColor: "#012C54",
   color: "white",
   width: "100%",
-  height: 370,
+  height: 360,
   margin: "auto",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  backgroundImage: `url(${image})`,
-  backgroundRepeat: `no-repeat`,
-  backgroundPosition: "center",
-  backgroundSize: "cover",
+  backgroundImage: " linear-gradient(to right, #74ebd5 0%, #9face6 100%)",
+  // backgroundColor: "#012C54",
+  color: "#012C54",
 }));
 
 export const MainDetails = styled("div")(({ theme, image }) => ({
@@ -160,7 +165,7 @@ export const Global = styled(Stack)(({ theme, image }) => ({
   backgroundPosition: "center",
   backgroundSize: "cover",
   width: "100%",
-  height: 500,
+  height: 'auto',
 }));
 
 // -------------------------------------------------------------------------------------- Reusable Components
@@ -185,31 +190,15 @@ export const BranchCards = ({
     <Card
       sx={{
         width: 350,
-        height: 450,
+        height: 300,
         border: "1px solid #d3e1ea",
       }}
     >
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        sx={{ p: 1 }}
-      >
-        <Typography>
+      
+      <CardContent>
+        <Typography variant="h4" gutterBottom >
           <b>{cname}</b>
         </Typography>
-        <Share>
-          <FiShare />
-        </Share>
-      </Stack>
-      <CardMedia
-        component="img"
-        alt={cname}
-        height="168px"
-        width="100%"
-        image={image}
-      />
-      <CardContent>
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
           {name}
         </Typography>
@@ -241,15 +230,19 @@ export const BranchCards = ({
 // ---------------------------------------------------------------------
 
 function Contact() {
+  const [value, setValue] = React.useState(1);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <div>
       <Page name="Contact Us" content="" />
       <NavDiv>.</NavDiv>
       <BackContainer>
-        <BannerImage
-          src={ContactBanner}
-          alt="Kapil Technologies Contact Banner"
-        />
+        <Typography variant="h2">
+          Let's Have a talk
+       </Typography>
       </BackContainer>
 
       <MainDetails>
@@ -386,61 +379,104 @@ function Contact() {
             <TextField label="Phone" size="small" />
             <TextField label="Industries" size="small" />
           </Stack>
-          <TextField label="Message" multiline rows={5} sx={{ width:450}} />
-          <Button variant="contained">
-            Submit
-          </Button>
+          <TextField label="Message" multiline rows={5} sx={{ width: 450 }} />
+          <Button variant="contained">Submit</Button>
         </Stack>
       </Form>
 
       <Global image={GlobalBanner}>
-        <Box
-          sx={{
-            background: "white",
-            p: 3,
-            boxShadow: 2,
-            border: "1px solid #d3e1ea",
-            borderRadius: 3,
-            width: 300,
-            textAlign: "left",
-          }}
-          component={Stack}
-          direction="column"
-          alignItems="left"
-          justifyContent="left"
-          spacing={1}
-        >
-          <Typography variant="h5">
-            <b>Global facilities</b>
-          </Typography>
-
-          <Typography variant="body1">
-            Our worldwide presence narrates the tale of our collective voyage,
-            imprinting itself in every corner of the globe.
-          </Typography>
-
+        <TabContext value={value}>
           <Stack
             direction="row"
             alignItems="center"
+            justifyContent="center"
             spacing={1}
+            sx={{ width: "100%", py: 3, marginBottom: "-10px" }}
+          >
+            <TabList
+              onChange={handleChange}
+              aria-label="lab API tabs example"
+              indicatorColor="none"
+              textColor="white"
+              sx={{
+                "& button": {
+                  borderRadius: 2,
+                  border: "1px solid #d3e1ea",
+                  fontSize: "18px",
+                  margin: "5px",
+                  boxShadow: 3,
+                  color: "white",
+                  background: "#012C54",
+                  width: 220,
+                  textTransform: "uppercase",
+                  fontWeight: "bold",
+                },
+
+                ".Mui-selected": {
+                  color: "#012C54",
+                  background: "white",
+                  borderRadius: 2,
+                  fontSize: "18px",
+                  boxShadow: 3,
+                },
+              }}
+            >
+              {TabsData.map((item) => (
+                <Tab
+                  key={item.id}
+                  label={item.tabname}
+                  value={item.tabvalue}
+                  sx={{
+                    textTransform: "capitalize",
+                  }}
+                />
+              ))}
+            </TabList>
+          </Stack>
+
+          <Box
             sx={{
-              fontSize: "20px",
-              color: "darkblue",
-              "&:hover": {
-                color: "orange",
-              },
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <Typography
-              sx={{ textDecoration: "none", cursor: "pointer" }}
-              component={Link}
-              to="/contact/our-global-presence"
-            >
-              Check Offices
-            </Typography>
-            <FiArrowRight />
-          </Stack>
-        </Box>
+            {TabsData.map((item) => (
+              <TabPanel value={item.tabvalue}>
+                <Stack direction="row" alignItems="center" spacing={2}>
+                  {item.subbranches.length === 0 ? (
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      <img src={Opening} width="100%" height="300px" />
+                    </Stack>
+                  ) : (
+                    item.subbranches.map((cdetails) => (
+                      <BranchCards
+                        name={cdetails.title}
+                        subtitle={cdetails.subtitle}
+                        add1={cdetails.add1}
+                        add2={cdetails.add2}
+                        add3={cdetails.add3}
+                        image={cdetails.image}
+                        cname={cdetails.cName}
+                        cManager={cdetails.cManager}
+                        cManagerli={cdetails.cManagerlinkedin}
+                        email={cdetails.email}
+                        mailto={cdetails.mailto}
+                        mobile={cdetails.mobile}
+                        mobileto={cdetails.mobileto}
+                        location={cdetails.location}
+                      />
+                    ))
+                  )}
+                </Stack>
+              </TabPanel>
+            ))}
+          </Box>
+        </TabContext>
       </Global>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import HomepageBanner from "../components/Sliders/HomepageBanner";
 import { Box, Button, Stack, Tab, Typography, Tabs, Grid } from "@mui/material";
@@ -9,12 +9,19 @@ import ClientBI from "../assets/Banners/ClientsHome.jpeg";
 import Industries from "../components/Sliders/Industries";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import Page from "../components/Page";
-import { FiChevronRight, FiSend } from "react-icons/fi";
+import { FiArrowRight, FiChevronRight, FiSend } from "react-icons/fi";
 import HAboutBanner from "../assets/Banners/cta.jpeg";
 import { ZigZagData } from "../mock/NavbarData";
+import Home1 from "../assets/Banners/home2.png";
+import { AboutText } from "../mock/MockData";
 // ---------------------------------------------------------------
 
 export const HomeContainer = styled("div")(({ theme }) => ({}));
+export const MainBanner = styled("div")(({ theme }) => ({
+  width: "100%",
+  height: 500,
+  background: "#B0DAE3",
+}));
 
 export const NavDiv = styled("div")(({ theme }) => ({
   height: "15vh",
@@ -57,89 +64,41 @@ export const IndustrySection = styled(Stack)(({ theme }) => ({
   padding: "10px",
 }));
 
-export const ClientSections = styled(Stack)(({ theme, image }) => ({
-  backgroundColor: "#d3e1ea",
-  height: "350px",
-
+export const MVDesign1 = styled(Stack)(({ theme, image }) => ({
   backgroundImage: `url(${image})`,
   backgroundRepeat: `no-repeat`,
   backgroundPosition: "center",
   backgroundSize: "cover",
+  width: 250,
+  height: 250,
+  // borderRadius: "50%",
+
+  // border: "1px solid black",
+  color: "black",
+  borderBottomLeftRadius: "800%",
+  background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
+}));
+export const MVDesign2 = styled(Stack)(({ theme, image }) => ({
+  backgroundImage: `url(${image})`,
+  backgroundRepeat: `no-repeat`,
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  width: 250,
+  height: 250,
+  // borderRadius: '50%',
+  // border: "1px solid black",
+  color: "black",
+  borderTopRightRadius: "800%",
+  background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
 }));
 
 export const ClientSectionsLayer = styled(Stack)(({ theme, image }) => ({
-  background: "rgba(0, 0, 0, 0.25)",
-  height: "350px",
+  background: "black",
+  height: "auto",
   padding: "10px",
 }));
 
 // ---------------------------------------------------------------
-
-const TabsMenu = () => {
-  const [value, setValue] = React.useState("1");
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-  return (
-    <Stack
-      direction="row"
-      alignItems="flex-start"
-      justifyContent="center"
-      sx={{
-        width: "100%",
-        typography: "body1",
-        // p: 10,
-      }}
-    >
-      <TabContext value={value}>
-        <Stack direction="column" alignItems="flex-start">
-          <TabList
-            indicatorColor="none"
-            textColor="white"
-            orientation="vertical"
-            variant="scrollable"
-            onChange={handleChange}
-            aria-label="lab API tabs example"
-            sx={{
-              textTransform: "capitalize",
-              "& button": {
-                borderRadius: 2,
-                fontSize: "18px",
-                margin: "5px",
-              },
-              "& button:hover": {
-                background: "#012C54",
-                color: "white",
-              },
-
-              ".Mui-selected": {
-                color: "white",
-                background: "#012C54",
-                borderRadius: 2,
-                fontSize: "18px",
-              },
-              padding: "5px",
-            }}
-          >
-            <Tab label="Infor" value="1" />
-            <Tab label="SAP" value="2" />
-            <Tab label="Oracle" value="3" />
-            <Tab label="WorkDay" value="4" />
-            <Tab label="Enstrapp" value="5" />
-            <Tab label="K-Mobillor" value="6" />
-          </TabList>
-        </Stack>
-        <TabPanel value="1">Infor</TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
-        <TabPanel value="3">Item Three</TabPanel>
-        <TabPanel value="4">Infor</TabPanel>
-        <TabPanel value="5">Item Two</TabPanel>
-        <TabPanel value="6">Item Three</TabPanel>
-      </TabContext>
-    </Stack>
-  );
-};
 
 export const CTA = ({ text, buttonText }) => {
   return (
@@ -181,8 +140,107 @@ function Home() {
     <HomeContainer>
       <Page name="Home" content="" />
       <NavDiv>.</NavDiv>
-      <HomepageBanner />
-      <Grid container sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+      <MainBanner
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Grid
+          container
+          columnGap={2}
+          rowGap={2}
+          sx={{
+            p: 3,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Grid
+            item
+            sx={{
+              // border: "1px solid white",
+              p: 1,
+              display: "flex",
+              alignItems: "left",
+              justifyContent: "center",
+              flexDirection: "column",
+              color: "white",
+              gap: 2,
+            }}
+            xs={5}
+          >
+            <Typography variant="h2" sx={{ color: "#162438" }}>
+              <b>Preferred Technology Partner with the Perfect Fit</b>
+            </Typography>
+            <Typography variant="h5" sx={{ color: "#162438" }}>
+              Compact Enough to Show Compassion, Expansive Enough to Drive
+              Change
+            </Typography>
+            <Button
+              variant="outlined"
+              startIcon={<FiArrowRight />}
+              sx={{
+                background: "#162438",
+
+                color: "white",
+                width: 150,
+                borderRadius: "25px",
+                "&:hover": {
+                  background: "transperant",
+                  color: "#162438",
+                },
+              }}
+              component={Link}
+              to="/contact-us"
+            >
+              Explore Now
+            </Button>
+          </Grid>
+          <Grid
+            item
+            sx={{
+              // border: "1px solid white",
+              p: 2,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            xs={5}
+          >
+            <img
+              src={Home1}
+              alt="Kapil Technologies"
+              height="350px"
+              width="600px"
+            />
+          </Grid>
+        </Grid>
+      </MainBanner>
+      <Stack
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        sx={{ p: 1, textAlign: "center" }}
+        spacing={1}
+      >
+        <Typography variant="h3" sx={{ color: "#0E366A" }}>
+          <b>
+            Enabling High <span style={{ color: "#0055CE" }}>Performance</span>
+          </b>
+        </Typography>
+        <Typography variant="h6" sx={{ width: "90%" }}>
+          We combine technology with innovation, creativity, and strategy to
+          solve complex business problems and help you go beyond regular
+          transactions and create memorable experiences.
+        </Typography>
+      </Stack>
+      <Grid
+        container
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
         {ZigZagData.map((item) => {
           if (item.type === "image") {
             return (
@@ -245,43 +303,60 @@ function Home() {
           }
         })}
       </Grid>
-      <IndustrySection
+      {/* <Industries /> */}
+
+      <ClientSectionsLayer
         direction="column"
         alignItems="center"
         justifyContent="center"
-        spacing={2}
+        spacing={3}
         sx={{ textAlign: "center" }}
       >
-        <Typography variant="h4">Our Featured Industries</Typography>
-        <Industries />
-      </IndustrySection>
+        <Typography variant="h4" sx={{ color: "white" }}>
+          <b>Our High Value Customers</b>
+        </Typography>
+        <Clients />
+      </ClientSectionsLayer>
 
-      <ClientSections image={ClientBI}>
-        <ClientSectionsLayer
-          direction="column"
-          alignItems="center"
-          justifyContent="center"
-          spacing={3}
-          sx={{ textAlign: "center" }}
-        >
-          <Typography variant="h4" sx={{ color: "white" }}>
-            <b>Our High Value Customers</b>
-          </Typography>
-          <Clients />
-          <Button
-            variant="contained"
-            component={Link}
-            to="/about-us/our-customers"
-            endIcon={<FiChevronRight />}
-          >
-            Know more
-          </Button>
-        </ClientSectionsLayer>
-      </ClientSections>
-      <CTA
-        text="Transform your business with cutting-edge ERP Services Unleash your full potential today!"
-        buttonText="Contact us"
-      />
+      <Stack
+        direction="row"
+        alignItems="center"
+        sx={{
+          width: "100%",
+          // background: " linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);",
+          height: "Auto",
+        }}
+      >
+        <Grid container sx={{ width: "100%" }}>
+          {AboutText.map((item) => (
+            <Fragment>
+              <Grid
+                item
+                xs={2}
+                sx={{
+                  height: 300,
+                  // border: "1px solid black",
+                  background: item.color,
+                  display: "flex",
+                  alignItems: "left ",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  color: "white",
+                  p: 2,
+                  gap: 1,
+                }}
+              >
+                <Typography variant="h6" sx={{ textTransform: "uppercase" }}>
+                  <b>{item.title}</b>
+                </Typography>
+                <Typography variant="body" sx={{ fontSize:'14px' }}>
+                 {item.subtext}
+                </Typography>
+              </Grid>
+            </Fragment>
+          ))}
+        </Grid>
+      </Stack>
     </HomeContainer>
   );
 }

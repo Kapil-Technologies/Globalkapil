@@ -36,6 +36,7 @@ import {
   FiChevronLeft,
   FiChevronRight,
   FiSend,
+  FiMail,
 } from "react-icons/fi";
 import {
   CareersArray,
@@ -50,14 +51,18 @@ import { BannerImage } from "./ERP/Erp";
 
 export const CareersBanner = styled("div")(({ theme, image }) => ({
   width: "100%",
-  height: "400px",
+  height: "auto",
   display: "flex",
   alignItems: "center",
+ 
   justifyContent: "center",
-  backgroundImage: `url(${image})`,
-  backgroundRepeat: `no-repeat`,
-  backgroundPosition: "center",
-  backgroundSize: "cover",
+  // backgroundImage: `url(${image})`,
+  // backgroundRepeat: `no-repeat`,
+  // backgroundPosition: "center",
+  // backgroundSize: "cover",
+  backgroundImage: "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)",
+  height: 250,
+  fontSize:"80px"
 }));
 
 export const Flags = styled("img")(({ theme, image }) => ({
@@ -114,7 +119,7 @@ const JobItemComponent = ({
   type,
   title,
   dept,
-  link,
+  link,mailto
 }) => {
   return (
     <Stack
@@ -153,15 +158,27 @@ const JobItemComponent = ({
           >
             {dept}
           </Typography>
-          <Button
-            variant="contained"
-            startIcon={<FiSend />}
-            component={Link}
-            target="blank"
-            to={link}
-          >
-            Apply
-          </Button>
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <Button
+              variant="contained"
+              startIcon={<FiMail />}
+              component={Link}
+              target="blank"
+              to={mailto}
+              sx={{ background: " #CB333B" }}
+            >
+              Send Email
+            </Button>
+            <Button
+              variant="contained"
+              startIcon={<FiSend />}
+              component={Link}
+              target="blank"
+              to={link}
+            >
+              Apply
+            </Button>
+          </Stack>
         </Stack>
       </Card>
     </Stack>
@@ -230,7 +247,9 @@ function Careers() {
       <Page name="Careers" content="" />
       <NavDiv>.</NavDiv>
       <CareersBanner>
-        <BannerImage src={CareersImage} alt="Ka" />
+        <Typography variant="h2" >
+          <b>Join With us</b>
+      </Typography>
       </CareersBanner>
       <Grid
         container
@@ -244,7 +263,7 @@ function Careers() {
         columnGap={2}
         rowGap={2}
       >
-        <Grid
+        {/* <Grid
           item
           xs={3.2}
           sx={{
@@ -324,7 +343,7 @@ function Careers() {
               </FormGroup>
             </Stack>
           </Stack>
-        </Grid>
+        </Grid> */}
         <Grid item xs={7.5}>
           <Stack
             direction="column"
@@ -344,11 +363,13 @@ function Careers() {
                     dept={item.department}
                     link={item.linkedin}
                     type={item.type}
+                    mailto={item.mail}
                   />
                 </Fragment>
               ))}
               {/* <PaginationComponent  /> */}
             </Box>
+            <PaginationComponent />
           </Stack>
         </Grid>
       </Grid>

@@ -1,124 +1,65 @@
-import React from 'react'
+import React from "react";
 import Slider from "react-slick";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import { Box, Typography } from "@mui/material";
-import Automotive from '../../assets/Industries/automotive.png'
-import { IndustriesData } from '../../mock/SlidersAndImages';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
- 
+import { Box, Grid, Stack, Typography } from "@mui/material";
+import Automotive from "../../assets/Industries/automotive.png";
+import { IndustriesData } from "../../mock/SlidersAndImages";
+import { FiArrowLeft, FiChevronRight } from "react-icons/fi";
+
 // ------------------------------------------- Styled Components
 
-export const MainSliderDiv = styled("div")(({ theme }) => ({
+export const MainSliderDiv = styled(Grid)(({ theme }) => ({
   width: "100%",
   display: "flex",
-  alignItems: "center",
+  alignItems: "left",
   justifyContent: "center",
-  marginBottom: "20px",
-  
+  height:300
 }));
 
-export const SliderData = styled(Slider)(({ theme }) => ({
-  width: "90%",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "10px",
-  // border: "1px solid blue",
-}));
-
-export const ClientContainer = styled(Box)(({ theme }) => ({
-  width: 180,
+export const TextContainer = styled(Box)(({ theme }) => ({
+  width: 80,
   // border: "1px solid #d3e1ea",
-  height: 200,
+  height: "inherit",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  flexDirection:'column',
+  flexDirection: "column",
   boxShadow: 4,
-  borderRadius: "15px",
+  color: "white",
   background: "white",
   color: "black",
-  margin: "auto",
+  // rotate: "270deg",
+  gap: 2,
+  background: "gray",
 }));
+
+export const Image = styled("img")(({ theme }) => ({}));
 
 export const RightArrow = styled(FiChevronRight)(({ theme }) => ({
-  color: "black",
+  color: "white",
   display: "block",
-  fontSize:'40px',
-  '&:hover': {
-    color:'black'
-  }
+  fontSize: "40px",
 }));
 
-export const LeftArrow = styled(FiChevronLeft)(({ theme }) => ({
+export const LeftArrow = styled(FiArrowLeft)(({ theme }) => ({
   display: "block",
-  color: "black",
-  "&:hover": {
-    color: "black",
-  },
+  color: "white",
 }));
 
 // ------------------------------------------- Settings
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <RightArrow
-      className={className}
-      // style={{ ...style, display: "block", color:'black',fontSize:'20px' }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <LeftArrow
-      className={className}
-      // style={{ ...style, display: "block",color:'black',fontSize:'80px'}}
-      onClick={onClick}
-    />
-     
-  );
-}
-
-
-const settings = {
-  className: "center",
-  dots: false,
-  infinite: true,
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  //  centerMode:true,
-  autoplay: true,
-  autoplaySpeed: 5000,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-};
-
-
-
-
 function Industries() {
   return (
     <MainSliderDiv>
-      <SliderData {...settings}>
-        {IndustriesData.map((item) => (
-          <Box>
-            <ClientContainer>
-              <img src={item.image} alt="KCS Industries" width="100px" style={{marginBottom:'20px'}} />
-              <Typography variant='body1'>
-                <b>{ item.title}</b>
-              </Typography>
-            </ClientContainer>
-          </Box>
-        ))}
-
-       
-      </SliderData>
+      <TextContainer>
+        <Stack direction='column' alignItems='center' justifyContent='center'>
+          <Typography variant="h6" sx={{rotate:'270deg'}} >Soumya</Typography>
+          <LeftArrow />
+        </Stack>
+      </TextContainer>
+     
     </MainSliderDiv>
   );
 }
 
-export default Industries
+export default Industries;
