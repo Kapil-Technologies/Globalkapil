@@ -17,25 +17,25 @@ export const SMedia = [
   {
     id: 1,
     title: "Linkedin",
-    path: "",
+    path: "https://www.linkedin.com/company/kcsinfor/",
     icon: <FaLinkedin />,
   },
   {
     id: 2,
     title: "Instagram",
-    path: "",
+    path: "https://www.instagram.com/kapil_technologies/?next=%2F",
     icon: <FaInstagram />,
   },
   {
     id: 3,
     title: "Youtube",
-    path: "",
+    path: "https://www.youtube.com/@kcstechnologies7392",
     icon: <FaYoutube />,
   },
   {
     id: 4,
     title: "Facebook",
-    path: "",
+    path: "https://www.facebook.com/KapilTechnologies",
     icon: <FiFacebook />,
   },
 ];

@@ -21,7 +21,7 @@ export const Copyright = () => {
       spacing={1}
     >
       <FaCopyright />
-      <Typography>All rights reserved by Pt KCS Technologies Indonesia 2023</Typography>
+      <Typography>All rights reserved by Kapil Technologies 2023</Typography>
     </Stack>
   );
 };

@@ -150,17 +150,29 @@ export const ServicesItem = styled("li")(({ theme }) => ({
 export const RightArrow = styled(FiExternalLink)(({ theme }) => ({
   marginTop: "3px",
 }));
-export const NavLinkStyle = styled(NavLink)(({ theme, isActive, click ,sap}) => ({
-  color: isActive ? "orange" : click ? "black" : sap ? "#1872CB" :"white",
-  fontWeight: "bold",
-  textDecoration: "none",
-  // textTransform: "uppercase",
-  "&:hover": {
-    color: "red",
-  },
-  display: "flex",
-  alignItems: "center",
-}));
+export const NavLinkStyle = styled(NavLink)(
+  ({ theme, isActive, click, sap, infor, home }) => ({
+    color: isActive
+      ? "orange"
+      : click
+      ? "black"
+      : sap
+      ? "#1872CB"
+      : infor
+      ? "black"
+      : home
+      ? "white"
+      : "#012C54",
+    fontWeight: "bold",
+    textDecoration: "none",
+    // textTransform: "uppercase",
+    "&:hover": {
+      color: "red",
+    },
+    display: "flex",
+    alignItems: "center",
+  })
+);
 
 // ------------------------------------------------------------------------------
 export const KapilNavStyle = ({ isActive }) => {
@@ -327,7 +339,15 @@ function Navbar() {
                     variant="body"
                     sx={{
                       cursor: "pointer",
-                      color: open ? "black" : pathname === SAP ? "#1872CB" : "white",
+                      color: open
+                        ? "black"
+                        : pathname === SAP
+                        ? "#1872CB"
+                        : pathname === Infor
+                        ? "black"
+                        : pathname === "/home"
+                        ? "white"
+                        : " #012C54",
                       "&:hover": {
                         color: "red",
                       },
@@ -345,7 +365,13 @@ function Navbar() {
                   </Typography>
                 </Stack>
               ) : (
-                <NavLinkStyle to={item.path} click={open} sap={pathname === SAP}>
+                <NavLinkStyle
+                  to={item.path}
+                  click={open}
+                  sap={pathname === SAP}
+                    infor={pathname === Infor}
+                    home={pathname === '/home'}
+                >
                   <b> {item.title}</b>
                 </NavLinkStyle>
               )}
