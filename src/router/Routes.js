@@ -118,6 +118,10 @@ function Routes() {
               element: <ERPLayout />,
             },
             {
+              path: "enterprise-software/:page/oracle",
+              element: <Consulting />,
+            },
+            {
               path: "solutions/:page",
               element: <Consulting />,
             },

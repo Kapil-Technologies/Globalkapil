@@ -42,7 +42,7 @@ export const MainHeader = styled("nav")(({ theme, InforColor, click, SAPColor,to
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  width: InforColor || SAPColor ? "50%" : "100%",
+  width: InforColor  ? "50%" : "100%",
   height: "15vh",
   backgroundColor: click ? "#F5F5F5" : "transperant",
   zIndex: 999,
@@ -150,8 +150,8 @@ export const ServicesItem = styled("li")(({ theme }) => ({
 export const RightArrow = styled(FiExternalLink)(({ theme }) => ({
   marginTop: "3px",
 }));
-export const NavLinkStyle = styled(NavLink)(({ theme, isActive }) => ({
-  color: isActive ? "orange" : "white",
+export const NavLinkStyle = styled(NavLink)(({ theme, isActive, click ,sap}) => ({
+  color: isActive ? "orange" : click ? "black" : sap ? "#1872CB" :"white",
   fontWeight: "bold",
   textDecoration: "none",
   // textTransform: "uppercase",
@@ -327,7 +327,7 @@ function Navbar() {
                     variant="body"
                     sx={{
                       cursor: "pointer",
-                      color: "white",
+                      color: open ? "black" : pathname === SAP ? "#1872CB" : "white",
                       "&:hover": {
                         color: "red",
                       },
@@ -345,7 +345,7 @@ function Navbar() {
                   </Typography>
                 </Stack>
               ) : (
-                <NavLinkStyle to={item.path}>
+                <NavLinkStyle to={item.path} click={open} sap={pathname === SAP}>
                   <b> {item.title}</b>
                 </NavLinkStyle>
               )}

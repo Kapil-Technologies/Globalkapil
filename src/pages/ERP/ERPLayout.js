@@ -295,13 +295,17 @@ function ERPLayout() {
             alignItems="center"
             justifyContent="space-between"
           >
-            <Typography>Soumya</Typography>
+            <Typography variant="h2" sx={{ px: 5, color: "#1872cb" }}>
+              <b>
+                SAP Consulting <br /> Services
+              </b>
+            </Typography>
             <img
               src={SAPBanner}
               alt="Kapil SAP Consulting Services"
               width="500px"
               height="500px"
-              style={{ marginTop: "10vh" }}
+              style={{ marginTop: "10vh",paddingRight:'20px' }}
             />
           </Stack>
         ) : subpage === "infor" ? (
@@ -1051,7 +1055,7 @@ function ERPLayout() {
                       direction="column"
                       alignItems="left"
                       justifyContent="left"
-                      textAlign='left'
+                      textAlign="left"
                     >
                       <Stack
                         direction="column"

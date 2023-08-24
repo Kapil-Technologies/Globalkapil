@@ -64,7 +64,7 @@ function Industries() {
       {/* <Typography variant="h2">
         <b>Featured Industries</b>
       </Typography> */}
-     <img src={IndustriesImage} alt="Kapil Technologies Industries" height='350px' />
+     <img src={IndustriesImage} alt="Kapil Technologies Industries" height='350px' style={{border:'2px solid #d3e1ea'}} />
     </MainSliderDiv>
   );
 }
