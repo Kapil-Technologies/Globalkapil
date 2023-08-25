@@ -208,12 +208,12 @@ export const BranchCards = ({
         <Typography variant="body1">{add1}</Typography>
         <Typography variant="body1">{add2}</Typography>
         <Typography variant="body1">{add3}</Typography>
-        <Stack direction="row" alignItems="center" spacing={1}>
+        {/* <Stack direction="row" alignItems="center" spacing={1}>
           <Typography variant="body1">Manager:</Typography>
           <Navigation2 to={cManagerli} target="blank">
             <b>{cManager}</b>
           </Navigation2>
-        </Stack>
+        </Stack> */}
         <Stack direction="row" alignItems="center" spacing={1}>
           <FaEnvelope />
           <Navigation2 to={mailto}>{email}</Navigation2>

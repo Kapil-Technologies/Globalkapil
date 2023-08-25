@@ -297,7 +297,7 @@ export const ZigZagData = [
     content: {
       txt1: "New. Now. Always",
       txt2: "Disruptive Technologies",
-      txt3: "Application Dvelopment",
+      txt3: "Application Development",
       para: "Transform your core business operations with emerging technologies to enable better human interaction and end user experiences.",
     },
     bgcolor: "#D7D7D7",

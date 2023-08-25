@@ -32,9 +32,12 @@ function Footer() {
       <Stack
         direction="row"
         alignItems="center"
-        justifyContent="center"
+        justifyContent="space-between"
         sx={{ color: "white", height: "inherit", p: 2 }}
       >
+        <Typography variant="body1">
+          <b>INDIA | INDONESIA | USA</b>
+        </Typography>
         <Copyright />
       </Stack>
     </MainFooter>

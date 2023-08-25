@@ -1,3 +1,5 @@
+import { FaComments, FaSortNumericDown, FaStar, FaTh, FaThList } from "react-icons/fa";
+import { FaThumbsUp } from "react-icons/fa6";
 import { TbCertificate2, TbExchange, TbPencilPlus, TbSettingsCheck, TbSettingsUp, TbUserCog } from "react-icons/tb";
 
 export const ERPServices = [
@@ -47,7 +49,7 @@ export const ERPDataInfor = [
     icon: <TbSettingsUp />,
     color: "#F68C09",
     text: "white",
-    iconback: "white",
+    iconback: "rgb(246, 140, 9,0.3)",
     icontext: "#F68C09 ",
 
     desc: "Continuous investment in business application is necessary to maintain best performance and an competitive edge. The lack of time, budget or resources to upgrade and maintain Infor systems can be a obstacle to the continuous growth of your business",
@@ -58,7 +60,7 @@ export const ERPDataInfor = [
     icon: <TbExchange />,
     color: "#3175A5",
     text: "white",
-    iconback: "white",
+    iconback: "rgb(207, 253, 223)",
     icontext: "#3175A5 ",
     desc: "Data migration is one of the crucial factors to make sure the success of upgrade or implementation. Our Infor experts will execute and guide in data migration to make sure long-term success.",
   },
@@ -68,7 +70,7 @@ export const ERPDataInfor = [
     icon: <TbPencilPlus />,
     color: "#AF5F30",
     text: "white",
-    iconback: "white",
+    iconback: "rgb(248, 228, 253)",
     icontext: "#AF5F30 ",
     desc: "Customize the Infor system that suits the enterprise processes and delivers the critical data in the way which makes sense for businesses. ",
   },
@@ -78,7 +80,7 @@ export const ERPDataInfor = [
     icon: <TbUserCog />,
     color: "#2DB6FA",
     text: "white",
-    iconback: "white",
+    iconback: "rgb(219, 243, 254)",
     icontext: "#2DB6FA ",
     desc: "Our Infor team expertise in Infor strategy development and Business processes which allows Kapil Technologies to bring transparency and foresight to the business-technology relationship. Kapil Technologies has expertise in Infor CloudSuite solutions with extensive and successful large global program delivery experience.",
   },
@@ -89,7 +91,7 @@ export const ERPDataInfor = [
     icon: <TbCertificate2 />,
     color: "#32770E",
     text: "white",
-    iconback: "white",
+    iconback: "rgb(208, 182, 197)",
     icontext: "#32770E ",
     desc: "For any successful Enterprise Application implementation, well trained internal IT and end users are extremely important. Kapil Technologies training services delivered by the Infor Application Experts.",
   },
@@ -232,66 +234,78 @@ export const TraiingList = [
 export const InforTrainingTabs1 = [
   {
     id: 1,
-    tabname: "Solutions",
-    tabvalue: "1",
+    tabname: "Products",
+    tabvalue: "1", 
+    tabicon:<FaTh />
   },
   {
     id: 2,
     tabname: "categories",
     tabvalue: "2",
+    tabicon:<FaThList />
   },
-  // {
-  //   id: 3,
-  //   tabname: "levels",
-  //   tabvalue: "3",
-  // },
+  {
+    id: 3,
+    tabname: "levels",
+    tabvalue: "3",
+    tabicon:<FaSortNumericDown />
+  },
   {
     id: 4,
     tabname: "benefits",
     tabvalue: "4",
+    tabicon:<FaThumbsUp />
   },
 ];
 
 export const InforTProducts = [
   {
     id: 1,
-    pname: "ERP LN & ClouSuite IE/ AU / HT",
+    pname: "Infor LN",
   },
   {
     id: 2,
-    pname: "Syteline ERP & CloudSuite Industrial",
+    pname: "Baan IV",
   },
   {
     id: 3,
-    pname: "Infor M3",
+    pname: "Baan V",
   },
   {
     id: 4,
-    pname: "CloudSuiteWMS",
+    pname: "Infor Cloud Industries",
   },
   {
     id: 5,
-    pname: "Factory Track",
+    pname: "Infor M3",
   },
   {
     id: 6,
-    pname: "Supplier Exchange",
+    pname: "Infor S3",
   },
   {
     id: 7,
-    pname: "Automotive Exchange",
+    pname: "Infor OS",
   },
   {
     id: 9,
-    pname: "Infor EAM",
+    pname: "Birst",
   },
   {
     id: 10,
-    pname: "Infor CPQ & Infor de/EPM",
+    pname: "Infor S3",
   },
   {
     id: 11,
-    pname: "Infor OS (ION, Ming.le, Doc Mgmt., Data lake, BIRST BI )",
+    pname: "Infor EAM",
+  },
+  {
+    id: 12,
+    pname: "Infor SCM",
+  },
+  {
+    id: 12,
+    pname: "Infor WFM",
   },
 ];
 
@@ -339,6 +353,55 @@ export const InforCategories = [
     id: 3,
     desc1: "Functional",
     desc2: "Ideal for : Business Analysis, Function Managers, End Users ",
+  },
+  
+];
+
+export const InforLevel = [
+  {
+    id: 1,
+    desc1: "Level1 (Overview & Use)",
+    desc2:
+      "Offers an overview of the product and prepares the participant with sufficient knowledge to use the system.",
+  },
+  {
+    id: 2,
+    desc1: "Level 2 (Advanced)",
+    desc2:
+      "Offers an in-depth training to enable the applicants to become experts and to start using the system effectively.",
+  },
+  
+];
+
+export const Recruiting = [
+  {
+    id: 1,
+    desc1: "Fulltime Placements",
+  },
+  {
+    id: 2,
+    desc1: "Onsite Contractors",
+  },
+  {
+    id: 3,
+    desc1: "Remote Contractors",
+  },
+];
+
+export const whyUs = [
+  {
+    id: 1,
+    desc1: "INFOR EXPERTS",
+    icon: <FaStar />,
+    desc2:
+      "Kapil Technologies is a consulting firm which is 100% focused on Infor. Our extensive expertise in this space, enables to find the best candidate within 10 business days.",
+  },
+  {
+    id: 2,
+    desc1: "WE SPEAK YOUR LANGUAGE",
+    icon: <FaComments />,
+    desc2:
+      "We are knowledgeable about the various versions and modules within the Infor Suite of Applications.",
   },
 ];
 

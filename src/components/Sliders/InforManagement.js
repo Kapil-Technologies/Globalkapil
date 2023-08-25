@@ -20,7 +20,7 @@ export const MainSliderDiv = styled("div")(({ theme }) => ({
 }));
 
 export const SliderData = styled(Slider)(({ theme }) => ({
-  width: "80%",
+  width: "70%",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -120,6 +120,7 @@ const settings = {
   dots: false,
   infinite: true,
   slidesToShow: 1,
+  
   slidesToScroll: 1,
   //  centerMode:true,
   //   autoplay: true,
