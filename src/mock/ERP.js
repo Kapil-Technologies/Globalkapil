@@ -1,6 +1,14 @@
 import { FaComments, FaSortNumericDown, FaStar, FaTh, FaThList } from "react-icons/fa";
 import { FaThumbsUp } from "react-icons/fa6";
 import { TbCertificate2, TbExchange, TbPencilPlus, TbSettingsCheck, TbSettingsUp, TbUserCog } from "react-icons/tb";
+import SAP1 from '../assets/SAP/sap1.png'
+import SAP2 from "../assets/SAP/sap2.png";
+import SAP3 from "../assets/SAP/sap3.png";
+import SAP4 from "../assets/SAP/sap4.png";
+import SAP5 from "../assets/SAP/sap5.png";
+import SAP6 from "../assets/SAP/sap6.png";
+
+
 
 export const ERPServices = [
   {
@@ -95,30 +103,7 @@ export const ERPDataInfor = [
     icontext: "#32770E ",
     desc: "For any successful Enterprise Application implementation, well trained internal IT and end users are extremely important. Kapil Technologies training services delivered by the Infor Application Experts.",
   },
-  // {
-  //   id: 7,
-  //   mtitle: "Automotive Exchange",
-  //   icon: "icon",
-  //   desc: "",
-  // },
-  // {
-  //   id: 8,
-  //   mtitle: "Infor EAM      ",
-  //   icon: "icon",
-  //   desc: "",
-  // },
-  // {
-  //   id: 9,
-  //   mtitle: "Infor Configure Price Quote (CPQ)",
-  //   icon: "icon",
-  //   desc: "",
-  // },
-  // {
-  //   id: 10,
-  //   mtitle: "Infor OS",
-  //   icon: "icon",
-  //   desc: "",
-  // },
+ 
 ];
 
 export const InforUpgradesTypes = [
@@ -275,36 +260,30 @@ export const InforTProducts = [
     id: 4,
     pname: "Infor Cloud Industries",
   },
+ 
   {
     id: 5,
-    pname: "Infor M3",
+    pname: "Infor S3",
   },
   {
     id: 6,
-    pname: "Infor S3",
-  },
-  {
-    id: 7,
     pname: "Infor OS",
   },
   {
-    id: 9,
+    id: 7,
     pname: "Birst",
   },
+ 
   {
-    id: 10,
-    pname: "Infor S3",
-  },
-  {
-    id: 11,
+    id: 8,
     pname: "Infor EAM",
   },
   {
-    id: 12,
+    id: 9,
     pname: "Infor SCM",
   },
   {
-    id: 12,
+    id: 10,
     pname: "Infor WFM",
   },
 ];
@@ -411,53 +390,48 @@ export const whyUs = [
 export const ERPDataSAP = [
   {
     id: 1,
-    mtitle: "SAP Technical Services",
-    icon: "icon",
-    desc: "Ours is an exceptionally excellent technical service team, that works efficiently to handle all the technical needs that arise at your organization to block your growth",
+    mtitle: "SAP IMPLEMENTATION and UPGRADE ",
+    icon: SAP1,
+    color:"#1661be",
+    desc:"Whether your organization needs a full-scale SAP ERP, a single module, or an upgrade, Kapil tech is ready to exceed expectations."
   },
   {
     id: 2,
-    mtitle: "SAP Fiori & UI5",
-    icon: "icon",
-    desc: "Just enhance the app user experience and performance using Fiori. Increase your content layers and expand your app with ease using this wonderful technology.",
+    mtitle: "SAP SYSTEM REVIEW SERVICES ",
+    icon: SAP2,
+    color:"#1661be",
+    desc:"We advance the Best and Leading Practices for implementing SAP. We can validate if you are getting the most out of your SAP system"
   },
 
   {
     id: 3,
-    mtitle: "SAP BI/BO",
-    icon: "icon",
-    desc: "For fortifying the enterprises a comprehensive BI/BO solution will be vastly helpful. We will ease your business friction by offering management, reporting, and data warehousing tools.",
+    mtitle: "SAP APPLICATION MANAGEMENT SUPPORT ",
+    icon: SAP3,
+    color:"#1661be",
+    desc:"We Understand that every organization has unique support requirements. We offer custom packages thatwill fit your end-to-endapplication management needs"
   },
   {
     id: 4,
-    mtitle: "SAP Implementation, Rollout Upgrade & Support",
-    icon: "icon",
-    desc: "A capable SAP solution provider supported by SAP Center of Excellence to offer you implementation, rollout upgrade, and support solutions efficiently to augment your business.",
+    mtitle: "SAP TRAINING ",
+    icon: SAP4,
+    color:"#1661be",
+    desc:"Kapil Tech was founded by SAP training professionals. We understand having a comprehensive approach to staff training is essential."
   },
   {
     id: 5,
-    mtitle: "SAP Functional Services",
-    icon: "icon",
-    desc: "We offer efficient Functional Services as it is necessary to track your company’s system and keep it upgraded so as to have it function well.",
+    mtitle: "SAP STAFF AUGMENTATION ",
+    icon: SAP5,
+    color:"#1661be",
+    desc:"Providing the highest caliber talent is hallmark of our approach. Gain access to resources with 15+ years of experience."
   },
   {
     id: 6,
-    mtitle: "SAP S4 HANA",
-    icon: "icon",
-    desc: "Plan your resources systematically by having your business database well secured, stored and maintained through S4 Hana and accelerate your enterprise processes.",
+    mtitle: "SAP CLOUD MIGRATION and HOSTING ",
+    icon: SAP6,
+    color:"#1661be",
+    desc:"Taking advantage of lower costs and easier  management with Cloud-Based servers. We offer a number of cloud deployment options."
   },
-  {
-    id: 7,
-    mtitle: "SAP HANA",
-    icon: "icon",
-    desc: "Get a wonderful HANA solution developed to analyze your enterprise data for your growth and benefit through analytics in this technological era of information and Data.",
-  },
-  {
-    id: 8,
-    mtitle: "SAP HCM",
-    icon: "icon",
-    desc: "Through HCM an enterprise’s payroll and other human resource related difficulties will be streamlined. We make your organization work for you aptly through our SAP HCM proficiency",
-  },
+ 
 ];
 
 

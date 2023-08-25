@@ -157,7 +157,7 @@ export const NavLinkStyle = styled(NavLink)(
       : click
       ? "black"
       : sap
-      ? "#1872CB"
+      ? "white"
       : infor
       ? "black"
       : home
@@ -342,7 +342,7 @@ function Navbar() {
                       color: open
                         ? "black"
                         : pathname === SAP
-                        ? "#1872CB"
+                        ? "white"
                         : pathname === Infor
                         ? "black"
                         : pathname === "/home"

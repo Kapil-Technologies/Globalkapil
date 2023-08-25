@@ -13,6 +13,7 @@ import Customers from "../pages/About/Customers";
 import Patners from "../pages/About/Patners";
 import Ppolicy from "../pages/About/Ppolicy";
 import Infor from "../pages/ERP/Infor";
+import SAP from "../pages/ERP/SAP";
 // import Industries from "../pages/Industries/Industries";
 
 function Routes() {
@@ -125,6 +126,14 @@ function Routes() {
             {
               path: "enterprise-software/:page/infor",
               element: <Infor />,
+            },
+            {
+              path: "enterprise-software/:page/SAP",
+              element: <SAP />,
+            },
+            {
+              path: "enterprise-software/:page/oracle",
+              element: <SAP />,
             },
             {
               path: "solutions/:page",
