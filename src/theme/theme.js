@@ -1,4 +1,5 @@
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import { NavLink } from "react-router-dom";
 
 export const customTheme = createTheme({
   components: {
@@ -18,15 +19,26 @@ export const customTheme = createTheme({
         color: "red",
       },
     },
+    NavLink: {
+      styleOverrides: {
+        root: {
+          fontFamily: ["Montserrat", " sans-serif"].join(","),
+        },
+      },
+    },
   },
+
   palette: {
     primary: {
       main: "#012C54",
     },
   },
   typography: {
-   
-    fontFamily:"",
+    fontFamily: ["Montserrat", " sans-serif"].join(","),
+
+    // h3: {
+    //   fontFamily: ["Dancing Script", "cursive"].join(","),
+    // },
   },
   breakpoints: {
     xs: 0,

@@ -196,11 +196,16 @@ function Home() {
           >
             <Typography
               variant="h3"
-              sx={{ color: "white", position: "absolute", bottom: 0 }}
+              className="Home"
+              sx={{
+                color: "white",
+                position: "absolute",
+                bottom: 0,
+                // fontFamily: "h3.fontFamily",
+                fontWeight: "bold",
+              }}
             >
-              <b>
-                Transforming your <br /> Digital Future
-              </b>
+              Transforming your <br /> Digital Future
             </Typography>
             {/* <Typography variant="h5" sx={{ color: "#162438" }}>
               Compact Enough to Show Compassion, Expansive Enough to Drive
@@ -253,10 +258,11 @@ function Home() {
         sx={{ p: 1, textAlign: "center" }}
         spacing={1}
       >
-        <Typography variant="h3" sx={{ color: "#0E366A" }}>
-          <b>
-            Enabling High <span style={{ color: "#0055CE" }}>Performance</span>
-          </b>
+        <Typography variant="h3" sx={{ color: "#0E366A", fontWeight: "bold" }}>
+          Enabling High{" "}
+          <span style={{ color: "#0055CE", fontFamily: "Montserrat" }}>
+            Performance
+          </span>
         </Typography>
         <Typography variant="h6" sx={{ width: "90%" }}>
           We combine technology with innovation, creativity, and strategy to
@@ -309,14 +315,23 @@ function Home() {
                   justifyContent="center"
                   sx={{ textAlign: item.textalign, height: "inherit", px: 4 }}
                 >
-                  <Typography variant="h3" sx={{ color: item.txt1color }}>
-                    <b>{item.content.txt1}</b>
+                  <Typography
+                    variant="h3"
+                    sx={{ color: item.txt1color, fontWeight: "bold" }}
+                  >
+                    {item.content.txt1}
                   </Typography>
-                  <Typography variant="h4" sx={{ color: item.txt1color }}>
-                    <b>{item.content.txt2}</b>
+                  <Typography
+                    variant="h4"
+                    sx={{ color: item.txt1color, fontWeight: "bold" }}
+                  >
+                    {item.content.txt2}
                   </Typography>
-                  <Typography variant="h5" sx={{ color: item.txt1color }}>
-                    <b>{item.content.txt3}</b>
+                  <Typography
+                    variant="h5"
+                    sx={{ color: item.txt1color, fontWeight: "bold" }}
+                  >
+                    {item.content.txt3}
                   </Typography>
                   <Typography
                     variant="h6"
@@ -338,8 +353,8 @@ function Home() {
         spacing={3}
         sx={{ textAlign: "center" }}
       >
-        <Typography variant="h4" sx={{ color: "white" }}>
-          <b>Our Growing Clientele ...</b>
+        <Typography variant="h4" sx={{ color: "white", fontWeight: "bold" }}>
+          Our Growing Clientele ...
         </Typography>
         <Clients />
       </ClientSectionsLayer>
@@ -362,7 +377,12 @@ function Home() {
           columnGap={2}
         >
           <Grid xs={6} item>
-            <img src={HomeAbout} alt="Kapil Technologies Vision Mission" width="100%" height="auto"  />
+            <img
+              src={HomeAbout}
+              alt="Kapil Technologies Vision Mission"
+              width="100%"
+              height="auto"
+            />
             {/* <Stack direction="column" sx={{ position: "relative", p: 1 }}>
               <Stack
                 direction="column"
@@ -402,8 +422,18 @@ function Home() {
                 alignItems="left"
                 justifyContent="center"
               >
-                <Typography variant="h6" component={item.link ? Link :null} target="blank" to={item.link} sx={{textDecoration:'none',color:'black'}}>
-                  <b>{item.title}</b>
+                <Typography
+                  variant="h6"
+                  component={item.link ? Link : null}
+                  target="blank"
+                  to={item.link}
+                  sx={{
+                    textDecoration: "none",
+                    color: "black",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {item.title}
                 </Typography>
                 <Typography variant="body1">{item.desc}</Typography>
               </Stack>

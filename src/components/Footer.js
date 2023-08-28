@@ -45,12 +45,15 @@ function Footer() {
         justifyContent="space-between"
         sx={{ color: "white", height: "inherit", p: 2 }}
       >
-        <Typography variant="body1">
-          <b>INDIA | INDONESIA | USA</b>
+        <Typography variant="body1" sx={{fontWeight:'bold'}}>
+          INDIA | INDONESIA | USA
         </Typography>
         <Copyright />
-        <Typography variant="body1" component={Link} to="mailto:info@kapiltech.com" sx={{color:'white',textDecoration:'none'}}>
-          <b>info@kapiltech.com</b>
+        <Typography variant="body1" component={Link} to="mailto:info@kapiltech.com" sx={{
+          color: 'white', textDecoration: 'none', fontWeight: 'bold', '&:hover': {
+          textDecoration:'underline'
+        }}}>
+          info@kapiltech.com
         </Typography>
       </Stack>
     </MainFooter>

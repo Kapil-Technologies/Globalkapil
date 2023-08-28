@@ -45,9 +45,12 @@ export const MainHeader = styled("nav")(
     justifyContent: "space-between",
     width: InforColor ? "50%" : "100%",
     height: "15vh",
-    backgroundColor: click && listid === 3 ? "rgba(0,0,0,0.4)" : "transperant",
+    backgroundColor: click && listid === 3 ? "rgba(0,0,0,0.4)" :listid === 2 ? "white": "transperant",
     zIndex: 999,
     top: topvisibile ? 0 : "-15vh",
+    [theme.breakpoints.up("xl")]: {
+      height:'10vh'
+    },
   })
 );
 
@@ -87,6 +90,10 @@ export const SubmenuList = styled("div")(({ theme, click, mid, SAP }) => ({
   width: "100%",
   borderTop: "1px solid white ",
   zIndex: 10,
+
+  [theme.breakpoints.up("xl")]: {
+    top: click ? "10vh" : "-100%",
+  },
 }));
 
 export const SubNavItem = styled("li")(({ theme }) => ({
@@ -152,17 +159,19 @@ export const ServicesItem = styled("li")(({ theme }) => ({
 export const RightArrow = styled(FiExternalLink)(({ theme }) => ({
   marginTop: "3px",
 }));
-export const NavLinkStyle = styled(NavLink)(({ theme, contactus,patners ,infor}) => ({
-  color: contactus || patners || infor? "#012C54" : "white",
-  fontWeight: "bold",
-  textDecoration: "none",
-  // textTransform: "uppercase",
-  "&:hover": {
-    color: "red",
-  },
-  display: "flex",
-  alignItems: "center",
-}));
+export const NavLinkStyle = styled(NavLink)(
+  ({ theme, contactus, patners, infor }) => ({
+    color: contactus || patners || infor ? "#012C54" : "white",
+    fontWeight: "bold",
+    textDecoration: "none",
+    // textTransform: "uppercase",
+    "&:hover": {
+      color: "red",
+    },
+    display: "flex",
+    alignItems: "center",
+  })
+);
 
 // ------------------------------------------------------------------------------
 export const KapilNavStyle = ({ isActive }) => {
@@ -293,7 +302,7 @@ function Navbar() {
         InforColor={pathname === Infor}
         SAPColor={pathname === SAP}
         oracleColor={pathname === Oracle}
-        click={open}
+        click={open }
         topvisibile={visible}
         listid={id}
         className="MainNav"
@@ -329,6 +338,7 @@ function Navbar() {
                     variant="body"
                     sx={{
                       cursor: "pointer",
+
                       color:
                         pathname === "/contact-us" ||
                         pathname === "/our-alliances" ||
@@ -340,9 +350,10 @@ function Navbar() {
                       },
                       display: "flex",
                       alignItems: "center",
+                      fontWeight: "bold",
                     }}
                   >
-                    <b> {item.title}</b>
+                    {item.title}
 
                     {item.submenudata === id && item.submenu && open
                       ? item.closeicon
@@ -387,8 +398,8 @@ function Navbar() {
               justifyContent="space-between"
               sx={{ width: "100%", p: 1, color: "#162438" }}
             >
-              <Typography variant="body1">
-                <b>Services</b>
+              <Typography variant="body1" sx={{fontWeight:'bold'}}>
+                Services
               </Typography>
               <ButtonBase onClick={handleClose}>
                 <FaX />
@@ -406,9 +417,9 @@ function Navbar() {
                     >
                       <Typography
                         variant="body1"
-                        sx={{ width: 150, color: "#162438" }}
+                        sx={{ width: 150, color: "#162438",fontWeight:'bold' }}
                       >
-                        <b>{item.Mtitle}</b>
+                        {item.Mtitle}
                       </Typography>
 
                       <Grid container>
