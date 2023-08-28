@@ -132,19 +132,19 @@ const JobItemComponent = ({
         <Stack sx={{ p: 1 }} direction="row" alignItems="center" spacing={2}>
           <Stack direction="row" alignItems="center" spacing={0.5}>
             <Flags src={locationflag} alt="Kapil Tehnologies Offices" />
-            <Typography variant="body">{location}</Typography>
+            <Typography variant="body1">{location}</Typography>
           </Stack>
           <Stack direction="row" alignItems="center" spacing={0.5}>
             <FiBriefcase />
-            <Typography variant="body">{mode}</Typography>
+            <Typography variant="body1">{mode}</Typography>
           </Stack>
           <Stack direction="row" alignItems="center" spacing={0.5}>
             <FaBusinessTime />
-            <Typography variant="body">{type}</Typography>
+            <Typography variant="body1">{type}</Typography>
           </Stack>
         </Stack>
-        <Typography variant="h5" sx={{ p: 1 }}>
-          <b>{title}</b>
+        <Typography variant="h5" sx={{ p: 1,fontWeight:'bold' }}>
+          {title}
         </Typography>
         <Stack
           sx={{ p: 1 }}

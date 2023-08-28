@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box, Button, Stack, Tab, Typography, Tabs, Grid } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,7 +7,12 @@ import HomeAbout from "../assets/Banners/HomeAbout.png";
 import Industries from "../components/Sliders/Industries";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import Page from "../components/Page";
-import { FiArrowRight, FiChevronRight, FiSend } from "react-icons/fi";
+import {
+  FiArrowRight,
+  FiChevronRight,
+  FiExternalLink,
+  FiSend,
+} from "react-icons/fi";
 
 import { ZigZagData } from "../mock/NavbarData";
 
@@ -148,6 +153,16 @@ export const CTA = ({ text, buttonText }) => {
 // ---------------------------------------------------------------
 
 function Home() {
+  const [Hover, setHover] = useState(false);
+
+  const MouseEnters = () => {
+    setHover(true);
+  };
+
+  const MouseLeaves = () => {
+    setHover(false);
+  };
+
   const Navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -421,6 +436,8 @@ function Home() {
                 direction="column"
                 alignItems="left"
                 justifyContent="center"
+                onMouseEnter={() => MouseEnters(item.id)}
+                onMouseLeave={MouseLeaves}
               >
                 <Typography
                   variant="h6"

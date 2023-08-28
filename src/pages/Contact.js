@@ -192,8 +192,8 @@ export const BranchCards = ({
       }}
     >
       <CardContent>
-        <Typography variant="h4" gutterBottom>
-          <b>{cname}</b>
+        <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold" }}>
+          {cname}
         </Typography>
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
           {name}
@@ -275,7 +275,7 @@ function Contact() {
               {TabsData.map((item) => (
                 <Tab
                   key={item.id}
-                  label={item.tabname}
+                  label={<Typography sx={{fontWeight:'bold'}} variant="body1"> {item.tabname}</Typography>}
                   value={item.tabvalue}
                   sx={{
                     textTransform: "capitalize",
@@ -418,7 +418,7 @@ function Contact() {
             // background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
             background: "linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)",
             color: "#162438",
-            height:600
+            height: 600,
           }}
           direction="column"
           alignItems="center"
@@ -427,8 +427,8 @@ function Contact() {
           spacing={2}
           aria-disabled="true"
         >
-          <Typography variant="h5">
-            <b>Connect with Us – Your Thoughts Matter!</b>
+          <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+            Connect with Us – Your Thoughts Matter!
           </Typography>
           <Stack
             direction="row"
@@ -436,8 +436,8 @@ function Contact() {
             justifyContent="center"
             spacing={2}
           >
-            <TextField label="First Name" sx={{width:250}} disabled />
-            <TextField label="Last Name" sx={{width:250}} disabled />
+            <TextField label="First Name" sx={{ width: 250 }} disabled />
+            <TextField label="Last Name" sx={{ width: 250 }} disabled />
           </Stack>
           <Stack
             direction="row"
@@ -445,8 +445,8 @@ function Contact() {
             justifyContent="center"
             spacing={2}
           >
-            <TextField label="Country" sx={{width:250}} />
-            <TextField label="Designation" sx={{width:250}} />
+            <TextField label="Country" sx={{ width: 250 }} />
+            <TextField label="Designation" sx={{ width: 250 }} />
           </Stack>
           <Stack
             direction="row"
@@ -454,8 +454,8 @@ function Contact() {
             justifyContent="center"
             spacing={2}
           >
-            <TextField label="Company" sx={{width:250}} />
-            <TextField label="Email" sx={{width:250}} />
+            <TextField label="Company" sx={{ width: 250 }} />
+            <TextField label="Email" sx={{ width: 250 }} />
           </Stack>
           <Stack
             direction="row"
@@ -463,17 +463,12 @@ function Contact() {
             justifyContent="center"
             spacing={2}
           >
-            <TextField label="Phone" sx={{width:250}} />
-            <TextField label="Industries" sx={{width:250}} />
+            <TextField label="Phone" sx={{ width: 250 }} />
+            <TextField label="Industries" sx={{ width: 250 }} />
           </Stack>
-          <TextField label="Message" multiline rows={5} sx={{ width:510}} />
-          <Button variant="contained"
-            sx={{ width: 120 }}
-            endIcon={<FiSend />}
-          >
-            <b>
-              Submit
-            </b>
+          <TextField label="Message" multiline rows={5} sx={{ width: 510 }} />
+          <Button variant="contained" sx={{ width: 120 }} endIcon={<FiSend />}>
+            Submit
           </Button>
         </Stack>
       </Form>

@@ -108,8 +108,8 @@ function Erp() {
                 spacing={2}
                 sx={{ fontSize: "20px" }}
               >
-                <Typography variant="h4">
-                  <b>{item.title}</b>
+                <Typography variant="h4" sx={{fontWeight:'bold'}}>
+                  {item.title}
                 </Typography>
               </Stack>
               <Typography>{item.desc}</Typography>
@@ -144,8 +144,8 @@ function Erp() {
             height: 480,
           }}
         >
-          <Typography variant="h5" sx={{ p: 1 }}>
-            <b>Connect With our Experts</b>
+          <Typography variant="h5" sx={{ p: 1,fontWeight:'bold' }}>
+            Connect With our Experts
           </Typography>
           <Stack
             direction="column"

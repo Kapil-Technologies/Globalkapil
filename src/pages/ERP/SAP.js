@@ -50,8 +50,8 @@ function SAP() {
           justifyContent="space-between"
           sx={{ background: "inherit", py:6 }}
         >
-          <Typography variant="h2" sx={{ color: "white" ,p:2}}>
-            <b>SAP Consulting Services</b>
+          <Typography variant="h2" sx={{ color: "white" ,p:2,fontWeight:'bold'}}>
+            SAP Consulting Services
           </Typography>
           <BannerImage src={SAPBanner} />
         </Stack>
@@ -69,8 +69,8 @@ function SAP() {
           spacing={1}
           sx={{ py: 2 }}
         >
-          <Typography variant="h4" gutterBottom>
-            <b>Our Services</b>
+          <Typography variant="h4" gutterBottom sx={{fontWeight:'bold'}}>
+            Our Services
           </Typography>
           <Box
             sx={{
@@ -118,9 +118,10 @@ function SAP() {
                     sx={{
                       color:
                         hover && item.id === hoverid ? item.color : "black",
+                      fontWeight:'bold'
                     }}
                   >
-                    <b>{item.mtitle}</b>
+                    {item.mtitle}
                   </Typography>
                   <Typography variant="body1">{item.desc}</Typography>
                 </Stack>
