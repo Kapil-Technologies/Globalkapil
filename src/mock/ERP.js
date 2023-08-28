@@ -7,6 +7,9 @@ import SAP3 from "../assets/SAP/sap3.png";
 import SAP4 from "../assets/SAP/sap4.png";
 import SAP5 from "../assets/SAP/sap5.png";
 import SAP6 from "../assets/SAP/sap6.png";
+import InforLogo from '../assets/Partners/Infor.png'
+import SAPlogo from "../assets/Partners/saplogo.png";
+import Oraclelogo from "../assets/Partners/oraclelogo.png";
 
 
 
@@ -14,18 +17,27 @@ export const ERPServices = [
   {
     id: 1,
     title: "Infor",
+    icon: InforLogo,
+    logoheight: "60px",
+    logowidth: "auto",
     path: "/offerings/enterprise-software/erp/infor",
     desc: "Metamorphose your business, deliver customer satisfaction, and improve efficiency with Kapil Technologies the foremost trusted Infor alliance partner. Our Infor experts are committed to meet client’s business objectives by delivering best in class solutions and offerings.",
   },
   {
     id: 2,
     title: "SAP",
+    icon: SAPlogo,
+    logoheight: "80px",
+    logowidth: "auto",
     path: "/offerings/enterprise-software/erp/SAP",
     desc: "SAP (Systems, Applications, and Products) is a leading enterprise software company, providing integrated business solutions for various industries through its suite of software products and services.",
   },
   {
     id: 3,
     title: "Oracle NetSuite",
+    icon: Oraclelogo,
+    logoheight: "50px",
+    logowidth: "",
     path: "/offerings/enterprise-software/erp/Oracle",
     desc: "NetSuite, acquired by Oracle, is a cloud-based ERP software suite. It integrates financials, CRM, e-commerce, and more to streamline business operations, offering scalability and real-time data for effective decision-making across various industries.",
   },
@@ -400,15 +412,15 @@ export const ERPDataSAP = [
     mtitle: "SAP SYSTEM REVIEW SERVICES ",
     icon: SAP2,
     color:"#1661be",
-    desc:"We advance the Best and Leading Practices for implementing SAP. We can validate if you are getting the most out of your SAP system"
+    desc:"We advance the Best and Leading Practices for implementing SAP. We can validate if you are getting the most out of your SAP system."
   },
 
   {
     id: 3,
-    mtitle: "SAP APPLICATION MANAGEMENT SUPPORT ",
+    mtitle: "SAP APPLICATION MANAGEMENT SERVICES ",
     icon: SAP3,
     color:"#1661be",
-    desc:"We Understand that every organization has unique support requirements. We offer custom packages thatwill fit your end-to-endapplication management needs"
+    desc:"We Understand that every organization has unique support requirements. We offer custom packages that will fit your end-to-end application management needs."
   },
   {
     id: 4,

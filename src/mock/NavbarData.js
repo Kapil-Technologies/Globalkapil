@@ -364,7 +364,7 @@ export const ZigZagData = [
       txt3: "ERP Practice",
       para: "Efficiently manage day to day business activities, ensure effective control real time.",
     },
-    bgcolor: "#F9B433",
+    bgcolor: "#F9B463",
     // bgcolor: "#05E2DB",
     textalign: "right",
     txt1color: "#0E366A",

@@ -2,7 +2,6 @@ import React, { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
 import { NavDiv } from "./Home";
 import Page from "../components/Page";
-import CareersImage from "../assets/Banners/career.png";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import {
   Autocomplete,
@@ -45,7 +44,8 @@ import {
   Modes,
 } from "../mock/CareersData";
 import { Link } from "react-router-dom";
-import { BannerImage } from "./ERP/Erp";
+import CareersBannerImage from '../assets/Banners/Careers.png'
+
 
 // ----------------------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ export const CareersBanner = styled("div")(({ theme, image }) => ({
   // backgroundPosition: "center",
   // backgroundSize: "cover",
   backgroundImage: "linear-gradient(to top, #a8edea 0%, #fed6e3 100%)",
-  height: 250,
+  height: "N",
   fontSize:"80px"
 }));
 
@@ -245,11 +245,8 @@ function Careers() {
   return (
     <div>
       <Page name="Careers" content="" />
-      <NavDiv>.</NavDiv>
       <CareersBanner>
-        <Typography variant="h2" >
-          <b>Join With us</b>
-      </Typography>
+        <img src={CareersBannerImage} alt="Kapil Technologies Careers" width="100%" height='auto' />
       </CareersBanner>
       <Grid
         container

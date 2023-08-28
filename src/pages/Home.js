@@ -1,24 +1,36 @@
 import React, { Fragment } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import HomepageBanner from "../components/Sliders/HomepageBanner";
 import { Box, Button, Stack, Tab, Typography, Tabs, Grid } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import Clients from "../components/Sliders/Clients";
-import HomeAboutBanner from "../assets/Banners/ctaBanner.png";
-import ClientBI from "../assets/Banners/ClientsHome.jpeg";
+import HomeAbout from "../assets/Banners/HomeAbout.png";
 import Industries from "../components/Sliders/Industries";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import Page from "../components/Page";
 import { FiArrowRight, FiChevronRight, FiSend } from "react-icons/fi";
-import HAboutBanner from "../assets/Banners/cta.jpeg";
+
 import { ZigZagData } from "../mock/NavbarData";
-import Home1 from "../assets/Banners/home2.png";
+
 import { AboutText } from "../mock/MockData";
-import Homepageb from '../assets/Banners/HomeIndustries.png'
+import Homepageb from "../assets/Banners/HomepageBanner.png";
 // ---------------------------------------------------------------
 
+const About = [
+  {
+    id: 1,
+    title: "KAPIL TECHNOLOGIES",
+    desc: "It is a systems integrator, software development partner, and managed services provider focused on Enterprise solutions for multiple industries. Our services include strategies for accounting, finance, regulatory reporting, performance management, sustainability, customer experience, and IoT. Operating from offices across the globe and growing, our expert teams help clients achieve operational efficiency and improve decision-making capabilities. KAPIL TECH is part of the KAPIL GROUP.",
+  },
+  {
+    id: 2,
+    title: "KAPIL GROUP",
+    link: "https://kapilgroup.com/",
+    desc: "KAPIL is an independent, international group of companies with more than 18,000 employees around the world. The Kapil Group is active in over 10 countries in the banking, insurance, automotive, consumer products, food, life science & healthcare, public sector, telecommunications, manufacturing, travel & logistics and utilities sectors. Kapil Tech develops integrated software solutions and advises its customers on all aspects of information technology.",
+  },
+];
+
 export const HomeContainer = styled("div")(({ theme }) => ({}));
-export const MainBanner = styled("div")(({ theme,image }) => ({
+export const MainBanner = styled("div")(({ theme, image }) => ({
   width: "100%",
   height: 580,
   background: "#B0DAE3",
@@ -101,7 +113,7 @@ export const ClientSectionsLayer = styled(Stack)(({ theme, image }) => ({
   background: "#001222",
   height: "auto",
   padding: "10px",
-  border:'2px solid #d3e1ea'
+  border: "2px solid #d3e1ea",
 }));
 
 // ---------------------------------------------------------------
@@ -117,7 +129,6 @@ export const CTA = ({ text, buttonText }) => {
         textAlign: "center",
         background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
       }}
-      image={HomeAboutBanner}
     >
       <Typography variant="h5" sx={{ opacity: 1, color: "white", width: 500 }}>
         {text}
@@ -152,7 +163,6 @@ function Home() {
           alignItems: "center",
           justifyContent: "center",
         }}
-
         image={Homepageb}
       >
         <Grid
@@ -165,7 +175,7 @@ function Home() {
             alignItems: "center",
             justifyContent: "center",
             background: "rgba(0,0,0,0.5)",
-            height:580
+            height: 580,
           }}
         >
           <Grid
@@ -179,13 +189,17 @@ function Home() {
               // flexDirection: "column",
               color: "white",
               gap: 2,
-              marginTop:"70vh"
+              position: "relative",
+              height: 500,
             }}
             xs={12}
           >
-            <Typography variant="h3" sx={{ color: "white" }}>
+            <Typography
+              variant="h3"
+              sx={{ color: "white", position: "absolute", bottom: 0 }}
+            >
               <b>
-                Transforming your <br/> Digital Future
+                Transforming your <br /> Digital Future
               </b>
             </Typography>
             {/* <Typography variant="h5" sx={{ color: "#162438" }}>
@@ -333,41 +347,68 @@ function Home() {
 
       <Stack
         direction="row"
-        alignItems="center"
+        // alignItems="center"
         sx={{
           width: "100%",
           // background: " linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);",
           height: "Auto",
         }}
       >
-        <Grid container sx={{ width: "100%" }}>
-          {AboutText.map((item) => (
-            <Fragment>
-              <Grid
-                item
-                xs={2}
-                sx={{
-                  height: 300,
-                  // border: "1px solid black",
-                  background: item.color,
-                  display: "flex",
-                  alignItems: "left ",
-                  justifyContent: "center",
-                  flexDirection: "column",
-                  color: "white",
-                  p: 2,
-                  gap: 1,
-                }}
+        <Grid
+          container
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          columnGap={2}
+        >
+          <Grid xs={6} item>
+            <img src={HomeAbout} alt="Kapil Technologies Vision Mission" width="100%" height="auto"  />
+            {/* <Stack direction="column" sx={{ position: "relative", p: 1 }}>
+              <Stack
+                direction="column"
+                alignItems="left"
+                justifyContent="left"
+                sx={{ textAlign: "left", background: "", color: "" }}
               >
-                <Typography variant="h6" sx={{ textTransform: "uppercase" }}>
+                <Typography variant="h6">
+                  <b>Vision</b>
+                </Typography>
+                <Typography variant="body1">
+                  To revolutionize the way businesses, use technology, by
+                  developing and delivering software services that are agile,
+                  scalable, and future proof that enable them to stay ahed of
+                  the curve in a fast-evolving digital economy
+                </Typography>
+              </Stack>
+              <Stack
+                direction="column"
+                alignItems="right"
+                justifyContent="right"
+                sx={{ textAlign: "right", background: "", color: "" }}
+              >
+                <Typography variant="h6">Mission</Typography>
+                <Typography variant="body1">
+                  To be a socially responsible software services company that
+                  makes a positive impact on the world and contributes to the
+                  betterment of society
+                </Typography>
+              </Stack>
+            </Stack> */}
+          </Grid>
+          <Grid xs={5} item>
+            {About.map((item) => (
+              <Stack
+                direction="column"
+                alignItems="left"
+                justifyContent="center"
+              >
+                <Typography variant="h6" component={item.link ? Link :null} target="blank" to={item.link} sx={{textDecoration:'none',color:'black'}}>
                   <b>{item.title}</b>
                 </Typography>
-                <Typography variant="body" sx={{ fontSize: "14px" }}>
-                  {item.subtext}
-                </Typography>
-              </Grid>
-            </Fragment>
-          ))}
+                <Typography variant="body1">{item.desc}</Typography>
+              </Stack>
+            ))}
+          </Grid>
         </Grid>
       </Stack>
     </HomeContainer>

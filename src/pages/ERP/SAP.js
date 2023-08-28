@@ -12,6 +12,7 @@ export const ERPBanner = styled("div")(({ theme }) => ({
   width: "100%",
   height: "auto",
   background: "#1661be",
+  // padding:'10px'
 
   // position:'relative'
 }));
@@ -22,7 +23,7 @@ export const BannerImage = styled("img")(({ theme }) => ({
   height: "500px",
   position: "relative",
     
-  padding: "30px",
+  padding: "20px",
 }));
 
 // ------------------------------------------ Main Components
@@ -47,9 +48,9 @@ function SAP() {
           direction="row"
           alignItems="center"
           justifyContent="space-between"
-          sx={{ background: "inherit", p: 2 }}
+          sx={{ background: "inherit", py:6 }}
         >
-          <Typography variant="h2" sx={{ color: "white" }}>
+          <Typography variant="h2" sx={{ color: "white" ,p:2}}>
             <b>SAP Consulting Services</b>
           </Typography>
           <BannerImage src={SAPBanner} />

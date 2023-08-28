@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import { FiArrowRight, FiExternalLink } from "react-icons/fi";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { ERPServices } from "../../mock/ERP";
-import ERP from "../../assets/Banners/erp.png";
+import ErpImage from '../../assets/Banners/erp.png'
 import InforLogo from '../../assets/Partners/Infor.png'
 
 // ---------------------------------------------------------------------- Styled Components
@@ -38,14 +38,14 @@ export const NavigateLink = styled(Link)(({ theme }) => ({
 }));
 
 export const BannerImage = styled("img")(({ theme }) => ({
-  width: " inherit",
-  maxWidth: " inherit",
-  height: "inherit",
+  width: "100%",
+  maxWidth: "100%",
+  height: "auto",
 }));
 
 export const CareersBanner = styled("div")(({ theme, image }) => ({
   width: "100%",
-  height: "500px",
+  height: "auto",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -61,9 +61,7 @@ function Erp() {
       {/* <NavDiv>.</NavDiv> */}
       <Page name="ERP" content="" />
       <CareersBanner>
-        <Typography variant="h4" gutterBottom>
-          <b>Empowering Your Business with Seamless ERP Solutions.</b>
-        </Typography>
+       <BannerImage src={ErpImage} alt="Kapil Technologies Erp Services" />
       </CareersBanner>
 
       <Stack
@@ -73,7 +71,7 @@ function Erp() {
         sx={{ textAlign: "center" }}
       >
         <Typography variant="h4" sx={{ p: 2 }}>
-          <b>Our ERP Services</b>
+         
         </Typography>
 
         <Grid
@@ -82,7 +80,7 @@ function Erp() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            position:'relative'
+            position: "relative",
           }}
           columnGap={2}
           rowGap={2}
@@ -96,11 +94,11 @@ function Erp() {
               sx={{
                 border: "2px solid #d3e1ea",
                 width: 350,
-                height: 320,
+                height: 310,
                 p: 1,
                 textAlign: "left",
                 borderRadius: 3,
-                position:'relative'
+                position: "relative",
               }}
               key={item.id}
             >
@@ -110,22 +108,25 @@ function Erp() {
                 spacing={2}
                 sx={{ fontSize: "20px" }}
               >
-                <Cloud />
-                <Typography variant="h4">{item.title}</Typography>
+                <Typography variant="h4">
+                  <b>{item.title}</b>
+                </Typography>
               </Stack>
               <Typography>{item.desc}</Typography>
               <Stack
                 direction="row"
                 alignItems="center"
                 justifyContent="space-between"
-                sx={{height:50,position:'absolute',bottom:0,width:350}}
+                sx={{ height: 50, position: "absolute", bottom: 0, width: 350, py:2}}
               >
-                {
-                item.title === 'Infor' ? <img src={InforLogo} alt="Kapil Technologies" width="auto" height="60px" style={{marginBottom:'40px'}} /> :null
-                }
+                <img
+                  src={item.icon}
+                  alt="Kapil Technologies Partners"
+                  width={item.logowidth}
+                  height={item.logoheight}
+                />
                 <NavigateLink to={item.path}>
-                  <FiExternalLink
-                  />
+                  <FiExternalLink />
                 </NavigateLink>
               </Stack>
             </Stack>
@@ -138,11 +139,10 @@ function Erp() {
           spacing={2}
           sx={{
             width: "100%",
-            backgroundImage:
-              "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
-            height:480
+            // backgroundImage:
+            //   "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
+            height: 480,
           }}
-          
         >
           <Typography variant="h5" sx={{ p: 1 }}>
             <b>Connect With our Experts</b>
@@ -187,11 +187,7 @@ function Erp() {
                 rows={5}
                 sx={{ width: "688px" }}
               />
-              <Button
-                variant="contained"
-                endIcon={<FiArrowRight />}
-                
-              >
+              <Button variant="contained" endIcon={<FiArrowRight />}>
                 Submit
               </Button>
             </Stack>

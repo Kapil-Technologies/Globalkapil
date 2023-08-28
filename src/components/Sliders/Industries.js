@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import Automotive from "../../assets/Industries/automotive.png";
+
 import { IndustriesData } from "../../mock/SlidersAndImages";
 import { FiArrowLeft, FiChevronRight } from "react-icons/fi";
 import IndustriesImage from '../../assets/Banners/Industries.png'

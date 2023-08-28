@@ -27,18 +27,14 @@ import {
   FaShare,
   FaShareNodes,
 } from "react-icons/fa6";
-import { FiArrowRight, FiMoreVertical, FiShare } from "react-icons/fi";
+import { FiArrowRight, FiMoreVertical, FiSend, FiShare } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import ContactBanner from "../assets/Banners/contact.png";
 import { SMedia } from "../mock/FooterData";
-import { BannerImage } from "./ERP/Erp";
-import FormBanner from "../assets/Banners/Form.jpeg";
-import GlobalBanner from "../assets/Banners/Global.jpeg";
+import FormBanner from "../assets/Banners/Form.png";
+import GlobalBanner from "../assets/Banners/Global.png";
 import { TabsData } from "../mock/ContactData";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import India from "../assets/Banners/india.png";
-import USA from "../assets/Banners/usa.png";
-import Indonesia from "../assets/Banners/indonesia.png";
+
 import Opening from "../assets/Banners/Opening Soon.png";
 
 // --------------------------------------------------------------------
@@ -147,13 +143,13 @@ export const Share = styled(Box)(({ theme, image }) => ({
 export const Form = styled(Stack)(({ theme, image }) => ({
   display: "flex",
   alignItems: "left",
-  justifyContent: "left",
+  justifyContent: "center",
   backgroundImage: `url(${image})`,
   backgroundRepeat: `no-repeat`,
   backgroundPosition: "center",
   backgroundSize: "cover",
   width: "100%",
-  height: "auto",
+  height: 750,
 }));
 
 export const Global = styled(Stack)(({ theme, image }) => ({
@@ -165,7 +161,7 @@ export const Global = styled(Stack)(({ theme, image }) => ({
   backgroundPosition: "center",
   backgroundSize: "cover",
   width: "100%",
-  height: 'auto',
+  height: 600,
 }));
 
 // -------------------------------------------------------------------------------------- Reusable Components
@@ -176,6 +172,7 @@ export const BranchCards = ({
   add1,
   add2,
   add3,
+  add4,
   image,
   cManagerli,
   cname,
@@ -190,13 +187,12 @@ export const BranchCards = ({
     <Card
       sx={{
         width: 350,
-        height: 300,
+        height: "auto",
         border: "1px solid #d3e1ea",
       }}
     >
-      
       <CardContent>
-        <Typography variant="h4" gutterBottom >
+        <Typography variant="h4" gutterBottom>
           <b>{cname}</b>
         </Typography>
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
@@ -208,16 +204,17 @@ export const BranchCards = ({
         <Typography variant="body1">{add1}</Typography>
         <Typography variant="body1">{add2}</Typography>
         <Typography variant="body1">{add3}</Typography>
+        <Typography variant="body1">{add4}</Typography>
         {/* <Stack direction="row" alignItems="center" spacing={1}>
           <Typography variant="body1">Manager:</Typography>
           <Navigation2 to={cManagerli} target="blank">
             <b>{cManager}</b>
           </Navigation2>
         </Stack> */}
-        <Stack direction="row" alignItems="center" spacing={1}>
+        {/* <Stack direction="row" alignItems="center" spacing={1}>
           <FaEnvelope />
           <Navigation2 to={mailto}>{email}</Navigation2>
-        </Stack>
+        </Stack> */}
         <Stack direction="row" alignItems="center" spacing={1}>
           <FaPhone />
           <Navigation2 to={mobileto}>{mobile}</Navigation2>
@@ -238,152 +235,6 @@ function Contact() {
   return (
     <div>
       <Page name="Contact Us" content="" />
-      <NavDiv>.</NavDiv>
-      <BackContainer>
-        <Typography variant="h2">
-          Let's Have a talk
-       </Typography>
-      </BackContainer>
-
-      <MainDetails>
-        <Grid
-          columnGap={4}
-          rowGap={2}
-          container
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-
-            p: 1,
-          }}
-        >
-          <Grid
-            item
-            xs={2.5}
-            sx={{ p: 0.5, textAlign: "center" }}
-            component={Stack}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <MapIcon />
-            <Typography variant="subtile">
-              28th Floor, DBS Bank Towers <br /> Ciputra World One, Jalan Prof{" "}
-              <br /> Dr. Santrio Kav 3-5 Jakarta, <br /> Indonesia -12940
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={2}
-            sx={{ p: 0.5 }}
-            component={Stack}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <MailIcon />
-            <Navigation to="mailto:contact@ptkcs.com">
-              contact@ptkcs.com
-            </Navigation>
-          </Grid>
-          <Grid
-            item
-            xs={2.5}
-            sx={{ p: 0.5 }}
-            component={Stack}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <PhoneIcon />
-            <Navigation to="tel:+62 852 1808 4208">
-              +62 852 1808 4208
-            </Navigation>
-          </Grid>
-
-          <Grid
-            item
-            xs={2.5}
-            sx={{ p: 0.5 }}
-            component={Stack}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <FollowIcon />
-            <Stack direction="row" alignItems="center" spacing={1}>
-              {SMedia.map((item) => (
-                <Social to={item.path} key={item.id} target="blank">
-                  {item.icon}
-                </Social>
-              ))}
-            </Stack>
-          </Grid>
-        </Grid>
-      </MainDetails>
-      <Form image={FormBanner}>
-        <Stack
-          sx={{
-            width: 500,
-            margin: 3,
-            p: 2,
-            borderRadius: 2,
-            // background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
-            background: "linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)",
-            color: "#162438",
-          }}
-          direction="column"
-          alignItems="center"
-          justifyContent="center"
-          component="form"
-          spacing={2}
-          aria-disabled="true"
-        >
-          <Typography variant="h6">
-            <b>Connect with Us – Your Thoughts Matter!</b>
-          </Typography>
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
-            spacing={2}
-          >
-            <TextField label="First Name" size="small" disabled />
-            <TextField label="Last Name" size="small" disabled />
-          </Stack>
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
-            spacing={2}
-          >
-            <TextField label="Country" size="small" />
-            <TextField label="Designation" size="small" />
-          </Stack>
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
-            spacing={2}
-          >
-            <TextField label="Company" size="small" />
-            <TextField label="Email" size="small" />
-          </Stack>
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
-            spacing={2}
-          >
-            <TextField label="Phone" size="small" />
-            <TextField label="Industries" size="small" />
-          </Stack>
-          <TextField label="Message" multiline rows={5} sx={{ width: 450 }} />
-          <Button variant="contained">Submit</Button>
-        </Stack>
-      </Form>
-
       <Global image={GlobalBanner}>
         <TabContext value={value}>
           <Stack
@@ -460,6 +311,7 @@ function Contact() {
                         add1={cdetails.add1}
                         add2={cdetails.add2}
                         add3={cdetails.add3}
+                        add4={cdetails.add4}
                         image={cdetails.image}
                         cname={cdetails.cName}
                         cManager={cdetails.cManager}
@@ -478,6 +330,153 @@ function Contact() {
           </Box>
         </TabContext>
       </Global>
+
+      {/* <MainDetails>
+        <Grid
+          columnGap={4}
+          rowGap={2}
+          container
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+
+            p: 1,
+          }}
+        >
+          <Grid
+            item
+            xs={2.5}
+            sx={{ p: 0.5, textAlign: "center" }}
+            component={Stack}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <MapIcon />
+            <Typography variant="subtile">
+              28th Floor, DBS Bank Towers <br /> Ciputra World One, Jalan Prof{" "}
+              <br /> Dr. Santrio Kav 3-5 Jakarta, <br /> Indonesia -12940
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            xs={2}
+            sx={{ p: 0.5 }}
+            component={Stack}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <MailIcon />
+            <Navigation to="mailto:contact@ptkcs.com">
+              contact@ptkcs.com
+            </Navigation>
+          </Grid>
+          <Grid
+            item
+            xs={2.5}
+            sx={{ p: 0.5 }}
+            component={Stack}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <PhoneIcon />
+            <Navigation to="tel:+62 852 1808 4208">
+              +62 852 1808 4208
+            </Navigation>
+          </Grid>
+
+          <Grid
+            item
+            xs={2.5}
+            sx={{ p: 0.5 }}
+            component={Stack}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <FollowIcon />
+            <Stack direction="row" alignItems="center" spacing={1}>
+              {SMedia.map((item) => (
+                <Social to={item.path} key={item.id} target="blank">
+                  {item.icon}
+                </Social>
+              ))}
+            </Stack>
+          </Grid>
+        </Grid>
+      </MainDetails> */}
+      <Form image={FormBanner}>
+        <Stack
+          sx={{
+            width: 600,
+            margin: 3,
+            p: 2,
+            borderRadius: 2,
+            // background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
+            background: "linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)",
+            color: "#162438",
+            height:600
+          }}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          component="form"
+          spacing={2}
+          aria-disabled="true"
+        >
+          <Typography variant="h5">
+            <b>Connect with Us – Your Thoughts Matter!</b>
+          </Typography>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+          >
+            <TextField label="First Name" sx={{width:250}} disabled />
+            <TextField label="Last Name" sx={{width:250}} disabled />
+          </Stack>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+          >
+            <TextField label="Country" sx={{width:250}} />
+            <TextField label="Designation" sx={{width:250}} />
+          </Stack>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+          >
+            <TextField label="Company" sx={{width:250}} />
+            <TextField label="Email" sx={{width:250}} />
+          </Stack>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+          >
+            <TextField label="Phone" sx={{width:250}} />
+            <TextField label="Industries" sx={{width:250}} />
+          </Stack>
+          <TextField label="Message" multiline rows={5} sx={{ width:510}} />
+          <Button variant="contained"
+            sx={{ width: 120 }}
+            endIcon={<FiSend />}
+          >
+            <b>
+              Submit
+            </b>
+          </Button>
+        </Stack>
+      </Form>
     </div>
   );
 }

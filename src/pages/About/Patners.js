@@ -86,9 +86,9 @@ function Patners() {
   return (
     <div>
       <NavDiv>.</NavDiv>
-      <Page name="Our Partner" content="" />
-      <Stack direction="column" alignItems="center" justifyContent="center">
-        <Typography variant="h5" gutterBottom sx={{ p: 1 }}>
+      <Page name="Our Alliance" content="" />
+      <Stack direction="column" alignItems="center" justifyContent="center" spacing={1}>
+        <Typography variant="h5" >
           <b>Portfolio of World Class Alliances</b>
         </Typography>
         <Grid
@@ -104,25 +104,27 @@ function Patners() {
           {PartnerList.map((item) => (
             <img
               src={item.image}
-              alt="Kapil Patners"
+              alt="Kapil Partners"
               key={item.id}
               width={item.width}
               height={item.height}
             />
           ))}
         </Grid>
-        <Typography variant="h5" sx={{ p: 1 }} >
+        <Typography variant="h5"  >
           <b>Portfolio of Technical Alliances</b>
         </Typography>
         <Grid
           container
-          columnGap={1}
+          columnGap={2}
           rowGap={1}
           sx={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+         
           }}
+
         >
           {Technical.map((item) => (
             <img

@@ -6,10 +6,7 @@ import Careers from "../pages/Careers";
 import About from "../pages/About/About";
 import Consulting from "../pages/Consulting";
 import Erp from "../pages/ERP/Erp";
-import ERPLayout from "../pages/ERP/ERPLayout";
-import GlobalPresence from "../pages/GlobalPresence";
 import NotFound from "../components/NotFound";
-import Customers from "../pages/About/Customers";
 import Patners from "../pages/About/Patners";
 import Ppolicy from "../pages/About/Ppolicy";
 import Infor from "../pages/ERP/Infor";
@@ -56,10 +53,7 @@ function Routes() {
               path: "our-battalion",
               element: <About />,
             },
-            {
-              path: "our-customers",
-              element: <Customers />,
-            },
+           
             {
               path: "our-alliances",
               element: <Patners />,
@@ -115,10 +109,7 @@ function Routes() {
               path: "enterprise-software/digital-content-management",
               element: <Consulting />,
             },
-            {
-              path: "enterprise-software/:page/:subpage",
-              element: <ERPLayout />,
-            },
+          
             {
               path: "enterprise-software/:page/oracle",
               element: <Consulting />,
@@ -156,10 +147,7 @@ function Routes() {
         //   ],
         // },
 
-        {
-          path: "/contact-us/our-global-presence",
-          element: <GlobalPresence />,
-        },
+        
         {
           path: "/contact-us",
           element: <Contact />,

@@ -1,8 +1,7 @@
 import React, { Fragment, useRef, useState } from "react";
 import Page from "../../components/Page";
 import { Link, useParams } from "react-router-dom";
-import SAPBanner from "../../assets/Banners/sapBanner.png";
-import OracleBanner from "../../assets/Banners/oracle.png";
+
 import InforBanner1 from "../../assets/Partners/infor1.png";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box, Button, Card, Grid, Stack, Tab, Typography } from "@mui/material";
@@ -23,14 +22,27 @@ import {
   TraiingList,
   whyUs,
 } from "../../mock/ERP";
-import { FaArrowRight, FaAsterisk, FaFlag, FaListOl, FaRoad, FaThumbsUp } from "react-icons/fa6";
+import {
+  FaArrowRight,
+  FaAsterisk,
+  FaFlag,
+  FaListOl,
+  FaRoad,
+  FaThumbsUp,
+} from "react-icons/fa6";
 import { TbSettingsUp } from "react-icons/tb";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import InforBanner from "../../assets/Banners/BInfor1.png";
 import InforCustomization from "../../components/Sliders/InforCustomization";
 import InforManagement from "../../components/Sliders/InforManagement";
 import { FiArrowRight } from "react-icons/fi";
-import { FaArrowAltCircleRight, FaCogs, FaSortAmountDown, FaSortAmountDownAlt, FaUsers } from "react-icons/fa";
+import {
+  FaArrowAltCircleRight,
+  FaCogs,
+  FaSortAmountDown,
+  FaSortAmountDownAlt,
+  FaUsers,
+} from "react-icons/fa";
 
 // ---------------------------------------------------------------------- Styled Components
 
@@ -518,7 +530,7 @@ function Infor() {
               background: "#CB333B",
               borderRadius: "5px",
               color: "#CB333B",
-              marginBottom:'15px'
+              marginBottom: "15px",
             }}
           ></Box>
         </Stack>
@@ -787,7 +799,7 @@ function Infor() {
               background: "#CB333B",
               borderRadius: "5px",
               color: "#CB333B",
-              marginBottom:'15px'
+              marginBottom: "15px",
             }}
           ></Box>
         </Stack>
@@ -858,9 +870,7 @@ function Infor() {
                       key={item.id}
                       label={
                         <Stack direction="row" alignItems="center" spacing={1}>
-                          <IconBase>
-                            {item.tabicon}
-                          </IconBase>
+                          <IconBase>{item.tabicon}</IconBase>
                           <Typography>{item.tabname}</Typography>
                         </Stack>
                       }

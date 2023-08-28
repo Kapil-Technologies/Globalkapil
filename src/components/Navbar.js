@@ -1,4 +1,4 @@
-import React, { Fragment, useState,useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import KTLogo from "../assets/Logo/KTlogo.png";
@@ -30,24 +30,26 @@ export const Header = styled("header")(
     // display: "flex",
     // alignItems: "center",
     // justifyContent: "space-between",
-    width:  "100%",
+    width: "100%",
     // height: "15vh",
     backgroundColor: click ? "#F5F5F5" : "transparent",
     // zIndex: 999,
   })
 );
 
-export const MainHeader = styled("nav")(({ theme, InforColor, click, SAPColor,topvisibile }) => ({
-  position: "fixed",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  width: InforColor  ? "50%" : "100%",
-  height: "15vh",
-  backgroundColor: click ? "#F5F5F5" : "transperant",
-  zIndex: 999,
-  top:topvisibile ? 0 : '-15vh'
-}));
+export const MainHeader = styled("nav")(
+  ({ theme, InforColor, click, SAPColor, topvisibile, listid }) => ({
+    position: "fixed",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: InforColor ? "50%" : "100%",
+    height: "15vh",
+    backgroundColor: click && listid === 3 ? "rgba(0,0,0,0.4)" : "transperant",
+    zIndex: 999,
+    top: topvisibile ? 0 : "-15vh",
+  })
+);
 
 export const Logo = styled("img")(({ theme }) => ({
   height: "70px",
@@ -150,29 +152,17 @@ export const ServicesItem = styled("li")(({ theme }) => ({
 export const RightArrow = styled(FiExternalLink)(({ theme }) => ({
   marginTop: "3px",
 }));
-export const NavLinkStyle = styled(NavLink)(
-  ({ theme, isActive, click, sap, infor, home }) => ({
-    color: isActive
-      ? "orange"
-      : click
-      ? "black"
-      : sap
-      ? "white"
-      : infor
-      ? "black"
-      : home
-      ? "white"
-      : "#012C54",
-    fontWeight: "bold",
-    textDecoration: "none",
-    // textTransform: "uppercase",
-    "&:hover": {
-      color: "red",
-    },
-    display: "flex",
-    alignItems: "center",
-  })
-);
+export const NavLinkStyle = styled(NavLink)(({ theme, contactus,patners ,infor}) => ({
+  color: contactus || patners || infor? "#012C54" : "white",
+  fontWeight: "bold",
+  textDecoration: "none",
+  // textTransform: "uppercase",
+  "&:hover": {
+    color: "red",
+  },
+  display: "flex",
+  alignItems: "center",
+}));
 
 // ------------------------------------------------------------------------------
 export const KapilNavStyle = ({ isActive }) => {
@@ -241,7 +231,6 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos, visible, handleScroll]);
 
-
   // -----------------------------------------------------------------------------
 
   const Infor = "/offerings/enterprise-software/erp/infor";
@@ -306,6 +295,7 @@ function Navbar() {
         oracleColor={pathname === Oracle}
         click={open}
         topvisibile={visible}
+        listid={id}
         className="MainNav"
       >
         <Link
@@ -339,15 +329,12 @@ function Navbar() {
                     variant="body"
                     sx={{
                       cursor: "pointer",
-                      color: open
-                        ? "black"
-                        : pathname === SAP
-                        ? "white"
-                        : pathname === Infor
-                        ? "black"
-                        : pathname === "/home"
-                        ? "white"
-                        : " #012C54",
+                      color:
+                        pathname === "/contact-us" ||
+                        pathname === "/our-alliances" ||
+                        pathname === "/offerings/enterprise-software/erp/infor"
+                          ? "#012C54"
+                          : "white",
                       "&:hover": {
                         color: "red",
                       },
@@ -368,9 +355,12 @@ function Navbar() {
                 <NavLinkStyle
                   to={item.path}
                   click={open}
+                  listid={id}
+                  contactus={pathname === "/contact-us"}
+                  patners={pathname === "/our-alliances"}
                   sap={pathname === SAP}
-                    infor={pathname === Infor}
-                    home={pathname === '/home'}
+                  infor={pathname === Infor}
+                  home={pathname === "/home"}
                 >
                   <b> {item.title}</b>
                 </NavLinkStyle>

@@ -3,15 +3,17 @@ import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Stack, Typography } from "@mui/material";
 import { SocialMedia } from "./SiteMap";
 import { FaCopyright } from "react-icons/fa6";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // ----------------------------------------------------------------
 
-export const MainFooter = styled("footer")(({ theme, image ,path}) => ({
+export const MainFooter = styled("footer")(({ theme, image, path }) => ({
   backgroundColor: "#162438",
-  position: path? "fixed" :null,
-  bottom:path?  0 :null,
-  width:'100%'
+  width: "100%",
+  [theme.breakpoints.up("xl")]: {
+    position: path ? "absolute" :null,
+    bottom:path? 0 :null
+  },
 }));
 
 // ---------------------------------------------------------------
@@ -33,9 +35,10 @@ export const Copyright = () => {
 };
 
 function Footer() {
-   const { pathname } = useLocation();
+  const { pathname } = useLocation();
+
   return (
-    <MainFooter path={pathname === '/our-alliance'}>
+    <MainFooter path={pathname === "/our-alliances"}>
       <Stack
         direction="row"
         alignItems="center"
@@ -46,6 +49,9 @@ function Footer() {
           <b>INDIA | INDONESIA | USA</b>
         </Typography>
         <Copyright />
+        <Typography variant="body1" component={Link} to="mailto:info@kapiltech.com" sx={{color:'white',textDecoration:'none'}}>
+          <b>info@kapiltech.com</b>
+        </Typography>
       </Stack>
     </MainFooter>
   );

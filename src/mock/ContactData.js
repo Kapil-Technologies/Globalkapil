@@ -1,9 +1,6 @@
 import IndiaFlag from '../assets/Flags/IndiaFlag.png'
 import IndonesiaFlag from "../assets/Flags/IndonesiaFlag.png";
 import USAFlag from "../assets/Flags/USAFlag.jpeg";
-import India from "../assets/Banners/india.png";
-import USA from "../assets/Banners/usa.png";
-import Indonesia from "../assets/Banners/indonesia.png";
 
 export const TabsData = [
   {
@@ -13,13 +10,13 @@ export const TabsData = [
     subbranches: [
       {
         id: 1,
-        image: USA,
+        // image: USA,
         cName: "USA",
-        title: "KCS Software Solutions",
+        title: "KCS Technologies Inc",
         subtitle: "",
-        add1: "Suite #310,",
-        add2: "1603 Capital Ave,Cheyenne,",
-        add3: "Wyoming - 82001",
+        add1: "1603 Capitol Ave. Suite #310",
+        add2: "Cheyenne, Wyoming - 82001",
+        // add3: "Wyoming - 82001",
         // cManager: "Prem Kumar Dasari",
         cManagerlinkedin: "",
         email: "info@kapiltech.com",
@@ -54,13 +51,14 @@ export const TabsData = [
     subbranches: [
       {
         id: 1,
-        image: Indonesia,
+        // image: Indonesia,
         cName: "Indonesia",
         title: "PT KCS Technologies Indonesia",
         subtitle: "",
-        add1: "Floor:28, DBS Bank Towers, Ciputra World One",
-        add2: "Jalan Prof. Dr.Santrio Kav 3-5, ",
-        add3: "Jakarta,Indonesia - 12940",
+        add1: " Jalan Prof. Dr.Santrio Kav 3-5",
+        add2: " DBS Bank Towers, 28th floor ",
+        add3: "Ciputra World One",
+        add4:"Jakarta - 12940",
         // cManager: "Prem Kumar Dasari",
         cManagerlinkedin: "",
         email: "contact@ptkcs.com",
@@ -71,13 +69,13 @@ export const TabsData = [
       },
       {
         id: 2,
-        image: India,
+        // image: India,
         cName: "India",
         title: "Kapil Technologies Pvt Ltd",
         subtitle: "(formerly KCS Software Solutions Pvt Ltd)",
         add1: "Floor:2 , Kapil Kavuri Hub,",
         add2: "Financial District, Gachibowli,",
-        add3: "Hyderabad,Telangana, India - 500032",
+        add3: "Hyderabad,Telangana - 500032",
         // cManager: "Prem Kumar Dasari",
         cManagerlinkedin: "",
         email: "info@kapiltech.com",
