@@ -449,8 +449,12 @@ function Home() {
                     color: "black",
                     fontWeight: "bold",
                   }}
+                 
                 >
                   {item.title}
+                  {Hover && item.id === 2 ? (
+                    <FiExternalLink style={{ marginLeft: "10px" }} />
+                  ) : null}
                 </Typography>
                 <Typography variant="body1">{item.desc}</Typography>
               </Stack>
