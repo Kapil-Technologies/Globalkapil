@@ -106,7 +106,7 @@ export const Management = [
     description1:
       "Developing a new module or customizing existing functionality goes beyond creating code. It needs a proper planing to ensure that the designed code meets the customer's requirements.",
     description2:
-      " Kapil Technologies Infor experts has in depth knowledge of techniques, tools and processes necessary for successful implementations",
+      " Kapil Technologies Infor experts has in depth knowledge of techniques, tools and processes necessary for successful implementations.",
     image: INM3,
   },
   {
@@ -197,8 +197,18 @@ function InforCustomization() {
                   ))
                 ) : item.id === 1 || 2 || 3 ? (
                   <Fragment>
-                    <Typography variant="body1">{item.description1}</Typography>
-                    <Typography variant="body1">{item.description2}</Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{ textAlign: "justify", textJustify: "inner-word" }}
+                    >
+                      {item.description1}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{ textAlign: "justify", textJustify: "inner-word" }}
+                    >
+                      {item.description2}
+                    </Typography>
                   </Fragment>
                 ) : null}
               </Stack>

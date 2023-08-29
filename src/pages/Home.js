@@ -26,12 +26,12 @@ const About = [
     title: "KAPIL TECHNOLOGIES",
     desc: "It is a systems integrator, software development partner, and managed services provider focused on Enterprise solutions for multiple industries. Our services include strategies for accounting, finance, regulatory reporting, performance management, sustainability, customer experience, and IoT. Operating from offices across the globe and growing, our expert teams help clients achieve operational efficiency and improve decision-making capabilities. KAPIL TECH is part of the KAPIL GROUP.",
   },
-  {
-    id: 2,
-    title: "KAPIL GROUP",
-    link: "https://kapilgroup.com/",
-    desc: "KAPIL is an independent, international group of companies with more than 18,000 employees around the world. The Kapil Group is active in over 10 countries in the banking, insurance, automotive, consumer products, food, life science & healthcare, public sector, telecommunications, manufacturing, travel & logistics and utilities sectors. Kapil Tech develops integrated software solutions and advises its customers on all aspects of information technology.",
-  },
+  // {
+  //   id: 2,
+  //   title: "KAPIL GROUP",
+  //   link: "https://kapilgroup.com/",
+  //   desc: "KAPIL is an independent, international group of companies with more than 18,000 employees around the world. The Kapil Group is active in over 10 countries in the banking, insurance, automotive, consumer products, food, life science & healthcare, public sector, telecommunications, manufacturing, travel & logistics and utilities sectors. Kapil Tech develops integrated software solutions and advises its customers on all aspects of information technology.",
+  // },
 ];
 
 export const HomeContainer = styled("div")(({ theme }) => ({}));
@@ -274,7 +274,7 @@ function Home() {
         spacing={1}
       >
         <Typography variant="h3" sx={{ color: "#0E366A", fontWeight: "bold" }}>
-          Enabling High{" "}
+          Enabling High
           <span style={{ color: "#0055CE", fontFamily: "Montserrat" }}>
             Performance
           </span>
@@ -363,10 +363,9 @@ function Home() {
 
       <ClientSectionsLayer
         direction="column"
-        alignItems="center"
-        justifyContent="center"
+        alignItems="left"
+        justifyContent="left"
         spacing={3}
-        sx={{ textAlign: "center" }}
       >
         <Typography variant="h4" sx={{ color: "white", fontWeight: "bold" }}>
           Our Growing Clientele ...
@@ -398,67 +397,32 @@ function Home() {
               width="100%"
               height="auto"
             />
-            {/* <Stack direction="column" sx={{ position: "relative", p: 1 }}>
-              <Stack
-                direction="column"
-                alignItems="left"
-                justifyContent="left"
-                sx={{ textAlign: "left", background: "", color: "" }}
-              >
-                <Typography variant="h6">
-                  <b>Vision</b>
-                </Typography>
-                <Typography variant="body1">
-                  To revolutionize the way businesses, use technology, by
-                  developing and delivering software services that are agile,
-                  scalable, and future proof that enable them to stay ahed of
-                  the curve in a fast-evolving digital economy
-                </Typography>
-              </Stack>
-              <Stack
-                direction="column"
-                alignItems="right"
-                justifyContent="right"
-                sx={{ textAlign: "right", background: "", color: "" }}
-              >
-                <Typography variant="h6">Mission</Typography>
-                <Typography variant="body1">
-                  To be a socially responsible software services company that
-                  makes a positive impact on the world and contributes to the
-                  betterment of society
-                </Typography>
-              </Stack>
-            </Stack> */}
           </Grid>
           <Grid xs={5} item>
-            {About.map((item) => (
-              <Stack
-                direction="column"
-                alignItems="left"
-                justifyContent="center"
-                onMouseEnter={() => MouseEnters(item.id)}
-                onMouseLeave={MouseLeaves}
+            <Stack direction="column" alignItems="left" justifyContent="center">
+              <Typography
+                variant="h6"
+                target="blank"
+                sx={{
+                  textDecoration: "none",
+                  color: "black",
+                  fontWeight: "bold",
+                }}
               >
-                <Typography
-                  variant="h6"
-                  component={item.link ? Link : null}
-                  target="blank"
-                  to={item.link}
-                  sx={{
-                    textDecoration: "none",
-                    color: "black",
-                    fontWeight: "bold",
-                  }}
-                 
-                >
-                  {item.title}
-                  {Hover && item.id === 2 ? (
-                    <FiExternalLink style={{ marginLeft: "10px" }} />
-                  ) : null}
-                </Typography>
-                <Typography variant="body1">{item.desc}</Typography>
-              </Stack>
-            ))}
+                KAPIL TECHNOLOGIES
+              </Typography>
+              <Typography variant="body1" sx={{textAlign:'justify',textJustify:'inner-word'}}>
+                It is a systems integrator, software development partner, and
+                managed services provider focused on Enterprise solutions for
+                multiple industries. Our services include strategies for
+                accounting, finance, regulatory reporting, performance
+                management, sustainability, customer experience, and IoT.
+                Operating from offices across the globe and growing, our expert
+                teams help clients achieve operational efficiency and improve
+                decision-making capabilities. KAPIL TECH is part of the 
+                <Link to="https://kapilgroup.com" target="blank" style={{textDecoration:'none',fontWeight:'bold',color:'black'}}> KAPIL GROUP</Link>.
+              </Typography>
+            </Stack>
           </Grid>
         </Grid>
       </Stack>

@@ -43,13 +43,18 @@ export const MainHeader = styled("nav")(
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    width: InforColor ? "50%" : "100%",
+    width: InforColor ? "60%" : "100%",
     height: "15vh",
-    backgroundColor: click && listid === 3 ? "rgba(0,0,0,0.4)" :listid === 2 ? "white": "transperant",
+    backgroundColor:
+      click && listid === 3
+        ? "rgba(0,0,0,0.4)"
+        : listid === 2
+        ? "white"
+        : "transperant",
     zIndex: 999,
     top: topvisibile ? 0 : "-15vh",
     [theme.breakpoints.up("xl")]: {
-      height:'10vh'
+      height: "10vh",
     },
   })
 );
@@ -164,12 +169,14 @@ export const NavLinkStyle = styled(NavLink)(
     color: contactus || patners || infor ? "#012C54" : "white",
     fontWeight: "bold",
     textDecoration: "none",
-    // textTransform: "uppercase",
+    fontSize: "16px",
+    textTransform: "uppercase",
+    fontFamily: theme.typography.fontFamily,
+    display: "flex",
+    alignItems: "center",
     "&:hover": {
       color: "red",
     },
-    display: "flex",
-    alignItems: "center",
   })
 );
 
@@ -302,7 +309,7 @@ function Navbar() {
         InforColor={pathname === Infor}
         SAPColor={pathname === SAP}
         oracleColor={pathname === Oracle}
-        click={open }
+        click={open}
         topvisibile={visible}
         listid={id}
         className="MainNav"
@@ -338,7 +345,9 @@ function Navbar() {
                     variant="body"
                     sx={{
                       cursor: "pointer",
-
+                      textTransform: "uppercase",
+                      fontFamily: "fontFamily",
+                      fontSize: "16px",
                       color:
                         pathname === "/contact-us" ||
                         pathname === "/our-alliances" ||
@@ -373,7 +382,7 @@ function Navbar() {
                   infor={pathname === Infor}
                   home={pathname === "/home"}
                 >
-                  <b> {item.title}</b>
+                  {item.title}
                 </NavLinkStyle>
               )}
             </MainNavItem>
@@ -398,7 +407,7 @@ function Navbar() {
               justifyContent="space-between"
               sx={{ width: "100%", p: 1, color: "#162438" }}
             >
-              <Typography variant="body1" sx={{fontWeight:'bold'}}>
+              <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                 Services
               </Typography>
               <ButtonBase onClick={handleClose}>
@@ -417,7 +426,11 @@ function Navbar() {
                     >
                       <Typography
                         variant="body1"
-                        sx={{ width: 150, color: "#162438",fontWeight:'bold' }}
+                        sx={{
+                          width: 150,
+                          color: "#162438",
+                          fontWeight: "bold",
+                        }}
                       >
                         {item.Mtitle}
                       </Typography>

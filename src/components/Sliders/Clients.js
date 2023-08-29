@@ -3,7 +3,8 @@ import Slider from "react-slick";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box, Stack, Typography } from "@mui/material";
 import { HomePageClients } from "../../mock/CCData";
-import { LeftArrow, RightArrow } from "./Industries";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+
 
 // ------------------------------------------- Styled Components
 
@@ -38,6 +39,17 @@ export const ClientContainer = styled(Box)(({ theme }) => ({
   margin: "auto",
 }));
 
+
+export const RightArrow = styled(FiChevronRight)(({ theme }) => ({
+  color: "white",
+  display: "block",
+  fontSize: "40px",
+}));
+
+export const LeftArrow = styled(FiChevronLeft)(({ theme }) => ({
+  display: "block",
+  color: "white",
+}));
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;

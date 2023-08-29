@@ -162,7 +162,14 @@ function InforManagement() {
                   {item.title}
                 </Typography>
 
-                <Typography variant="body1" sx={{ width: "80%" }}>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    width: "90%",
+                    textAlign: "justify",
+                    textJustify: "inner-word",
+                  }}
+                >
                   {item.description}
                 </Typography>
               </Stack>

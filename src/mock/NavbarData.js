@@ -241,13 +241,13 @@ export const NavData = [
     path: "/home",
     submenudata: 1,
   },
- 
+
   {
     id: 3,
     title: "What We Do",
     // path: "/services",
-    openicon: <FaCaretDown style={{marginTop:'2px'}} />,
-    closeicon: <FaCaretUp />,
+    openicon: <FaCaretDown style={{ fontSize: "20px" }} />,
+    closeicon: <FaCaretUp style={{ fontSize: "20px" }} />,
     submenudata: 3,
     submenu: true,
   },
@@ -266,7 +266,6 @@ export const NavData = [
     id: 6,
     title: "Contact Us ",
     path: "/contact-us",
-   
   },
 ];
 
@@ -338,7 +337,7 @@ export const ZigZagData = [
       txt1: "Develop. Test. Deploy.",
       txt2: "Resolve",
       txt3: "Application Development",
-      para: "When you need the most - Ensuring Business continuity all times  .",
+      para: "When you need the most - Ensuring Business continuity all times.",
     },
     bgcolor: "#C7D9CD",
     textalign: "left",

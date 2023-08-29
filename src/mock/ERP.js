@@ -104,9 +104,21 @@ export const ERPDataInfor = [
     icontext: "#2DB6FA ",
     desc: "Our Infor team expertise in Infor strategy development and Business processes which allows Kapil Technologies to bring transparency and foresight to the business-technology relationship. Kapil Technologies has expertise in Infor CloudSuite solutions with extensive and successful large global program delivery experience.",
   },
-
   {
     id: 5,
+    mtitle: "Managed Services",
+    icon: <TbUserCog />,
+    color: "#E9222C",
+    text: "white",
+    iconback: "rgb(219, 243, 254)",
+    icontext: "#2DB6FA ",
+    desc: "Our Infor experts are capable of solving technical errors, delivering insights & answers to functional queries around the clock (24/7).",
+    desc1:
+      "Enterprise Applications cannot communicate with one another to share business rules or data. Infor has developed ION to simplify Enterprise Application Integration.",
+  },
+
+  {
+    id: 6,
     mtitle: "Training",
     icon: <TbCertificate2 />,
     color: "#32770E",
@@ -115,7 +127,6 @@ export const ERPDataInfor = [
     icontext: "#32770E ",
     desc: "For any successful Enterprise Application implementation, well trained internal IT and end users are extremely important. Kapil Technologies training services delivered by the Infor Application Experts.",
   },
- 
 ];
 
 export const InforUpgradesTypes = [
@@ -404,46 +415,45 @@ export const ERPDataSAP = [
     id: 1,
     mtitle: "SAP IMPLEMENTATION and UPGRADE ",
     icon: SAP1,
-    color:"#1661be",
-    desc:"Whether your organization needs a full-scale SAP ERP, a single module, or an upgrade, Kapil tech is ready to exceed expectations."
+    color: "#F68C09",
+    desc: "Whether your organization needs a full-scale SAP ERP, a single module, or an upgrade, Kapil tech is ready to exceed expectations.",
   },
   {
     id: 2,
     mtitle: "SAP SYSTEM REVIEW SERVICES ",
     icon: SAP2,
-    color:"#1661be",
-    desc:"We advance the Best and Leading Practices for implementing SAP. We can validate if you are getting the most out of your SAP system."
+    color: "#3175A5",
+    desc: "We advance the Best and Leading Practices for implementing SAP. We can validate if you are getting the most out of your SAP system.",
   },
 
   {
     id: 3,
     mtitle: "SAP APPLICATION MANAGEMENT SERVICES ",
     icon: SAP3,
-    color:"#1661be",
-    desc:"We Understand that every organization has unique support requirements. We offer custom packages that will fit your end-to-end application management needs."
+    color: "#AF5F30 ",
+    desc: "We Understand that every organization has unique support requirements. We offer custom packages that will fit your end-to-end application management needs.",
   },
   {
     id: 4,
     mtitle: "SAP TRAINING ",
     icon: SAP4,
-    color:"#1661be",
-    desc:"Kapil Tech was founded by SAP training professionals. We understand having a comprehensive approach to staff training is essential."
+    color: "#2DB6FA",
+    desc: "Kapil Tech was founded by SAP training professionals. We understand having a comprehensive approach to staff training is essential.",
   },
   {
     id: 5,
     mtitle: "SAP STAFF AUGMENTATION ",
     icon: SAP5,
-    color:"#1661be",
-    desc:"Providing the highest caliber talent is hallmark of our approach. Gain access to resources with 15+ years of experience."
+    color: "#E9222C",
+    desc: "Providing the highest caliber talent is hallmark of our approach. Gain access to resources with 15+ years of experience.",
   },
   {
     id: 6,
     mtitle: "SAP CLOUD MIGRATION and HOSTING ",
     icon: SAP6,
-    color:"#1661be",
-    desc:"Taking advantage of lower costs and easier  management with Cloud-Based servers. We offer a number of cloud deployment options."
+    color: "#32770E",
+    desc: "Taking advantage of lower costs and easier  management with Cloud-Based servers. We offer a number of cloud deployment options.",
   },
- 
 ];
 
 

@@ -116,7 +116,7 @@ export const HomePageClients = [
     cName: "L & T Defence",
     cImage: LNT,
     height: "auto",
-    width: "150px",
+    width: "160px",
   },
   {
     id: 9,
@@ -130,7 +130,15 @@ export const HomePageClients = [
     cName: "Power  International Holdings",
     cImage: PHI,
     height: "auto",
-    width: "130px",
+    width: "140px",
+  },
+
+  {
+    id: 11,
+    cName: "Virback",
+    cImage: Virbac,
+    height: "auto",
+    width: "140px",
   },
 ];
 

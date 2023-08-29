@@ -62,7 +62,7 @@ export const BannerImage = styled("img")(({ theme }) => ({
 export const Section = styled("section")(({ theme, backcolor }) => ({
   width: "100%",
   height: "auto",
-  paddingTop: "70px",
+  paddingTop: "30px",
   paddingBotttom: "5px",
   paddingRight: "0",
   paddingLeft: "0",
@@ -97,6 +97,7 @@ const INFOR = ({
   desc,
   color,
   id,
+  desc1,
   iconBack,
   scrollRef1,
   scrollRef2,
@@ -118,6 +119,8 @@ const INFOR = ({
     } else if (mid === 4) {
       scrollRef4();
     } else if (mid === 5) {
+      scrollRef2();
+    } else if (mid === 6) {
       scrollRef5();
     }
   };
@@ -180,12 +183,15 @@ const INFOR = ({
       </Typography>
       <Stack
         sx={{
-          textAlign: "left",
+          textAlign: "justify",
           color: hover ? "white" : "black",
           width: "100%",
+          textJustify: "inter-word",
         }}
+        spacing={2}
       >
         <Typography variant="body">{desc}</Typography>
+        <Typography variant="body">{desc1}</Typography>
       </Stack>
       <Stack
         spacing={1}
@@ -242,6 +248,8 @@ function Infor() {
   const ref3 = useRef(null);
   const ref4 = useRef(null);
   const ref5 = useRef(null);
+  const ref6 = useRef(null);
+
 
   const handleClick1 = () => {
     ref1.current?.scrollIntoView({ behavior: "smooth" });
@@ -257,8 +265,11 @@ function Infor() {
     ref4.current?.scrollIntoView({ behavior: "smooth" });
   };
   const handleClick5 = () => {
-    ref5.current?.scrollIntoView({ behavior: "smooth" });
+    ref2.current?.scrollIntoView({ behavior: "smooth" });
   };
+ const handleClick6 = () => {
+   ref5.current?.scrollIntoView({ behavior: "smooth" });
+ };
 
   return (
     <div>
@@ -319,12 +330,14 @@ function Infor() {
             desc={item.desc}
             icon={item.icon}
             color={item.color}
+            desc1={item.desc1}
             iconBack={item.iconback}
             scrollRef1={handleClick1}
             scrollRef2={handleClick2}
             scrollRef3={handleClick3}
             scrollRef4={handleClick4}
             scrollRef5={handleClick5}
+            scrollRef6={handleClick6}
           />
         ))}
       </Grid>
@@ -348,9 +361,13 @@ function Infor() {
             />
             <Typography
               variant="h4"
-              sx={{ color: "#D5000E", textTransform: "uppercase" }}
+              sx={{
+                color: "#D5000E",
+                textTransform: "uppercase",
+                fontWeight: "bold",
+              }}
             >
-              <b>Upgrade Services</b>
+              Upgrade Services
             </Typography>
           </Stack>
           <Box
@@ -370,7 +387,7 @@ function Infor() {
           alignItems="center"
           justifyContent="center"
           spacing={2}
-          sx={{ width: "90%" }}
+          sx={{ width: "90%", textAlign: "justify", textJustify: "inner-word" }}
         >
           <Typography variant="body1">
             Kapil Tech Infor upgrade services aids business to gain the
@@ -406,17 +423,33 @@ function Infor() {
             <IconBase>
               <FaAsterisk />
             </IconBase>
-            <Stack direction="column" alignItems="left" sx={{ width: "80%" }}>
+            <Stack
+              direction="column"
+              alignItems="left"
+              sx={{
+                width: "80%",
+              }}
+              spacing={1}
+            >
               <Typography variant="h6" sx={{ color: "#CB333B" }}>
                 EVERY UPGRADE IS UNIQUE
               </Typography>
-              <Typography variant="subtitle1">
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  textAlign: "justify",
+                  textJustify: "inner-word",
+                  lineHeight: "22px",
+                }}
+              >
                 We understand the complexities that IT team faces in keeping
                 application up to date and supported. We aids in making the
                 procedure smoother as we are aware that each client and each
                 upgrade is unique.
               </Typography>
-              <Typography>
+              <Typography
+                sx={{ textAlign: "justify", textJustify: "inner-word" }}
+              >
                 Kapil Tech upgrade assessment service is offered as a
                 stand-alone service to make sure a smooth and timely upgrade.
               </Typography>
@@ -454,7 +487,12 @@ function Infor() {
                   >
                     <FaArrowAltCircleRight style={{ marginTop: "5px" }} />
                   </Box>
-                  <Typography>{item.desc}</Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ textAlign: "justify", textJustify: "inner-word" }}
+                  >
+                    {item.desc}
+                  </Typography>
                 </Stack>
               ))}
             </Stack>
@@ -491,7 +529,7 @@ function Infor() {
                   >
                     <FaArrowAltCircleRight style={{ marginTop: "5px" }} />
                   </Box>
-                  <Typography>{item.li}</Typography>
+                  <Typography variant="body1">{item.li}</Typography>
                 </Stack>
               ))}
             </Stack>
@@ -517,9 +555,13 @@ function Infor() {
             />
             <Typography
               variant="h4"
-              sx={{ color: "#D5000E", textTransform: "uppercase" }}
+              sx={{
+                color: "#D5000E",
+                textTransform: "uppercase",
+                fontWeight: "bold",
+              }}
             >
-              <b>Migration Services</b>
+              Data Migration Services
             </Typography>
           </Stack>
           <Box
@@ -542,14 +584,20 @@ function Infor() {
           spacing={2}
           sx={{ width: "90%" }}
         >
-          <Typography variant="body1">
+          <Typography
+            variant="body1"
+            sx={{ textAlign: "justify", textJustify: "inner-word" }}
+          >
             For successful data migration accuracy is vital, whether it is
             moving to the cloud or an on-premises solution. Most of the
             companies won't give much preference to the data migration. As a
             result, they don’t have a systematic methodology for the process and
             often lacks experience in successful data migration projects.
           </Typography>
-          <Typography variant="body1">
+          <Typography
+            variant="body1"
+            sx={{ textAlign: "justify", textJustify: "inner-word" }}
+          >
             Well managed data migration team not only ensure on time delivery,
             but also offers better data management for future.
           </Typography>
@@ -581,7 +629,14 @@ function Infor() {
               <Typography variant="h6" sx={{ color: "#CB333B" }}>
                 MINIMIZING DATA MIGRATIONS RISKS
               </Typography>
-              <Typography variant="subtitle1" sx={{ lineHeight: "22px" }}>
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  lineHeight: "22px",
+                  textAlign: "justify",
+                  textJustify: "inner-word",
+                }}
+              >
                 Data migration come with many hidden costs and risks. Having an
                 in-house team to execute it is not advisable, if they are not
                 familiar with the procedure as they might use unproductive
@@ -601,11 +656,18 @@ function Infor() {
             <IconBase>
               <FaFlag />
             </IconBase>
-            <Stack direction="column" alignItems="left" sx={{ width: "80%" }}>
+            <Stack direction="column" alignItems="left" sx={{ width: "90%" }}>
               <Typography variant="h6" sx={{ color: "#CB333B" }}>
                 SUCCESS FROM THE START
               </Typography>
-              <Typography variant="subtitle1" sx={{ lineHeight: "22px" }}>
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  lineHeight: "22px",
+                  textAlign: "justify",
+                  textJustify: "inner-word",
+                }}
+              >
                 The common challenges of in-house migrations are go-live delays
                 and production problems due to inefficient data migration
                 processes. Instead of gambling on the outcome of a critical
@@ -631,7 +693,14 @@ function Infor() {
               <Typography variant="h6" sx={{ color: "#CB333B" }}>
                 LONG TERM SUCCESS
               </Typography>
-              <Typography variant="subtitle1" sx={{ lineHeight: "22px" }}>
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  lineHeight: "22px",
+                  textAlign: "justify",
+                  textJustify: "inner-word",
+                }}
+              >
                 Successful software implementation is important for any
                 company’s long-term growth. With the assistance of an experts
                 who follows a structure approach to execute data migration, it
@@ -682,7 +751,7 @@ function Infor() {
       </Section>
       {/* Customizations Services */}
       <Section ref={ref3} backcolor="transperant">
-        <Stack direction="column" alignItems="center" spacing={2}>
+        <Stack direction="column" alignItems="center">
           <Stack
             direction="row"
             alignItems="center"
@@ -714,7 +783,11 @@ function Infor() {
             }}
           ></Box>
 
-          <Typography variant="body" width="70%" sx={{ py: 2 }}>
+          <Typography
+            variant="body"
+            width="70%"
+            sx={{ py: 2, textAlign: "justify", textJustify: "inner-word" }}
+          >
             Every enterprise is unique and operates in its own way. As a result,
             rather than using the standard software that is commonly available
             in their industry segment, many enterprises need customized services
@@ -757,7 +830,11 @@ function Infor() {
             }}
           ></Box>
 
-          <Typography variant="body" width="70%" sx={{ py: 2 }}>
+          <Typography
+            variant="body"
+            width="70%"
+            sx={{ py: 2, textAlign: "justify", textJustify: "inner-word" }}
+          >
             Kapil Technologies collaborative approach in solving complex
             end-to-end problems, which helps dramatically cut down costs,
             transform organizations and improve performance. We combine world
@@ -803,8 +880,12 @@ function Infor() {
             }}
           ></Box>
         </Stack>
-        <Stack direction="column" alignItems="left" sx={{ width: "80%" }}>
-          <Typography variant="subtitle1">
+        <Stack
+          direction="column"
+          alignItems="left"
+          sx={{ width: "80%", textAlign: "justify", textJustify: "inner-word" }}
+        >
+          <Typography variant="subtitle1" gutterBottom>
             Training is important component required to utilize the full value
             of investment and attain unparalleled advantages for business. Kapil
             Technologies Training is a critical component needed to utilize the
@@ -1101,7 +1182,7 @@ function Infor() {
                 variant="h4"
                 sx={{ color: "#D5000E", textTransform: "uppercase" }}
               >
-                <b>WHY CHOSE US</b>
+                <b>WHY CHOOSE US</b>
               </Typography>
             </Stack>
             <Box
@@ -1132,7 +1213,7 @@ function Infor() {
                 item
                 xs={5}
                 component={Card}
-                sx={{ p: 2, height: 150 }}
+                sx={{ p: 2, height: 180 }}
                 key={item.id}
               >
                 <Stack direction="row" alignItems="start" spacing={1}>
@@ -1141,7 +1222,12 @@ function Infor() {
                     <Typography variant="body1" sx={{ color: "#CB333B" }}>
                       {item.desc1}
                     </Typography>
-                    <Typography>{item.desc2}</Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{ textAlign: "justify", textJustify: "inner-word" }}
+                    >
+                      {item.desc2}
+                    </Typography>
                   </Stack>
                 </Stack>
               </Grid>

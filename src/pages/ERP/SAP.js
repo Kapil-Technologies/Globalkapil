@@ -48,12 +48,15 @@ function SAP() {
           direction="row"
           alignItems="center"
           justifyContent="space-between"
-          sx={{ background: "inherit", py:6 }}
+          sx={{ background: "inherit", py: 6 }}
         >
-          <Typography variant="h2" sx={{ color: "white" ,p:2,fontWeight:'bold'}}>
+          <BannerImage src={SAPBanner} />
+          <Typography
+            variant="h2"
+            sx={{ color: "white", p: 1, fontWeight: "bold" }}
+          >
             SAP Consulting Services
           </Typography>
-          <BannerImage src={SAPBanner} />
         </Stack>
       </ERPBanner>
       <Stack
@@ -67,10 +70,10 @@ function SAP() {
           alignItems="center"
           justifyContent="center"
           spacing={1}
-          sx={{ py: 2 }}
+          sx={{ py: 1 }}
         >
-          <Typography variant="h4" gutterBottom sx={{fontWeight:'bold'}}>
-            Our Services
+          <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold" }}>
+            Explore Our Services
           </Typography>
           <Box
             sx={{
@@ -100,17 +103,27 @@ function SAP() {
               xs={3.5}
               key={item.id}
               onMouseEnter={() => handleMouseEnter(item.id)}
-                  onMouseLeave={handleMouseLeave}
-                  
+              onMouseLeave={handleMouseLeave}
+              component={Stack}
+              direction="row"
+              alignItems="left"
+              justifyContent="center"
+              spacing={2}
             >
               <Stack
                 direction="row"
                 alignItems="left"
-                justifyContent="start"
+                justifyContent="center"
                 spacing={2}
               >
                 <Stack alignItems="center" justifyContent="start">
-                  <img src={item.icon} alt="SAP Services" width="45px" height="45px" />
+                  <img
+                    src={item.icon}
+                    alt="SAP Services"
+                    width="45px"
+                    height="45px"
+                    color={item.color}
+                  />
                 </Stack>
                 <Stack direction="column" alignItems="left" spacing={1}>
                   <Typography
@@ -118,12 +131,13 @@ function SAP() {
                     sx={{
                       color:
                         hover && item.id === hoverid ? item.color : "black",
-                      fontWeight:'bold'
+                      fontWeight: "bold",
+                      fontSize: "20px",
                     }}
                   >
                     {item.mtitle}
                   </Typography>
-                  <Typography variant="body1">{item.desc}</Typography>
+                  <Typography variant="body1" sx={{textAlign:'justify',textJustify:'inner-word'}}>{item.desc}</Typography>
                 </Stack>
               </Stack>
             </Grid>

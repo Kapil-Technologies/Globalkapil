@@ -4,8 +4,13 @@ import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 
 import { IndustriesData } from "../../mock/SlidersAndImages";
-import { FiArrowLeft, FiChevronRight } from "react-icons/fi";
-import IndustriesImage from '../../assets/Banners/Industries.png'
+import {
+  FiArrowLeft,
+  FiArrowRight,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
+import IndustriesImage from "../../assets/Banners/Industries.png";
 // ------------------------------------------- Styled Components
 
 export const MainSliderDiv = styled(Stack)(({ theme }) => ({
@@ -14,14 +19,14 @@ export const MainSliderDiv = styled(Stack)(({ theme }) => ({
   // alignItems: "left",
   // justifyContent: "center",
   // flexDirection:'column',
-  height: 'auto',
-  textAlign:'center'
+  height: "auto",
+  textAlign: "center",
 }));
 
 export const TextContainer = styled(Box)(({ theme }) => ({
-  width: 80,
+  width: 60,
   // border: "1px solid #d3e1ea",
-  height: "inherit",
+  height: 250,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -33,18 +38,32 @@ export const TextContainer = styled(Box)(({ theme }) => ({
   // rotate: "270deg",
   gap: 2,
   background: "gray",
-  textAlign:'center'
+  textAlign: "center",
 }));
+
+export const ImageContainer = styled(Box)(({ theme }) => ({
+  width: 500,
+  // border: "1px solid #d3e1ea",
+  height: 250,
+  boxShadow: 4,
+  color: "white",
+  background: "blue",
+  color: "black",
+  // rotate: "270deg",
+  gap: 2,
+  textAlign: "center",
+}));
+
 
 export const Image = styled("img")(({ theme }) => ({}));
 
-export const RightArrow = styled(FiChevronRight)(({ theme }) => ({
+export const RightArrow = styled(FiArrowLeft)(({ theme }) => ({
   color: "white",
   display: "block",
   fontSize: "40px",
 }));
 
-export const LeftArrow = styled(FiArrowLeft)(({ theme }) => ({
+export const LeftArrow = styled(FiArrowRight)(({ theme }) => ({
   display: "block",
   color: "white",
 }));
@@ -54,17 +73,39 @@ export const LeftArrow = styled(FiArrowLeft)(({ theme }) => ({
 function Industries() {
   return (
     <MainSliderDiv>
-      {/* <TextContainer>
-        <Stack direction='column' alignItems='center' justifyContent='center'>
-          <Typography variant="h6" sx={{rotate:'270deg'}} >Soumya</Typography>
-          <LeftArrow />
-        </Stack>
-      </TextContainer> */}
+      {/* <Stack direction="row" alignItems="center" justifyContent="start">
+        <TextContainer>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            sx={{ rotate: "270deg" }}
+            spacing={2}
+          >
+            <LeftArrow />
+            <Typography variant="h6">Soumya</Typography>
+          </Stack>
+        </TextContainer>
+        <ImageContainer>
+          <Stack
+            direction="row"
+            alignItems="left"
+            justifyContent="start"
+           
+            spacing={2}
+          >
+            <LeftArrow />
+            <Typography variant="h6">Soumya</Typography>
+          </Stack>
+        </ImageContainer>
+      </Stack> */}
 
-      {/* <Typography variant="h2">
-        <b>Featured Industries</b>
-      </Typography> */}
-     <img src={IndustriesImage} alt="Kapil Technologies Industries" height='350px' style={{border:'2px solid #d3e1ea'}} />
+      <img
+        src={IndustriesImage}
+        alt="Kapil Technologies Industries"
+        height="350px"
+        style={{ border: "2px solid #d3e1ea" }}
+      />
     </MainSliderDiv>
   );
 }

@@ -61,7 +61,7 @@ function Erp() {
       {/* <NavDiv>.</NavDiv> */}
       <Page name="ERP" content="" />
       <CareersBanner>
-       <BannerImage src={ErpImage} alt="Kapil Technologies Erp Services" />
+        <BannerImage src={ErpImage} alt="Kapil Technologies Erp Services" />
       </CareersBanner>
 
       <Stack
@@ -70,9 +70,7 @@ function Erp() {
         spacing={1}
         sx={{ textAlign: "center" }}
       >
-        <Typography variant="h4" sx={{ p: 2 }}>
-         
-        </Typography>
+        <Typography variant="h4" sx={{ p: 2 }}></Typography>
 
         <Grid
           container
@@ -108,16 +106,27 @@ function Erp() {
                 spacing={2}
                 sx={{ fontSize: "20px" }}
               >
-                <Typography variant="h4" sx={{fontWeight:'bold'}}>
+                <Typography variant="h4" sx={{ fontWeight: "bold" }}>
                   {item.title}
                 </Typography>
               </Stack>
-              <Typography>{item.desc}</Typography>
+              <Typography
+                variant="body1"
+                sx={{ textAlign: "justify", textJustify: "inner-word" }}
+              >
+                {item.desc}
+              </Typography>
               <Stack
                 direction="row"
                 alignItems="center"
                 justifyContent="space-between"
-                sx={{ height: 50, position: "absolute", bottom: 0, width: 350, py:2}}
+                sx={{
+                  height: 50,
+                  position: "absolute",
+                  bottom: 0,
+                  width: 350,
+                  py: 2,
+                }}
               >
                 <img
                   src={item.icon}
@@ -144,7 +153,7 @@ function Erp() {
             height: 480,
           }}
         >
-          <Typography variant="h5" sx={{ p: 1,fontWeight:'bold' }}>
+          <Typography variant="h5" sx={{ p: 1, fontWeight: "bold" }}>
             Connect With our Experts
           </Typography>
           <Stack
