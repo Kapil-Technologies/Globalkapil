@@ -19,13 +19,7 @@ export const customTheme = createTheme({
         color: "red",
       },
     },
-    NavLink: {
-      styleOverrides: {
-        root: {
-          fontFamily: ["Montserrat", " sans-serif"].join(","),
-        },
-      },
-    },
+    
   },
 
   palette: {
@@ -36,7 +30,7 @@ export const customTheme = createTheme({
   typography: {
     fontFamily: ["Montserrat", " sans-serif"].join(","),
 
-    // h3: {
+    // h2: {
     //   fontFamily: ["Dancing Script", "cursive"].join(","),
     // },
   },

@@ -1,6 +1,6 @@
 import { FaComments, FaSortNumericDown, FaStar, FaTh, FaThList } from "react-icons/fa";
 import { FaThumbsUp } from "react-icons/fa6";
-import { TbCertificate2, TbExchange, TbPencilPlus, TbSettingsCheck, TbSettingsUp, TbUserCog } from "react-icons/tb";
+import { TbAdjustmentsCog, TbCertificate2, TbExchange, TbPencilPlus, TbSettingsCheck, TbSettingsUp, TbUserCog } from "react-icons/tb";
 import SAP1 from '../assets/SAP/sap1.png'
 import SAP2 from "../assets/SAP/sap2.png";
 import SAP3 from "../assets/SAP/sap3.png";
@@ -10,6 +10,7 @@ import SAP6 from "../assets/SAP/sap6.png";
 import InforLogo from '../assets/Partners/Infor.png'
 import SAPlogo from "../assets/Partners/saplogo.png";
 import Oraclelogo from "../assets/Partners/oraclelogo.png";
+import {GrServices} from 'react-icons/gr'
 
 
 
@@ -107,7 +108,7 @@ export const ERPDataInfor = [
   {
     id: 5,
     mtitle: "Managed Services",
-    icon: <TbUserCog />,
+    icon: <TbAdjustmentsCog />,
     color: "#E9222C",
     text: "white",
     iconback: "rgb(219, 243, 254)",

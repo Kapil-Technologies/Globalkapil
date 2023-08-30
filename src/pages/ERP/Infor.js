@@ -321,6 +321,7 @@ function Infor() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+     
         }}
       >
         {ERPDataInfor.map((item) => (

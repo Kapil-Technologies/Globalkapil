@@ -47,6 +47,9 @@ export const MainBanner = styled("div")(({ theme, image }) => ({
 
 export const NavDiv = styled("div")(({ theme }) => ({
   height: "15vh",
+  [theme.breakpoints.up("xl")]: {
+    height: "10vh",
+  },
 }));
 
 export const AboutSection = styled(Stack)(({ theme, image }) => ({
@@ -117,8 +120,7 @@ export const MVDesign2 = styled(Stack)(({ theme, image }) => ({
 export const ClientSectionsLayer = styled(Stack)(({ theme, image }) => ({
   background: "#001222",
   height: "auto",
-  padding: "10px",
-  border: "2px solid #d3e1ea",
+  border: "10px solid white ",
 }));
 
 // ---------------------------------------------------------------
@@ -191,6 +193,7 @@ function Home() {
             justifyContent: "center",
             background: "rgba(0,0,0,0.5)",
             height: 580,
+            position:'relative'
           }}
         >
           <Grid
@@ -199,71 +202,33 @@ function Home() {
               // border: "1px solid white",
               p: 1,
               display: "flex",
-              alignItems: "left",
+              alignItems: "center",
               justifyContent: "left",
               // flexDirection: "column",
               color: "white",
-              gap: 2,
               position: "relative",
-              height: 500,
+              height: 450,
             }}
             xs={12}
           >
             <Typography
-              variant="h3"
+              variant="h2"
               className="Home"
               sx={{
                 color: "white",
-                position: "absolute",
-                bottom: 0,
+                // position: "absolute",
+                // bottom: 0,
                 // fontFamily: "h3.fontFamily",
                 fontWeight: "bold",
               }}
             >
               Transforming your <br /> Digital Future
             </Typography>
-            {/* <Typography variant="h5" sx={{ color: "#162438" }}>
-              Compact Enough to Show Compassion, Expansive Enough to Drive
-              Change
-            </Typography>
-            <Button
-              variant="outlined"
-              startIcon={<FiArrowRight />}
-              sx={{
-                background: "#162438",
-
-                color: "white",
-                width: 150,
-                borderRadius: "25px",
-                "&:hover": {
-                  background: "transperant",
-                  color: "#162438",
-                },
-              }}
-              component={Link}
-              to="/contact-us"
-            >
-              Explore Now
-            </Button> */}
           </Grid>
-          {/* <Grid
-            item
-            sx={{
-              // border: "1px solid white",
-              p: 2,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-            xs={5}
-          >
-            <img
-              src={Home1}
-              alt="Kapil Technologies"
-              height="350px"
-              width="600px"
-            />
-          </Grid> */}
+
+          <Typography variant="h4" sx={{ color: "white", fontWeight: "bold",position:'absolute',right:0,bottom:0,p:1 }}>
+            Enabling High Performance
+          </Typography>
         </Grid>
       </MainBanner>
       <Stack
@@ -273,12 +238,6 @@ function Home() {
         sx={{ p: 1, textAlign: "center" }}
         spacing={1}
       >
-        <Typography variant="h3" sx={{ color: "#0E366A", fontWeight: "bold" }}>
-          Enabling High
-          <span style={{ color: "#0055CE", fontFamily: "Montserrat" }}>
-            Performance
-          </span>
-        </Typography>
         <Typography variant="h6" sx={{ width: "90%" }}>
           We combine technology with innovation, creativity, and strategy to
           solve complex business problems and help you go beyond regular
@@ -363,68 +322,68 @@ function Home() {
 
       <ClientSectionsLayer
         direction="column"
-        alignItems="left"
-        justifyContent="left"
-        spacing={3}
+        alignItems="center"
+        justifyContent="center"
       >
-        <Typography variant="h4" sx={{ color: "white", fontWeight: "bold" }}>
-          Our Growing Clientele ...
-        </Typography>
         <Clients />
       </ClientSectionsLayer>
       <Industries />
 
       <Stack
         direction="row"
-        // alignItems="center"
+        alignItems="center"
         sx={{
           width: "100%",
           // background: " linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);",
           height: "Auto",
         }}
       >
-        <Grid
-          container
-          display="flex"
-          alignItems="center"
+        <Stack
+          direction="column"
+          alignItems="left"
           justifyContent="center"
-          columnGap={2}
+          sx={{ width: "100%" }}
         >
-          <Grid xs={6} item>
-            <img
-              src={HomeAbout}
-              alt="Kapil Technologies Vision Mission"
-              width="100%"
-              height="auto"
-            />
-          </Grid>
-          <Grid xs={5} item>
-            <Stack direction="column" alignItems="left" justifyContent="center">
-              <Typography
-                variant="h6"
-                target="blank"
-                sx={{
-                  textDecoration: "none",
-                  color: "black",
-                  fontWeight: "bold",
-                }}
-              >
-                KAPIL TECHNOLOGIES
-              </Typography>
-              <Typography variant="body1" sx={{textAlign:'justify',textJustify:'inner-word'}}>
-                It is a systems integrator, software development partner, and
-                managed services provider focused on Enterprise solutions for
-                multiple industries. Our services include strategies for
-                accounting, finance, regulatory reporting, performance
-                management, sustainability, customer experience, and IoT.
-                Operating from offices across the globe and growing, our expert
-                teams help clients achieve operational efficiency and improve
-                decision-making capabilities. KAPIL TECH is part of the 
-                <Link to="https://kapilgroup.com" target="blank" style={{textDecoration:'none',fontWeight:'bold',color:'black'}}> KAPIL GROUP</Link>.
-              </Typography>
-            </Stack>
-          </Grid>
-        </Grid>
+          <Typography
+            variant="h6"
+            target="blank"
+            sx={{
+              textDecoration: "none",
+              color: "black",
+              fontWeight: "bold",
+            }}
+          >
+            KAPIL TECHNOLOGIES
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ textAlign: "justify", textJustify: "inner-word" ,}}
+          >
+            Kapil Technologies is a  systems integrator, software development
+            partner, and managed services provider focused on Enterprise
+            solutions for multiple industries. Our services include strategies
+            for accounting, finance, regulatory reporting, performance
+            management, sustainability, customer experience, and IoT. Operating
+            from offices across the globe and growing, our expert teams help
+            clients achieve operational efficiency and improve decision-making
+            capabilities. KAPIL TECH is part of the
+            <Link
+              to="https://kapilgroup.com"
+              target="blank"
+              className="Home-kapilgroup-link"
+              style={{
+                textDecoration: "none",
+                fontWeight: "bold",
+                color: "black",
+                marginLeft: "5px",
+                fontFamily: "Montserrat",
+              }}
+            >
+              KAPIL GROUP
+            </Link>
+            .
+          </Typography>
+        </Stack>
       </Stack>
     </HomeContainer>
   );

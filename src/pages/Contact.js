@@ -192,6 +192,7 @@ export const BranchCards = ({
       }}
     >
       <CardContent>
+        <img src={image} alt="Kapil Branches" width='60px' height="60px" />
         <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold" }}>
           {cname}
         </Typography>

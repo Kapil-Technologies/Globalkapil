@@ -32,26 +32,6 @@
 }
 
 
-.NavbarLinkNormal {
-  text-decoration: none;
-  color: "white";
-  display: "flex";
-  align-items: "center";
-
-
-  /* "&:hover": {
-      color: "orange",
-    }
-   */
-
-
-
-}
-
-
-.contact {
-  font-family: 'Dancing Script', cursive;
-}
 
 .NavbarLinkNormal :hover {
   color: orange

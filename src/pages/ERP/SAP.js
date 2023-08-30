@@ -4,6 +4,7 @@ import { NavDiv } from "../Home";
 import SAPBanner from "../../assets/Banners/SAP2.png";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import { ERPDataSAP } from "../../mock/ERP";
+import Page from "../../components/Page";
 
 
 // ------------------------------------------ Reusable Components
@@ -43,6 +44,7 @@ function SAP() {
 
   return (
     <div>
+      <Page name="ERP | SAP "  />
       <ERPBanner>
         <Stack
           direction="row"

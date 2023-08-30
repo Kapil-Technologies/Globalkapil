@@ -43,7 +43,7 @@ export const MainHeader = styled("nav")(
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    width: InforColor ? "60%" : "100%",
+    width:  "100%",
     height: "15vh",
     backgroundColor:
       click && listid === 3

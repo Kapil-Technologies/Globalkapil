@@ -1,6 +1,6 @@
-import IndiaFlag from '../assets/Flags/IndiaFlag.png'
-import IndonesiaFlag from "../assets/Flags/IndonesiaFlag.png";
-import USAFlag from "../assets/Flags/USAFlag.jpeg";
+import IndiaFlag from '../assets/Flags/roundedIndia.png'
+import IndonesiaFlag from "../assets/Flags/roundedIndonesi.png";
+import USAFlag from "../assets/Flags/roundedUSA.png";
 
 export const TabsData = [
   {
@@ -10,7 +10,7 @@ export const TabsData = [
     subbranches: [
       {
         id: 1,
-        // image: USA,
+        image: USAFlag,
         cName: "USA",
         title: "KCS Technologies Inc",
         subtitle: "",
@@ -51,7 +51,7 @@ export const TabsData = [
     subbranches: [
       {
         id: 1,
-        // image: Indonesia,
+        image: IndonesiaFlag,
         cName: "Indonesia",
         title: "PT KCS Technologies Indonesia",
         subtitle: "",
@@ -69,7 +69,7 @@ export const TabsData = [
       },
       {
         id: 2,
-        // image: India,
+        image: IndiaFlag,
         cName: "India",
         title: "Kapil Technologies Pvt Ltd",
         subtitle: "(formerly KCS Software Solutions Pvt Ltd)",

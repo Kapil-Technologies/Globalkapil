@@ -22,6 +22,8 @@ export const SliderData = styled(Slider)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   padding: "10px",
+  height: 150,
+  marginBottom:'-10px'
   // border: "1px solid blue",
 }));
 
@@ -44,11 +46,17 @@ export const RightArrow = styled(FiChevronRight)(({ theme }) => ({
   color: "white",
   display: "block",
   fontSize: "40px",
+  "&:hover": {
+    color: "white",
+  },
 }));
 
 export const LeftArrow = styled(FiChevronLeft)(({ theme }) => ({
   display: "block",
   color: "white",
+  '&:hover': {
+    color:'white'
+  }
 }));
 
 function SampleNextArrow(props) {
