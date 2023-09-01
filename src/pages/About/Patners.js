@@ -110,19 +110,20 @@ function Patners() {
           <Grid
             container
             columnGap={2}
-           
             sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               width: "100%",
+              flexWrap: "wrap",
               // border: "1px solid blue",
             }}
           >
             {PartnerList.map((item) => (
               <Grid
                 item
-                xs={2.5}
+                xs={12}
+                md={2.5}
                 xl={2}
                 sx={{
                   // border: "1px solid blue",
@@ -139,7 +140,6 @@ function Patners() {
                   alt="Kapil Technologies Alliances"
                   width={item.width}
                   height={item.height}
-                 
                 />
               </Grid>
             ))}
@@ -152,7 +152,7 @@ function Patners() {
           sx={{ p: 1, width: "80%", textAlign: "center" }}
         >
           <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-        Our Technical Alliances
+            Our Technical Alliances
           </Typography>
           <Grid
             container
@@ -169,7 +169,9 @@ function Patners() {
             {Technical.map((item) => (
               <Grid
                 item
-                xs={2.3}
+                
+                xs={12}
+                md={2.3}
                 xl={1.8}
                 sx={{
                   // border: "1px solid blue",

@@ -5,113 +5,130 @@ import Zz3 from "../assets/Zigzag/3.jpg";
 import Zz4 from "../assets/Zigzag/4.png";
 import Zz5 from "../assets/Zigzag/5.jpg";
 import Zz6 from "../assets/Zigzag/6.jpg";
+import Digital from '../assets/IconImages/digital.png'
+import AppDev from '../assets/IconImages/APD.png'
+import Cloud from '../assets/IconImages/cloud.png'
+import ERP from '../assets/IconImages/ERP.png'
+import { styled } from "@mui/material/styles";
+import { FiChevronDown, FiChevronUp, FiMenu, FiX } from "react-icons/fi";
+import ServiceIcon from "../assets/IconImages/Services.png";
+import SolutionIcon from "../assets/IconImages/solutions.png";
+
+
+export const UpArrow = styled(FiChevronUp)(({ theme, image }) => ({}));
+
+export const DownArrow = styled(FiChevronDown)(({ theme, image }) => ({}));
+
 
 export const Services = [
   {
     submenuid: 1,
     Mtitle: "Enterprise Software",
+    icon:ERP,
     menu3: [
       {
         tlmenuid: 1,
         title: "ERP",
-        path: "/offerings/enterprise-software/erp",
+        path: "/what-we-do/services/enterprise-software/erp",
       },
       {
         tlmenuid: 2,
         title: "CRM ",
-        path: "/offerings/enterprise-software/crm",
+        // path: "/what-we-do/services/enterprise-software/crm",
       },
       {
         tlmenuid: 3,
         title: "Industry Platform",
-        path: "/offerings/enterprise-software/indutry-platform ",
+        // path: "/what-we-do/services/enterprise-software/indutry-platform ",
       },
       {
         tlmenuid: 4,
         title: "EHS",
-        path: "/offerings/enterprise-software/ehs",
+        // path: "/what-we-do/services/enterprise-software/ehs",
       },
       {
         tlmenuid: 5,
         title: "Digital Content Management ",
-        path: "/offerings/cloud/digital-content-management",
+        // path: "/what-we-do/services/cloud/digital-content-management",
       },
     ],
   },
   {
     submenuid: 2,
     Mtitle: "Cloud",
+    icon:Cloud,
     menu3: [
       {
         tlmenuid: 1,
         title: "Cloud Services",
-        path: "/offerings/cloud/cloud-services",
+        // path: "/what-we-do/services/cloud/cloud-services",
       },
       {
         tlmenuid: 2,
         title: "Unified Communication ",
-        path: "/offerings/cloud/unified-communication",
+        // path: "/what-we-do/services/cloud/unified-communication",
       },
       {
         tlmenuid: 3,
         title: "Hybrid Workplace ",
-        path: "/offerings/cloud/hybrid-workplace  ",
+        // path: "/what-we-do/services/cloud/hybrid-workplace  ",
       },
       {
         tlmenuid: 4,
         title: "Private Cloud & Infrastructure",
-        path: "/offerings/cloud/private-cloud-and-infrastructure",
+        // path: "/what-we-do/services/cloud/private-cloud-and-infrastructure",
       },
       {
         tlmenuid: 5,
         title: "Cyber Security ",
-        path: "/offerings/cloud/cyber-security",
+        // path: "/what-we-do/services/cloud/cyber-security",
       },
       {
         tlmenuid: 6,
         title: "Cloud Hyper Automation Platform ",
-        path: "/offerings/cloud/cloud-hyper-automation-platform",
+        // path: "/what-we-do/services/cloud/cloud-hyper-automation-platform",
       },
     ],
   },
   {
     submenuid: 3,
     Mtitle: " Application Development",
+    icon:AppDev,
     menu3: [
       {
         tlmenuid: 1,
         title: "Agile",
-        path: "/offerings/application-development/agile",
+        // path: "/what-we-do/services/application-development/agile",
       },
       {
         tlmenuid: 2,
         title: "Site Reliability Engineering ",
-        path: "/offerings/application-development/site-reliability-engineering",
+        // path: "/what-we-do/services/application-development/site-reliability-engineering",
       },
       {
         tlmenuid: 3,
         title: "Low Code / No Code ",
-        path: "/offerings/application-development/low-code-no-code  ",
+        // path: "/what-we-do/services/application-development/low-code-no-code  ",
       },
       {
         tlmenuid: 4,
         title: "DevOps",
-        path: "/offerings/application-development/devops",
+        // path: "/what-we-do/services/application-development/devops",
       },
       {
         tlmenuid: 5,
         title: "Quality Asurance (QA) & Testing ",
-        path: "/offerings/application-development/quality-assurance-and-testing",
+        // path: "/what-we-do/services/application-development/quality-assurance-and-testing",
       },
       {
         tlmenuid: 6,
         title: "API & Microservices ",
-        path: "/offerings/application-development/api-microservices",
+        // path: "/what-we-do/services/application-development/api-microservices",
       },
       {
         tlmenuid: 7,
         title: "Legacy Modernization",
-        path: "/offerings/application-development/legacy-modernization",
+        // path: "/what-we-do/services/application-development/legacy-modernization",
       },
     ],
   },
@@ -119,60 +136,37 @@ export const Services = [
   {
     submenuid: 4,
     Mtitle: "Digital",
+    icon:Digital,
     menu3: [
       {
         tlmenuid: 1,
         title: "Customer Experience",
-        path: "/offerings/digital/customer-experience",
+        // path: "/what-we-do/services/digital/customer-experience",
       },
       {
         tlmenuid: 2,
         title: "Data Analysis ",
-        path: "/offerings/digital/data-analysis",
+        // path: "/what-we-do/services/digital/data-analysis",
       },
       {
         tlmenuid: 3,
         title: "SMaaS ",
-        path: "/offerings/digital/smaas",
+        // path: "/what-we-do/services/digital/smaas",
       },
       {
         tlmenuid: 4,
         title: "Intelligent Automation",
-        path: "/offerings/digital/intelligent-automation",
+        // path: "/what-we-do/services/digital/intelligent-automation",
       },
       {
         tlmenuid: 5,
         title: "BlockChain ",
-        path: "/offerings/digital/blockchain",
+        // path: "/what-we-do/services/digital/blockchain",
       },
-      {
-        tlmenuid: 6,
-        title: "Health Care Digital Analytic platform ",
-        path: "/offerings/digital/healthcare-digital-analytics-platform",
-      },
+    
     ],
   },
-  {
-    submenuid: 4,
-    Mtitle: "Solutions",
-    menu3: [
-      {
-        tlmenuid: 1,
-        title: "Infor",
-        path: "https://partners.infor.com/?q=KCS&ch=false&al=false&dv=false&apac=false&emea=false&gl=false&la=false&na=false#1666",
-      },
-      {
-        tlmenuid: 2,
-        title: "K-Mobillor ",
-        path: "/offerings/solutions/k-mobillor",
-      },
-      {
-        tlmenuid: 3,
-        title: "Enstrapp",
-        path: "/offerings/solutions/enstrapp",
-      },
-    ],
-  },
+ 
 ];
 
 export const Solutions = [
@@ -184,12 +178,12 @@ export const Solutions = [
   {
     submenuid: 2,
     title: "K-Mobillor",
-    path: "/solutions/k-mobillor",
+    path: "/what-we-do/solutions/k-mobillor",
   },
   {
     submenuid: 3,
     title: "Enstrapp",
-    path: "/solutions/Enstrapp",
+    path: "/what-we-do/solutions/Enstrapp",
   },
   // {
   //   submenuid: 4,
@@ -246,10 +240,27 @@ export const NavData = [
     id: 3,
     title: "What We Do",
     // path: "/services",
-    openicon: <FaCaretDown style={{ fontSize: "20px" }} />,
-    closeicon: <FaCaretUp style={{ fontSize: "20px" }} />,
+    openicon: <UpArrow />,
+    closeicon: <DownArrow />,
     submenudata: 3,
-    submenu: true,
+    submenu: [
+      {
+        id: 1,
+        Mtitle: "Services",
+        openicon: <UpArrow />,
+        closeicon: <DownArrow />,
+        mainIcon: ServiceIcon,
+        menu3: Services,
+      },
+      {
+        id: 2,
+        Mtitle: "Solutions",
+        mainIcon: SolutionIcon,
+        openicon: <UpArrow />,
+        closeicon: <DownArrow />,
+        menu3: Solutions,
+      },
+    ],
   },
   {
     id: 4,

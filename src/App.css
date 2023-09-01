@@ -33,48 +33,130 @@
 
 
 
-.NavbarLinkNormal :hover {
-  color: orange
+/* Navbar */
+
+
+.NavList{
+ transition: all 0.8 ease;
 }
 
-.NavbarLinkActive {
+.NavList .NavItem{
+  list-style: none;
+  padding: 10px;
+}
+
+.NavList .NavItem .NavItemText {
+  color:white;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+ .NavItemLink-Normal{
+text-decoration: none;
+text-transform: uppercase;
+color:white;
+font-family: 'Montserrat', sans-serif;
+
+}
+
+
+.NavItemLink-Active {
+  color:orange;
   text-decoration: none;
-  color: orange
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
-.Soumya {
-  width: 30px;
-  height: 300px;
-  animation: fadein 1s ease-in linear, fadeout 4s ease-in linear, ;
-
+.SubNavList {
+  display: none;
+  align-items: center;
+  justify-content: left;
+  /* display: none; */
 
 }
 
-@keyframes fadein {
+.SubNavList .SubNavItem {
+  list-style: none;
+  padding: 5px;
+  margin-left: 20px;
+  /* border: 1px solid blue; */
+ 
+}
+
+.SubNavList .SubNavItem .SubNavItemText {
+  color: black;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+ 
+  font-size: 14px;
+}
+
+.SubNavItemLink-Normal {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+
+}
+
+.SubNavItemLink-Active {
+  color: orange;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
 
 
-  100% {
-    opacity: 1
+
+/* ------------- Typing Animation ------------------------- */
+
+.typewriter .home-main-text {
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange;
+  /* The typwriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  /* Gives that scrolling effect as the typing happens */
+  /* letter-spacing: ; */
+  /* Adjust as needed */
+  animation:
+    typing 3.0s steps(30, end),
+    blink-caret .60s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0
   }
 
-
+  to {
+    width: 90%
+  }
 }
 
-@keyframes fadeout {
+/* The typewriter cursor effect */
+@keyframes blink-caret {
 
-
-  0% {
-    opacity: 1
+  from,
+  to {
+    border-color: transparent
   }
 
-  100% {
-    opacity: 0
+  50% {
+    border-color: orange;
   }
-
-
 }
 
+/* -------------------------------------------------------- */
 
 
 /* width */

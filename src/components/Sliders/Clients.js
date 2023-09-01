@@ -94,6 +94,67 @@ const settings = {
   autoplaySpeed: 3000,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
+
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        dots: false,
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        //  centerMode:true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+      },
+    },
+
+    {
+      breakpoint: 900,
+      settings: {
+        dots: false,
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        //  centerMode:true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        dots: false,
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        //  centerMode:true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+      },
+    },
+
+    {
+      breakpoint: 300,
+      settings: {
+        dots: false,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        //  centerMode:true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+      },
+    },
+  ],
 };
 
 function Clients() {

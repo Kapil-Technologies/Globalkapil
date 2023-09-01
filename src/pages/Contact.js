@@ -164,6 +164,11 @@ export const Global = styled(Stack)(({ theme, image }) => ({
   height: 600,
 }));
 
+export const FlagIcons = styled('img')(({ theme, image }) => ({
+  width: 45,
+  height:45
+}));
+
 // -------------------------------------------------------------------------------------- Reusable Components
 
 export const BranchCards = ({
@@ -192,10 +197,16 @@ export const BranchCards = ({
       }}
     >
       <CardContent>
-        <img src={image} alt="Kapil Branches" width='60px' height="60px" />
-        <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold" }}>
-          {cname}
-        </Typography>
+        <Stack direction='row' alignItems='center' justifyContent='left'>
+          <FlagIcons
+            src={image}
+            alt="Kapil Branches"
+            
+          />
+          <Typography variant="h4"  sx={{ fontWeight: "bold" }}>
+            {cname}
+          </Typography>
+        </Stack>
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
           {name}
         </Typography>
@@ -228,7 +239,10 @@ export const BranchCards = ({
 // ---------------------------------------------------------------------
 
 function Contact() {
-  const [value, setValue] = React.useState(1);
+  const Hostname = window.location.hostname
+const condition = Hostname === 'kapiltech' ? 2 : Hostname === 'kcs-tech' ? 1 : Hostname === 'ptkcs' ? 2 :1
+
+  const [value, setValue] = React.useState(condition);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

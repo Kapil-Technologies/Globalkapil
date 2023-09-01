@@ -14,6 +14,10 @@ import SAP from "../pages/ERP/SAP";
 // import Industries from "../pages/Industries/Industries";
 
 function Routes() {
+  const HostName = window.location.hostname
+  
+  console.log(HostName)
+
   return useRoutes([
     {
       path: "/",
@@ -62,90 +66,54 @@ function Routes() {
         },
 
         {
-          path: "/offerings",
+          path: "/what-we-do",
           children: [
             {
-              path: "/offerings",
+              path: "/what-we-do",
               element: (
-                <Navigate to="/offerings/digital/:digital " exact replace />
+                <Navigate to="/what-we-do/services/digital/:digital " exact replace />
               ),
             },
             // Digital
-            {
-              path: "digital/:digital",
-              element: <Consulting />,
-              index: true,
-            },
+            // {
+            //   path: "digital/:digital",
+            //   element: <Consulting />,
+            //   index: true,
+            // },
 
             // Application devlopemnt
             {
-              path: "application-development/:page",
+              path: "services/application-development/:page",
               element: <Consulting />,
             },
             // Cloud
             {
-              path: "cloud/:page",
+              path: "services/cloud/:page",
               element: <Consulting />,
             },
             // Enterprice Solutions
             {
-              path: "enterprise-software/erp",
+              path: "services/enterprise-software/erp",
               element: <Erp />,
             },
 
-            {
-              path: "enterprise-software/crm",
-              element: <Consulting />,
-            },
-            {
-              path: "enterprise-software/industru-platform",
-              element: <Consulting />,
-            },
-            {
-              path: "enterprise-software/ehs",
-              element: <Consulting />,
-            },
-            {
-              path: "enterprise-software/digital-content-management",
-              element: <Consulting />,
-            },
           
             {
-              path: "enterprise-software/:page/oracle",
-              element: <Consulting />,
-            },
-            {
-              path: "enterprise-software/:page/infor",
+              path: "services/enterprise-software/:page/infor",
               element: <Infor />,
             },
             {
-              path: "enterprise-software/:page/SAP",
+              path: "services/enterprise-software/:page/SAP",
               element: <SAP />,
             },
             {
-              path: "enterprise-software/:page/oracle",
+              path: "ervices/enterprise-software/:page/oracle",
               element: <SAP />,
             },
-            {
-              path: "solutions/:page",
-              element: <Consulting />,
-            },
+            
           ],
         },
-        // {
-        //   path: "/solutions",
-        //   children: [
-        //     {
-        //       path: ":page",
-        //       element: <Consulting />,
-        //       index: true,
-        //     },
-        //     {
-        //       path: ":page",
-        //       element: <Navigate to="/consulting/:page" exact replace />,
-        //     },
-        //   ],
-        // },
+        
 
         
         {

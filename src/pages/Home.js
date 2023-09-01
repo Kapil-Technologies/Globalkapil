@@ -212,7 +212,7 @@ function Home() {
             xs={12}
           >
             <Typography
-              variant="h2"
+              variant="h3"
               className="Home"
               sx={{
                 color: "white",
@@ -226,7 +226,7 @@ function Home() {
             </Typography>
           </Grid>
 
-          <Typography variant="h4" sx={{ color: "white", fontWeight: "bold",position:'absolute',right:0,bottom:0,p:1 }}>
+          <Typography variant="h4" sx={{ color: "white", fontWeight: "bold",position:'absolute',right:0,bottom:0,p:3 }}>
             Enabling High Performance
           </Typography>
         </Grid>
@@ -246,18 +246,17 @@ function Home() {
       </Stack>
       <Grid
         container
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center", }}
       >
         {ZigZagData.map((item) => {
           if (item.type === "image") {
             return (
               <Grid
                 item
-                xs={4}
-                sm={5}
+                xs={12}
+                
                 md={6}
-                lg={6}
-                xl={6}
+               
                 sx={{ height: 380 }}
               >
                 <img
@@ -272,11 +271,8 @@ function Home() {
             return (
               <Grid
                 item
-                xs={4}
-                sm={5}
+                xs={12}
                 md={6}
-                lg={6}
-                xl={6}
                 sx={{
                   // border: "1px solid blue",
                   height: 380,

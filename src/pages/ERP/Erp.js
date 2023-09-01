@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { FaCloud } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiExternalLink } from "react-icons/fi";
+import { FiArrowRight, FiExternalLink, FiSend } from "react-icons/fi";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { ERPServices } from "../../mock/ERP";
 import ErpImage from '../../assets/Banners/erp.png'
@@ -106,7 +106,14 @@ function Erp() {
                 spacing={2}
                 sx={{ fontSize: "20px" }}
               >
-                <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontWeight: "bold",
+                    textTransform: "uppercase",
+                    color: item.textColor,
+                  }}
+                >
                   {item.title}
                 </Typography>
               </Stack>
@@ -134,9 +141,11 @@ function Erp() {
                   width={item.logowidth}
                   height={item.logoheight}
                 />
-                <NavigateLink to={item.path}>
-                  <FiExternalLink />
-                </NavigateLink>
+                {item.path ? (
+                  <NavigateLink to={item.path}>
+                    <FiExternalLink />
+                  </NavigateLink>
+                ) : null}
               </Stack>
             </Stack>
           ))}
@@ -150,7 +159,7 @@ function Erp() {
             width: "100%",
             // backgroundImage:
             //   "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",
-            height: 480,
+            height: "auto",
           }}
         >
           <Typography variant="h5" sx={{ p: 1, fontWeight: "bold" }}>
@@ -161,42 +170,44 @@ function Erp() {
             alignItem="center"
             justifyContent="center"
             spacing={2}
-            sx={{ width: "80%", p: 1 }}
+            sx={{ width: "50%", p: 1 }}
           >
             <Stack
-              direction="row"
+              direction={{ xs: "column", md: "row" }}
               alignItem="center"
               justifyContent="center"
               spacing={2}
               sx={{ width: "100%" }}
             >
-              <TextField label="Full Name" sx={{ width: "400px" }} />
-              <TextField label="Company" sx={{ width: "400px" }} />
+              <TextField label="Full Name" sx={{ width:'100%' }} />
+              <TextField label="Company" sx={{ width:'100%' }} />
             </Stack>
             <Stack
-              direction="row"
+              direction={{ xs: "column", md: "row" }}
               alignItem="center"
               justifyContent="center"
               spacing={2}
               sx={{ width: "100%" }}
             >
-              <TextField label="Work Email Id" sx={{ width: "400px" }} />
-              <TextField label="Phone Number" sx={{ width: "400px" }} />
+              <TextField label="Work Email Id" sx={{ width:'100%' }} />
+              <TextField label="Phone Number" sx={{ width:'100%' }} />
             </Stack>
+
             <Stack
-              direction="row"
+              direction="column"
               alignItems="center"
               justifyContent="center"
               spacing={2}
-              sx={{ margin: "auto " }}
+              sx={{ margin: "auto" }}
             >
               <TextField
                 label="Message"
                 multiline
+                fullWidth
                 rows={5}
-                sx={{ width: "688px" }}
+                sx={{ width: "100%" }}
               />
-              <Button variant="contained" endIcon={<FiArrowRight />}>
+              <Button variant="contained" startIcon={<FiSend />}>
                 Submit
               </Button>
             </Stack>

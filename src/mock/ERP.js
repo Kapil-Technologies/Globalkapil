@@ -21,7 +21,8 @@ export const ERPServices = [
     icon: InforLogo,
     logoheight: "60px",
     logowidth: "auto",
-    path: "/offerings/enterprise-software/erp/infor",
+    textColor: "#D6000D",
+    path: "/what-we-do/services/enterprise-software/erp/infor",
     desc: "Metamorphose your business, deliver customer satisfaction, and improve efficiency with Kapil Technologies the foremost trusted Infor alliance partner. Our Infor experts are committed to meet client’s business objectives by delivering best in class solutions and offerings.",
   },
   {
@@ -30,7 +31,9 @@ export const ERPServices = [
     icon: SAPlogo,
     logoheight: "80px",
     logowidth: "auto",
-    path: "/offerings/enterprise-software/erp/SAP",
+    textColor: "#002060",
+
+    path: "/what-we-do/services/enterprise-software/erp/SAP",
     desc: "SAP (Systems, Applications, and Products) is a leading enterprise software company, providing integrated business solutions for various industries through its suite of software products and services.",
   },
   {
@@ -39,7 +42,8 @@ export const ERPServices = [
     icon: Oraclelogo,
     logoheight: "50px",
     logowidth: "",
-    path: "/offerings/enterprise-software/erp/Oracle",
+    textColor: "#C74533",
+    // path: "/what-we-do/services/enterprise-software/erp/Oracle",
     desc: "NetSuite, acquired by Oracle, is a cloud-based ERP software suite. It integrates financials, CRM, e-commerce, and more to streamline business operations, offering scalability and real-time data for effective decision-making across various industries.",
   },
 ];
@@ -285,10 +289,10 @@ export const InforTProducts = [
     pname: "Infor Cloud Industries",
   },
  
-  {
-    id: 5,
-    pname: "Infor S3",
-  },
+  // {
+  //   id: 5,
+  //   pname: "Infor S3",
+  // },
   {
     id: 6,
     pname: "Infor OS",

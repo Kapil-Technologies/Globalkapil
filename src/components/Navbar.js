@@ -1,462 +1,457 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import React, { Fragment, useState,useEffect } from "react";
+import { styled } from "@mui/material/styles";
+import { FiChevronDown, FiChevronUp, FiMenu, FiX } from "react-icons/fi";
+import { Grid, IconButton, Stack, Typography } from "@mui/material";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import KTLogo from "../assets/Logo/KTlogo.png";
+import { NavData, Services, Solutions } from "../mock/NavbarData";
+import ServiceIcon from "../assets/IconImages/Services.png";
+import SolutionIcon from "../assets/IconImages/solutions.png";
 
-import {
-  About,
-  AboutData,
-  ContactData,
-  NavData,
-  Services,
-  Solutions,
-} from "../mock/NavbarData";
-import {
-  Box,
-  Divider,
-  Grid,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { FaX } from "react-icons/fa6";
-import { FiExternalLink } from "react-icons/fi";
+// -------------------------------------------------------- Styled Component
 
-// -------------------------------------------------------------------------------
+export const UpArrow = styled(FiChevronUp)(({ theme, image }) => ({}));
 
-export const Header = styled("header")(
-  ({ theme, InforColor, click, SAPColor }) => ({
-    // position: "absolute",
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "space-between",
-    width: "100%",
-    // height: "15vh",
-    backgroundColor: click ? "#F5F5F5" : "transparent",
-    // zIndex: 999,
-  })
-);
+export const DownArrow = styled(FiChevronDown)(({ theme, image }) => ({}));
 
-export const MainHeader = styled("nav")(
-  ({ theme, InforColor, click, SAPColor, topvisibile, listid }) => ({
+export const Menu = styled(FiMenu)(({ theme, image }) => ({}));
+
+export const CloseMenu = styled(FiX)(({ theme, image }) => ({}));
+
+export const MainHeader = styled("header")(({ InforColor, theme, image,topvisibile }) => ({
+  width: "100%",
+  height: "15vh",
+  background: "transperant",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  position: "absolute",
+  top: topvisibile ? 0 : "-15vh",
+  zIndex: 999,
+  [theme.breakpoints.down("md")]: {
+    // background: "#012c54",
     position: "fixed",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    width:  "100%",
-    height: "15vh",
-    backgroundColor:
-      click && listid === 3
-        ? "rgba(0,0,0,0.4)"
-        : listid === 2
-        ? "white"
-        : "transperant",
-    zIndex: 999,
-    top: topvisibile ? 0 : "-15vh",
-    [theme.breakpoints.up("xl")]: {
-      height: "10vh",
+  },
+  // border:'1px solid white'
+}));
+
+export const MainNavList = styled("ul")(({ theme, image,open }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "10px",
+  [theme.breakpoints.down("md")]: {
+    position: 'fixed',
+    top: '15vh',
+    background: 'whitesmoke',
+    display: 'block',
+    width: '100%',
+    height: '100%',
+    left: open ? "0" : "-1000%"
+  },
+}));
+
+export const MainNavItem = styled("li")(({ theme, image }) => ({
+  listStyle: "none",
+  padding: "10px",
+  [theme.breakpoints.down("md")]: {
+   paddingTop:'15px'
+  },
+}));
+
+export const MainNavLink = styled(NavLink)(
+  ({ theme, image, homeColor, sapColor, careers }) => ({
+    textDecoration: "none",
+    color: homeColor || sapColor || careers ? "white" : "#012c54",
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    fontFamily: theme.typography.fontFamily,
+    "&:hover": {
+      color: "red",
+    },
+    [theme.breakpoints.down("md")]: {
+      color: "#012c54",
+      "&:hover": {
+        color: "red",
+      },
     },
   })
 );
 
-export const Logo = styled("img")(({ theme }) => ({
-  height: "70px",
-  width: "55px",
-  paddingLeft: "15px",
-}));
-
-export const MainNavList = styled("ul")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  paddingRight: "10px",
-}));
-
-export const MainNavItem = styled("li")(({ theme }) => ({
-  listStyle: "none",
-  padding: "12px",
-  "&:hover": {
-    color: "orange",
-  },
-}));
-
-export const SubmenuList = styled("div")(({ theme, click, mid, SAP }) => ({
-  display: "flex",
-  alignItems: mid === 3 ? "start" : "center",
-  justifyContent: "space-between",
-  position: "fixed",
-  // flexDirection:mid === 3 ? "column" : null,
-  top: click ? "15vh" : "-100%",
-  backgroundColor: "whitesmoke",
-  color: "#162438",
-  height: mid === 3 ? "85vh" : "80px",
-  opacity: 1,
-  // right: 0,
-  width: "100%",
-  borderTop: "1px solid white ",
-  zIndex: 10,
-
-  [theme.breakpoints.up("xl")]: {
-    top: click ? "10vh" : "-100%",
-  },
-}));
-
-export const SubNavItem = styled("li")(({ theme }) => ({
-  listStyle: "none",
-  padding: "15px",
-}));
-
-export const SpanItem = styled("span")(({ theme, color }) => ({
-  paddingTop: "5px",
-  fontSize: "20px",
+export const MainNavText = styled(Stack)(({ theme, image, condition }) => ({
+  color: condition ? "white" : "#012c54",
+  marginTop: "4px",
+  textTransform: "uppercase",
   cursor: "pointer",
-  color: color ? "" : "black",
+  fontWeight: "bold",
   "&:hover": {
     color: "red",
   },
+
+  [theme.breakpoints.down("md")]: {
+    color: "#012c54",
+    "&:hover": {
+      color: "red",
+    },
+  },
 }));
 
-export const ButtonBase = styled(Box)(({ theme }) => ({
+export const SubNavList = styled("ul")(({ theme, image }) => ({
+  position: "absolute",
+  background: "whitesmoke",
+  width: "100%",
+  right: 0,
+  top: "15vh",
+  height: "auto",
+  [theme.breakpoints.down("md")]: {
+   display:'none'
+  },
+}));
+
+export const SubNavItem = styled("li")(({ theme, image }) => ({
+  listStyle: "none",
+  padding: "10px",
+  display: "flex",
+}));
+
+export const SubNavLink = styled(NavLink)(({ theme, image }) => ({
+  textDecoration: "none",
+  color: "black",
+  textTransform: "uppercase",
+}));
+
+export const ResponsiveMenu = styled(Stack)(({ theme, image ,condition}) => ({
+  color: condition ? "white" : "#012c54",
+  display: "none",
+  fontSize: "28px",
+  // padding: "10px",
+  cursor: "pointer",
+  [theme.breakpoints.down("md")]: {
+    display: "block",
+    padding: "10px",
+  },
+}));
+
+export const Logo = styled("img")(({ theme, image }) => ({
+  width: "53px",
+  height: "72px",
+  padding: "5px",
+  [theme.breakpoints.down("md")]: {
+    width: "45px",
+    height: "62px",
+  },
+}));
+
+export const LogoContainer = styled(Link)(({ theme, image }) => ({
+  textDecoration: "none",
+  color: "transparent",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  cursor: "pointer",
   padding: "10px",
-  borderRadius: "50%",
-  color: "#162438",
-  marginRight: "10px",
+  [theme.breakpoints.down("md")]: {
+    padding: "10px",
+  },
+}));
 
+export const HLine = styled("hr")(({ theme, image }) => ({
+  width: "100%",
+  color: "black",
+}));
+
+export const ButtonBase = styled(Stack)(({ theme, image }) => ({
+  width: 50,
+  height: 50,
+  background: "white",
+  color: "black",
+  borderRadius: "50%",
+  fontWeight: "bold",
+  fontSize: "25px",
+  cursor: "pointer",
   "&:hover": {
-    background: "#162438",
+    background: "black",
     color: "white",
   },
 }));
 
-export const HLine = styled("hr")(({ theme }) => ({
-  width: "100%",
-  color: "#162438",
-}));
+// -------------------------------------------------------- Responsive Components
 
-// ------------------------------------------------------------------------------ Services List
-
-export const ServicesList = styled("ul")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  // paddingRight: "10px",
-  flexWrap: "wrap",
-  color: "white",
-  width: "100%",
-}));
-
-export const ServicesItem = styled("li")(({ theme }) => ({
-  listStyle: "none",
-  padding: "5px",
-  width: "32%",
-  fontSize: "14px",
-  color: "white",
-  "&:hover": {
-    color: "orange",
+export const SubNavListMobile = styled('ul')(({ theme, image }) => ({
+  display: 'flex',
+  alignItems: 'left',
+  justifyContent: 'left',
+  flexDirection: 'column',
+   [theme.breakpoints.up("md")]: {
+    display:'none'
   },
-  //  border:'1px solid blue'
 }));
 
-export const RightArrow = styled(FiExternalLink)(({ theme }) => ({
-  marginTop: "3px",
-}));
-export const NavLinkStyle = styled(NavLink)(
-  ({ theme, contactus, patners, infor }) => ({
-    color: contactus || patners || infor ? "#012C54" : "white",
-    fontWeight: "bold",
-    textDecoration: "none",
-    fontSize: "16px",
-    textTransform: "uppercase",
-    fontFamily: theme.typography.fontFamily,
-    display: "flex",
-    alignItems: "center",
-    "&:hover": {
-      color: "red",
-    },
-  })
-);
+export const SubNavItemMobile = styled("li")(({ theme, image }) => ({}));
 
-// ------------------------------------------------------------------------------
-export const KapilNavStyle = ({ isActive }) => {
-  return {
-    // color: isActive ? "#ff8217" : "#174F7A",
-    // color: isActive ? "orange" : "#012a5c",
-    color: isActive ? "orange" : "#012a5c",
-    fontWeight: "bold",
-    textDecoration: "none",
-    // textTransform: "uppercase",
-    "&:hover": {
-      color: "orange",
-    },
-    display: "flex",
-    alignItems: "center",
-    "&:hover": {
-      color: "orange",
-    },
-  };
-};
+export const SubNavLinkMobile = styled(NavLink)(({ theme, image }) => ({}));
 
-export const KapilNavStyle2 = ({ isActive }) => {
-  return {
-    // color: isActive ? "#ff8217" : "#174F7A",
-    color: isActive ? "orange" : "#162438",
-    // color:'black',
-    textDecoration: "none",
+export const SubNavTextMobile = styled(Stack)(({ theme, image }) => ({}));
 
-    // textTransform: "uppercase",
-    "&:hover": {
-      color: "orange",
-    },
-    display: "flex",
-    alignItems: "center",
-  };
-};
+
+// -------------------------------------------------------- Main Component
 
 function Navbar() {
-  const { pathname } = useLocation();
+  const [click, setClick] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [menuid, setMenuid] = useState(0);
 
+  
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
-  // --------------------------------------------------------------------
-
-  // new function:
-  const handleScroll = () => {
-    // find current scroll position
-    const currentScrollPos = window.pageYOffset;
-
-    // set state based on location info (explained in more detail below)
-    setVisible(
-      (prevScrollPos > currentScrollPos &&
-        prevScrollPos - currentScrollPos > 70) ||
-        currentScrollPos < 10
-    );
-
-    // set state to new scroll position
-    setPrevScrollPos(currentScrollPos);
+  const handleMouseEnter = (id) => {
+    console.log(id);
+    setMenuid(id);
+    setHover(true);
   };
 
-  // new useEffect:
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos, visible, handleScroll]);
-
-  // -----------------------------------------------------------------------------
-
-  const Infor = "/offerings/enterprise-software/erp/infor";
-  const SAP = "/offerings/enterprise-software/erp/SAP";
-  const Oracle = "/offerings/enterprise-software/erp/SAP";
-
-  const KapilNavStyle = ({ isActive }) => {
-    return {
-      // color: isActive ? "#ff8217" : "#174F7A",
-      color: isActive ? "orange" : "#012a5c",
-      textDecoration: "none",
-      // textTransform: "uppercase",
-      "&:hover": {
-        color: "orange",
-      },
-      display: "flex",
-      alignItems: "center",
-      "&:hover": {
-        color: "orange",
-      },
-    };
+  const handleMouseLeaves = () => {
+    setHover(false);
   };
 
-  const KapilNavStyle2 = ({ isActive }) => {
-    return {
-      // color: isActive ? "#ff8217" : "#174F7A",
-      color: isActive ? "orange" : "#162438",
-      // color:'black',
-      textDecoration: "none",
-
-      // textTransform: "uppercase",
-      "&:hover": {
-        color: "red",
-      },
-      display: "flex",
-      alignItems: "center",
-    };
+  const handleClickOpen = () => {
+    setClick(!click);
   };
 
-  const condition1 = pathname.split("/")[1];
-
-  console.log(condition1);
-
-  const [open, setopen] = useState(false);
-  const [id, setid] = useState(0);
-  const [show, setShow] = useState(false);
-
-  const handleOpen = (menuid) => {
-    setid(menuid);
-    setopen(true);
+  const handleCickClose = () => {
+    setClick(false);
   };
+ const handleScroll = () => {
+   // find current scroll position
+   const currentScrollPos = window.pageYOffset;
 
-  const handleClose = () => {
-    setopen(false);
-  };
+   // set state based on location info (explained in more detail below)
+   setVisible(
+     (prevScrollPos > currentScrollPos &&
+       prevScrollPos - currentScrollPos > 70) ||
+       currentScrollPos < 10
+   );
+
+   // set state to new scroll position
+   setPrevScrollPos(currentScrollPos);
+ };
+
+ // new useEffect:
+ useEffect(() => {
+   window.addEventListener("scroll", handleScroll);
+
+   return () => window.removeEventListener("scroll", handleScroll);
+ }, [prevScrollPos, visible, handleScroll]);
+
+
+  const { pathname } = useLocation();
+
+  const Infor =
+    pathname === "/what-we-do/services/enterprise-software/erp/infor";
+  const sap = pathname === "/what-we-do/services/enterprise-software/erp/SAP";
+  const oracle =
+    pathname === "/what-we-do/services/enterprise-software/erp/infor";
+  const home = pathname === "/home";
+  const careers = pathname === "/careers";
 
   return (
-    <>
-      <MainHeader
-        InforColor={pathname === Infor}
-        SAPColor={pathname === SAP}
-        oracleColor={pathname === Oracle}
-        click={open}
-        topvisibile={visible}
-        listid={id}
-        className="MainNav"
-      >
-        <Link
-          to="/home"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Logo src={KTLogo} alt="Kapil Technologies Logo" />
-        </Link>
-
-        <MainNavList>
-          {NavData.map((item) => (
-            <MainNavItem key={item.id} onClick={() => handleOpen(item.id)}>
-              {!item.path ? (
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  justifyContent="center"
-                  sx={{
-                    color: "white",
-                    "&:hover": {
-                      color: "red",
-                    },
-                  }}
-                  key={item.id}
-                >
-                  <Typography
-                    variant="body"
-                    sx={{
-                      cursor: "pointer",
-                      textTransform: "uppercase",
-                      fontFamily: "fontFamily",
-                      fontSize: "16px",
-                      color:
-                        pathname === "/contact-us" ||
-                        pathname === "/our-alliances" ||
-                        pathname === "/offerings/enterprise-software/erp/infor"
-                          ? "#012C54"
-                          : "white",
-                      "&:hover": {
-                        color: "red",
-                      },
-                      display: "flex",
-                      alignItems: "center",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {item.title}
-
-                    {item.submenudata === id && item.submenu && open
+    <MainHeader topvisibile={visible}>
+      <LogoContainer to="/home">
+        <Logo src={KTLogo} alt="Kapil Techlogoies Pvt ltd" />
+      </LogoContainer>
+      <MainNavList open={click} className="NavList">
+        {NavData.map((item) => (
+          <MainNavItem>
+            {item.path ? (
+              <MainNavLink
+                to={item.path}
+                onMouseLeave={handleMouseLeaves}
+                // onClick={handleCickClose}
+                homeColor={home}
+                sapColor={sap}
+                careers={careers}
+              >
+                {item.title}
+              </MainNavLink>
+            ) : (
+              <MainNavText
+                alignItems="center"
+                direction="row"
+                condition={home || sap || careers}
+                onMouseEnter={() => handleMouseEnter(item.id)}
+                onClick={handleClickOpen}
+              >
+                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                  {item.title}
+                </Typography>
+                {item.submenu && hover
+                  ? item.openicon
+                  : item.submenu
+                  ? item.closeicon
+                  : null}
+              </MainNavText>
+            )}
+            {/* {item.submenu && click ? (
+              <SubNavListMobile>
+                {item.submenu.map((item) => (
+                  <Stack direction="row" alignItems="center"  onClick={handleClickOpen}>
+                    <img
+                      src={item.mainIcon}
+                      alt="Kapil Technology Services"
+                      height="15px"
+                      width="auto"
+                    />
+                    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                      {item.Mtitle}
+                    </Typography>
+                    {item.menu3 && click
                       ? item.closeicon
-                      : item.submenu
+                      : item.menu3
                       ? item.openicon
                       : null}
-                  </Typography>
-                </Stack>
-              ) : (
-                <NavLinkStyle
-                  to={item.path}
-                  click={open}
-                  listid={id}
-                  contactus={pathname === "/contact-us"}
-                  patners={pathname === "/our-alliances"}
-                  sap={pathname === SAP}
-                  infor={pathname === Infor}
-                  home={pathname === "/home"}
+                  </Stack>
+                ))}
+              </SubNavListMobile>
+            ) : null} */}
+
+            {item.submenu && hover ? (
+              <SubNavList>
+                <Stack
+                  direction="column"
+                  alignItems="left"
+                  justifyContent="center"
+                  spacing={1}
+                  sx={{ p: 2 }}
                 >
-                  {item.title}
-                </NavLinkStyle>
-              )}
-            </MainNavItem>
-          ))}
-        </MainNavList>
-      </MainHeader>
-      {id === 3 ? (
-        <SubmenuList
-          mid={id}
-          click={open}
-          className="main-submenu"
-          sapColor={pathname === SAP}
-        >
-          <Stack
-            direction="column"
-            alignItems="start"
-            sx={{ width: "100%", p: 3 }}
-          >
-            <Stack
-              direction="row"
-              alignItems="center"
-              justifyContent="space-between"
-              sx={{ width: "100%", p: 1, color: "#162438" }}
-            >
-              <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                Services
-              </Typography>
-              <ButtonBase onClick={handleClose}>
-                <FaX />
-              </ButtonBase>
-            </Stack>
-            <HLine />
-            {id === 3
-              ? Services.map((item) => (
-                  <Fragment>
-                    <Stack
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
+                  >
+                    <Stack direction="row" alignItems="center" spacing={1}>
+                      <img
+                        src={ServiceIcon}
+                        alt="Kapil Technology Services"
+                        height="30px"
+                        width="auto"
+                      />
+                      <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                        Services
+                      </Typography>
+                    </Stack>
+
+                    <ButtonBase
                       direction="row"
                       alignItems="center"
-                      justifyContent="start"
-                      sx={{ width: "100%", p: 1 }}
+                      justifyContent="center"
+                      onClick={handleMouseLeaves}
                     >
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          width: 150,
-                          color: "#162438",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {item.Mtitle}
-                      </Typography>
+                      <CloseMenu />
+                    </ButtonBase>
+                  </Stack>
+                  <HLine />
 
-                      <Grid container>
-                        {item.menu3.map((item) => (
-                          <ServicesItem key={item.tlmenuid}>
-                            <NavLink
-                              to={item.path}
-                              style={KapilNavStyle2}
-                              onClick={handleClose}
+                  <Stack
+                    direction="column"
+                    alignItems="left"
+                    justifyContent="left"
+                  >
+                    {Services.map((item) => (
+                      <Fragment>
+                        <Stack
+                          direction="row"
+                          alignItems="center"
+                          spacing={1}
+                          sx={{ width: "100%", py: 1 }}
+                        >
+                          <Stack
+                            direction="row"
+                            alignItems="center"
+                            spacing={1}
+                            sx={{ width: "30%" }}
+                          >
+                            <img
+                              src={item.icon}
+                              alt="Services"
+                              width="30px"
+                              height="30px"
+                            />
+                            <Typography
+                              variant="body1"
+                              sx={{ fontWeight: "bold" }}
                             >
-                              {item.title}
-                            </NavLink>
-                          </ServicesItem>
-                        ))}
-                      </Grid>
-                    </Stack>
-                    <HLine />
-                  </Fragment>
-                ))
-              : null}
-          </Stack>
-        </SubmenuList>
-      ) : null}
-    </>
+                              {item.Mtitle}
+                            </Typography>
+                          </Stack>
+
+                          <Grid
+                            container
+                            columnGap={1}
+                            rowGap={1}
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "left",
+                            }}
+                          >
+                            {item.menu3.map((item) => (
+                              <Grid xs={3.5} sx={{ px: 1 }}>
+                                {item.path ? (
+                                  <SubNavLink
+                                    to={item.path}
+                                    onClick={handleMouseLeaves}
+                                  >
+                                    {item.title}
+                                  </SubNavLink>
+                                ) : (
+                                  <Typography variant="body1">
+                                    {item.title}
+                                  </Typography>
+                                )}
+                              </Grid>
+                            ))}
+                          </Grid>
+                        </Stack>
+                        <HLine />
+                      </Fragment>
+                    ))}
+                  </Stack>
+
+                  <Stack direction="row" alignItems="center" spacing={1}>
+                    <img
+                      src={SolutionIcon}
+                      alt="Kapil Technology Services"
+                      height="30px"
+                      width="auto"
+                    />
+                    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                      Solutions
+                    </Typography>
+                  </Stack>
+                  <HLine />
+
+                  <Grid container columnGap={2} rowGap={2}>
+                    {Solutions.map((item) => (
+                      <SubNavItem component={Grid} item xs={3}>
+                        <SubNavLink to={item.path}>{item.title}</SubNavLink>
+                      </SubNavItem>
+                    ))}
+                  </Grid>
+
+                  <HLine />
+                </Stack>
+              </SubNavList>
+            ) : null}
+          </MainNavItem>
+        ))}
+      </MainNavList>
+      <ResponsiveMenu
+        onClick={handleClickOpen}
+        condition={home || sap || careers}
+      >
+        {click ? <CloseMenu /> : <Menu />}
+      </ResponsiveMenu>
+    </MainHeader>
   );
 }
 
