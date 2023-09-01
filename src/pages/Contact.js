@@ -240,7 +240,7 @@ export const BranchCards = ({
 
 function Contact() {
   const Hostname = window.location.hostname
-const condition = Hostname === 'kapiltech' ? 2 : Hostname === 'kcs-tech' ? 1 : Hostname === 'ptkcs' ? 2 :1
+const condition = Hostname === 'www.kapiltech.com' ? 2 : Hostname === 'kcs-tech.com' ? 1 : Hostname === 'ptkcs.com' ? 2 :1
 
   const [value, setValue] = React.useState(condition);
 

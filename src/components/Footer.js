@@ -19,6 +19,17 @@ export const MainFooter = styled("footer")(({ theme, image, path }) => ({
 // ---------------------------------------------------------------
 
 export const Copyright = () => {
+  const HostName = window.location.hostname;
+
+ const condition =
+   HostName === "www.kapiltech.com"
+     ? "Kapil Technologies Pvt Ltd"
+     : HostName === "ptkcs.com"
+     ? "PTKCS Technologies Indonesia"
+     : HostName === "kcs-tech.com"
+     ? "KCS Technologies Inc"
+     : "Kapil Technologies Pvt Ltd";
+
   return (
     <Stack
       direction="row"
@@ -27,7 +38,7 @@ export const Copyright = () => {
       spacing={1}
     >
       <FaCopyright />
-      <Typography>All rights reserved by Kapil Technologies 2023</Typography>
+      <Typography>All rights reserved by { condition} 2023</Typography>
     </Stack>
   );
 };
@@ -53,11 +64,11 @@ function Footer() {
           variant="body1"
           component={Link}
           to={
-            HostName === "kapiltech"
+            HostName === "www.kapiltech.com"
               ? "mailto:info@kapiltech.com"
-              : HostName === "ptkcs"
+              : HostName === "ptkcs.com"
               ? "mailto:contact@ptkcs.com"
-              : HostName === "kcs-tech"
+              : HostName === "kcs-tech.com"
               ? "mailto:marketing@kcs-tech.com"
               : "mailto:info@kapiltech.com"
           }
@@ -70,13 +81,13 @@ function Footer() {
             },
           }}
         >
-          {HostName === "kapiltech"
+          {HostName === "www.kapiltech.com"
             ? "info@kapiltech.com"
-            : HostName === "ptkcs"
+            : HostName === "ptkcs.com"
             ? "contact@ptkcs.com"
-            : HostName === "kcs-tech"
+            : HostName === "kcs-tech.com"
             ? "marketing@kcs-tech.com"
-            : 'infor@kapiltech.com'}
+            : "info@kapiltech.com"}
         </Typography>
       </Stack>
     </MainFooter>
