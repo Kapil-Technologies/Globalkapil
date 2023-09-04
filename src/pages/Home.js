@@ -7,6 +7,7 @@ import HomeAbout from "../assets/Banners/HomeAbout.png";
 import Industries from "../components/Sliders/Industries";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import Page from "../components/Page";
+import KapilGrouplogo from '../assets/Logo/Kapilgroup.png'
 import {
   FiArrowRight,
   FiChevronRight,
@@ -155,6 +156,16 @@ export const CTA = ({ text, buttonText }) => {
 // ---------------------------------------------------------------
 
 function Home() {
+
+  const Hostname = window.location.hostname;
+  const name =
+    Hostname === "www.kapiltech.com"
+      ? "Kapil Technologies"
+      : Hostname === "kcs-tech.com"
+      ? "KCS Technologies Inc"
+      : Hostname === "ptkcs.com"
+      ? "PT KCS Technologies Indonesia"
+      : "Kapil Technologies";
   const [Hover, setHover] = useState(false);
 
   const MouseEnters = () => {
@@ -193,7 +204,7 @@ function Home() {
             justifyContent: "center",
             background: "rgba(0,0,0,0.5)",
             height: 580,
-            position:'relative'
+            position: "relative",
           }}
         >
           <Grid
@@ -226,7 +237,17 @@ function Home() {
             </Typography>
           </Grid>
 
-          <Typography variant="h4" sx={{ color: "white", fontWeight: "bold",position:'absolute',right:0,bottom:0,p:3 }}>
+          <Typography
+            variant="h4"
+            sx={{
+              color: "white",
+              fontWeight: "bold",
+              position: "absolute",
+              right: 0,
+              bottom: 0,
+              p: 3,
+            }}
+          >
             Enabling High Performance
           </Typography>
         </Grid>
@@ -246,19 +267,12 @@ function Home() {
       </Stack>
       <Grid
         container
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center", }}
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
         {ZigZagData.map((item) => {
           if (item.type === "image") {
             return (
-              <Grid
-                item
-                xs={12}
-                
-                md={6}
-               
-                sx={{ height: 380 }}
-              >
+              <Grid item xs={12} md={6} sx={{ height: 380 }}>
                 <img
                   src={item.url}
                   alt="Kapil Technologies"
@@ -338,7 +352,7 @@ function Home() {
           direction="column"
           alignItems="left"
           justifyContent="center"
-          sx={{ width: "100%" }}
+          sx={{ width: "100%" ,p:2}}
         >
           <Typography
             variant="h6"
@@ -349,20 +363,25 @@ function Home() {
               fontWeight: "bold",
             }}
           >
-            KAPIL TECHNOLOGIES
+            {name}
           </Typography>
           <Typography
             variant="body1"
-            sx={{ textAlign: "justify", textJustify: "inner-word" ,}}
+            sx={{
+              textAlign: "justify",
+              textJustify: "inner-word",
+              position: "relative",
+              p: 2,
+            }}
           >
-            Kapil Technologies is a  systems integrator, software development
+            Kapil Technologies is a systems integrator, software development
             partner, and managed services provider focused on Enterprise
             solutions for multiple industries. Our services include strategies
             for accounting, finance, regulatory reporting, performance
             management, sustainability, customer experience, and IoT. Operating
             from offices across the globe and growing, our expert teams help
             clients achieve operational efficiency and improve decision-making
-            capabilities. KAPIL TECH is part of the
+            capabilities. KAPIL TECHNOLOGIES is part of the
             <Link
               to="https://kapilgroup.com"
               target="blank"
@@ -373,11 +392,14 @@ function Home() {
                 color: "black",
                 marginLeft: "5px",
                 fontFamily: "Montserrat",
+                position: "relative",
+                bottom: 0,
+                right: 0,
               }}
             >
               KAPIL GROUP
+              {/* <img src={KapilGrouplogo} alt="Kapil Groups" height="45px" /> */}
             </Link>
-            .
           </Typography>
         </Stack>
       </Stack>

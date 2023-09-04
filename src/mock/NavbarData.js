@@ -178,12 +178,12 @@ export const Solutions = [
   {
     submenuid: 2,
     title: "K-Mobillor",
-    path: "/what-we-do/solutions/k-mobillor",
+    // path: "/what-we-do/solutions/k-mobillor",
   },
   {
     submenuid: 3,
     title: "Enstrapp",
-    path: "/what-we-do/solutions/Enstrapp",
+    // path: "/what-we-do/solutions/Enstrapp",
   },
   // {
   //   submenuid: 4,
@@ -237,7 +237,7 @@ export const NavData = [
   },
 
   {
-    id: 3,
+    id: 2,
     title: "What We Do",
     // path: "/services",
     openicon: <UpArrow />,
@@ -263,18 +263,18 @@ export const NavData = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     title: "Our Alliances",
     path: "/our-alliances",
   },
 
   {
-    id: 5,
+    id: 4,
     title: "Careers",
     path: "/careers",
   },
   {
-    id: 6,
+    id: 5,
     title: "Contact Us ",
     path: "/contact-us",
   },

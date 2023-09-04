@@ -1,6 +1,12 @@
-import React, { Fragment, useState,useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
-import { FiChevronDown, FiChevronUp, FiMenu, FiX } from "react-icons/fi";
+import {
+  FiArrowRight,
+  FiChevronDown,
+  FiChevronUp,
+  FiMenu,
+  FiX,
+} from "react-icons/fi";
 import { Grid, IconButton, Stack, Typography } from "@mui/material";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import KTLogo from "../assets/Logo/KTlogo.png";
@@ -18,36 +24,40 @@ export const Menu = styled(FiMenu)(({ theme, image }) => ({}));
 
 export const CloseMenu = styled(FiX)(({ theme, image }) => ({}));
 
-export const MainHeader = styled("header")(({ InforColor, theme, image,topvisibile }) => ({
-  width: "100%",
-  height: "15vh",
-  background: "transperant",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  position: "absolute",
-  top: topvisibile ? 0 : "-15vh",
-  zIndex: 999,
-  [theme.breakpoints.down("md")]: {
-    // background: "#012c54",
-    position: "fixed",
-  },
-  // border:'1px solid white'
-}));
+export const RightArrow = styled(FiArrowRight)(({ theme, image }) => ({}));
 
-export const MainNavList = styled("ul")(({ theme, image,open }) => ({
+export const MainHeader = styled("header")(
+  ({ InforColor, theme, image, topvisibile }) => ({
+    width: "100%",
+    height: "15vh",
+    background: "transperant",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    position: "absolute",
+    top: topvisibile ? 0 : "-15vh",
+    zIndex: 999,
+    [theme.breakpoints.down("md")]: {
+      // background: "#012c54",
+      position: "fixed",
+    },
+    // border:'1px solid white'
+  })
+);
+
+export const MainNavList = styled("ul")(({ theme, image, open }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   padding: "10px",
   [theme.breakpoints.down("md")]: {
-    position: 'fixed',
-    top: '15vh',
-    background: 'whitesmoke',
-    display: 'block',
-    width: '100%',
-    height: '100%',
-    left: open ? "0" : "-1000%"
+    position: "fixed",
+    top: "15vh",
+    background: "whitesmoke",
+    display: "block",
+    width: "100%",
+    height: "100%",
+    left: open ? "0" : "-1000%",
   },
 }));
 
@@ -55,7 +65,7 @@ export const MainNavItem = styled("li")(({ theme, image }) => ({
   listStyle: "none",
   padding: "10px",
   [theme.breakpoints.down("md")]: {
-   paddingTop:'15px'
+    paddingTop: "15px",
   },
 }));
 
@@ -90,9 +100,7 @@ export const MainNavText = styled(Stack)(({ theme, image, condition }) => ({
 
   [theme.breakpoints.down("md")]: {
     color: "#012c54",
-    "&:hover": {
-      color: "red",
-    },
+   
   },
 }));
 
@@ -102,9 +110,10 @@ export const SubNavList = styled("ul")(({ theme, image }) => ({
   width: "100%",
   right: 0,
   top: "15vh",
-  height: "auto",
+  height: "85vh",
+  overflowY:'scroll', 
   [theme.breakpoints.down("md")]: {
-   display:'none'
+    display: "none",
   },
 }));
 
@@ -118,9 +127,18 @@ export const SubNavLink = styled(NavLink)(({ theme, image }) => ({
   textDecoration: "none",
   color: "black",
   textTransform: "uppercase",
+  display: "flex",
+  alignItems: "center",
+  fontSize:'14px',
+  // fontWeight: 'bold',
+  fontFamily: theme.typography.fontFamily,
+  '&:hover': {
+    textDecoration: 'underline',
+    color:'red'
+  }
 }));
 
-export const ResponsiveMenu = styled(Stack)(({ theme, image ,condition}) => ({
+export const ResponsiveMenu = styled(Stack)(({ theme, image, condition }) => ({
   color: condition ? "white" : "#012c54",
   display: "none",
   fontSize: "28px",
@@ -176,13 +194,13 @@ export const ButtonBase = styled(Stack)(({ theme, image }) => ({
 
 // -------------------------------------------------------- Responsive Components
 
-export const SubNavListMobile = styled('ul')(({ theme, image }) => ({
-  display: 'flex',
-  alignItems: 'left',
-  justifyContent: 'left',
-  flexDirection: 'column',
-   [theme.breakpoints.up("md")]: {
-    display:'none'
+export const SubNavListMobile = styled("ul")(({ theme, image }) => ({
+  display: "flex",
+  alignItems: "left",
+  justifyContent: "left",
+  flexDirection: "column",
+  [theme.breakpoints.up("md")]: {
+    display: "none",
   },
 }));
 
@@ -192,15 +210,16 @@ export const SubNavLinkMobile = styled(NavLink)(({ theme, image }) => ({}));
 
 export const SubNavTextMobile = styled(Stack)(({ theme, image }) => ({}));
 
-
 // -------------------------------------------------------- Main Component
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [hover, setHover] = useState(false);
+  const [SubMenuHover, setSubMenuHover] = useState(false);
   const [menuid, setMenuid] = useState(0);
+  const [Submenuid, setSubmenuid] = useState(0);
 
-  
+
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -214,6 +233,7 @@ function Navbar() {
     setHover(false);
   };
 
+
   const handleClickOpen = () => {
     setClick(!click);
   };
@@ -221,30 +241,39 @@ function Navbar() {
   const handleCickClose = () => {
     setClick(false);
   };
- const handleScroll = () => {
-   // find current scroll position
-   const currentScrollPos = window.pageYOffset;
+  const handleScroll = () => {
+    // find current scroll position
+    const currentScrollPos = window.pageYOffset;
 
-   // set state based on location info (explained in more detail below)
-   setVisible(
-     (prevScrollPos > currentScrollPos &&
-       prevScrollPos - currentScrollPos > 70) ||
-       currentScrollPos < 10
-   );
+    // set state based on location info (explained in more detail below)
+    setVisible(
+      (prevScrollPos > currentScrollPos &&
+        prevScrollPos - currentScrollPos > 70) ||
+        currentScrollPos < 10
+    );
 
-   // set state to new scroll position
-   setPrevScrollPos(currentScrollPos);
- };
+    // set state to new scroll position
+    setPrevScrollPos(currentScrollPos);
+  };
 
- // new useEffect:
- useEffect(() => {
-   window.addEventListener("scroll", handleScroll);
+  // new useEffect:
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
 
-   return () => window.removeEventListener("scroll", handleScroll);
- }, [prevScrollPos, visible, handleScroll]);
-
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos, visible, handleScroll]);
 
   const { pathname } = useLocation();
+
+   const handleSubMouseEnter = (id) => {
+    console.log(id);
+    setSubmenuid(id);
+    setHover(true);
+  };
+
+  const handleSubMouseLeaves = () => {
+    setHover(false);
+  };
 
   const Infor =
     pathname === "/what-we-do/services/enterprise-software/erp/infor";
@@ -261,11 +290,11 @@ function Navbar() {
       </LogoContainer>
       <MainNavList open={click} className="NavList">
         {NavData.map((item) => (
-          <MainNavItem>
+          <MainNavItem key={item.id}>
             {item.path ? (
               <MainNavLink
                 to={item.path}
-                onMouseLeave={handleMouseLeaves}
+                onMouseEnter={handleMouseLeaves}
                 // onClick={handleCickClose}
                 homeColor={home}
                 sapColor={sap}
@@ -335,7 +364,10 @@ function Navbar() {
                         height="30px"
                         width="auto"
                       />
-                      <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                      <Typography
+                        variant="h6"
+                        sx={{ fontWeight: "bold", textTransform: "uppercase" }}
+                      >
                         Services
                       </Typography>
                     </Stack>
@@ -395,16 +427,21 @@ function Navbar() {
                             }}
                           >
                             {item.menu3.map((item) => (
-                              <Grid xs={3.5} sx={{ px: 1 }}>
+                              <Grid
+                                xs={3.5}
+                                sx={{ px: 1 }}
+                                key={item.id}
+                                onMouseEnter={() =>
+                                  handleSubMouseEnter(item.tlmenuid)
+                                }
+                              >
                                 {item.path ? (
-                                  <SubNavLink
-                                    to={item.path}
-                                    onClick={handleMouseLeaves}
-                                  >
+                                  <SubNavLink to={item.path}>
                                     {item.title}
+                                    {SubMenuHover ? <RightArrow /> : null}
                                   </SubNavLink>
                                 ) : (
-                                  <Typography variant="body1">
+                                  <Typography variant="body2">
                                     {item.title}
                                   </Typography>
                                 )}
@@ -424,7 +461,10 @@ function Navbar() {
                       height="30px"
                       width="auto"
                     />
-                    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ fontWeight: "bold", textTransform: "uppercase" }}
+                    >
                       Solutions
                     </Typography>
                   </Stack>
@@ -433,7 +473,16 @@ function Navbar() {
                   <Grid container columnGap={2} rowGap={2}>
                     {Solutions.map((item) => (
                       <SubNavItem component={Grid} item xs={3}>
-                        <SubNavLink to={item.path}>{item.title}</SubNavLink>
+                        {item.path ? (
+                          <SubNavLink
+                            to={item.path}
+                            target={item.title === "Infor" ? "_blank" : null}
+                          >
+                            {item.title}
+                          </SubNavLink>
+                        ) : (
+                          <Typography variant="body2">{item.title}</Typography>
+                        )}
                       </SubNavItem>
                     ))}
                   </Grid>

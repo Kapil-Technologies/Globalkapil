@@ -9,42 +9,33 @@ export const IndustriesData = [
   },
   {
     id: 2,
-    title: "Construction & EPC",
+    title: "Hightech & Electronics",
     // image:Construction,
   },
   {
     id: 3,
-    title: "General Manufacturing",
+    title: "Construction & Engineering",
     // image:GeneralM,
   },
   {
     id: 4,
-    title: "Heavy Machinery",
+    title: "Food & Beverage",
     // image: HeavyM,
   },
   {
     id: 5,
-    title: "Hi-Tech Industries",
+    title: "Textiles",
     // image: HitechI,
   },
   {
     id: 6,
-    title: "Textiles & Anclillary",
+    title: "Industrial Manufacturing",
     // image: Textiles,
   },
   {
     id:7,
-    title: "Trading & Distribution",
+    title: "   Machinary & Equipment",
     // image: Trading,
   },
-  {
-    id: 8,
-    title: "Food & Beverages",
-    // image: FNB,
-  },
-  {
-    id: 9,
-    title: "e-Commerce & Retailing",
-    // image: ECommerse,
-  },
+  
 ];

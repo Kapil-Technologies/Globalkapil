@@ -1,7 +1,7 @@
 import IndiaFlag from '../assets/Flags/roundedIndia.png'
 import IndonesiaFlag from "../assets/Flags/roundedIndonesi.png";
 import USAFlag from "../assets/Flags/roundedUSA.png";
-import UAEFlag from '../assets/Flags/UAE.png'
+import UAEFlag from '../assets/Flags/roundedUAE.png'
 
 export const TabsData = [
   {
