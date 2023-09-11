@@ -352,7 +352,7 @@ function Home() {
           direction="column"
           alignItems="left"
           justifyContent="center"
-          sx={{ width: "100%" ,p:2}}
+          sx={{ width: "100%", p: 2 }}
         >
           <Typography
             variant="h6"
@@ -391,14 +391,16 @@ function Home() {
                 fontWeight: "bold",
                 color: "black",
                 marginLeft: "5px",
-                fontFamily: "Montserrat",
-                position: "relative",
-                bottom: 0,
-                right: 0,
+                height: "auto",
+              
+                // border: "1px solid blue",
+                // display: "flex",
+                // alignItems: "center",
+                // justifyContent: "center",
               }}
             >
               KAPIL GROUP
-              {/* <img src={KapilGrouplogo} alt="Kapil Groups" height="45px" /> */}
+              {/* <img src={KapilGrouplogo} alt="Kapil Groups"  /> */}
             </Link>
           </Typography>
         </Stack>

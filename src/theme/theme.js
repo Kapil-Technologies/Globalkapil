@@ -28,7 +28,8 @@ export const customTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["Montserrat", " sans-serif"].join(","),
+    fontFamily: ['Fira Sans', " sans-serif"].join(","),
+    
 
     // h2: {
     //   fontFamily: ["Dancing Script", "cursive"].join(","),

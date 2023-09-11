@@ -10,7 +10,7 @@ import {
 import { Grid, IconButton, Stack, Typography } from "@mui/material";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import KTLogo from "../assets/Logo/KTlogo.png";
-import { NavData, Services, Solutions } from "../mock/NavbarData";
+import { JoinUsData, NavData, Services, Solutions } from "../mock/NavbarData";
 import ServiceIcon from "../assets/IconImages/Services.png";
 import SolutionIcon from "../assets/IconImages/solutions.png";
 
@@ -27,15 +27,15 @@ export const CloseMenu = styled(FiX)(({ theme, image }) => ({}));
 export const RightArrow = styled(FiArrowRight)(({ theme, image }) => ({}));
 
 export const MainHeader = styled("header")(
-  ({ InforColor, theme, image, topvisibile }) => ({
+  ({ InforColor, theme, image, topvisibile, Hover }) => ({
     width: "100%",
     height: "15vh",
-    background: "transperant",
+    background: Hover ? "whitesmoke" : "transperant",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    position: "absolute",
-    top: topvisibile ? 0 : "-15vh",
+    position: Hover ? "fixed" : "absolute",
+    // top: topvisibile ? 0 : "-15vh",
     zIndex: 999,
     [theme.breakpoints.down("md")]: {
       // background: "#012c54",
@@ -70,13 +70,17 @@ export const MainNavItem = styled("li")(({ theme, image }) => ({
 }));
 
 export const MainNavLink = styled(NavLink)(
-  ({ theme, image, homeColor, sapColor, careers }) => ({
+  ({ theme, image, homeColor, sapColor, careers, Hover, Infor, Contact }) => ({
     textDecoration: "none",
-    color: homeColor || sapColor || careers ? "white" : "#012c54",
+    // color: homeColor || sapColor || careers ? "white" : "#012c54",
+    color: Hover || Infor || Contact ? "#012c54" : "white",
     textTransform: "uppercase",
     fontWeight: "bold",
     fontFamily: theme.typography.fontFamily,
     "&:hover": {
+      color: "red",
+    },
+    "&.active": {
       color: "red",
     },
     [theme.breakpoints.down("md")]: {
@@ -88,30 +92,32 @@ export const MainNavLink = styled(NavLink)(
   })
 );
 
-export const MainNavText = styled(Stack)(({ theme, image, condition }) => ({
-  color: condition ? "white" : "#012c54",
-  marginTop: "4px",
-  textTransform: "uppercase",
-  cursor: "pointer",
-  fontWeight: "bold",
-  "&:hover": {
-    color: "red",
-  },
+export const MainNavText = styled(Stack)(
+  ({ theme, image, condition, Hover, Infor, Contact }) => ({
+    // color: condition ? "white" : "#012c54",
+    color: Hover || Infor || Contact ? "#012c54" : "white",
+    textTransform: "uppercase",
+    cursor: "pointer",
+    fontWeight: "bold",
+    "&:hover": {
+      color: "red",
+    },
 
-  [theme.breakpoints.down("md")]: {
-    color: "#012c54",
-   
-  },
-}));
+    [theme.breakpoints.down("md")]: {
+      color: "#012c54",
+    },
+  })
+);
 
-export const SubNavList = styled("ul")(({ theme, image }) => ({
-  position: "absolute",
+export const SubNavList = styled("ul")(({ theme, image, mainid }) => ({
+  position: "fixed",
   background: "whitesmoke",
   width: "100%",
+  borderTop: "1px solid #012c54",
   right: 0,
   top: "15vh",
-  height: "85vh",
-  overflowY:'scroll', 
+  height: mainid === 4 ? "10vh" : "85vh",
+  overflowY: mainid === 4 ? "" : "scroll",
   [theme.breakpoints.down("md")]: {
     display: "none",
   },
@@ -129,13 +135,17 @@ export const SubNavLink = styled(NavLink)(({ theme, image }) => ({
   textTransform: "uppercase",
   display: "flex",
   alignItems: "center",
-  fontSize:'14px',
+  fontSize: "15px",
   // fontWeight: 'bold',
   fontFamily: theme.typography.fontFamily,
-  '&:hover': {
-    textDecoration: 'underline',
-    color:'red'
-  }
+  "&:hover": {
+    textDecoration: "underline",
+    color: "red",
+  },
+
+  "&.active": {
+    color: "red",
+  },
 }));
 
 export const ResponsiveMenu = styled(Stack)(({ theme, image, condition }) => ({
@@ -219,7 +229,6 @@ function Navbar() {
   const [menuid, setMenuid] = useState(0);
   const [Submenuid, setSubmenuid] = useState(0);
 
-
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -233,7 +242,6 @@ function Navbar() {
     setHover(false);
   };
 
-
   const handleClickOpen = () => {
     setClick(!click);
   };
@@ -241,6 +249,8 @@ function Navbar() {
   const handleCickClose = () => {
     setClick(false);
   };
+
+  // ---------------------------------------------------------- Scrolling
   const handleScroll = () => {
     // find current scroll position
     const currentScrollPos = window.pageYOffset;
@@ -263,9 +273,10 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos, visible, handleScroll]);
 
+  // --------------------------------------------------------------- Scrolling
   const { pathname } = useLocation();
 
-   const handleSubMouseEnter = (id) => {
+  const handleSubMouseEnter = (id) => {
     console.log(id);
     setSubmenuid(id);
     setHover(true);
@@ -275,16 +286,16 @@ function Navbar() {
     setHover(false);
   };
 
-  const Infor =
+  const infor =
     pathname === "/what-we-do/services/enterprise-software/erp/infor";
   const sap = pathname === "/what-we-do/services/enterprise-software/erp/SAP";
   const oracle =
     pathname === "/what-we-do/services/enterprise-software/erp/infor";
   const home = pathname === "/home";
-  const careers = pathname === "/careers";
+  const contact = pathname === "/contact-us";
 
   return (
-    <MainHeader topvisibile={visible}>
+    <MainHeader topvisibile={visible} Hover={hover}>
       <LogoContainer to="/home">
         <Logo src={KTLogo} alt="Kapil Techlogoies Pvt ltd" />
       </LogoContainer>
@@ -296,9 +307,10 @@ function Navbar() {
                 to={item.path}
                 onMouseEnter={handleMouseLeaves}
                 // onClick={handleCickClose}
-                homeColor={home}
-                sapColor={sap}
-                careers={careers}
+
+                Contact={contact}
+                Infor={infor}
+                Hover={hover}
               >
                 {item.title}
               </MainNavLink>
@@ -306,9 +318,11 @@ function Navbar() {
               <MainNavText
                 alignItems="center"
                 direction="row"
-                condition={home || sap || careers}
                 onMouseEnter={() => handleMouseEnter(item.id)}
                 onClick={handleClickOpen}
+                Hover={hover}
+                Infor={infor}
+                Contact={contact}
               >
                 <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                   {item.title}
@@ -343,7 +357,7 @@ function Navbar() {
               </SubNavListMobile>
             ) : null} */}
 
-            {item.submenu && hover ? (
+            {item.submenu && hover && menuid === 2 ? (
               <SubNavList>
                 <Stack
                   direction="column"
@@ -431,12 +445,10 @@ function Navbar() {
                                 xs={3.5}
                                 sx={{ px: 1 }}
                                 key={item.id}
-                                onMouseEnter={() =>
-                                  handleSubMouseEnter(item.tlmenuid)
-                                }
+                                onClick={handleMouseLeaves}
                               >
                                 {item.path ? (
-                                  <SubNavLink to={item.path}>
+                                  <SubNavLink to={item.path} on>
                                     {item.title}
                                     {SubMenuHover ? <RightArrow /> : null}
                                   </SubNavLink>
@@ -454,7 +466,12 @@ function Navbar() {
                     ))}
                   </Stack>
 
-                  <Stack direction="row" alignItems="center" spacing={1}>
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    spacing={1}
+                    sx={{ marginTop: "10px" }}
+                  >
                     <img
                       src={SolutionIcon}
                       alt="Kapil Technology Services"
@@ -477,6 +494,7 @@ function Navbar() {
                           <SubNavLink
                             to={item.path}
                             target={item.title === "Infor" ? "_blank" : null}
+                            onClick={handleMouseLeaves}
                           >
                             {item.title}
                           </SubNavLink>
@@ -490,13 +508,34 @@ function Navbar() {
                   <HLine />
                 </Stack>
               </SubNavList>
+            ) : item.submenu && hover && menuid === 4 ? (
+              <SubNavList mainid={menuid}>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  sx={{ padding: "10px" }}
+                >
+                  {JoinUsData.map((item) => (
+                    <SubNavItem to={item.id}>
+                      {item.path ? (
+                        <SubNavLink to={item.path} onClick={handleMouseLeaves}>
+                          {item.title}
+                        </SubNavLink>
+                      ) : (
+                        <Typography variant="body1">{item.title}</Typography>
+                      )}
+                    </SubNavItem>
+                  ))}
+                </Stack>
+              </SubNavList>
             ) : null}
           </MainNavItem>
         ))}
       </MainNavList>
       <ResponsiveMenu
         onClick={handleClickOpen}
-        condition={home || sap || careers}
+        // condition={home || sap || careers}
       >
         {click ? <CloseMenu /> : <Menu />}
       </ResponsiveMenu>

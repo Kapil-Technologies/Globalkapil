@@ -301,9 +301,9 @@ function Infor() {
             <b>Services</b>
           </Typography>
         </Stack>
-        <Typography variant="subtitle1" gutterBottom>
+        {/* <Typography variant="subtitle1" gutterBottom>
           Develop digital agility to satisfy business demands with Infor
-        </Typography>
+        </Typography> */}
         <Typography variant="subtitle1" gutterBottom sx={{ width: 900 }}>
           Metamorphose your business, deliver customer satisfaction, and improve
           efficiency with Kapil Technologies the foremost trusted Infor alliance

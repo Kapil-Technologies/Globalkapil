@@ -11,6 +11,7 @@ import Patners from "../pages/About/Patners";
 import Ppolicy from "../pages/About/Ppolicy";
 import Infor from "../pages/ERP/Infor";
 import SAP from "../pages/ERP/SAP";
+import Events from "../pages/Events";
 // import Industries from "../pages/Industries/Industries";
 
 function Routes() {
@@ -57,11 +58,33 @@ function Routes() {
               path: "our-battalion",
               element: <About />,
             },
-           
+
             {
               path: "our-alliances",
               element: <Patners />,
             },
+          ],
+        },
+
+        {
+          path: "/join-us",
+          children: [
+            {
+              path: "search-jobs",
+              element: <Careers />,
+              index: true,
+            },
+            {
+              path: "/join-us",
+              element: <Navigate to="/join-us/search-jobs" exact replace />,
+            },
+
+            {
+              path: "events",
+              element: <Events />,
+            },
+
+           
           ],
         },
 
@@ -71,7 +94,11 @@ function Routes() {
             {
               path: "/what-we-do",
               element: (
-                <Navigate to="/what-we-do/services/digital/:digital " exact replace />
+                <Navigate
+                  to="/what-we-do/services/digital/:digital "
+                  exact
+                  replace
+                />
               ),
             },
             // Digital
@@ -97,7 +124,6 @@ function Routes() {
               element: <Erp />,
             },
 
-          
             {
               path: "services/enterprise-software/:page/infor",
               element: <Infor />,
@@ -110,12 +136,9 @@ function Routes() {
               path: "ervices/enterprise-software/:page/oracle",
               element: <SAP />,
             },
-            
           ],
         },
-        
 
-        
         {
           path: "/contact-us",
           element: <Contact />,
@@ -126,17 +149,14 @@ function Routes() {
           element: <Patners />,
         },
 
-        {
-          path: "careers",
-          element: <Careers />,
-        },
+      
         {
           path: "privacy-policy",
           element: <Ppolicy />,
         },
       ],
     },
-  ]);
+  ]); 
 }
 
 export default Routes;

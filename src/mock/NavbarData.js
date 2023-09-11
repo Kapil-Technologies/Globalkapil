@@ -1,30 +1,28 @@
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
-import Zz1 from '../assets/Zigzag/1.jpg'
+import Zz1 from "../assets/Zigzag/1.jpg";
 import Zz2 from "../assets/Zigzag/clearpath.png";
 import Zz3 from "../assets/Zigzag/3.jpg";
 import Zz4 from "../assets/Zigzag/4.png";
 import Zz5 from "../assets/Zigzag/5.jpg";
 import Zz6 from "../assets/Zigzag/6.jpg";
-import Digital from '../assets/IconImages/digital.png'
-import AppDev from '../assets/IconImages/APD.png'
-import Cloud from '../assets/IconImages/cloud.png'
-import ERP from '../assets/IconImages/ERP.png'
+import Digital from "../assets/IconImages/digital.png";
+import AppDev from "../assets/IconImages/APD.png";
+import Cloud from "../assets/IconImages/cloud.png";
+import ERP from "../assets/IconImages/ERP.png";
 import { styled } from "@mui/material/styles";
 import { FiChevronDown, FiChevronUp, FiMenu, FiX } from "react-icons/fi";
 import ServiceIcon from "../assets/IconImages/Services.png";
 import SolutionIcon from "../assets/IconImages/solutions.png";
 
-
 export const UpArrow = styled(FiChevronUp)(({ theme, image }) => ({}));
 
 export const DownArrow = styled(FiChevronDown)(({ theme, image }) => ({}));
-
 
 export const Services = [
   {
     submenuid: 1,
     Mtitle: "Enterprise Software",
-    icon:ERP,
+    icon: ERP,
     menu3: [
       {
         tlmenuid: 1,
@@ -56,7 +54,7 @@ export const Services = [
   {
     submenuid: 2,
     Mtitle: "Cloud",
-    icon:Cloud,
+    icon: Cloud,
     menu3: [
       {
         tlmenuid: 1,
@@ -93,7 +91,7 @@ export const Services = [
   {
     submenuid: 3,
     Mtitle: " Application Development",
-    icon:AppDev,
+    icon: AppDev,
     menu3: [
       {
         tlmenuid: 1,
@@ -136,7 +134,7 @@ export const Services = [
   {
     submenuid: 4,
     Mtitle: "Digital",
-    icon:Digital,
+    icon: Digital,
     menu3: [
       {
         tlmenuid: 1,
@@ -163,10 +161,8 @@ export const Services = [
         title: "BlockChain ",
         // path: "/what-we-do/services/digital/blockchain",
       },
-    
     ],
   },
- 
 ];
 
 export const Solutions = [
@@ -228,6 +224,19 @@ export const ContactData = [
   },
 ];
 
+export const JoinUsData = [
+  {
+    id: 1,
+    title: "Serach Jobs",
+    path: "/join-us/search-jobs",
+  },
+  {
+    id: 2,
+    title: "Events ",
+    // path: "/join-us/events",
+  },
+];
+
 export const NavData = [
   {
     id: 1,
@@ -242,7 +251,7 @@ export const NavData = [
     // path: "/services",
     openicon: <UpArrow />,
     closeicon: <DownArrow />,
-    submenudata: 3,
+    submenudata: 2,
     submenu: [
       {
         id: 1,
@@ -270,8 +279,12 @@ export const NavData = [
 
   {
     id: 4,
-    title: "Careers",
-    path: "/careers",
+    title: "Join Us",
+    // path: "/services",
+    openicon: <UpArrow />,
+    closeicon: <DownArrow />,
+    submenudata: 4,
+    submenu: true,
   },
   {
     id: 5,
