@@ -534,7 +534,7 @@ function Careers() {
                 </JobOpeningCard>
               ))}
 
-              <Stack
+              {/* <Stack
                 direction="row"
                 alignItems="center"
                 justifyContent="left"
@@ -545,7 +545,7 @@ function Careers() {
                   Interested Candidate can send their resumes  to
                 </Typography>
                 <Link to="mailto:hr@kcs-tech.com">hr@kcs-tec.com</Link>
-              </Stack>
+              </Stack> */}
             </Stack>
           </Grid>
         </Grid>
