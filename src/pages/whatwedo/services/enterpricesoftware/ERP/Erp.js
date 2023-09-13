@@ -1,6 +1,5 @@
 import React from "react";
-import Page from "../../components/Page";
-import { CTA, NavDiv } from "../Home";
+import Page from "../../../../../components/Page";
 
 import {
   Button,
@@ -14,9 +13,9 @@ import { FaCloud } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiExternalLink, FiSend } from "react-icons/fi";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import { ERPServices } from "../../mock/ERP";
-import ErpImage from '../../assets/Banners/erp.png'
-import InforLogo from '../../assets/Partners/Infor.png'
+import { ERPServices } from "../../../../../mock/ERP";
+import ErpImage from '../../../../../assets/Banners/erp.png'
+import InforLogo from '../../../../../assets/Partners/Infor.png'
 
 // ---------------------------------------------------------------------- Styled Components
 

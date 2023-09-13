@@ -1,8 +1,8 @@
 import React, { Fragment, useRef, useState } from "react";
-import Page from "../../components/Page";
+import Page from "../../../../../components/Page";
 import { Link, useParams } from "react-router-dom";
 
-import InforBanner1 from "../../assets/Partners/infor1.png";
+import InforBanner1 from "../../../../../assets/Partners/infor1.png";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box, Button, Card, Grid, Stack, Tab, Typography } from "@mui/material";
 import {
@@ -21,7 +21,7 @@ import {
   Recruiting,
   TraiingList,
   whyUs,
-} from "../../mock/ERP";
+} from "../../../../../mock/ERP";
 import {
   FaArrowRight,
   FaAsterisk,
@@ -32,9 +32,9 @@ import {
 } from "react-icons/fa6";
 import { TbSettingsUp } from "react-icons/tb";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import InforBanner from "../../assets/Banners/BInfor1.png";
-import InforCustomization from "../../components/Sliders/InforCustomization";
-import InforManagement from "../../components/Sliders/InforManagement";
+import InforBanner from "../../../../../assets/Banners/BInfor1.png";
+import InforCustomization from "../../../../../components/Sliders/InforCustomization";
+import InforManagement from "../../../../../components/Sliders/InforManagement";
 import { FiArrowRight } from "react-icons/fi";
 import {
   FaArrowAltCircleRight,

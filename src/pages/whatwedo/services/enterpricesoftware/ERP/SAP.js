@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import { NavDiv } from "../Home";
-import SAPBanner from "../../assets/Banners/SAP2.png";
-import { Box, Grid, Stack, Typography } from "@mui/material";
-import { ERPDataSAP } from "../../mock/ERP";
-import Page from "../../components/Page";
 
+import SAPBanner from "../../../../../assets/Banners/SAP2.png";
+import { Box, Grid, Stack, Typography } from "@mui/material";
+import { ERPDataSAP } from "../../../../../mock/ERP";
+import Page from "../../../../../components/Page";
 
 // ------------------------------------------ Reusable Components
 
@@ -19,11 +18,11 @@ export const ERPBanner = styled("div")(({ theme }) => ({
 }));
 
 export const BannerImage = styled("img")(({ theme }) => ({
-//   maxWidth: "100%",
+  //   maxWidth: "100%",
   width: "680px",
   height: "500px",
   position: "relative",
-    
+
   padding: "20px",
 }));
 
@@ -44,7 +43,7 @@ function SAP() {
 
   return (
     <div>
-      <Page name="ERP | SAP "  />
+      <Page name="ERP | SAP " />
       <ERPBanner>
         <Stack
           direction="row"
@@ -139,7 +138,12 @@ function SAP() {
                   >
                     {item.mtitle}
                   </Typography>
-                  <Typography variant="body1" sx={{textAlign:'justify',textJustify:'inner-word'}}>{item.desc}</Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ textAlign: "justify", textJustify: "inner-word" }}
+                  >
+                    {item.desc}
+                  </Typography>
                 </Stack>
               </Stack>
             </Grid>

@@ -47,7 +47,7 @@ export const Services = [
       {
         tlmenuid: 5,
         title: "Digital Content Management ",
-        // path: "/what-we-do/services/cloud/digital-content-management",
+        // path: "/what-we-do/services/enterprise-software/digital-content-management",
       },
     ],
   },

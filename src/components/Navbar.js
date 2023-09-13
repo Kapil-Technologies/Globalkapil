@@ -87,6 +87,7 @@ export const MainNavLink = styled(NavLink)(
       color: "#012c54",
       "&:hover": {
         color: "red",
+        fontWeight:'bold'
       },
     },
   })
@@ -136,7 +137,7 @@ export const SubNavLink = styled(NavLink)(({ theme, image }) => ({
   display: "flex",
   alignItems: "center",
   fontSize: "15px",
-  // fontWeight: 'bold',
+  fontWeight: 'bold',
   fontFamily: theme.typography.fontFamily,
   "&:hover": {
     textDecoration: "underline",
@@ -145,6 +146,7 @@ export const SubNavLink = styled(NavLink)(({ theme, image }) => ({
 
   "&.active": {
     color: "red",
+    fontWeight:'bold'
   },
 }));
 

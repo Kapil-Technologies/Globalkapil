@@ -4,14 +4,15 @@ import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import Careers from "../pages/Careers";
 import About from "../pages/About/About";
-import Consulting from "../pages/Consulting";
-import Erp from "../pages/ERP/Erp";
+// import Consulting from "../pages/Consulting";
+import Erp from "../pages/whatwedo/services/enterpricesoftware/ERP/Erp";
 import NotFound from "../components/NotFound";
 import Patners from "../pages/About/Patners";
 import Ppolicy from "../pages/About/Ppolicy";
-import Infor from "../pages/ERP/Infor";
-import SAP from "../pages/ERP/SAP";
+import Infor from "../pages/whatwedo/services/enterpricesoftware/ERP/Infor";
+import SAP from "../pages/whatwedo/services/enterpricesoftware/ERP/SAP";
 import Events from "../pages/Events";
+import DigitalContent from "../pages/whatwedo/services/enterpricesoftware/digitalcontent/DigitalContent";
 // import Industries from "../pages/Industries/Industries";
 
 function Routes() {
@@ -83,8 +84,6 @@ function Routes() {
               path: "events",
               element: <Events />,
             },
-
-           
           ],
         },
 
@@ -110,13 +109,18 @@ function Routes() {
 
             // Application devlopemnt
             {
+              path: "services/enterprise-software/digital-content-management",
+              element: <DigitalContent />,
+            },
+
+            {
               path: "services/application-development/:page",
-              element: <Consulting />,
+              // element: <Consulting />,
             },
             // Cloud
             {
               path: "services/cloud/:page",
-              element: <Consulting />,
+              // element: <Consulting />,
             },
             // Enterprice Solutions
             {
@@ -149,7 +153,6 @@ function Routes() {
           element: <Patners />,
         },
 
-      
         {
           path: "privacy-policy",
           element: <Ppolicy />,
