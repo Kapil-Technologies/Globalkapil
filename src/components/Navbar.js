@@ -297,7 +297,7 @@ function Navbar() {
   const contact = pathname === "/contact-us";
 
   return (
-    <MainHeader topvisibile={visible} Hover={hover}>
+    <MainHeader topvisibile={visible} Hover={hover} onMouseEnter={handleMouseLeaves}>
       <LogoContainer to="/home">
         <Logo src={KTLogo} alt="Kapil Techlogoies Pvt ltd" />
       </LogoContainer>

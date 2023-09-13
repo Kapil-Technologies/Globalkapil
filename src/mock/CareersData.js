@@ -52,6 +52,104 @@ export const Department = [
   },
 ];
 
+export const filters = [
+  {
+    id: 1,
+    mtitle: "Department",
+    submenu: [
+      {
+        id: 1,
+        title: "Infor",
+        value: "infor",
+      },
+      {
+        id: 2,
+        title: "SAP",
+        value: "sap",
+      },
+      {
+        id: 3,
+        title: "Oracle",
+        value: "oracle",
+      },
+      {
+        id: 4,
+        title: "Web Technologies",
+        value: "webtech",
+      },
+
+      {
+        id: 5,
+        title: "Sales & Marketing",
+        value: "sales",
+      },
+      {
+        id: 6,
+        title: "HR",
+        value: "hr",
+      },
+
+      {
+        id: 7,
+        title: "Others",
+        value: "others",
+      },
+    ],
+  },
+  {
+    id: 2,
+    mtitle: "Work Mode",
+    submenu: [
+      {
+        id: 1,
+        title: "Work From Home",
+        value: "wfh",
+      },
+      {
+        id: 2,
+        title: "Onsite ",
+        value: "onsite",
+      },
+      {
+        id: 3,
+        title: "Hybrid",
+        value: "hybrid",
+      },
+    ],
+  },
+
+  {
+    id: 3,
+    mtitle: "Location",
+    submenu: [
+      {
+        id: 1,
+        title: "Indonesia",
+        value: "IDN",
+        img: Indonesia,
+      },
+      {
+        id: 2,
+        title: "India",
+        value: "IND",
+        img: India,
+      },
+      {
+        id: 3,
+        title: "Singapore",
+        value: "SGP",
+        img: Singapore,
+      },
+      {
+        id: 4,
+        title: "USA",
+        value: "USA",
+        img: USA,
+      },
+    ],
+  },
+];
+
 export const DepartmentList = [
   {
     id: 1,
