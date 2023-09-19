@@ -284,7 +284,18 @@ export const NavData = [
     openicon: <UpArrow />,
     closeicon: <DownArrow />,
     submenudata: 4,
-    submenu: true,
+    submenu: [
+      {
+        id: 1,
+        title: "Serach Jobs",
+        path: "/join-us/search-jobs",
+      },
+      {
+        id: 2,
+        title: "Events ",
+        // path: "/join-us/events",
+      },
+    ],
   },
   {
     id: 5,

@@ -27,10 +27,10 @@ export const CloseMenu = styled(FiX)(({ theme, image }) => ({}));
 export const RightArrow = styled(FiArrowRight)(({ theme, image }) => ({}));
 
 export const MainHeader = styled("header")(
-  ({ InforColor, theme, image, topvisibile, Hover }) => ({
+  ({ InforColor, theme, image, topvisibile, Hover, mobile }) => ({
     width: "100%",
     height: "15vh",
-    background: Hover ? "whitesmoke" : "transperant",
+    background: Hover || mobile ? "whitesmoke" : "transperant",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -87,7 +87,7 @@ export const MainNavLink = styled(NavLink)(
       color: "#012c54",
       "&:hover": {
         color: "red",
-        fontWeight:'bold'
+        fontWeight: "bold",
       },
     },
   })
@@ -117,7 +117,7 @@ export const SubNavList = styled("ul")(({ theme, image, mainid }) => ({
   borderTop: "1px solid #012c54",
   right: 0,
   top: "15vh",
-  height: mainid === 4 ? "10vh" : "85vh",
+  height: mainid === 4 ? "20vh" : "85vh",
   overflowY: mainid === 4 ? "" : "scroll",
   [theme.breakpoints.down("md")]: {
     display: "none",
@@ -137,7 +137,7 @@ export const SubNavLink = styled(NavLink)(({ theme, image }) => ({
   display: "flex",
   alignItems: "center",
   fontSize: "15px",
-  fontWeight: 'bold',
+  fontWeight: "bold",
   fontFamily: theme.typography.fontFamily,
   "&:hover": {
     textDecoration: "underline",
@@ -146,12 +146,12 @@ export const SubNavLink = styled(NavLink)(({ theme, image }) => ({
 
   "&.active": {
     color: "red",
-    fontWeight:'bold'
+    fontWeight: "bold",
   },
 }));
 
 export const ResponsiveMenu = styled(Stack)(({ theme, image, condition }) => ({
-  color: condition ? "white" : "#012c54",
+  color: condition ? "#012c54" : "white",
   display: "none",
   fontSize: "28px",
   // padding: "10px",
@@ -227,15 +227,13 @@ export const SubNavTextMobile = styled(Stack)(({ theme, image }) => ({}));
 function Navbar() {
   const [click, setClick] = useState(false);
   const [hover, setHover] = useState(false);
-  const [SubMenuHover, setSubMenuHover] = useState(false);
   const [menuid, setMenuid] = useState(0);
-  const [Submenuid, setSubmenuid] = useState(0);
+ 
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
   const handleMouseEnter = (id) => {
-    console.log(id);
     setMenuid(id);
     setHover(true);
   };
@@ -243,6 +241,11 @@ function Navbar() {
   const handleMouseLeaves = () => {
     setHover(false);
   };
+  
+
+  function handleClick() {
+    console.log('clicked')
+  }
 
   const handleClickOpen = () => {
     setClick(!click);
@@ -278,16 +281,6 @@ function Navbar() {
   // --------------------------------------------------------------- Scrolling
   const { pathname } = useLocation();
 
-  const handleSubMouseEnter = (id) => {
-    console.log(id);
-    setSubmenuid(id);
-    setHover(true);
-  };
-
-  const handleSubMouseLeaves = () => {
-    setHover(false);
-  };
-
   const infor =
     pathname === "/what-we-do/services/enterprise-software/erp/infor";
   const sap = pathname === "/what-we-do/services/enterprise-software/erp/SAP";
@@ -297,7 +290,12 @@ function Navbar() {
   const contact = pathname === "/contact-us";
 
   return (
-    <MainHeader topvisibile={visible} Hover={hover} onMouseEnter={handleMouseLeaves}>
+    <MainHeader
+      topvisibile={visible}
+      Hover={hover}
+      onMouseEnter={handleMouseLeaves}
+      mobile={click}
+    >
       <LogoContainer to="/home">
         <Logo src={KTLogo} alt="Kapil Techlogoies Pvt ltd" />
       </LogoContainer>
@@ -308,8 +306,7 @@ function Navbar() {
               <MainNavLink
                 to={item.path}
                 onMouseEnter={handleMouseLeaves}
-                // onClick={handleCickClose}
-
+                onClick={handleCickClose}
                 Contact={contact}
                 Infor={infor}
                 Hover={hover}
@@ -321,7 +318,9 @@ function Navbar() {
                 alignItems="center"
                 direction="row"
                 onMouseEnter={() => handleMouseEnter(item.id)}
-                onClick={handleClickOpen}
+                onClick={() => {
+                  handleClickOpen();
+                }}
                 Hover={hover}
                 Infor={infor}
                 Contact={contact}
@@ -329,53 +328,144 @@ function Navbar() {
                 <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                   {item.title}
                 </Typography>
-                {item.submenu && hover
-                  ? item.openicon
-                  : item.submenu
-                  ? item.closeicon
+                {window.innerWidth > 900
+                  ? item.submenu && hover && item.submenudata === menuid
+                    ? item.openicon
+                    : item.submenu
+                    ? item.closeicon
+                    : null
+                  : null}
+                {window.innerWidth < 900
+                  ? item.submenu && click && item.submenudata === menuid
+                    ? item.openicon
+                    : item.submenu
+                    ? item.closeicon
+                    : null
                   : null}
               </MainNavText>
             )}
-            {/* {item.submenu && click ? (
-              <SubNavListMobile>
-                {item.submenu.map((item) => (
-                  <Stack direction="row" alignItems="center"  onClick={handleClickOpen}>
-                    <img
-                      src={item.mainIcon}
-                      alt="Kapil Technology Services"
-                      height="15px"
-                      width="auto"
-                    />
-                    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                      {item.Mtitle}
-                    </Typography>
-                    {item.menu3 && click
-                      ? item.closeicon
-                      : item.menu3
-                      ? item.openicon
-                      : null}
-                  </Stack>
-                ))}
-              </SubNavListMobile>
-            ) : null} */}
 
-            {item.submenu && hover && menuid === 2 ? (
-              <SubNavList>
-                <Stack
-                  direction="column"
-                  alignItems="left"
-                  justifyContent="center"
-                  spacing={1}
-                  sx={{ p: 2 }}
-                >
+            {window.innerWidth > 900 ? (
+              hover && item.submenu && menuid === 2 ? (
+                <SubNavList>
                   <Stack
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="space-between"
+                    direction="column"
+                    alignItems="left"
+                    justifyContent="center"
+                    spacing={1}
+                    sx={{ p: 2 }}
                   >
-                    <Stack direction="row" alignItems="center" spacing={1}>
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      justifyContent="space-between"
+                    >
+                      <Stack direction="row" alignItems="center" spacing={1}>
+                        <img
+                          src={ServiceIcon}
+                          alt="Kapil Technology Services"
+                          height="30px"
+                          width="auto"
+                        />
+                        <Typography
+                          variant="h6"
+                          sx={{
+                            fontWeight: "bold",
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          Services
+                        </Typography>
+                      </Stack>
+
+                      <ButtonBase
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="center"
+                        onClick={handleMouseLeaves}
+                      >
+                        <CloseMenu />
+                      </ButtonBase>
+                    </Stack>
+                    <HLine />
+
+                    <Stack
+                      direction="column"
+                      alignItems="left"
+                      justifyContent="left"
+                    >
+                      {Services.map((item) => (
+                        <Fragment>
+                          <Stack
+                            direction="row"
+                            alignItems="center"
+                            spacing={1}
+                            sx={{ width: "100%", py: 1 }}
+                          >
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              spacing={1}
+                              sx={{ width: "30%" }}
+                            >
+                              <img
+                                src={item.icon}
+                                alt="Services"
+                                width="30px"
+                                height="30px"
+                              />
+                              <Typography
+                                variant="body1"
+                                sx={{ fontWeight: "bold" }}
+                              >
+                                {item.Mtitle}
+                              </Typography>
+                            </Stack>
+
+                            <Grid
+                              container
+                              columnGap={1}
+                              rowGap={1}
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "left",
+                              }}
+                            >
+                              {item.menu3.map((item) => (
+                                <Grid
+                                  xs={3.5}
+                                  sx={{ px: 1 }}
+                                  key={item.id}
+                                  onClick={handleMouseLeaves}
+                                >
+                                  {item.path ? (
+                                    <SubNavLink to={item.path} on>
+                                      {item.title}
+                                      {/* {SubMenuHover ? <RightArrow /> : null} */}
+                                    </SubNavLink>
+                                  ) : (
+                                    <Typography variant="body2">
+                                      {item.title}
+                                    </Typography>
+                                  )}
+                                </Grid>
+                              ))}
+                            </Grid>
+                          </Stack>
+                          <HLine />
+                        </Fragment>
+                      ))}
+                    </Stack>
+
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      spacing={1}
+                      sx={{ marginTop: "10px" }}
+                    >
                       <img
-                        src={ServiceIcon}
+                        src={SolutionIcon}
                         alt="Kapil Technology Services"
                         height="30px"
                         width="auto"
@@ -384,161 +474,72 @@ function Navbar() {
                         variant="h6"
                         sx={{ fontWeight: "bold", textTransform: "uppercase" }}
                       >
-                        Services
+                        Solutions
                       </Typography>
                     </Stack>
+                    <HLine />
 
-                    <ButtonBase
-                      direction="row"
-                      alignItems="center"
-                      justifyContent="center"
-                      onClick={handleMouseLeaves}
-                    >
-                      <CloseMenu />
-                    </ButtonBase>
-                  </Stack>
-                  <HLine />
-
-                  <Stack
-                    direction="column"
-                    alignItems="left"
-                    justifyContent="left"
-                  >
-                    {Services.map((item) => (
-                      <Fragment>
-                        <Stack
-                          direction="row"
-                          alignItems="center"
-                          spacing={1}
-                          sx={{ width: "100%", py: 1 }}
-                        >
-                          <Stack
-                            direction="row"
-                            alignItems="center"
-                            spacing={1}
-                            sx={{ width: "30%" }}
-                          >
-                            <img
-                              src={item.icon}
-                              alt="Services"
-                              width="30px"
-                              height="30px"
-                            />
-                            <Typography
-                              variant="body1"
-                              sx={{ fontWeight: "bold" }}
+                    <Grid container columnGap={2} rowGap={2}>
+                      {Solutions.map((item) => (
+                        <SubNavItem component={Grid} item xs={3}>
+                          {item.path ? (
+                            <SubNavLink
+                              to={item.path}
+                              target={item.title === "Infor" ? "_blank" : null}
+                              onClick={handleMouseLeaves}
                             >
-                              {item.Mtitle}
+                              {item.title}
+                            </SubNavLink>
+                          ) : (
+                            <Typography variant="body2">
+                              {item.title}
                             </Typography>
-                          </Stack>
+                          )}
+                        </SubNavItem>
+                      ))}
+                    </Grid>
 
-                          <Grid
-                            container
-                            columnGap={1}
-                            rowGap={1}
-                            sx={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "left",
-                            }}
-                          >
-                            {item.menu3.map((item) => (
-                              <Grid
-                                xs={3.5}
-                                sx={{ px: 1 }}
-                                key={item.id}
-                                onClick={handleMouseLeaves}
-                              >
-                                {item.path ? (
-                                  <SubNavLink to={item.path} on>
-                                    {item.title}
-                                    {SubMenuHover ? <RightArrow /> : null}
-                                  </SubNavLink>
-                                ) : (
-                                  <Typography variant="body2">
-                                    {item.title}
-                                  </Typography>
-                                )}
-                              </Grid>
-                            ))}
-                          </Grid>
-                        </Stack>
-                        <HLine />
-                      </Fragment>
-                    ))}
+                    <HLine />
                   </Stack>
-
+                </SubNavList>
+              ) : item.submenu && hover && menuid === 4 ? (
+                <SubNavList mainid={menuid}>
                   <Stack
                     direction="row"
                     alignItems="center"
-                    spacing={1}
-                    sx={{ marginTop: "10px" }}
+                    justifyContent="center"
+                    sx={{ padding: "10px", height: "inherit" }}
                   >
-                    <img
-                      src={SolutionIcon}
-                      alt="Kapil Technology Services"
-                      height="30px"
-                      width="auto"
-                    />
-                    <Typography
-                      variant="h6"
-                      sx={{ fontWeight: "bold", textTransform: "uppercase" }}
-                    >
-                      Solutions
-                    </Typography>
-                  </Stack>
-                  <HLine />
-
-                  <Grid container columnGap={2} rowGap={2}>
-                    {Solutions.map((item) => (
-                      <SubNavItem component={Grid} item xs={3}>
+                    {JoinUsData.map((item) => (
+                      <SubNavItem to={item.id}>
                         {item.path ? (
                           <SubNavLink
                             to={item.path}
-                            target={item.title === "Infor" ? "_blank" : null}
                             onClick={handleMouseLeaves}
                           >
                             {item.title}
                           </SubNavLink>
                         ) : (
-                          <Typography variant="body2">{item.title}</Typography>
+                          <Typography variant="body1">{item.title}</Typography>
                         )}
                       </SubNavItem>
                     ))}
-                  </Grid>
-
-                  <HLine />
-                </Stack>
-              </SubNavList>
-            ) : item.submenu && hover && menuid === 4 ? (
-              <SubNavList mainid={menuid}>
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  justifyContent="center"
-                  sx={{ padding: "10px" }}
-                >
-                  {JoinUsData.map((item) => (
-                    <SubNavItem to={item.id}>
-                      {item.path ? (
-                        <SubNavLink to={item.path} onClick={handleMouseLeaves}>
-                          {item.title}
-                        </SubNavLink>
-                      ) : (
-                        <Typography variant="body1">{item.title}</Typography>
-                      )}
-                    </SubNavItem>
-                  ))}
-                </Stack>
-              </SubNavList>
+                  </Stack>
+                </SubNavList>
+              ) : null
             ) : null}
+
+            {/* {window.innerWidth < 900 ? (
+              click && item.submenu &&  menuid === 2 ? (
+                <SubNavListMobile>What we do</SubNavListMobile>
+              ) : click && item.submenu &&  menuid === 4 ? (
+                <SubNavListMobile>Join us</SubNavListMobile>
+              ) : null
+            ) : null} */}
           </MainNavItem>
         ))}
       </MainNavList>
-      <ResponsiveMenu
-        onClick={handleClickOpen}
-        // condition={home || sap || careers}
-      >
+      <ResponsiveMenu onClick={handleClickOpen} condition={click}>
         {click ? <CloseMenu /> : <Menu />}
       </ResponsiveMenu>
     </MainHeader>

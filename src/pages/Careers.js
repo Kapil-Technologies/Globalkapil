@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import {
   Box,
@@ -80,7 +80,8 @@ export const SkillTag = styled(Box)(({ theme, image, path }) => ({
 // ---------------------------------------------------------------
 
 function Careers() {
-  const [filterValue,setFilterValue] = useState()
+  const checkboxesRef = useRef([]);
+  const [checkedState, setcheckedState] = useState();
   const [selectedFilters, setselectedFilters] = useState([]);
   const [filteredList, setFilteredList] = useState(CareersArray);
   // let filters = [
@@ -100,7 +101,8 @@ function Careers() {
   // ];
 
   const handleFilterQuery = (filter, id) => {
-    console.log(id.target.value, id.target.checked)
+    console.log(id.target.value, id.target.checked);
+    setcheckedState(id.target.checked);
     if (selectedFilters.includes(filter)) {
       let filters = selectedFilters.filter((el) => el !== filter);
       setselectedFilters(filters);
@@ -119,10 +121,10 @@ function Careers() {
     if (selectedFilters.length > 0) {
       let tempItems = selectedFilters.map((selectedCategory) => {
         console.log(selectedCategory);
-        let temp = CareersArray.filter(
-          (item) => item.deptvalue === selectedCategory || item.lvalue === selectedCategory || item.modevalue === selectedCategory 
+        let temp1 = CareersArray.filter(
+          (item) => item.deptvalue === selectedCategory
         );
-        return temp;
+        return temp1;
       });
 
       console.log(tempItems.flat());
@@ -132,9 +134,14 @@ function Careers() {
     }
   };
 
-  const handleReset = () => {
-    setFilterValue("")
-  }
+  const uncheckAll = () => {};
+
+  const handleReset = (e) => {
+    setselectedFilters("");
+    checkboxesRef.current.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+  };
 
   // ---------------------------------------------------- Pagination
   const [page, setPage] = React.useState(0);
@@ -280,7 +287,6 @@ function Careers() {
                 </Button>
               </Stack>
 
-             
               {filters.map((item) => (
                 <Stack direction="column" alignItems="left" spacing={1}>
                   <Typography variant="h6">{item.mtitle}</Typography>
@@ -292,8 +298,15 @@ function Careers() {
                           <Checkbox
                             size="small"
                             value={item.value}
+                            // checked={item.checked}
+                            ref={(element) => {
+                              checkboxesRef.current.push(element);
+                            }}
+                            id="filters"
                             name="location"
-                            onChange={(e) => {handleFilterQuery(item.value,e) }}
+                            onChange={(e) => {
+                              handleFilterQuery(item.value, e);
+                            }}
                           />
                         }
                         label={
@@ -382,177 +395,182 @@ function Careers() {
                   }
                 />
               </Stack>
-              {filteredList.length === 0 ? (<Typography>
-                No Jobs Found
-              </Typography>) :filteredList
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((item) => (
-                  <JobOpeningCard>
-                    <Stack
-                      direction="column"
-                      alignItems="left"
-                      justifyContent="left"
-                      spacing={1}
-                    >
+              {filteredList.length === 0 ? (
+                <Typography>No Jobs Found</Typography>
+              ) : (
+                filteredList
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((item) => (
+                    <JobOpeningCard>
                       <Stack
-                        direction="row"
-                        alignItems="center"
-                        justifyContent="space-between"
-                        sx={{ width: "100%" }}
-                      >
-                        <Stack
-                          direction="row"
-                          alignItems="center"
-                          justifyContent="center"
-                          spacing={1}
-                        >
-                          {item.deptimg ? (
-                            <img
-                              src={item.deptimg}
-                              alt="Kapil Tech Departments"
-                              width="auto"
-                              height="25px"
-                              style={
-                                {
-                                  // marginTop: "-3px",
-                                }
-                              }
-                            />
-                          ) : null}
-                          <Typography
-                            variant="body1"
-                            sx={{ textTransform: "capitalize" }}
-                          >
-                            {item.department}
-                          </Typography>
-                        </Stack>
-                        <Stack
-                          direction="row"
-                          alignItems="center"
-                          justifyContent="center"
-                          spacing={2}
-                        >
-                          <Button
-                            variant="contained"
-                            component={Link}
-                            to={item.linkedin}
-                            target="_blank"
-                            startIcon={
-                              <FiLinkedin style={{ marginBottom: 2 }} />
-                            }
-                          >
-                            Apply through Linkedin
-                          </Button>
-                          <Button
-                            variant="contained"
-                            component={Link}
-                            to={item.mailto}
-                            startIcon={<FiMail />}
-                          >
-                            Send mail to HR
-                          </Button>
-                        </Stack>
-                      </Stack>
-                      <Typography
-                        variant="h5"
-                        sx={{ fontWeight: "bold", textTransform: "capitalize" }}
-                      >
-                        {item.job_title}
-                      </Typography>
-                      <Stack
-                        direction="row"
-                        alignItems="center"
-                        justifyContent="space-between"
-                        spacing={2}
-                        sx={{ width: "100%" }}
+                        direction="column"
+                        alignItems="left"
+                        justifyContent="left"
+                        spacing={1}
                       >
                         <Stack
                           direction="row"
                           alignItems="center"
                           justifyContent="space-between"
-                          spacing={1}
+                          sx={{ width: "100%" }}
                         >
-                          <img
-                            src={item.locationFlag}
-                            width="20px"
-                            height="20px"
-                          />
-                          <Typography>{item.location}</Typography>
+                          <Stack
+                            direction="row"
+                            alignItems="center"
+                            justifyContent="center"
+                            spacing={1}
+                          >
+                            {item.deptimg ? (
+                              <img
+                                src={item.deptimg}
+                                alt="Kapil Tech Departments"
+                                width="auto"
+                                height="25px"
+                                style={
+                                  {
+                                    // marginTop: "-3px",
+                                  }
+                                }
+                              />
+                            ) : null}
+                            <Typography
+                              variant="body1"
+                              sx={{ textTransform: "capitalize" }}
+                            >
+                              {item.department}
+                            </Typography>
+                          </Stack>
+                          <Stack
+                            direction="row"
+                            alignItems="center"
+                            justifyContent="center"
+                            spacing={2}
+                          >
+                            <Button
+                              variant="contained"
+                              component={Link}
+                              to={item.linkedin}
+                              target="_blank"
+                              startIcon={
+                                <FiLinkedin style={{ marginBottom: 2 }} />
+                              }
+                            >
+                              Apply through Linkedin
+                            </Button>
+                            <Button
+                              variant="contained"
+                              component={Link}
+                              to={item.mailto}
+                              startIcon={<FiMail />}
+                            >
+                              Send mail to HR
+                            </Button>
+                          </Stack>
                         </Stack>
-
                         <Typography
-                          variant="body1"
-                          sx={{ textTransform: "capitalize" }}
+                          variant="h5"
+                          sx={{
+                            fontWeight: "bold",
+                            textTransform: "capitalize",
+                          }}
                         >
-                          {item.type}
+                          {item.job_title}
                         </Typography>
-
                         <Stack
                           direction="row"
                           alignItems="center"
-                          justifyContent="center"
-                          spacing={1}
+                          justifyContent="space-between"
+                          spacing={2}
+                          sx={{ width: "100%" }}
                         >
-                          <FiDollarSign />
+                          <Stack
+                            direction="row"
+                            alignItems="center"
+                            justifyContent="space-between"
+                            spacing={1}
+                          >
+                            <img
+                              src={item.locationFlag}
+                              width="20px"
+                              height="20px"
+                            />
+                            <Typography>{item.location}</Typography>
+                          </Stack>
+
                           <Typography
                             variant="body1"
                             sx={{ textTransform: "capitalize" }}
                           >
-                            Salary : {item.salary}
+                            {item.type}
                           </Typography>
-                        </Stack>
 
-                        <Stack
-                          direction="row"
-                          alignItems="center"
-                          justifyContent="center"
-                          spacing={1}
-                        >
-                          <TbCertificate2 />
-                          <Typography
-                            variant="body1"
-                            sx={{ textTransform: "capitalize" }}
+                          <Stack
+                            direction="row"
+                            alignItems="center"
+                            justifyContent="center"
+                            spacing={1}
                           >
-                            Experience : {item.experience}
-                          </Typography>
-                        </Stack>
-                      </Stack>
-                      <Box sx={{ width: "100%" }}>
-                        <hr />
-                      </Box>
-                      <Stack
-                        direction="column"
-                        alignItems="left"
-                        justifyContent="left"
-                        spacing={1.5}
-                      >
-                        <Typography variant="h6">Requirement</Typography>
-                        <Typography variant="body">
-                          We are looking for the candidates with the following
-                          skills
-                        </Typography>
+                            <FiDollarSign />
+                            <Typography
+                              variant="body1"
+                              sx={{ textTransform: "capitalize" }}
+                            >
+                              Salary : {item.salary}
+                            </Typography>
+                          </Stack>
 
+                          <Stack
+                            direction="row"
+                            alignItems="center"
+                            justifyContent="center"
+                            spacing={1}
+                          >
+                            <TbCertificate2 />
+                            <Typography
+                              variant="body1"
+                              sx={{ textTransform: "capitalize" }}
+                            >
+                              Experience : {item.experience}
+                            </Typography>
+                          </Stack>
+                        </Stack>
+                        <Box sx={{ width: "100%" }}>
+                          <hr />
+                        </Box>
                         <Stack
-                          direction="row"
+                          direction="column"
                           alignItems="left"
                           justifyContent="left"
-                          spacing={2}
+                          spacing={1.5}
                         >
-                          {item.skillset.map((item) => (
-                            <SkillTag key={item.id}>
-                              <Typography
-                                variant="body1"
-                                sx={{ textTransform: "capitalize" }}
-                              >
-                                {item.skill}
-                              </Typography>
-                            </SkillTag>
-                          ))}
+                          <Typography variant="h6">Requirement</Typography>
+                          <Typography variant="body">
+                            We are looking for the candidates with the following
+                            skills
+                          </Typography>
+
+                          <Stack
+                            direction="row"
+                            alignItems="left"
+                            justifyContent="left"
+                            spacing={2}
+                          >
+                            {item.skillset.map((item) => (
+                              <SkillTag key={item.id}>
+                                <Typography
+                                  variant="body1"
+                                  sx={{ textTransform: "capitalize" }}
+                                >
+                                  {item.skill}
+                                </Typography>
+                              </SkillTag>
+                            ))}
+                          </Stack>
                         </Stack>
                       </Stack>
-                    </Stack>
-                  </JobOpeningCard>
-                ))}
+                    </JobOpeningCard>
+                  ))
+              )}
 
               {/* <Stack
                 direction="row"
