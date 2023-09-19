@@ -26,6 +26,7 @@ import { FiDollarSign, FiLinkedin, FiMail, FiMapPin } from "react-icons/fi";
 import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
 import { TbCertificate2 } from "react-icons/tb";
+import { FaRupeeSign } from "react-icons/fa";
 
 // ----------------------------------------------------------------
 
@@ -446,17 +447,19 @@ function Careers() {
                             justifyContent="center"
                             spacing={2}
                           >
-                            <Button
-                              variant="contained"
-                              component={Link}
-                              to={item.linkedin}
-                              target="_blank"
-                              startIcon={
-                                <FiLinkedin style={{ marginBottom: 2 }} />
-                              }
-                            >
-                              Apply through Linkedin
-                            </Button>
+                            {item.linkedin ? (
+                              <Button
+                                variant="contained"
+                                component={Link}
+                                to={item.linkedin}
+                                target="_blank"
+                                startIcon={
+                                  <FiLinkedin style={{ marginBottom: 2 }} />
+                                }
+                              >
+                                Apply through Linkedin
+                              </Button>
+                            ) : null}
                             <Button
                               variant="contained"
                               component={Link}
@@ -510,7 +513,7 @@ function Careers() {
                             justifyContent="center"
                             spacing={1}
                           >
-                            <FiDollarSign />
+                            <FaRupeeSign />
                             <Typography
                               variant="body1"
                               sx={{ textTransform: "capitalize" }}

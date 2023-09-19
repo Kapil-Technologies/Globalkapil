@@ -250,10 +250,49 @@ export const Locations = [
 ];
 
 export const CareersArray = [
+  {
+    id: 1,
+    job_title: "Front end Developer",
+    department: "Web Technologies",
+    mode: "Onsite",
+    type: "Full Time",
+    salary: "Not Disclosed",
+    location: "Hyderabad,India",
+    locationFlag: India,
+    // linkedin: "",
+    mail: "hr@kcs-tech.com",
+    mailto: "mailto:hr@kcs-tech.com",
+    experience: "3+ years",
+    deptimg: WBT,
+    skillset: [
+      {
+        id: 1,
+        skill: "HTML5",
+      },
+      {
+        id: 2,
+        skill: "CSS3",
+      },
+      {
+        id: 3,
+        skill: "Angular js",
+      },
+
+      {
+        id: 4,
+        skill: "MEAN Stack",
+      },
+    ],
+
+    deptvalue: "webtech",
+    lvalue: "india",
+    modevalue: "onsite",
+  },
+
   // {
-  //   id: 1,
-  //   job_title: "Software Sales Executive",
-  //   department: "Sales and Marketing",
+  //   id: 2,
+  //   job_title: "Backed",
+  //   department: "Web Technologies",
   //   mode: "Onsite",
   //   type: "Full Time",
   //   salary: "Not Disclosed",
@@ -263,34 +302,34 @@ export const CareersArray = [
   //   mail: "hr@kcs-tech.com",
   //   mailto: "mailto:hr@kcs-tech.com",
   //   experience: "3+ years",
-  //   deptimg: Sales,
+  //   deptimg: WBT,
   //   skillset: [
   //     {
   //       id: 1,
-  //       skill: "IT Sales",
+  //       skill: "HTML5",
   //     },
   //     {
   //       id: 2,
-  //       skill: "ERP Sales",
+  //       skill: "CSS3",
   //     },
   //     {
   //       id: 3,
-  //       skill: "Staffing",
+  //       skill: "Angular js",
   //     },
 
   //     {
   //       id: 4,
-  //       skill: "Resource Deployment",
+  //       skill: "MEAN Stack",
   //     },
   //   ],
 
-  //   deptvalue: "sales",
+  //   deptvalue: "webtech",
   //   lvalue: "india",
   //   modevalue: "onsite",
   // },
 
   {
-    id: 2,
+    id: 3,
     job_title: "Senior WMS Consultant",
     department: "Infor",
     mode: "Onsite",
@@ -298,7 +337,7 @@ export const CareersArray = [
     salary: "Not Disclosed",
     location: "Hyderabad,India",
     locationFlag: India,
-    linkedin: "https://www.linkedin.com/jobs/view/3708180924",
+    // linkedin: "https://www.linkedin.com/jobs/view/3708180924",
     mail: "hr@kcs-tech.com",
     mailto: "mailto:hr@kcs-tech.com",
     experience: "4 to 7+ years",
@@ -328,7 +367,7 @@ export const CareersArray = [
     modevalue: "onsite",
   },
   {
-    id: 3,
+    id: 4,
     job_title: "Administrative Technician",
     department: "Internal Requirement",
     mode: "Onsite",
@@ -336,7 +375,7 @@ export const CareersArray = [
     salary: "Not Disclosed",
     location: "Hyderabad,India",
     locationFlag: India,
-    linkedin: "https://www.linkedin.com/jobs/view/3711636153",
+    // linkedin: "https://www.linkedin.com/jobs/view/3711636153",
     mail: "hr@kcs-tech.com",
     mailto: "mailto:hr@kcs-tech.com",
     experience: "2+ years",
