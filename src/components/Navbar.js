@@ -7,7 +7,7 @@ import {
   FiMenu,
   FiX,
 } from "react-icons/fi";
-import { Grid, IconButton, Stack, Typography } from "@mui/material";
+import { Button, Grid, IconButton, Stack, Typography } from "@mui/material";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import KTLogo from "../assets/Logo/KTlogo.png";
 import { JoinUsData, NavData, Services, Solutions } from "../mock/NavbarData";
@@ -16,9 +16,13 @@ import SolutionIcon from "../assets/IconImages/solutions.png";
 
 // -------------------------------------------------------- Styled Component
 
-export const UpArrow = styled(FiChevronUp)(({ theme, image }) => ({}));
+export const UpArrow = styled(FiChevronUp)(({ theme, image }) => ({
+  fontWeight: "bold",
+}));
 
-export const DownArrow = styled(FiChevronDown)(({ theme, image }) => ({}));
+export const DownArrow = styled(FiChevronDown)(({ theme, image }) => ({
+  fontWeight: "bold",
+}));
 
 export const Menu = styled(FiMenu)(({ theme, image }) => ({}));
 
@@ -26,128 +30,96 @@ export const CloseMenu = styled(FiX)(({ theme, image }) => ({}));
 
 export const RightArrow = styled(FiArrowRight)(({ theme, image }) => ({}));
 
-export const MainHeader = styled("header")(
-  ({ InforColor, theme, image, topvisibile, Hover, mobile }) => ({
-    width: "100%",
-    height: "15vh",
-    background: Hover || mobile ? "whitesmoke" : "transperant",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    position: Hover ? "fixed" : "absolute",
-    // top: topvisibile ? 0 : "-15vh",
-    zIndex: 999,
-    [theme.breakpoints.down("md")]: {
-      // background: "#012c54",
-      position: "fixed",
-    },
-    // border:'1px solid white'
-  })
-);
+export const MainHeader = styled("header")(({ theme, image, condition }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  maxHeight: "15vh",
+  background: condition ? "white" : "transperant",
+  position: condition ? "fixed" : "absolute",
+  zIndex: 9999,
+  width: "100%",
 
-export const MainNavList = styled("ul")(({ theme, image, open }) => ({
+  [theme.breakpoints.down("md")]: {
+    // border: "1px solid white",
+    maxHeight: "15vh",
+  },
+}));
+
+export const MainNavList = styled("ul")(({ theme, image }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: "10px",
+
   [theme.breakpoints.down("md")]: {
     position: "fixed",
     top: "15vh",
     background: "whitesmoke",
-    display: "block",
+    flexDirection: "column",
+    justifyContent: "start",
+    alignItems: "start",
+    height: "100vh",
     width: "100%",
-    height: "100%",
-    left: open ? "0" : "-1000%",
   },
 }));
 
 export const MainNavItem = styled("li")(({ theme, image }) => ({
   listStyle: "none",
   padding: "10px",
-  [theme.breakpoints.down("md")]: {
-    paddingTop: "15px",
-  },
+  textTransform: "uppercase",
+  fontFamily: theme.typography.fontFamily,
 }));
 
-export const MainNavLink = styled(NavLink)(
-  ({ theme, image, homeColor, sapColor, careers, Hover, Infor, Contact }) => ({
-    textDecoration: "none",
-    // color: homeColor || sapColor || careers ? "white" : "#012c54",
-    color: Hover || Infor || Contact ? "#012c54" : "white",
-    textTransform: "uppercase",
-    fontWeight: "bold",
-    fontFamily: theme.typography.fontFamily,
-    "&:hover": {
-      color: "red",
-    },
-    "&.active": {
-      color: "red",
-    },
-    [theme.breakpoints.down("md")]: {
-      color: "#012c54",
-      "&:hover": {
-        color: "red",
-        fontWeight: "bold",
-      },
-    },
-  })
-);
-
-export const MainNavText = styled(Stack)(
-  ({ theme, image, condition, Hover, Infor, Contact }) => ({
-    // color: condition ? "white" : "#012c54",
-    color: Hover || Infor || Contact ? "#012c54" : "white",
-    textTransform: "uppercase",
+export const MainNavTextContainer = styled(Stack)(
+  ({ theme, image, condition }) => ({
+    color: condition ? "#001e3a" : "white",
     cursor: "pointer",
     fontWeight: "bold",
-    "&:hover": {
-      color: "red",
-    },
-
     [theme.breakpoints.down("md")]: {
-      color: "#012c54",
+      color: "#001e3a",
     },
   })
 );
 
-export const SubNavList = styled("ul")(({ theme, image, mainid }) => ({
-  position: "fixed",
-  background: "whitesmoke",
-  width: "100%",
-  borderTop: "1px solid #012c54",
-  right: 0,
-  top: "15vh",
-  height: mainid === 4 ? "20vh" : "85vh",
-  overflowY: mainid === 4 ? "" : "scroll",
+export const MainNavText = styled(Typography)(({ theme, image }) => ({}));
+
+export const MainNavLink = styled(NavLink)(({ theme, image, condition }) => ({
+  color: condition ? "#001e3a" : "white",
+  textDecoration: "none",
+  fontWeight: "bold",
   [theme.breakpoints.down("md")]: {
-    display: "none",
+    color: "#001e3a",
   },
 }));
+
+export const SubNavList = styled("ul")(
+  ({ theme, image, condition, Hover }) => ({
+    position: "absolute",
+    top: "15vh",
+    color: "#012c54",
+    background: "white",
+    width: condition ? "100%" : null,
+    right: condition ? 0 : null,
+    textAlign: "left",
+    padding: condition ? "" : "10px",
+    height: condition ? "85vh" : null,
+    borderTop: Hover ? "1px solid black" : null,
+  })
+);
 
 export const SubNavItem = styled("li")(({ theme, image }) => ({
   listStyle: "none",
   padding: "10px",
-  display: "flex",
+}));
+
+export const SubNavText = styled(Typography)(({ theme, image }) => ({
+  textTransform: "capitalize",
 }));
 
 export const SubNavLink = styled(NavLink)(({ theme, image }) => ({
   textDecoration: "none",
-  color: "black",
-  textTransform: "uppercase",
-  display: "flex",
-  alignItems: "center",
-  fontSize: "15px",
+  color: "#001e3a",
   fontWeight: "bold",
-  fontFamily: theme.typography.fontFamily,
-  "&:hover": {
-    textDecoration: "underline",
-    color: "red",
-  },
-
-  "&.active": {
-    color: "red",
-    fontWeight: "bold",
-  },
 }));
 
 export const ResponsiveMenu = styled(Stack)(({ theme, image, condition }) => ({
@@ -157,7 +129,7 @@ export const ResponsiveMenu = styled(Stack)(({ theme, image, condition }) => ({
   // padding: "10px",
   cursor: "pointer",
   [theme.breakpoints.down("md")]: {
-    display: "block",
+    display: "flex",
     padding: "10px",
   },
 }));
@@ -166,6 +138,7 @@ export const Logo = styled("img")(({ theme, image }) => ({
   width: "53px",
   height: "72px",
   padding: "5px",
+  maxWidth: "100%",
   [theme.breakpoints.down("md")]: {
     width: "45px",
     height: "62px",
@@ -211,24 +184,53 @@ export const SubNavListMobile = styled("ul")(({ theme, image }) => ({
   alignItems: "left",
   justifyContent: "left",
   flexDirection: "column",
-  [theme.breakpoints.up("md")]: {
-    display: "none",
-  },
 }));
 
-export const SubNavItemMobile = styled("li")(({ theme, image }) => ({}));
+export const SubNavItemMobile = styled("li")(({ theme, image }) => ({
+  listStyle: "none",
+  paddingTop: "15px",
+}));
 
-export const SubNavLinkMobile = styled(NavLink)(({ theme, image }) => ({}));
+export const SubNavLinkMobile = styled(NavLink)(({ theme, image }) => ({
+  textDecoration: "none",
+  color: "#001e3a",
+}));
 
-export const SubNavTextMobile = styled(Stack)(({ theme, image }) => ({}));
+export const SubNavTextMobile = styled(Stack)(({ theme, image }) => ({
+  display: "flex",
+  alignItems: "left",
+}));
+
+export const SubNavListMobileL3 = styled("ul")(({ theme, image }) => ({
+  display: "flex",
+  alignItems: "left",
+  justifyContent: "left",
+  flexDirection: "column",
+}));
+
+export const SubNavItemMobileL3 = styled("li")(({ theme, image }) => ({
+  listStyle: "none",
+  paddingTop: "15px",
+}));
+
+export const SubNavLinkMobileL3 = styled(NavLink)(({ theme, image }) => ({
+  textDecoration: "none",
+  color: "#001e3a",
+}));
+
+export const SubNavTextMobileL3 = styled(Stack)(({ theme, image }) => ({
+  display: "flex",
+  alignItems: "center",
+  textAlign: "left",
+}));
 
 // -------------------------------------------------------- Main Component
 
 function Navbar() {
   const [click, setClick] = useState(false);
+  const [click1, setClick1] = useState(false);
   const [hover, setHover] = useState(false);
   const [menuid, setMenuid] = useState(0);
- 
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -241,18 +243,23 @@ function Navbar() {
   const handleMouseLeaves = () => {
     setHover(false);
   };
-  
 
-  function handleClick() {
-    console.log('clicked')
-  }
-
-  const handleClickOpen = () => {
+  const handleClickOpen = (id) => {
+    setMenuid(id);
     setClick(!click);
   };
 
   const handleCickClose = () => {
     setClick(false);
+  };
+
+  const handleSubMenuOpen = (id) => {
+    setMenuid(id);
+    setClick1(!click);
+  };
+
+  const handleSubMenuClose = () => {
+    setClick1(false);
   };
 
   // ---------------------------------------------------------- Scrolling
@@ -286,134 +293,100 @@ function Navbar() {
   const sap = pathname === "/what-we-do/services/enterprise-software/erp/SAP";
   const oracle =
     pathname === "/what-we-do/services/enterprise-software/erp/infor";
-  const home = pathname === "/home";
+  const Alliances = pathname === "/our-alliances";
   const contact = pathname === "/contact-us";
 
   return (
-    <MainHeader
-      topvisibile={visible}
-      Hover={hover}
-      onMouseEnter={handleMouseLeaves}
-      mobile={click}
-    >
+    <MainHeader condition={hover}>
       <LogoContainer to="/home">
         <Logo src={KTLogo} alt="Kapil Techlogoies Pvt ltd" />
       </LogoContainer>
-      <MainNavList open={click} className="NavList">
+
+      <MainNavList>
         {NavData.map((item) => (
           <MainNavItem key={item.id}>
             {item.path ? (
               <MainNavLink
                 to={item.path}
+                condition={hover}
                 onMouseEnter={handleMouseLeaves}
-                onClick={handleCickClose}
-                Contact={contact}
-                Infor={infor}
-                Hover={hover}
               >
                 {item.title}
               </MainNavLink>
             ) : (
-              <MainNavText
-                alignItems="center"
+              <MainNavTextContainer
                 direction="row"
+                alignItems="center"
+                justifyContent="center"
                 onMouseEnter={() => handleMouseEnter(item.id)}
                 onClick={() => {
-                  handleClickOpen();
+                  handleSubMenuOpen(item.id);
                 }}
-                Hover={hover}
-                Infor={infor}
-                Contact={contact}
+                condition={hover}
               >
-                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                <MainNavText variant="body1" sx={{ fontWeight: "bold" }}>
                   {item.title}
-                </Typography>
+                </MainNavText>
                 {window.innerWidth > 900
-                  ? item.submenu && hover && item.submenudata === menuid
+                  ? item.submenu && hover && menuid === item.submenudata
                     ? item.openicon
                     : item.submenu
                     ? item.closeicon
                     : null
                   : null}
                 {window.innerWidth < 900
-                  ? item.submenu && click && item.submenudata === menuid
+                  ? item.submenu && click1 && menuid === item.submenudata
                     ? item.openicon
                     : item.submenu
                     ? item.closeicon
                     : null
                   : null}
-              </MainNavText>
+              </MainNavTextContainer>
             )}
-
             {window.innerWidth > 900 ? (
-              hover && item.submenu && menuid === 2 ? (
-                <SubNavList>
-                  <Stack
-                    direction="column"
-                    alignItems="left"
-                    justifyContent="center"
-                    spacing={1}
-                    sx={{ p: 2 }}
-                  >
-                    <Stack
-                      direction="row"
-                      alignItems="center"
-                      justifyContent="space-between"
-                    >
-                      <Stack direction="row" alignItems="center" spacing={1}>
-                        <img
-                          src={ServiceIcon}
-                          alt="Kapil Technology Services"
-                          height="30px"
-                          width="auto"
-                        />
-                        <Typography
-                          variant="h6"
-                          sx={{
-                            fontWeight: "bold",
-                            textTransform: "uppercase",
-                          }}
-                        >
-                          Services
-                        </Typography>
-                      </Stack>
-
-                      <ButtonBase
-                        direction="row"
-                        alignItems="center"
-                        justifyContent="center"
-                        onClick={handleMouseLeaves}
-                      >
-                        <CloseMenu />
-                      </ButtonBase>
-                    </Stack>
-                    <HLine />
-
+              item.submenu && hover && menuid === item.submenudata ? (
+                <SubNavList condition={menuid === 2} Hover={hover}>
+                  {menuid === 2 ? (
                     <Stack
                       direction="column"
                       alignItems="left"
-                      justifyContent="left"
+                      spacing={1}
+                      sx={{ p: 2 }}
                     >
-                      {Services.map((item) => (
-                        <Fragment>
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="space-between"
+                        sx={{ width: "100%" }}
+                      >
+                        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                          {item.title}
+                        </Typography>
+                        <ButtonBase
+                          direction="row"
+                          alignItems="center"
+                          justifyContent="center"
+                          onClick={handleMouseLeaves}
+                        >
+                          <CloseMenu />
+                        </ButtonBase>
+                      </Stack>
+                      <HLine />
+                      {item.submenu.map((item) => (
+                        <Fragment key={item.id}>
                           <Stack
                             direction="row"
                             alignItems="center"
-                            spacing={1}
-                            sx={{ width: "100%", py: 1 }}
+                            spacing={2}
                           >
                             <Stack
                               direction="row"
                               alignItems="center"
-                              spacing={1}
-                              sx={{ width: "30%" }}
+                              justifyContent="left"
+                              spacing={2}
+                              sx={{ width: "500px" }}
                             >
-                              <img
-                                src={item.icon}
-                                alt="Services"
-                                width="30px"
-                                height="30px"
-                              />
+                              <img src={item.icon} width="50px" height="50px" />
                               <Typography
                                 variant="body1"
                                 sx={{ fontWeight: "bold" }}
@@ -421,33 +394,18 @@ function Navbar() {
                                 {item.Mtitle}
                               </Typography>
                             </Stack>
-
-                            <Grid
-                              container
-                              columnGap={1}
-                              rowGap={1}
-                              sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "left",
-                              }}
-                            >
+                            <Grid container columnGap={1} rowGap={1}>
                               {item.menu3.map((item) => (
-                                <Grid
-                                  xs={3.5}
-                                  sx={{ px: 1 }}
-                                  key={item.id}
-                                  onClick={handleMouseLeaves}
-                                >
+                                <Grid key={item.id} item xs={3.5}>
                                   {item.path ? (
-                                    <SubNavLink to={item.path} on>
+                                    <SubNavLink
+                                      to={item.path}
+                                      onClick={handleMouseLeaves}
+                                    >
                                       {item.title}
-                                      {/* {SubMenuHover ? <RightArrow /> : null} */}
                                     </SubNavLink>
                                   ) : (
-                                    <Typography variant="body2">
-                                      {item.title}
-                                    </Typography>
+                                    <SubNavText>{item.title}</SubNavText>
                                   )}
                                 </Grid>
                               ))}
@@ -457,89 +415,78 @@ function Navbar() {
                         </Fragment>
                       ))}
                     </Stack>
-
-                    <Stack
-                      direction="row"
-                      alignItems="center"
-                      spacing={1}
-                      sx={{ marginTop: "10px" }}
-                    >
-                      <img
-                        src={SolutionIcon}
-                        alt="Kapil Technology Services"
-                        height="30px"
-                        width="auto"
-                      />
-                      <Typography
-                        variant="h6"
-                        sx={{ fontWeight: "bold", textTransform: "uppercase" }}
-                      >
-                        Solutions
-                      </Typography>
-                    </Stack>
-                    <HLine />
-
-                    <Grid container columnGap={2} rowGap={2}>
-                      {Solutions.map((item) => (
-                        <SubNavItem component={Grid} item xs={3}>
-                          {item.path ? (
-                            <SubNavLink
-                              to={item.path}
-                              target={item.title === "Infor" ? "_blank" : null}
-                              onClick={handleMouseLeaves}
-                            >
-                              {item.title}
-                            </SubNavLink>
-                          ) : (
-                            <Typography variant="body2">
-                              {item.title}
-                            </Typography>
-                          )}
-                        </SubNavItem>
-                      ))}
-                    </Grid>
-
-                    <HLine />
-                  </Stack>
-                </SubNavList>
-              ) : item.submenu && hover && menuid === 4 ? (
-                <SubNavList mainid={menuid}>
-                  <Stack
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="center"
-                    sx={{ padding: "10px", height: "inherit" }}
-                  >
-                    {JoinUsData.map((item) => (
-                      <SubNavItem to={item.id}>
+                  ) : menuid === 3 || 5 ? (
+                    item.submenu.map((item) => (
+                      <SubNavItem>
                         {item.path ? (
-                          <SubNavLink
-                            to={item.path}
-                            onClick={handleMouseLeaves}
-                          >
+                          <SubNavLink to={item.path} target={item.target}>
                             {item.title}
                           </SubNavLink>
                         ) : (
-                          <Typography variant="body1">{item.title}</Typography>
+                          <SubNavText>{item.title}</SubNavText>
                         )}
                       </SubNavItem>
-                    ))}
-                  </Stack>
+                    ))
+                  ) : null}
                 </SubNavList>
               ) : null
             ) : null}
 
             {/* {window.innerWidth < 900 ? (
-              click && item.submenu &&  menuid === 2 ? (
-                <SubNavListMobile>What we do</SubNavListMobile>
-              ) : click && item.submenu &&  menuid === 4 ? (
-                <SubNavListMobile>Join us</SubNavListMobile>
+              item.submenu && click1 && menuid === item.submenudata ? (
+                <SubNavListMobile>
+                  {item.submenu.map((item) => (
+                    <SubNavItemMobile key={item.id} onClick={() =>handleClickOpen(item.id)}>
+                      {item.path ? (
+                        <SubNavLinkMobile to={item.path}>{item.title}</SubNavLinkMobile>
+                      ) : (
+                        <SubNavTextMobile
+                          direction="row"
+                          alignItems="center"
+                          onClick={handleClickOpen}
+                        >
+                          {item.title}
+                          {item.submenu && click1 && menuid === item.submenudata
+                            ? item.openicon
+                            : item.submenu
+                            ? item.closeicon
+                            : null}
+                        </SubNavTextMobile>
+                      )}
+                      {item.submenu && click1 && menuid === item.submenudata ? (
+                        <SubNavListMobileL3>
+                          {item.submenu.map((item) => (
+                            <SubNavItemMobileL3 key={item.id}>
+                              {item.path ? (
+                                <SubNavLinkMobileL3 to={item.path}>
+                                  {item.tile}
+                                </SubNavLinkMobileL3 >
+                              ) : (
+                                <SubNavTextMobileL3>
+                                  {item.title}
+                                </SubNavTextMobileL3>
+                              )}
+                            </SubNavItemMobileL3>
+                          ))}
+                        </SubNavListMobileL3>
+                      ) : null}
+                    </SubNavItemMobile>
+                  ))}
+                  
+                </SubNavListMobile>
               ) : null
             ) : null} */}
           </MainNavItem>
         ))}
       </MainNavList>
-      <ResponsiveMenu onClick={handleClickOpen} condition={click}>
+
+      <ResponsiveMenu
+        onClick={handleClickOpen}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        condition={click}
+      >
         {click ? <CloseMenu /> : <Menu />}
       </ResponsiveMenu>
     </MainHeader>

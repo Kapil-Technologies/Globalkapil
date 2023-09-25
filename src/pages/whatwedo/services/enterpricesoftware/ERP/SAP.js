@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 
-import SAPBanner from "../../../../../assets/Banners/SAP2.png";
+import SAPBanner from "../../../../../assets/Banners/SAPV.gif";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import { ERPDataSAP } from "../../../../../mock/ERP";
 import Page from "../../../../../components/Page";
@@ -19,11 +19,11 @@ export const ERPBanner = styled("div")(({ theme }) => ({
 
 export const BannerImage = styled("img")(({ theme }) => ({
   //   maxWidth: "100%",
-  width: "680px",
-  height: "500px",
+  width: "100%",
+  height: "580px",
   position: "relative",
 
-  padding: "20px",
+ 
 }));
 
 // ------------------------------------------ Main Components
@@ -45,43 +45,35 @@ function SAP() {
     <div>
       <Page name="ERP | SAP " />
       <ERPBanner>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-          sx={{ background: "inherit", py: 6 }}
-        >
-          <BannerImage src={SAPBanner} />
-          <Typography
-            variant="h2"
-            sx={{ color: "white", p: 1, fontWeight: "bold" }}
-          >
-            SAP Consulting Services
-          </Typography>
-        </Stack>
+       <BannerImage src={SAPBanner} alt="ERP SAP" />
       </ERPBanner>
       <Stack
         direction="column"
         alignItems="center"
         justifyContent="center"
         spacing={2}
+        sx={{ background: "#012c54" }}
       >
         <Stack
           direction="column"
           alignItems="center"
           justifyContent="center"
           spacing={1}
-          sx={{ py: 1 }}
+          sx={{ py: 2 }}
         >
-          <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold" }}>
-            Explore Our Services
+          <Typography
+            variant="h4"
+            gutterBottom
+            sx={{ fontWeight: "bold", color: "white" }}
+          >
+            Why Choose SAP ?
           </Typography>
           <Box
             sx={{
               width: 70,
               height: 5,
-              background: "#1661be",
-              color: "#1661be",
+              background: "orange",
+              color: "orange",
               borderRadius: 3,
             }}
           ></Box>
@@ -117,21 +109,17 @@ function SAP() {
                 justifyContent="center"
                 spacing={2}
               >
-                <Stack alignItems="center" justifyContent="start">
-                  <img
-                    src={item.icon}
-                    alt="SAP Services"
-                    width="45px"
-                    height="45px"
-                    color={item.color}
-                  />
-                </Stack>
-                <Stack direction="column" alignItems="left" spacing={1}>
+                
+                <Stack
+                  direction="column"
+                  alignItems="left"
+                  spacing={1}
+                  sx={{ width: "auto" }}
+                >
                   <Typography
                     variant="h5"
                     sx={{
-                      color:
-                        hover && item.id === hoverid ? item.color : "black",
+                      color: "Orange",
                       fontWeight: "bold",
                       fontSize: "20px",
                     }}
@@ -140,7 +128,11 @@ function SAP() {
                   </Typography>
                   <Typography
                     variant="body1"
-                    sx={{ textAlign: "justify", textJustify: "inner-word" }}
+                    sx={{
+                      textAlign: "justify",
+                      textJustify: "inner-word",
+                      color: "white",
+                    }}
                   >
                     {item.desc}
                   </Typography>

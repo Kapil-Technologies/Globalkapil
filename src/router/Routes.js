@@ -16,9 +16,9 @@ import DigitalContent from "../pages/whatwedo/services/enterpricesoftware/digita
 // import Industries from "../pages/Industries/Industries";
 
 function Routes() {
-  const HostName = window.location.hostname
-  
-  console.log(HostName)
+  const HostName = window.location.hostname;
+
+  console.log(HostName);
 
   return useRoutes([
     {
@@ -88,16 +88,27 @@ function Routes() {
         },
 
         {
-          path: "/what-we-do",
+          path: "/solutions",
           children: [
             {
-              path: "/what-we-do",
+              path: "k-mobillor",
+              element: <Careers />,
+              index: true,
+            },
+            {
+              path: "k-mobillor",
+              element: <Navigate to="/solution/K-mobillor" exact replace />,
+            },
+          ],
+        },
+
+        {
+          path: "/services",
+          children: [
+            {
+              path: "/services",
               element: (
-                <Navigate
-                  to="/what-we-do/services/digital/:digital "
-                  exact
-                  replace
-                />
+                <Navigate to="/services/digital/:digital " exact replace />
               ),
             },
             // Digital
@@ -109,35 +120,35 @@ function Routes() {
 
             // Application devlopemnt
             {
-              path: "services/enterprise-software/digital-content-management",
+              path: "enterprise-software/digital-content-management",
               element: <DigitalContent />,
             },
 
             {
-              path: "services/application-development/:page",
+              path: "application-development/:page",
               // element: <Consulting />,
             },
             // Cloud
             {
-              path: "services/cloud/:page",
+              path: "cloud/:page",
               // element: <Consulting />,
             },
             // Enterprice Solutions
             {
-              path: "services/enterprise-software/erp",
+              path: "enterprise-software/erp",
               element: <Erp />,
             },
 
             {
-              path: "services/enterprise-software/:page/infor",
+              path: "enterprise-software/:page/infor",
               element: <Infor />,
             },
             {
-              path: "services/enterprise-software/:page/SAP",
+              path: "enterprise-software/:page/SAP",
               element: <SAP />,
             },
             {
-              path: "ervices/enterprise-software/:page/oracle",
+              path: "enterprise-software/:page/oracle",
               element: <SAP />,
             },
           ],
@@ -159,7 +170,7 @@ function Routes() {
         },
       ],
     },
-  ]); 
+  ]);
 }
 
 export default Routes;

@@ -59,7 +59,7 @@ export const ImageContainer1 = styled(Box)(({ theme, select }) => ({
 }));
 
 export const ImageContainer2 = styled(Box)(({ theme, select }) => ({
-  width:  500,
+  width: 500,
   // border: "1px solid #d3e1ea",
   opacity: select ? 0 : 1,
   height: 300,
@@ -146,8 +146,6 @@ function Industries() {
                 <Typography variant="body1">{ item.title}</Typography>
               </Stack>
             </TextContainer>
-            
-           
           </Fragment>
         ))}
       </Stack> */}
@@ -155,8 +153,8 @@ function Industries() {
       <img
         src={IndustriesImage}
         alt="Kapil Technologies Industries"
-        height="350px"
-        style={{ border: "2px solid #d3e1ea" }}
+        height="auto"
+        style={{ border: "2px solid #d3e1ea", maxWidth: "100%" }}
       />
     </MainSliderDiv>
   );
