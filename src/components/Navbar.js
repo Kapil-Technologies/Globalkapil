@@ -42,6 +42,7 @@ export const MainHeader = styled("header")(({ theme, image, condition }) => ({
 
   [theme.breakpoints.down("md")]: {
     // border: "1px solid white",
+    background: "transperant",
     maxHeight: "15vh",
   },
 }));
@@ -60,6 +61,7 @@ export const MainNavList = styled("ul")(({ theme, image }) => ({
     alignItems: "start",
     height: "100vh",
     width: "100%",
+    left:"-100%"
   },
 }));
 
@@ -71,10 +73,13 @@ export const MainNavItem = styled("li")(({ theme, image }) => ({
 }));
 
 export const MainNavTextContainer = styled(Stack)(
-  ({ theme, image, condition }) => ({
-    color: condition ? "#001e3a" : "white",
+  ({ theme, image, condition, Infor }) => ({
+    color: condition ||  Infor ? "#001e3a" : "white",
     cursor: "pointer",
     fontWeight: "bold",
+    '&:hover': {
+      color:'red'
+    },
     [theme.breakpoints.down("md")]: {
       color: "#001e3a",
     },
@@ -83,10 +88,16 @@ export const MainNavTextContainer = styled(Stack)(
 
 export const MainNavText = styled(Typography)(({ theme, image }) => ({}));
 
-export const MainNavLink = styled(NavLink)(({ theme, image, condition }) => ({
-  color: condition ? "#001e3a" : "white",
+export const MainNavLink = styled(NavLink)(({ theme, image, condition, Infor }) => ({
+  color: condition || Infor ? "#001e3a" : "white",
   textDecoration: "none",
   fontWeight: "bold",
+  "&:hover": {
+    color: "red",
+  },
+  "&.active":{
+    color:'red'
+  },
   [theme.breakpoints.down("md")]: {
     color: "#001e3a",
   },
@@ -289,12 +300,15 @@ function Navbar() {
   const { pathname } = useLocation();
 
   const infor =
-    pathname === "/what-we-do/services/enterprise-software/erp/infor";
-  const sap = pathname === "/what-we-do/services/enterprise-software/erp/SAP";
+    pathname === "/services/enterprise-software/erp/infor";
+  const sap = pathname === "services/enterprise-software/erp/SAP";
   const oracle =
-    pathname === "/what-we-do/services/enterprise-software/erp/infor";
+    pathname === "services/enterprise-software/erp/infor";
   const Alliances = pathname === "/our-alliances";
   const contact = pathname === "/contact-us";
+
+  const clickCondition = ""
+  const hoverContion = ""
 
   return (
     <MainHeader condition={hover}>
@@ -310,6 +324,7 @@ function Navbar() {
                 to={item.path}
                 condition={hover}
                 onMouseEnter={handleMouseLeaves}
+                Infor={infor || Alliances || contact}
               >
                 {item.title}
               </MainNavLink>
@@ -323,19 +338,13 @@ function Navbar() {
                   handleSubMenuOpen(item.id);
                 }}
                 condition={hover}
+                Infor={infor || Alliances || contact}
               >
                 <MainNavText variant="body1" sx={{ fontWeight: "bold" }}>
                   {item.title}
                 </MainNavText>
                 {window.innerWidth > 900
                   ? item.submenu && hover && menuid === item.submenudata
-                    ? item.openicon
-                    : item.submenu
-                    ? item.closeicon
-                    : null
-                  : null}
-                {window.innerWidth < 900
-                  ? item.submenu && click1 && menuid === item.submenudata
                     ? item.openicon
                     : item.submenu
                     ? item.closeicon
@@ -417,7 +426,7 @@ function Navbar() {
                     </Stack>
                   ) : menuid === 3 || 5 ? (
                     item.submenu.map((item) => (
-                      <SubNavItem>
+                      <SubNavItem key={item.id}>
                         {item.path ? (
                           <SubNavLink to={item.path} target={item.target}>
                             {item.title}
@@ -431,51 +440,6 @@ function Navbar() {
                 </SubNavList>
               ) : null
             ) : null}
-
-            {/* {window.innerWidth < 900 ? (
-              item.submenu && click1 && menuid === item.submenudata ? (
-                <SubNavListMobile>
-                  {item.submenu.map((item) => (
-                    <SubNavItemMobile key={item.id} onClick={() =>handleClickOpen(item.id)}>
-                      {item.path ? (
-                        <SubNavLinkMobile to={item.path}>{item.title}</SubNavLinkMobile>
-                      ) : (
-                        <SubNavTextMobile
-                          direction="row"
-                          alignItems="center"
-                          onClick={handleClickOpen}
-                        >
-                          {item.title}
-                          {item.submenu && click1 && menuid === item.submenudata
-                            ? item.openicon
-                            : item.submenu
-                            ? item.closeicon
-                            : null}
-                        </SubNavTextMobile>
-                      )}
-                      {item.submenu && click1 && menuid === item.submenudata ? (
-                        <SubNavListMobileL3>
-                          {item.submenu.map((item) => (
-                            <SubNavItemMobileL3 key={item.id}>
-                              {item.path ? (
-                                <SubNavLinkMobileL3 to={item.path}>
-                                  {item.tile}
-                                </SubNavLinkMobileL3 >
-                              ) : (
-                                <SubNavTextMobileL3>
-                                  {item.title}
-                                </SubNavTextMobileL3>
-                              )}
-                            </SubNavItemMobileL3>
-                          ))}
-                        </SubNavListMobileL3>
-                      ) : null}
-                    </SubNavItemMobile>
-                  ))}
-                  
-                </SubNavListMobile>
-              ) : null
-            ) : null} */}
           </MainNavItem>
         ))}
       </MainNavList>

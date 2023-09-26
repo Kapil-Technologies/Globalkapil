@@ -20,10 +20,11 @@ export const ERPBanner = styled("div")(({ theme }) => ({
 export const BannerImage = styled("img")(({ theme }) => ({
   //   maxWidth: "100%",
   width: "100%",
-  height: "580px",
+  height: "600px",
   position: "relative",
-
- 
+  [theme.breakpoints.down("md")]: {
+    height:'600px'
+  },
 }));
 
 // ------------------------------------------ Main Components
