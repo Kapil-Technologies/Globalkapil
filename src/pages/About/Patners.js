@@ -24,20 +24,20 @@ const PartnerList = [
   {
     id: 2,
     image: QR,
-    width: 200,
+    width: 150,
     height: "auto",
   },
 
   {
     id: 3,
     image: Expenz,
-    width: 200,
+    width: 150,
     height: "auto",
   },
   {
     id: 4,
     image: Mobillor,
-    width: 200,
+    width: 180,
     height: "auto",
   },
   {
@@ -49,7 +49,7 @@ const PartnerList = [
   {
     id: 6,
     image: bitrix,
-    width: "250px",
+    width: 150,
     height: "auto",
   },
 ];

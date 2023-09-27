@@ -266,15 +266,14 @@ export const NavData = [
     submenudata: 2,
     submenu: Services,
   },
-  {
-    id: 3,
-    title: "Solutions",
-    openicon: <UpArrow />,
-    closeicon: <DownArrow />,
-    submenudata: 3,
-
-    submenu: Solutions,
-  },
+  // {
+  //   id: 3,
+  //   title: "Solutions",
+  //   openicon: <UpArrow />,
+  //   closeicon: <DownArrow />,
+  //   submenudata: 3,
+  //   submenu: Solutions,
+  // },
   {
     id: 4,
     title: "Our Alliances",

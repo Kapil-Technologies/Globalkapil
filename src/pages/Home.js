@@ -3,7 +3,6 @@ import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box, Button, Stack, Tab, Typography, Tabs, Grid } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import Clients from "../components/Sliders/Clients";
-import HomeAbout from "../assets/Banners/HomeAbout.png";
 import Industries from "../components/Sliders/Industries";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import Page from "../components/Page";

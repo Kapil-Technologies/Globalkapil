@@ -250,7 +250,6 @@ function Infor() {
   const ref5 = useRef(null);
   const ref6 = useRef(null);
 
-
   const handleClick1 = () => {
     ref1.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -267,13 +266,19 @@ function Infor() {
   const handleClick5 = () => {
     ref2.current?.scrollIntoView({ behavior: "smooth" });
   };
- const handleClick6 = () => {
-   ref5.current?.scrollIntoView({ behavior: "smooth" });
- };
+  const handleClick6 = () => {
+    ref5.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div>
-      <Page name="ERP | Infor" />
+      <Page
+        name="ERP|Infor Alliance Partner"
+        content="Kapil Technologies, infor,infor alliance partner, infor consulting services, pt kcs technologies indoenesia,Infor Partners Indonesia,Top Infor ERP Partners,Infor Implementation Experts,Infor Consulting Services,Infor Solutions Provider,Infor System Integrators,Best Infor Partners in Indonesia,Infor Cloud Services Indonesia,Infor Enterprise Software Indonesia,Infor Support and Maintenance,Infor Industry-Specific Solutions,ERP Implementation in Indonesia,Infor Business Consulting,Infor Product Specialists,Infor Software Resellers,Infor EAM (Enterprise Asset Management) Partners
+,Infor SCM (Supply Chain Management) Partners,Infor Financials Partners,Infor HCM (Human Capital Management) Partners,Infor M3 Partners in Indonesia,Indonesia,Ptkcs Infor Alliance partner"
+        keywords="Kapil Technologies, infor,infor alliance partner, infor consulting services, pt kcs technologies indoenesia,Infor Partners Indonesia,Top Infor ERP Partners,Infor Implementation Experts,Infor Consulting Services,Infor Solutions Provider,Infor System Integrators,Best Infor Partners in Indonesia,Infor Cloud Services Indonesia,Infor Enterprise Software Indonesia,Infor Support and Maintenance,Infor Industry-Specific Solutions,ERP Implementation in Indonesia,Infor Business Consulting,Infor Product Specialists,Infor Software Resellers,Infor EAM (Enterprise Asset Management) Partners
+,Infor SCM (Supply Chain Management) Partners,Infor Financials Partners,Infor HCM (Human Capital Management) Partners,Infor M3 Partners in Indonesia,Indonesia,Ptkcs Infor Alliance partner"
+      />
       <ERPBanner>
         <BannerImage src={InforBanner} alt="Kapil Technologies Infor" />
       </ERPBanner>
@@ -321,7 +326,6 @@ function Infor() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-     
         }}
       >
         {ERPDataInfor.map((item) => (

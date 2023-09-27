@@ -35,8 +35,6 @@ import GlobalBanner from "../assets/Banners/Global.png";
 import { TabsData } from "../mock/ContactData";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 
-import Opening from "../assets/Banners/Opening Soon.png";
-
 // --------------------------------------------------------------------
 export const BackContainer = styled("div")(({ theme, image }) => ({
   backgroundColor: "#012C54",
@@ -164,9 +162,9 @@ export const Global = styled(Stack)(({ theme, image }) => ({
   height: 600,
 }));
 
-export const FlagIcons = styled('img')(({ theme, image }) => ({
+export const FlagIcons = styled("img")(({ theme, image }) => ({
   width: 45,
-  height:45
+  height: 45,
 }));
 
 // -------------------------------------------------------------------------------------- Reusable Components
@@ -197,13 +195,9 @@ export const BranchCards = ({
       }}
     >
       <CardContent>
-        <Stack direction='row' alignItems='center' justifyContent='left'>
-          <FlagIcons
-            src={image}
-            alt="Kapil Branches"
-            
-          />
-          <Typography variant="h4"  sx={{ fontWeight: "bold" }}>
+        <Stack direction="row" alignItems="center" justifyContent="left">
+          <FlagIcons src={image} alt="Kapil Branches" />
+          <Typography variant="h4" sx={{ fontWeight: "bold" }}>
             {cname}
           </Typography>
         </Stack>
@@ -239,8 +233,15 @@ export const BranchCards = ({
 // ---------------------------------------------------------------------
 
 function Contact() {
-  const Hostname = window.location.hostname
-const condition = Hostname === 'www.kapiltech.com' ? 2 : Hostname === 'kcs-tech.com' ? 1 : Hostname === 'ptkcs.com' ? 2 :1
+  const Hostname = window.location.hostname;
+  const condition =
+    Hostname === "www.kapiltech.com"
+      ? 2
+      : Hostname === "kcs-tech.com"
+      ? 1
+      : Hostname === "ptkcs.com"
+      ? 2
+      : 1;
 
   const [value, setValue] = React.useState(condition);
 
@@ -290,7 +291,12 @@ const condition = Hostname === 'www.kapiltech.com' ? 2 : Hostname === 'kcs-tech.
               {TabsData.map((item) => (
                 <Tab
                   key={item.id}
-                  label={<Typography sx={{fontWeight:'bold'}} variant="body1"> {item.tabname}</Typography>}
+                  label={
+                    <Typography sx={{ fontWeight: "bold" }} variant="body1">
+                      {" "}
+                      {item.tabname}
+                    </Typography>
+                  }
                   value={item.tabvalue}
                   sx={{
                     textTransform: "capitalize",
@@ -310,35 +316,25 @@ const condition = Hostname === 'www.kapiltech.com' ? 2 : Hostname === 'kcs-tech.
             {TabsData.map((item) => (
               <TabPanel value={item.tabvalue}>
                 <Stack direction="row" alignItems="center" spacing={2}>
-                  {item.subbranches.length === 0 ? (
-                    <Stack
-                      direction="row"
-                      alignItems="center"
-                      justifyContent="center"
-                    >
-                      <img src={Opening} width="100%" height="300px" />
-                    </Stack>
-                  ) : (
-                    item.subbranches.map((cdetails) => (
-                      <BranchCards
-                        name={cdetails.title}
-                        subtitle={cdetails.subtitle}
-                        add1={cdetails.add1}
-                        add2={cdetails.add2}
-                        add3={cdetails.add3}
-                        add4={cdetails.add4}
-                        image={cdetails.image}
-                        cname={cdetails.cName}
-                        cManager={cdetails.cManager}
-                        cManagerli={cdetails.cManagerlinkedin}
-                        email={cdetails.email}
-                        mailto={cdetails.mailto}
-                        mobile={cdetails.mobile}
-                        mobileto={cdetails.mobileto}
-                        location={cdetails.location}
-                      />
-                    ))
-                  )}
+                  {item.subbranches.map((cdetails) => (
+                    <BranchCards
+                      name={cdetails.title}
+                      subtitle={cdetails.subtitle}
+                      add1={cdetails.add1}
+                      add2={cdetails.add2}
+                      add3={cdetails.add3}
+                      add4={cdetails.add4}
+                      image={cdetails.image}
+                      cname={cdetails.cName}
+                      cManager={cdetails.cManager}
+                      cManagerli={cdetails.cManagerlinkedin}
+                      email={cdetails.email}
+                      mailto={cdetails.mailto}
+                      mobile={cdetails.mobile}
+                      mobileto={cdetails.mobileto}
+                      location={cdetails.location}
+                    />
+                  ))}
                 </Stack>
               </TabPanel>
             ))}

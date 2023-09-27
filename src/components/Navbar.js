@@ -34,7 +34,8 @@ export const MainHeader = styled("header")(({ theme, image, condition }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  maxHeight: "15vh",
+  height: "15vh",
+  // background: "transperant",
   background: condition ? "white" : "transperant",
   position: condition ? "fixed" : "absolute",
   zIndex: 9999,
@@ -43,7 +44,7 @@ export const MainHeader = styled("header")(({ theme, image, condition }) => ({
   [theme.breakpoints.down("md")]: {
     // border: "1px solid white",
     background: "transperant",
-    maxHeight: "15vh",
+    height: "15vh",
   },
 }));
 
@@ -59,9 +60,9 @@ export const MainNavList = styled("ul")(({ theme, image }) => ({
     flexDirection: "column",
     justifyContent: "start",
     alignItems: "start",
-    height: "100vh",
+    height: "85vh",
     width: "100%",
-    left:"-100%"
+    left: "-100%",
   },
 }));
 
@@ -74,11 +75,11 @@ export const MainNavItem = styled("li")(({ theme, image }) => ({
 
 export const MainNavTextContainer = styled(Stack)(
   ({ theme, image, condition, Infor }) => ({
-    color: condition ||  Infor ? "#001e3a" : "white",
+    color: condition || Infor ? "#001e3a" : "white",
     cursor: "pointer",
     fontWeight: "bold",
-    '&:hover': {
-      color:'red'
+    "&:hover": {
+      color: "red",
     },
     [theme.breakpoints.down("md")]: {
       color: "#001e3a",
@@ -88,20 +89,22 @@ export const MainNavTextContainer = styled(Stack)(
 
 export const MainNavText = styled(Typography)(({ theme, image }) => ({}));
 
-export const MainNavLink = styled(NavLink)(({ theme, image, condition, Infor }) => ({
-  color: condition || Infor ? "#001e3a" : "white",
-  textDecoration: "none",
-  fontWeight: "bold",
-  "&:hover": {
-    color: "red",
-  },
-  "&.active":{
-    color:'red'
-  },
-  [theme.breakpoints.down("md")]: {
-    color: "#001e3a",
-  },
-}));
+export const MainNavLink = styled(NavLink)(
+  ({ theme, image, condition, Infor }) => ({
+    color: condition || Infor ? "#001e3a" : "white",
+    textDecoration: "none",
+    fontWeight: "bold",
+    "&:hover": {
+      color: "red",
+    },
+    "&.active": {
+      color: "red",
+    },
+    [theme.breakpoints.down("md")]: {
+      color: "#001e3a",
+    },
+  })
+);
 
 export const SubNavList = styled("ul")(
   ({ theme, image, condition, Hover }) => ({
@@ -299,16 +302,14 @@ function Navbar() {
   // --------------------------------------------------------------- Scrolling
   const { pathname } = useLocation();
 
-  const infor =
-    pathname === "/services/enterprise-software/erp/infor";
+  const infor = pathname === "/services/enterprise-software/erp/infor";
   const sap = pathname === "services/enterprise-software/erp/SAP";
-  const oracle =
-    pathname === "services/enterprise-software/erp/infor";
+  const oracle = pathname === "services/enterprise-software/erp/infor";
   const Alliances = pathname === "/our-alliances";
   const contact = pathname === "/contact-us";
 
-  const clickCondition = ""
-  const hoverContion = ""
+  const clickCondition = "";
+  const hoverContion = "";
 
   return (
     <MainHeader condition={hover}>
@@ -360,7 +361,7 @@ function Navbar() {
                       direction="column"
                       alignItems="left"
                       spacing={1}
-                      sx={{ p: 2 }}
+                      sx={{ py: 0.5, px: 2 }}
                     >
                       <Stack
                         direction="row"
@@ -395,7 +396,7 @@ function Navbar() {
                               spacing={2}
                               sx={{ width: "500px" }}
                             >
-                              <img src={item.icon} width="50px" height="50px" />
+                              <img src={item.icon} width="50px" height="50px" style={{filter:'saturate(500%)'}} />
                               <Typography
                                 variant="body1"
                                 sx={{ fontWeight: "bold" }}
@@ -403,7 +404,7 @@ function Navbar() {
                                 {item.Mtitle}
                               </Typography>
                             </Stack>
-                            <Grid container columnGap={1} rowGap={1}>
+                            <Grid container columnGap={1} rowGap={1} sx={{}}>
                               {item.menu3.map((item) => (
                                 <Grid key={item.id} item xs={3.5}>
                                   {item.path ? (
@@ -423,6 +424,26 @@ function Navbar() {
                           <HLine />
                         </Fragment>
                       ))}
+                      <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                        Solutions
+                      </Typography>
+                      <HLine />
+                      <Grid container columnGap={1} rowGap={1} sx={{}}>
+                        {Solutions.map((item) => (
+                          <Grid key={item.id} item xs={2}>
+                            {item.path ? (
+                              <SubNavLink
+                                to={item.path}
+                                onClick={handleMouseLeaves}
+                              >
+                                {item.title}
+                              </SubNavLink>
+                            ) : (
+                              <SubNavText>{item.title}</SubNavText>
+                            )}
+                          </Grid>
+                        ))}
+                      </Grid>
                     </Stack>
                   ) : menuid === 3 || 5 ? (
                     item.submenu.map((item) => (
