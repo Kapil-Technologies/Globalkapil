@@ -24,9 +24,10 @@
   transition: all 2s ease-in-out;
 }
 
-.Industries{
-  transition: all 1s ease-in-out;
+.Image-Transition{
+  transition: all 0.8s ease;
 }
+
 
 
 

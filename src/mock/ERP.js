@@ -1,16 +1,34 @@
-import { FaComments, FaSortNumericDown, FaStar, FaTh, FaThList } from "react-icons/fa";
+import {
+  FaComments,
+  FaSortNumericDown,
+  FaStar,
+  FaTh,
+  FaThList,
+} from "react-icons/fa";
 import { FaThumbsUp } from "react-icons/fa6";
-import { TbAdjustmentsCog, TbCertificate2, TbExchange, TbPencilPlus, TbSettingsCheck, TbSettingsUp, TbUserCog } from "react-icons/tb";
-import SAP1 from '../assets/SAP/sap1.png'
+import {
+  TbAdjustmentsCog,
+  TbCertificate2,
+  TbExchange,
+  TbPencilPlus,
+  TbSettingsCheck,
+  TbSettingsUp,
+  TbUserCog,
+} from "react-icons/tb";
+import SAP1 from "../assets/SAP/sap1.png";
 import SAP2 from "../assets/SAP/sap2.png";
-import SAP3 from "../assets/SAP/sap3.png";
-import SAP4 from "../assets/SAP/sap4.png";
-import SAP5 from "../assets/SAP/sap5.png";
-import SAP6 from "../assets/SAP/sap6.png";
-import InforLogo from '../assets/Partners/Infor.png'
+
+import InforLogo from "../assets/Partners/Infor.png";
 import SAPlogo from "../assets/Partners/saplogo.png";
 import Oraclelogo from "../assets/Partners/oraclelogo.png";
-import {GrServices} from 'react-icons/gr'
+import SAPI1 from '../assets/SAP/SAPIndutries/1.jpg'
+import SAPI2 from '../assets/SAP/SAPIndutries/2.jpg'
+import SAPI3 from '../assets/SAP/SAPIndutries/3.jpg'
+import SAPI4 from '../assets/SAP/SAPIndutries/4.jpg'
+import SAPI5 from '../assets/SAP/SAPIndutries/5.jpg'
+import SAPI6 from '../assets/SAP/SAPIndutries/6.jpg'
+import SAPI7 from '../assets/SAP/SAPIndutries/7.jpg'
+import SAPI8 from '../assets/SAP/SAPIndutries/8.jpg'
 
 
 
@@ -48,24 +66,23 @@ export const ERPServices = [
   },
 ];
 
-
 export const ERPBanner = [
   {
     id: 1,
-    name: 'infor',
-    banner:""
+    name: "infor",
+    banner: "",
   },
   {
     id: 2,
-    name: 'SAP',
-    banner:""
+    name: "SAP",
+    banner: "",
   },
-   {
+  {
     id: 3,
-    name: 'Oracle NetSuite',
-    banner:""
-  }
-]
+    name: "Oracle NetSuite",
+    banner: "",
+  },
+];
 
 export const ERPDataInfor = [
   {
@@ -239,35 +256,32 @@ export const TraiingList = [
     id: 3,
     li: "Continuous Improvement",
   },
-  
 ];
-
-
 
 export const InforTrainingTabs1 = [
   {
     id: 1,
     tabname: "Products",
-    tabvalue: "1", 
-    tabicon:<FaTh />
+    tabvalue: "1",
+    tabicon: <FaTh />,
   },
   {
     id: 2,
     tabname: "categories",
     tabvalue: "2",
-    tabicon:<FaThList />
+    tabicon: <FaThList />,
   },
   {
     id: 3,
     tabname: "levels",
     tabvalue: "3",
-    tabicon:<FaSortNumericDown />
+    tabicon: <FaSortNumericDown />,
   },
   {
     id: 4,
     tabname: "benefits",
     tabvalue: "4",
-    tabicon:<FaThumbsUp />
+    tabicon: <FaThumbsUp />,
   },
 ];
 
@@ -288,7 +302,7 @@ export const InforTProducts = [
     id: 4,
     pname: "Infor Cloud Industries",
   },
- 
+
   // {
   //   id: 5,
   //   pname: "Infor S3",
@@ -301,7 +315,7 @@ export const InforTProducts = [
     id: 7,
     pname: "Birst",
   },
- 
+
   {
     id: 8,
     pname: "Infor EAM",
@@ -315,7 +329,6 @@ export const InforTProducts = [
     pname: "Infor WFM",
   },
 ];
-
 
 export const InforTrainigBenefits = [
   {
@@ -344,7 +357,6 @@ export const InforTrainigBenefits = [
   },
 ];
 
-
 export const InforCategories = [
   {
     id: 1,
@@ -361,7 +373,6 @@ export const InforCategories = [
     desc1: "Functional",
     desc2: "Ideal for : Business Analysis, Function Managers, End Users ",
   },
-  
 ];
 
 export const InforLevel = [
@@ -377,7 +388,6 @@ export const InforLevel = [
     desc2:
       "Offers an in-depth training to enable the applicants to become experts and to start using the system effectively.",
   },
-  
 ];
 
 export const Recruiting = [
@@ -412,21 +422,20 @@ export const whyUs = [
   },
 ];
 
-
 // -----------------------------------------------------------------------------------------  SAP
 
 export const ERPDataSAP = [
   {
     id: 1,
     mtitle: "SAP IMPLEMENTATION and UPGRADE ",
-    icon: SAP1,
+    // icon: SAP1,
     color: "#F68C09",
     desc: "Whether your organization needs a full-scale SAP ERP, a single module, or an upgrade, Kapil tech is ready to exceed expectations.",
   },
   {
     id: 2,
     mtitle: "SAP SYSTEM REVIEW SERVICES ",
-    icon: SAP2,
+    // icon: SAP2,
     color: "#3175A5",
     desc: "We advance the Best and Leading Practices for implementing SAP. We can validate if you are getting the most out of your SAP system.",
   },
@@ -434,34 +443,32 @@ export const ERPDataSAP = [
   {
     id: 3,
     mtitle: "SAP APPLICATION MANAGEMENT SERVICES ",
-    icon: SAP3,
+    // icon: SAP3,
     color: "#AF5F30 ",
     desc: "We Understand that every organization has unique support requirements. We offer custom packages that will fit your end-to-end application management needs.",
   },
   {
     id: 4,
     mtitle: "SAP TRAINING ",
-    icon: SAP4,
+    // icon: SAP4,
     color: "#2DB6FA",
     desc: "Kapil Tech was founded by SAP training professionals. We understand having a comprehensive approach to staff training is essential.",
   },
   {
     id: 5,
     mtitle: "SAP STAFF AUGMENTATION ",
-    icon: SAP5,
+    // icon: SAP5,
     color: "#E9222C",
     desc: "Providing the highest caliber talent is hallmark of our approach. Gain access to resources with 15+ years of experience.",
   },
   {
     id: 6,
     mtitle: "SAP CLOUD MIGRATION and HOSTING ",
-    icon: SAP6,
+    // icon: SAP6,
     color: "#32770E",
     desc: "Taking advantage of lower costs and easier  management with Cloud-Based servers. We offer a number of cloud deployment options.",
   },
 ];
-
-
 
 export const ERPDataSAP2 = [
   {
@@ -498,5 +505,79 @@ export const ERPDataSAP2 = [
     id: 7,
     title: "SAP Financial Accounting and Controlling",
     desc: "",
+  },
+];
+
+export const SAPZigZag = [
+  {
+    id: 1,
+    type: "text",
+    textData1:
+      "Mobile access to the Internet has revolutionized IT, influencing business processes and enabling cost-effective SAP system usage on mobile devices. Enterprise mobility, driven by the BYOD trend and Kapil Technologies' expertise, empowers businesses.",
+    textData2:
+      "Our mobile experts help you define your mobile strategy, design and develop apps, and implement solutions tailored to your industry needs. We specialize in Fiori UX development, SAPUI5, Web Dynpro, ABAP, SAP Screen Personas, and HANA Cloud Platform. We provide ongoing support and specialize in UX for Suite on S/4HANA.",
+  },
+  {
+    id: 2,
+    type: "image",
+    image: SAP1,
+  },
+
+  {
+    id: 3,
+    type: "image",
+    image: SAP2,
+  },
+
+  {
+    id: 4,
+    type: "text",
+    textData1:
+      "At Kapil Technologies, we offer comprehensive SAP AMS (Application Management Services) for system support, including technical support for system enhancements and integration, as well as functional support for process setup, task management, and user training. SAP AMS helps businesses simplify application management, achieve system stabilization, manage complexities efficiently, and optimize costs, while providing 24/7 global support, minimizing downtime, and offering flexible service levels tailored to business needs.",
+    textData2: "",
+  },
+];
+
+
+export const SAPIndustres = [
+  {
+    id: 1,
+    indusName: "Hi-tech and Electronics",
+    indusImage: SAPI1,
+  },
+  {
+    id: 2,
+    indusName: "Machinary and Equipment",
+    indusImage: SAPI2,
+  },
+  {
+    id: 3,
+    indusName: "Warehouse",
+    indusImage: SAPI3,
+  },
+  {
+    id: 4,
+    indusName: "Automotive",
+    indusImage: SAPI4,
+  },
+  {
+    id: 5,
+    indusName: "General Discrete Manufacturing",
+    indusImage: SAPI5,
+  },
+  {
+    id: 6,
+    indusName: "Food and Beverage",
+    indusImage: SAPI6,
+  },
+  {
+    id: 7,
+    indusName: "Logistics",
+    indusImage: SAPI7,
+  },
+  {
+    id: 8,
+    indusName: "Construction",
+    indusImage: SAPI8,
   },
 ];
