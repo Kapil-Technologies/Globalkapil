@@ -27,6 +27,7 @@ import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
 import { TbCertificate2 } from "react-icons/tb";
 import { FaRupeeSign } from "react-icons/fa";
+import Page from "../components/Page";
 
 // ----------------------------------------------------------------
 
@@ -167,6 +168,7 @@ function Careers() {
       alignItems="center"
       justifyContent="start"
     >
+      <Page name="Join Us | Search jobs" content="" keywords=""  />
       <BannerImage src={CareersImage} />
       <BannerLayer
         direction="column"

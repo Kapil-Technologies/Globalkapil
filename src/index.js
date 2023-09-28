@@ -18,6 +18,7 @@ const SendAnalytics = () => {
     hitType: "pageview",
     page: window.location.pathname,
   
+  
   });
 };
 

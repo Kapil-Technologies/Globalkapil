@@ -324,8 +324,8 @@ function Navbar() {
               <MainNavLink
                 to={item.path}
                 condition={hover}
-                onMouseEnter={handleMouseLeaves}
                 Infor={infor || Alliances || contact}
+                onClick={handleMouseLeaves}
               >
                 {item.title}
               </MainNavLink>
@@ -396,7 +396,12 @@ function Navbar() {
                               spacing={2}
                               sx={{ width: "500px" }}
                             >
-                              <img src={item.icon} width="50px" height="50px" style={{filter:'saturate(500%)'}} />
+                              <img
+                                src={item.icon}
+                                width="50px"
+                                height="50px"
+                                style={{ filter: "saturate(500%)" }}
+                              />
                               <Typography
                                 variant="body1"
                                 sx={{ fontWeight: "bold" }}
@@ -434,7 +439,7 @@ function Navbar() {
                             {item.path ? (
                               <SubNavLink
                                 to={item.path}
-                                onClick={handleMouseLeaves}
+                                onClick={() => handleMouseLeaves()}
                               >
                                 {item.title}
                               </SubNavLink>
@@ -449,7 +454,11 @@ function Navbar() {
                     item.submenu.map((item) => (
                       <SubNavItem key={item.id}>
                         {item.path ? (
-                          <SubNavLink to={item.path} target={item.target}>
+                          <SubNavLink
+                            to={item.path}
+                            onClick={() => handleMouseLeaves()}
+                            target={item.target}
+                          >
                             {item.title}
                           </SubNavLink>
                         ) : (

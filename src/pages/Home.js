@@ -184,7 +184,7 @@ function Home() {
   };
   return (
     <HomeContainer>
-      <Page name="Home" content="" />
+      <Page name="Home" content="" keywords="" />
 
       <MainBanner
         sx={{

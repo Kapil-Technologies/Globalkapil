@@ -273,7 +273,7 @@ function Infor() {
   return (
     <div>
       <Page
-        name="ERP|Infor Alliance Partner"
+        name="ERP | Infor Alliance Partner"
         content="Kapil Technologies, infor,infor alliance partner, infor consulting services, pt kcs technologies indoenesia,Infor Partners Indonesia,Top Infor ERP Partners,Infor Implementation Experts,Infor Consulting Services,Infor Solutions Provider,Infor System Integrators,Best Infor Partners in Indonesia,Infor Cloud Services Indonesia,Infor Enterprise Software Indonesia,Infor Support and Maintenance,Infor Industry-Specific Solutions,ERP Implementation in Indonesia,Infor Business Consulting,Infor Product Specialists,Infor Software Resellers,Infor EAM (Enterprise Asset Management) Partners
 ,Infor SCM (Supply Chain Management) Partners,Infor Financials Partners,Infor HCM (Human Capital Management) Partners,Infor M3 Partners in Indonesia,Indonesia,Ptkcs Infor Alliance partner"
         keywords="Kapil Technologies, infor,infor alliance partner, infor consulting services, pt kcs technologies indoenesia,Infor Partners Indonesia,Top Infor ERP Partners,Infor Implementation Experts,Infor Consulting Services,Infor Solutions Provider,Infor System Integrators,Best Infor Partners in Indonesia,Infor Cloud Services Indonesia,Infor Enterprise Software Indonesia,Infor Support and Maintenance,Infor Industry-Specific Solutions,ERP Implementation in Indonesia,Infor Business Consulting,Infor Product Specialists,Infor Software Resellers,Infor EAM (Enterprise Asset Management) Partners

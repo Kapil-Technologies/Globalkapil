@@ -250,7 +250,7 @@ function Contact() {
   };
   return (
     <div>
-      <Page name="Contact Us" content="" />
+      <Page name="Contact Us" content="" keywords="" />
       <Global image={GlobalBanner}>
         <TabContext value={value}>
           <Stack
