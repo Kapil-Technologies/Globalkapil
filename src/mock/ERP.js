@@ -521,12 +521,14 @@ export const SAPZigZag = [
     id: 2,
     type: "image",
     image: SAP1,
+    right:0
   },
 
   {
     id: 3,
     type: "image",
     image: SAP2,
+    left:0
   },
 
   {

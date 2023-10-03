@@ -154,8 +154,8 @@ export const Logo = styled("img")(({ theme, image }) => ({
   padding: "5px",
   maxWidth: "100%",
   [theme.breakpoints.down("md")]: {
-    width: "45px",
-    height: "62px",
+    width: "35px",
+    height: "48px",
   },
 }));
 

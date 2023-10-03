@@ -1,5 +1,6 @@
 import React from "react";
 import Page from "../../../../../components/Page";
+import useAnalyticsEventTracker from "../../../../../components/EventTracker";
 
 import {
   Button,
@@ -55,6 +56,7 @@ export const CareersBanner = styled("div")(({ theme, image }) => ({
 // ---------------------------------------------------------------------- Main Components
 
 function Erp() {
+  const gaEventTracker = useAnalyticsEventTracker("ERP Form");
   return (
     <div>
       {/* <NavDiv>.</NavDiv> */}
@@ -178,8 +180,16 @@ function Erp() {
               spacing={2}
               sx={{ width: "100%" }}
             >
-              <TextField label="Full Name" sx={{ width:'100%' }} />
-              <TextField label="Company" sx={{ width:'100%' }} />
+              <TextField
+                label="Full Name"
+                sx={{ width: "100%" }}
+                onClick={() => gaEventTracker("ERP-fullname")}
+              />
+              <TextField
+                label="Company"
+                sx={{ width: "100%" }}
+                onClick={() => gaEventTracker("ERP-Company")}
+              />
             </Stack>
             <Stack
               direction={{ xs: "column", md: "row" }}
@@ -188,8 +198,16 @@ function Erp() {
               spacing={2}
               sx={{ width: "100%" }}
             >
-              <TextField label="Work Email Id" sx={{ width:'100%' }} />
-              <TextField label="Phone Number" sx={{ width:'100%' }} />
+              <TextField
+                label="Work Email Id"
+                sx={{ width: "100%" }}
+                onClick={() => gaEventTracker("ERP-Work Email")}
+              />
+              <TextField
+                label="Phone Number"
+                sx={{ width: "100%" }}
+                onClick={() => gaEventTracker("ERP-Call")}
+              />
             </Stack>
 
             <Stack
@@ -205,6 +223,7 @@ function Erp() {
                 fullWidth
                 rows={5}
                 sx={{ width: "100%" }}
+                onClick={() => gaEventTracker("ERP-Message")}
               />
               <Button variant="contained" startIcon={<FiSend />}>
                 Submit
