@@ -303,7 +303,7 @@ function Navbar() {
   const { pathname } = useLocation();
 
   const infor = pathname === "/services/enterprise-software/erp/infor";
-  const sap = pathname === "services/enterprise-software/erp/SAP";
+  const sap = pathname === "/services/enterprise-software/erp/SAP";
   const oracle = pathname === "services/enterprise-software/erp/infor";
   const Alliances = pathname === "/our-alliances";
   const contact = pathname === "/contact-us";
@@ -324,7 +324,7 @@ function Navbar() {
               <MainNavLink
                 to={item.path}
                 condition={hover}
-                Infor={infor || Alliances || contact}
+                Infor={infor || Alliances || contact }
                 onClick={handleMouseLeaves}
               >
                 {item.title}
@@ -339,7 +339,7 @@ function Navbar() {
                   handleSubMenuOpen(item.id);
                 }}
                 condition={hover}
-                Infor={infor || Alliances || contact}
+                Infor={infor || Alliances || contact }
               >
                 <MainNavText variant="body1" sx={{ fontWeight: "bold" }}>
                   {item.title}
