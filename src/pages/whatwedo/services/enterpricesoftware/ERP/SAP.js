@@ -21,30 +21,27 @@ export const ERPBanner = styled("div")(({ theme }) => ({
 export const BannerImage = styled("img")(({ theme }) => ({
   //   maxWidth: "100%",
   width: "100%",
-  // height:'50px',
+  height: "auto",
   position: "relative",
   [theme.breakpoints.down("md")]: {
-    height: "250px",
-    width: "100%",
+    height: "400px",
+    width:'100%',
   },
 }));
 
-export const ZZImage = styled("img")(({ theme, alignRight, alignLeft }) => ({
+export const ZZImage = styled("img")(({ theme }) => ({
   //   maxWidth: "100%",
   width: "100%",
   height: 400,
-  position: "absolute",
-  right: alignRight,
-  left: alignLeft,
-
+  position: "relative",
   [theme.breakpoints.down("md")]: {
     height: "400px",
   },
 }));
 
-export const IndustryImage = styled("img")(({ theme, Hover }) => ({
+export const IndustryImage = styled("img")(({ theme,Hover }) => ({
   height: 350,
-  width: Hover ? 325 : 319,
+  width: Hover ? 325: 319,
   [theme.breakpoints.down("md")]: {
     height: 350,
   },
@@ -93,20 +90,20 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
         spacing={2}
         sx={{ background: "#012c54", marginTop: "-4px" }}
       >
-        <Typography
-          variant="h4"
-          gutterBottom
-          sx={{ fontWeight: "bold", color: "white" }}
-        >
-          Why Choose SAP ?
-        </Typography>
         <Stack
           direction="column"
           alignItems="center"
           justifyContent="center"
           spacing={1}
-          sx={{ py: 2 }}
+          sx={{ p: 2 }}
         >
+          <Typography
+            variant="h4"
+            gutterBottom
+            sx={{ fontWeight: "bold", color: "white" }}
+          >
+            Why Choose SAP ?
+          </Typography>
           <Box
             sx={{
               width: 70,
@@ -132,7 +129,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
           {ERPDataSAP.map((item) => (
             <Grid
               item
-              xs={6}
+              xs={3.5}
               key={item.id}
               onMouseEnter={() => handleMouseEnter(item.id)}
               onMouseLeave={handleMouseLeave}
@@ -208,17 +205,8 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
             );
           } else {
             return (
-              <Grid
-                item
-                xs={3.5}
-                sx={{ height: 400, width: "auto", position: "relative" }}
-              >
-                <ZZImage
-                  src={item.image}
-                  alt="SAP Consulting Services"
-                  alignRight={item.right}
-                  alignLeft={item.left}
-                />
+              <Grid item xs={4} sx={{ height: 400 ,width:'auto',position:''}}>
+                <ZZImage src={item.image} alt="SAP Consulting Services" />
               </Grid>
             );
           }
@@ -261,7 +249,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
               justifyContent="center"
               className="Image-Transition"
               sx={{
-                color: hover && item.id === hoverid ? "Orange" : "White",
+                color: hover && item.id === hoverid? "Orange" : "White",
                 background:
                   hover && item.id === hoverid
                     ? "rgba(0,0,0,0.3)"

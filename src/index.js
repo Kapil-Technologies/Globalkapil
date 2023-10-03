@@ -15,7 +15,7 @@ root.render(
 
 const SendAnalytics = () => {
   ReactGA.send({
-    hitType: "pageview",
+    hitType: "Kapil Technologies India",
     page: window.location.pathname,
   
   
