@@ -463,7 +463,7 @@ export const ERPDataSAP = [
   },
   {
     id: 6,
-    mtitle: "SAP CLOUD MIGRATION and HOSTING ",
+    mtitle: "SAP FIORI and Enterprise Mobility ",
     // icon: SAP6,
     color: "#32770E",
     desc: "Taking advantage of lower costs and easier  management with Cloud-Based servers. We offer a number of cloud deployment options.",
@@ -512,6 +512,7 @@ export const SAPZigZag = [
   {
     id: 1,
     type: "text",
+    mtitle: "SAP IMPLEMENTATION AND UPGRADE",
     textData1:
       "Mobile access to the Internet has revolutionized IT, influencing business processes and enabling cost-effective SAP system usage on mobile devices. Enterprise mobility, driven by the BYOD trend and Kapil Technologies' expertise, empowers businesses.",
     textData2:
@@ -520,15 +521,16 @@ export const SAPZigZag = [
   {
     id: 2,
     type: "image",
+    mtitle: "SAP IMPLEMENTATION AND UPGRADE",
     image: SAP1,
-    right:0
+    right: 0,
   },
 
   {
     id: 3,
     type: "image",
     image: SAP2,
-    left:0
+    left: 0,
   },
 
   {

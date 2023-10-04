@@ -13,7 +13,7 @@ root.render(
   </Router>
 );
 
-ReactGA.pageview(window.location.pathname + window.location.search);
+// ReactGA.pageview(window.location.pathname + window.location.search);
 ReactGA.event({ category: "Button", action: "Click", label: "Contact Us" });
 
 const SendAnalytics = () => {
