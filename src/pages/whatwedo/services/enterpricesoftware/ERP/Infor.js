@@ -270,6 +270,19 @@ function Infor() {
     ref5.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  let Country
+
+   const Hostname = window.location.hostname;
+   const condition =
+     Hostname === "www.kapiltech.com"
+       ? Country === "India"
+       : Hostname === "kcs-tech.com"
+       ? Country = "Wymoing"
+       : Hostname === "ptkcs.com"
+       ? Country = "Indonesia"
+       : Country = "India";
+  
+
   return (
     <div>
       <Page
@@ -1125,7 +1138,7 @@ function Infor() {
         <Stack direction="column" alignItems="center" spacing={2}>
           <Typography variant="body1">
             Kapil Technologies Recruiting & Staffing services is one of the
-            leading Infor related services in Wyoming.
+            leading Infor related services in {Country}
           </Typography>
 
           <Card sx={{ width: "80%", p: 5 }}>

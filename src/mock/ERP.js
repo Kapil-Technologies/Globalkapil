@@ -318,10 +318,10 @@ export const InforTProducts = [
     pname: "Birst",
   },
 
-  {
-    id: 8,
-    pname: "Infor EAM",
-  },
+  // {
+  //   id: 8,
+  //   pname: "Infor EAM",
+  // },
   {
     id: 9,
     pname: "Infor SCM",
@@ -439,7 +439,7 @@ export const ERPDataSAP = [
     mtitle: "SAP TRAINING ",
     icon: SAP2,
     color: "#2DB6FA",
-    desc: "Kapil Tech was founded by SAP training professionals. We understand having a comprehensive approach to staff training is essential.",
+    desc: "After a SAP implementation, seamless training is vital for uninterrupted operations. We design, create, and deliver customized training, leveraging our SAP expertise to ensure your success.",
   },
   {
     id: 3,
@@ -454,7 +454,7 @@ export const ERPDataSAP = [
     mtitle: "SAP APPLICATION MANAGEMENT SERVICES  ",
     icon: SAP4,
     color: "#AF5F30 ",
-    desc: "We Understand that every organization has unique support requirements. We offer custom packages that will fit your end-to-end application management needs.",
+    desc: "We understand that every organization has unique support requirements. We offer custom packages that will fit your end-to-end application management needs.",
   },
 
   {
@@ -664,6 +664,51 @@ export const SAPHMServices = [
   //   title: "Predictive Analysis",
   //   text: "Advanced analytics capabilities, including predictive analytics, machine learning, and artificial intelligence, enable our clients to make data-driven decisions and gain a competitive advantage.",
   // },
+];
+
+export const SAPTabs = [
+  {
+    id: 1,
+    tabname: "SAP Functional Support across SAP S/4 Hana and ECC",
+    tabvalue: "1",
+   
+  },
+  {
+    id: 2,
+    tabname: "categories",
+    tabvalue: "2",
+    
+  },
+  {
+    id: 3,
+    tabname: "levels",
+    tabvalue: "3",
+   
+  },
+  {
+    id: 4,
+    tabname: "benefits",
+    tabvalue: "4",
+   
+  },
+];
+
+export const SAPSupports = [
+  {
+    id: 1,
+    // title: "SAP (Functional Support) across SAP S/4 Hana and ECC",
+    list: "SAP (Functional Support) across SAP S/4 Hana and ECC (FI, CO, COPA, EWM, MM, SD, PP, PM, PS and other HR modules)",
+  },
+  {
+    id: 2,
+    // title: "SAP (Core Technical)",
+    list: "SAP (Core Technical) - ABAP, Fiori UI5 and Enhancements",
+  },
+  {
+    id: 3,
+    // title: "SAP Common Support",
+    list: "SAP CPI, BTP, SAP BASIS, BPC/BI/BO/BW, and Cloud Analytics (SAC)",
+  },
 ];
 
 // export const SAPIndustres = [

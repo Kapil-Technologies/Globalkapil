@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 
 import SAPBanner from "../../../../../assets/Banners/SAPV.png";
-import { Box, Card, Grid, Stack, Typography } from "@mui/material";
+import { Box, Card, Grid, Stack, Tab, Typography } from "@mui/material";
 import {
   ERPDataSAP,
   SAPHCServices,
@@ -11,6 +11,8 @@ import {
   SAPImplementation,
   SAPIndustres,
   SAPRPartner,
+  SAPSupports,
+  SAPTabs,
   SAPZigZag,
 } from "../../../../../mock/ERP";
 import Page from "../../../../../components/Page";
@@ -19,6 +21,7 @@ import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 import { INFOR } from "./Infor";
 import { FaArrowRight, FaStar } from "react-icons/fa6";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
 
 // ------------------------------------------ Reusable Components
 
@@ -60,7 +63,7 @@ export const IndustryImage = styled("img")(({ theme, Hover }) => ({
   },
 }));
 
-export const IconBase = styled(Box)(({ theme ,visibile}) => ({
+export const IconBase = styled(Box)(({ theme, visibile }) => ({
   background: "#1A69C3",
   color: "white",
   padding: "5px",
@@ -71,7 +74,7 @@ export const IconBase = styled(Box)(({ theme ,visibile}) => ({
   alignItems: "center",
   justifyContent: "center",
   fontSize: "16px",
-  visibility:visibile
+  visibility: visibile,
 }));
 
 export const TextContainer = styled(Stack)(({ theme }) => ({
@@ -91,7 +94,7 @@ export const Section = styled(Stack)(({ theme, backcolor }) => ({
   // paddingRight: "0",
   // paddingLeft: "0",
   // marginBottom: "15px",
-  height: "520px",
+  height: "auto",
 
   // display: "flex",
   // alignItems: "center",
@@ -266,6 +269,11 @@ function SAP() {
   };
 
   // --------------------------------------------------  SAP
+  const [value, setValue] = React.useState("1");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const ref1 = useRef(null);
   const ref2 = useRef(null);
@@ -314,19 +322,20 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
         sx={{ width: "100%" }}
         spacing={2}
       >
-        <Typography variant="h4" sx={{ py: 1 }}>
+        {/* <Typography variant="h4" sx={{ py: 1 }}>
           Why Choose SAP ?
-        </Typography>
+        </Typography> */}
 
         <Grid
           container
           columnGap={2}
           rowGap={2}
           sx={{
-            marginBottom: "10px",
+           
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            padding:'10px'
           }}
         >
           {ERPDataSAP.map((item) => (
@@ -362,15 +371,35 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
               alignItems="center"
               justifyContent="center"
               spacing={1}
+              sx={{ width: "100%" }}
             >
+              <Stack direction="column" alignItems="left" sx={{ width: "85%" }}>
+                {SAPSupports.map((item) => (
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    spacing={1}
+                    key={item.id}
+                  >
+                    <FiArrowRight
+                      style={{
+                        color: "#1A69C3",
+                        fontWeight: "bold",
+                        // marginTop: "9px",
+                      }}
+                    />
+                    <Typography variant="body1">{item.list}</Typography>
+                    
+                  </Stack>
+                ))}
+              </Stack>
+
               <Typography variant="h5" sx={{ fontWeight: "bold" }}>
                 If we Partner, You Can Expect
               </Typography>
 
               <Grid
                 container
-                columnGap={2}
-                rowGap={2}
                 sx={{
                   display: "flex",
                   alignItems: "center",
@@ -382,7 +411,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
                     <Box
                       sx={{
                         width: 360,
-                        height: 140,
+                        height: 130,
                         p: 1,
                         display: "flex",
                         alignItems: "start",
@@ -439,9 +468,9 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
               value from your SAP investment
             </Typography>
           </Stack>
-        </Section> */}
+        </Section>
 
-        {/* <Section ref={ref3} backcolor="trasperant" sx={{ py: "20px" }}>
+        <Section ref={ref3} backcolor="trasperant" sx={{ py: "20px" }}>
           <Stack
             direction="column"
             alignItems="center"
@@ -451,9 +480,9 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
           >
             <Titles title="SAP FIORI AND ENTERPRISE MOBILITY" />
           </Stack>
-        </Section> */}
+        </Section>
 
-        {/* <Section ref={ref4} backcolor="#F1F7FD" sx={{ py: "20px" }}>
+        <Section ref={ref4} backcolor="#F1F7FD" sx={{ py: "20px" }}>
           <Stack
             direction="column"
             alignItems="center"
@@ -492,7 +521,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
                 xs={3.8}
                 sx={{
                   // border: "1px solid blue",
-                  height: 500,
+                  height: 530,
                   display: "flex",
                   alignItems: "start",
                   justifyContent: "left",
@@ -575,7 +604,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
                 xs={3.8}
                 sx={{
                   // border: "1px solid blue",
-                  height: 500,
+                  height: 530,
                   display: "flex",
                   alignItems: "start",
                   justifyContent: "left",
@@ -657,7 +686,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
                 xs={3.8}
                 sx={{
                   // border: "1px solid blue",
-                  height: 500,
+                  height: 530,
                   display: "flex",
                   alignItems: "start",
                   justifyContent: "left",
