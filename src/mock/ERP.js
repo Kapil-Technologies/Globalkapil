@@ -15,22 +15,24 @@ import {
   TbSettingsUp,
   TbUserCog,
 } from "react-icons/tb";
-import SAP1 from "../assets/SAP/sap1.png";
-import SAP2 from "../assets/SAP/sap2.png";
+import SAP1 from "../assets/SAP/resource.png";
+import SAP2 from "../assets/SAP/taining.png";
+import SAP3 from "../assets/SAP/fiori.png";
+import SAP4 from "../assets/SAP/ams.png";
+import SAP5 from "../assets/SAP/hana.png";
+import SAP6 from "../assets/SAP/integration.png";
 
 import InforLogo from "../assets/Partners/Infor.png";
 import SAPlogo from "../assets/Partners/saplogo.png";
 import Oraclelogo from "../assets/Partners/oraclelogo.png";
-import SAPI1 from '../assets/SAP/SAPIndutries/1.jpg'
-import SAPI2 from '../assets/SAP/SAPIndutries/2.jpg'
-import SAPI3 from '../assets/SAP/SAPIndutries/3.jpg'
-import SAPI4 from '../assets/SAP/SAPIndutries/4.jpg'
-import SAPI5 from '../assets/SAP/SAPIndutries/5.jpg'
-import SAPI6 from '../assets/SAP/SAPIndutries/6.jpg'
-import SAPI7 from '../assets/SAP/SAPIndutries/7.jpg'
-import SAPI8 from '../assets/SAP/SAPIndutries/8.jpg'
-
-
+import SAPI1 from "../assets/SAP/SAPIndutries/1.jpg";
+import SAPI2 from "../assets/SAP/SAPIndutries/2.jpg";
+import SAPI3 from "../assets/SAP/SAPIndutries/3.jpg";
+import SAPI4 from "../assets/SAP/SAPIndutries/4.jpg";
+import SAPI5 from "../assets/SAP/SAPIndutries/5.jpg";
+import SAPI6 from "../assets/SAP/SAPIndutries/6.jpg";
+import SAPI7 from "../assets/SAP/SAPIndutries/7.jpg";
+import SAPI8 from "../assets/SAP/SAPIndutries/8.jpg";
 
 export const ERPServices = [
   {
@@ -427,46 +429,47 @@ export const whyUs = [
 export const ERPDataSAP = [
   {
     id: 1,
-    mtitle: "SAP IMPLEMENTATION and UPGRADE ",
-    // icon: SAP1,
-    color: "#F68C09",
-    desc: "Whether your organization needs a full-scale SAP ERP, a single module, or an upgrade, Kapil tech is ready to exceed expectations.",
+    mtitle: "SAP REsourcing ",
+    icon: SAP1,
+    color: "#E9222C",
+    desc: "Our dedicated SAP Team offers expert support and resourcing solutions across a wide spectrum of SAP Functional and Technical areas, ensuring seamless operations and efficient project execution for your organization's SAP needs.",
   },
   {
     id: 2,
-    mtitle: "SAP SYSTEM REVIEW SERVICES ",
-    // icon: SAP2,
-    color: "#3175A5",
-    desc: "We advance the Best and Leading Practices for implementing SAP. We can validate if you are getting the most out of your SAP system.",
-  },
-
-  {
-    id: 3,
-    mtitle: "SAP APPLICATION MANAGEMENT SERVICES ",
-    // icon: SAP3,
-    color: "#AF5F30 ",
-    desc: "We Understand that every organization has unique support requirements. We offer custom packages that will fit your end-to-end application management needs.",
-  },
-  {
-    id: 4,
     mtitle: "SAP TRAINING ",
-    // icon: SAP4,
+    icon: SAP2,
     color: "#2DB6FA",
     desc: "Kapil Tech was founded by SAP training professionals. We understand having a comprehensive approach to staff training is essential.",
   },
   {
+    id: 3,
+    mtitle: "SAP FIORI AND ENTERPRISE MOBILITY  ",
+    icon: SAP3,
+    color: "#32770E",
+    desc: "Taking advantage of lower costs and easier  management with Cloud-Based servers. We offer a number of cloud deployment options.",
+  },
+
+  {
+    id: 4,
+    mtitle: "SAP APPLICATION MANAGEMENT SERVICES  ",
+    icon: SAP4,
+    color: "#AF5F30 ",
+    desc: "We Understand that every organization has unique support requirements. We offer custom packages that will fit your end-to-end application management needs.",
+  },
+
+  {
     id: 5,
-    mtitle: "SAP STAFF AUGMENTATION ",
-    // icon: SAP5,
-    color: "#E9222C",
-    desc: "Providing the highest caliber talent is hallmark of our approach. Gain access to resources with 15+ years of experience.",
+    mtitle: "SAP S/4 HANA Services",
+    icon: SAP5,
+    color: "#3175A5",
+    desc: "We advance the Best and Leading Practices for implementing SAP. We can validate if you are getting the most out of your SAP system.",
   },
   {
     id: 6,
-    mtitle: "SAP FIORI and Enterprise Mobility ",
-    // icon: SAP6,
-    color: "#32770E",
-    desc: "Taking advantage of lower costs and easier  management with Cloud-Based servers. We offer a number of cloud deployment options.",
+    mtitle: "SAP Integration Services",
+    icon: SAP6,
+    color: "#F68C09",
+    desc: "Whether you're looking to enhance agility, improve data quality, or reduce costs, our services provide the vital bridge to unlock the full potential of your SAP ecosystem.",
   },
 ];
 
@@ -508,80 +511,200 @@ export const ERPDataSAP2 = [
   },
 ];
 
-export const SAPZigZag = [
+
+
+export const SAPImplementation = [
   {
     id: 1,
-    type: "text",
-    mtitle: "SAP IMPLEMENTATION AND UPGRADE",
-    textData1:
-      "Mobile access to the Internet has revolutionized IT, influencing business processes and enabling cost-effective SAP system usage on mobile devices. Enterprise mobility, driven by the BYOD trend and Kapil Technologies' expertise, empowers businesses.",
-    textData2:
-      "Our mobile experts help you define your mobile strategy, design and develop apps, and implement solutions tailored to your industry needs. We specialize in Fiori UX development, SAPUI5, Web Dynpro, ABAP, SAP Screen Personas, and HANA Cloud Platform. We provide ongoing support and specialize in UX for Suite on S/4HANA.",
+    title: "Improve Business Agility and Flexibility",
+    text: "By enabling integration between SAP and non-SAP systems along with integrations for cloud and on-premises solutions, we help you achieve better agility and productivity and adapt to rapid business changes.",
   },
   {
     id: 2,
-    type: "image",
-    mtitle: "SAP IMPLEMENTATION AND UPGRADE",
-    image: SAP1,
-    right: 0,
+    title: "Increase Cost Savings",
+    text: "With SAP PO (PI) capabilities, access a broad set of adapters and add-on components, saving costs to the development. Focus on a central location for SAP integration services monitoring and reduce support costs.",
   },
-
   {
     id: 3,
-    type: "image",
-    image: SAP2,
-    left: 0,
+    title: "Speed Up Data Processing",
+    text: "By integrating BW and Data Services, we help you accelerate data processing and optimize data management. As a result, it i’s easier to enable advanced analytics.",
   },
-
   {
     id: 4,
-    type: "text",
-    textData1:
-      "At Kapil Technologies, we offer comprehensive SAP AMS (Application Management Services) for system support, including technical support for system enhancements and integration, as well as functional support for process setup, task management, and user training. SAP AMS helps businesses simplify application management, achieve system stabilization, manage complexities efficiently, and optimize costs, while providing 24/7 global support, minimizing downtime, and offering flexible service levels tailored to business needs.",
-    textData2: "",
+    title: "Enhance Data Quality and Availability",
+    text: "With real-time data synchronization between heterogeneous systems, we enable faster data exchange between apps and improve data availability and quality.",
   },
 ];
 
-
-export const SAPIndustres = [
+export const SAPRPartner = [
   {
     id: 1,
-    indusName: "Hi-tech and Electronics",
-    indusImage: SAPI1,
+    title: "Proven Expertise",
+    text: "Our team consists of SAP-certified professionals with extensive experience in SAP projects across various industries.",
   },
   {
     id: 2,
-    indusName: "Machinary and Equipment",
-    indusImage: SAPI2,
+    title: "Client-Centric Approach",
+    text: "We prioritize understanding your unique business needs and tailor our solutions accordingly.",
   },
+
   {
     id: 3,
-    indusName: "Warehouse",
-    indusImage: SAPI3,
+    title: "Innovation-Driven",
+    text: "We keep pace with the latest SAP innovations and technologies to provide cutting-edge solutions that keep you ahead of the competition.",
   },
   {
     id: 4,
-    indusName: "Automotive",
-    indusImage: SAPI4,
+    title: "Global Reach",
+    text: "With a global presence, we serve clients worldwide, offering localized expertise and support.",
   },
   {
     id: 5,
-    indusName: "General Discrete Manufacturing",
-    indusImage: SAPI5,
+    title: "Exceptional Support",
+    text: " Our dedicated support team is available 24/7 to address any issues and ensure the uninterrupted operation of your SAP systems.",
   },
   {
     id: 6,
-    indusName: "Food and Beverage",
-    indusImage: SAPI6,
+    title: "Commitment to Quality",
+    text: "We maintain rigorous quality standards to ensure the delivery of reliable and effective solutions.",
+  },
+];
+
+export const SAPHCServices = [
+  {
+    id: 1,
+    list: "Ability to take quick business decisions based on real time data.",
+  },
+  {
+    id: 2,
+    list: "SAP HANA proofs of concept (PoC) and merchandise demos.",
+  },
+  {
+    id: 3,
+    list: "Affordable technology costs.",
+  },
+  {
+    id: 4,
+    list: "Highly targeted on client satisfaction.",
+  },
+  {
+    id: 5,
+    list: "Drive Innovation.",
+  },
+];
+
+export const SAPHSServicesM = [
+  {
+    id: 1,
+    list: "FICO to Handle Finance.",
+  },
+  {
+    id: 2,
+    list: "MM/SRM/ARIBA to Handle Procurement.",
+  },
+  {
+    id: 3,
+    list: "SD to handle Sales and Distribution.",
+  },
+  {
+    id: 4,
+    list: "HR Success Factors.",
+  },
+  {
+    id: 5,
+    list: "PS Work Break Down Structures.",
+  },
+  {
+    id: 6,
+    list: "Security",
   },
   {
     id: 7,
-    indusName: "Logistics",
-    indusImage: SAPI7,
+    list: "BASIS",
   },
   {
     id: 8,
-    indusName: "Construction",
-    indusImage: SAPI8,
+    list: "ABAP for Developers",
+  },
+  {
+    id: 9,
+    list: "CRM Sales Lead",
   },
 ];
+
+export const SAPHMServices = [
+  // {
+  //   id: 1,
+  //   title: "Analytics",
+  //   text: "SAP HANA has become vital too in many organizations’ digital transformation initiatives, providing the agility and speed needed to remain competitive in a rapidly evolving business environment.",
+  // },
+  {
+    id: 2,
+    title: "Speed and Performance",
+    text: "SAP HANA's in-memory architecture enables rapid data processing, making it ideal for real-time business operations and analytics.",
+  },
+
+  {
+    id: 3,
+    title: "Scalability",
+    text: "Designed to handle large data volumes, SAP HANA can scale to support organizations of all sizes.",
+  },
+  {
+    id: 4,
+    title: "Flexibility",
+    text: "SAP HANA supports various data types and can be used for diverse business applications, such as finance, logistics, sales, and marketing.",
+  },
+  {
+    id: 5,
+    title: "Integration",
+    text: "SAP HANA integrates seamlessly with SAP and third-party systems, maximizing investment and infrastructure value.",
+  },
+  // {
+  //   id: 6,
+  //   title: "Predictive Analysis",
+  //   text: "Advanced analytics capabilities, including predictive analytics, machine learning, and artificial intelligence, enable our clients to make data-driven decisions and gain a competitive advantage.",
+  // },
+];
+
+// export const SAPIndustres = [
+//   {
+//     id: 1,
+//     indusName: "Hi-tech and Electronics",
+//     indusImage: SAPI1,
+//   },
+//   {
+//     id: 2,
+//     indusName: "Machinary and Equipment",
+//     indusImage: SAPI2,
+//   },
+//   {
+//     id: 3,
+//     indusName: "Warehouse",
+//     indusImage: SAPI3,
+//   },
+//   {
+//     id: 4,
+//     indusName: "Automotive",
+//     indusImage: SAPI4,
+//   },
+//   {
+//     id: 5,
+//     indusName: "General Discrete Manufacturing",
+//     indusImage: SAPI5,
+//   },
+//   {
+//     id: 6,
+//     indusName: "Food and Beverage",
+//     indusImage: SAPI6,
+//   },
+//   {
+//     id: 7,
+//     indusName: "Logistics",
+//     indusImage: SAPI7,
+//   },
+//   {
+//     id: 8,
+//     indusName: "Construction",
+//     indusImage: SAPI8,
+//   },
+// ];

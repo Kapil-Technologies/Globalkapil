@@ -91,7 +91,7 @@ export const RightArraow = styled(FaArrowRight)(({ theme, image }) => ({
   color: "#CB333B",
 }));
 
-const INFOR = ({
+export const INFOR = ({
   icon,
   mtitle,
   desc,
