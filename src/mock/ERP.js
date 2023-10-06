@@ -25,14 +25,16 @@ import SAP6 from "../assets/SAP/integration.png";
 import InforLogo from "../assets/Partners/Infor.png";
 import SAPlogo from "../assets/Partners/saplogo.png";
 import Oraclelogo from "../assets/Partners/oraclelogo.png";
-import SAPI1 from "../assets/SAP/SAPIndutries/1.jpg";
-import SAPI2 from "../assets/SAP/SAPIndutries/2.jpg";
-import SAPI3 from "../assets/SAP/SAPIndutries/3.jpg";
-import SAPI4 from "../assets/SAP/SAPIndutries/4.jpg";
-import SAPI5 from "../assets/SAP/SAPIndutries/5.jpg";
-import SAPI6 from "../assets/SAP/SAPIndutries/6.jpg";
-import SAPI7 from "../assets/SAP/SAPIndutries/7.jpg";
-import SAPI8 from "../assets/SAP/SAPIndutries/8.jpg";
+import SAPI1 from "../assets/SAP/Integration/1.jpg";
+import SAPI2 from "../assets/SAP/Integration/2.jpg";
+import SAPI3 from "../assets/SAP/Integration/3.jpg";
+import SAPI4 from "../assets/SAP/Integration/4.jpg";
+import SAPAMS1 from "../assets/SAP/AMS/1.jpg";
+import SAPAMS2 from "../assets/SAP/AMS/2.jpg";
+import SAPAMS3 from "../assets/SAP/AMS/3.jpg";
+
+
+
 
 export const ERPServices = [
   {
@@ -516,23 +518,128 @@ export const ERPDataSAP2 = [
 export const SAPImplementation = [
   {
     id: 1,
+    image: SAPI1,
     title: "Improve Business Agility and Flexibility",
     text: "By enabling integration between SAP and non-SAP systems along with integrations for cloud and on-premises solutions, we help you achieve better agility and productivity and adapt to rapid business changes.",
   },
   {
     id: 2,
+    image: SAPI2,
     title: "Increase Cost Savings",
     text: "With SAP PO (PI) capabilities, access a broad set of adapters and add-on components, saving costs to the development. Focus on a central location for SAP integration services monitoring and reduce support costs.",
   },
   {
     id: 3,
+    image: SAPI3,
     title: "Speed Up Data Processing",
     text: "By integrating BW and Data Services, we help you accelerate data processing and optimize data management. As a result, it i’s easier to enable advanced analytics.",
   },
   {
     id: 4,
+    image: SAPI4,
     title: "Enhance Data Quality and Availability",
     text: "With real-time data synchronization between heterogeneous systems, we enable faster data exchange between apps and improve data availability and quality.",
+  },
+];
+
+export const SAPAMSData2 = [
+  {
+    id: 1,
+    size:5.8,
+    title: "Technical Support",
+    list: [
+      {
+        id: 1,
+        li: "Develop new capabilities and customize your SAP system with enhancements",
+      },
+      {
+        id: 2,
+        li: "Seamlessly integrate your SAP system with third-party solutions",
+      },
+      {
+        id: 3,
+        li: "Stay future-ready with strategic road-map advisory services for your IT strategy evolution",
+      },
+    ],
+  },
+  {
+    id: 2,
+    size:5.8,
+    title: "Functional Support",
+    list: [
+      {
+        id: 1,
+        li: "Efficiently set up roles, processes, and configure SAP modules",
+      },
+      {
+        id: 2,
+        li: "Manage routine tasks such as dashboards and financial reporting",
+      },
+      {
+        id: 3,
+        li: "Train new users on your business processes and system usage",
+      },
+    ],
+  },
+];
+
+export const SAPAMSData = [
+  {
+    id: 1,
+    image: SAPAMS1,
+    title: "Cost Optimization",
+    list: [
+      {
+        id: 1,
+        li: "Reduce overall operational costs and Total Cost of Ownership (TCO) for your SAP systems",
+      },
+      {
+        id: 2,
+        li: "Optimize your workforce allocation for increased value-added activities",
+      },
+      {
+        id: 3,
+        li: "Standardize operations and minimize the reliance on third-party solutions",
+      },
+    ],
+  },
+  {
+    id: 2,
+    image: SAPAMS2,
+    title: "Team Empowerment",
+    list: [
+      {
+        id: 1,
+        li: "Access 24/7 global support from seasoned experts to resolve issues promptly",
+      },
+      {
+        id: 2,
+        li: "Prevent costly downtime with continuous system monitoring and issue prevention",
+      },
+      {
+        id: 3,
+        li: "Simplify your IT architecture for efficient management ",
+      },
+    ],
+  },
+  {
+    id: 3,
+    image: SAPAMS3,
+    title: "Flexibility",
+    list: [
+      {
+        id: 1,
+        li: "Collaborate with an AMS partner offering flexible Service Level Objectives (SLOs) scalable to your business needs",
+      },
+      {
+        id: 2,
+        li: "Tailor Managed Services and Support Services to align with your unique requirements",
+      },
+      {
+        id: 3,
+        li: "Access diverse expertise without the need for full-time hires, adapting as your business evolves.",
+      },
+    ],
   },
 ];
 
@@ -675,81 +782,210 @@ export const SAPTabs = [
   },
   {
     id: 2,
-    tabname: "categories",
+    tabname: "SAP Core Technical Support ",
     tabvalue: "2",
     
   },
   {
     id: 3,
-    tabname: "levels",
+    tabname: "Niche SAP Expertise",
     tabvalue: "3",
    
   },
-  {
-    id: 4,
-    tabname: "benefits",
-    tabvalue: "4",
-   
-  },
+  
 ];
 
-export const SAPSupports = [
+export const SAPSupportList = [
   {
     id: 1,
-    // title: "SAP (Functional Support) across SAP S/4 Hana and ECC",
-    list: "SAP (Functional Support) across SAP S/4 Hana and ECC (FI, CO, COPA, EWM, MM, SD, PP, PM, PS and other HR modules)",
+    panel: "1",
+    sublist: [
+      {
+        id: 1,
+        li: "SAP FI",
+      },
+      {
+        id: 2,
+        li: "SAP CO",
+      },
+      {
+        id: 3,
+        li: "SAP COPA",
+      },
+      {
+        id: 4,
+        li: "SAP EWM",
+      },
+      {
+        id: 5,
+        li: "SAP MM",
+      },
+      {
+        id: 6,
+        li: "SAP SD",
+      },
+      {
+        id: 7,
+        li: "SAP PP",
+      },
+      {
+        id: 8,
+        li: "SAP PM",
+      },
+      {
+        id: 9,
+        li: "SAP PS",
+      },
+    ],
   },
   {
     id: 2,
-    // title: "SAP (Core Technical)",
-    list: "SAP (Core Technical) - ABAP, Fiori UI5 and Enhancements",
+    panel: "2",
+    sublist: [
+      {
+        id: 1,
+        li: "SAP ABAP ",
+      },
+
+      {
+        id: 2,
+        li: "SAP Fiori / UI5 ",
+      },
+      {
+        id: 3,
+        li: "SAP BASIS ",
+      },
+    ],
   },
   {
     id: 3,
-    // title: "SAP Common Support",
-    list: "SAP CPI, BTP, SAP BASIS, BPC/BI/BO/BW, and Cloud Analytics (SAC)",
+    panel: "3",
+    sublist: [
+      {
+        id: 1,
+        li: "SAP CPI ",
+      },
+      {
+        id: 2,
+        li: "SAP BTP ",
+      },
+      {
+        id: 3,
+        li: "SAP BPC/BI/BO/BW",
+      },
+      {
+        id: 4,
+        li: "SAP Cloud Analytics (SAC)",
+      },
+    ],
   },
 ];
 
-// export const SAPIndustres = [
-//   {
-//     id: 1,
-//     indusName: "Hi-tech and Electronics",
-//     indusImage: SAPI1,
-//   },
-//   {
-//     id: 2,
-//     indusName: "Machinary and Equipment",
-//     indusImage: SAPI2,
-//   },
-//   {
-//     id: 3,
-//     indusName: "Warehouse",
-//     indusImage: SAPI3,
-//   },
-//   {
-//     id: 4,
-//     indusName: "Automotive",
-//     indusImage: SAPI4,
-//   },
-//   {
-//     id: 5,
-//     indusName: "General Discrete Manufacturing",
-//     indusImage: SAPI5,
-//   },
-//   {
-//     id: 6,
-//     indusName: "Food and Beverage",
-//     indusImage: SAPI6,
-//   },
-//   {
-//     id: 7,
-//     indusName: "Logistics",
-//     indusImage: SAPI7,
-//   },
-//   {
-//     id: 8,
-//     indusName: "Construction",
-//     indusImage: SAPI8,
-//   },
-// ];
+export const whyUsSAP = [
+  {
+    id: 1,
+    desc1: "SAP EXPERTS",
+    icon: <FaStar />,
+    desc2:
+      "Kapil Technologies is a consulting firm which is 100% focused on SAP. Our extensive expertise in this space, enables to find the best candidate within 10 business days.",
+  },
+  {
+    id: 2,
+    desc1: "WE SPEAK YOUR LANGUAGE",
+    icon: <FaComments />,
+    desc2:
+      "We are knowledgeable about the various versions and modules within the SAP Applications.",
+  },
+];
+
+
+export const SAPFiori1 = [
+  {
+    id: 1,
+    title: "The Mobile Revolution in Information Technology",
+    text: "Mobile access to the Internet via smartphones and tablets has revolutionized information technology. People today expect seamless access to global information from anywhere. This shift is impacting business processes, including SAP systems, which were previously used mainly by office-based employees. Now, SAP is being delivered to mobile devices in cost-effective ways.",
+  },
+  {
+    id: 2,
+    title: "Enterprise Mobility as a Vital Tool",
+    text: "With the proliferation of mobile devices and the increasing adoption of the Bring Your Own Device (BYOD) approach, enterprise mobility is becoming crucial for addressing business needs. Kapil Technologies empowers businesses to harness the full potential of mobility.",
+  },
+  {
+    id: 3,
+    title: "Embrace the Future of Mobility with Kapil Technologies",
+    text: "In a world increasingly reliant on mobility, Kapil Technologies stands ready to help your business harness the transformative power of enterprise mobility. Reach out to us to explore the possibilities and stay ahead in this dynamic landscape.",
+  },
+  
+];
+
+
+export const SAPFiori2 = [
+  {
+    id: 1,
+    li: "Developing company-wide strategies encompassing UI, UX, and mobile solutions.",
+  },
+  {
+    id: 2,
+    li: "Analyzing business processes suitable for Fiori UX and selecting appropriate solutions.",
+  },
+  {
+    id: 3,
+    li: "Conceptualizing and implementing client UI solutions, integrating various SAP and non-SAP products.",
+  },
+  {
+    id: 4,
+    li: "Tailoring solutions to meet industry-specific requirements.",
+  },
+  {
+    id: 5,
+    li: "Developing and implementing Fiori UX using SAPUI5, Web Dynpro, ABAP, and SAP Screen Personas.",
+  },
+  {
+    id: 6,
+    li: "Leveraging SAP HANA Cloud Platform (HCP) for development.",
+  },
+  {
+    id: 7,
+    li: "Providing support based on SAP Fiori/SAPUI5 solutions and best practices.",
+  },
+  {
+    id: 8,
+    li: "Offering specialized UX expertise in connection with Suite on S/4HANA.",
+  },
+];
+
+export const SAPTrainingList = [
+ 
+      {
+        id: 1,
+        li: "Deliver the initial training sessions to make sure your team has a solid base to start discussing SAP processes and requirements.",
+      },
+      {
+        id: 2,
+        li: "Develop training content based on the SAP processes. E-Learning, quick guides, etc.",
+      },
+      {
+        id: 3,
+        li: "Conduct training sessions before the Go Live to consolidate the knowledge and guarantee a smooth transaction to the new SAP system.",
+      },
+  
+]
+
+export const SAPTraining = [
+  
+  {
+    id: 2,
+    title: "Training after your SAP implementation project:",
+    text: "We can develop your training plan, create the content based on your current processes, conduct refresher sessions to the users, etc. The goal is that users can use SAP to maximize their daily tasks",
+    size: 7,
+  },
+  {
+    id: 3,
+    title: "Corporate SAP Training Plan",
+    text: "Creation of your end user training plan to make sure your users have the right skills to execute each daily task",
+    size: 4.5,
+  },
+];
+
+
+

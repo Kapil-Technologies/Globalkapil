@@ -103,7 +103,7 @@ export const INFOR = ({
   scrollRef2,
   scrollRef3,
   scrollRef4,
-  scrollRef5,
+  scrollRef6,
 }) => {
   const [selid, setselId] = useState(0);
 
@@ -121,7 +121,7 @@ export const INFOR = ({
     } else if (mid === 5) {
       scrollRef2();
     } else if (mid === 6) {
-      scrollRef5();
+      scrollRef6();
     }
   };
 
@@ -248,7 +248,7 @@ function Infor() {
   const ref3 = useRef(null);
   const ref4 = useRef(null);
   const ref5 = useRef(null);
-  const ref6 = useRef(null);
+  
 
   const handleClick1 = () => {
     ref1.current?.scrollIntoView({ behavior: "smooth" });
@@ -274,7 +274,7 @@ function Infor() {
 
    const Hostname = window.location.hostname;
    const condition =
-     Hostname === "www.kapiltech.com"
+     Hostname === "kapiltech.com" || "www.kapiltech.com"
        ? Country === "India"
        : Hostname === "kcs-tech.com"
        ? Country = "Wymoing"
