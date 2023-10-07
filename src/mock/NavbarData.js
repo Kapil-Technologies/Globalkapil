@@ -274,11 +274,11 @@ export const NavData = [
   //   submenudata: 3,
   //   submenu: Solutions,
   // },
-  {
-    id: 4,
-    title: "Our Alliances",
-    path: "/our-alliances",
-  },
+  // {
+  //   id: 4,
+  //   title: "Our Alliances",
+  //   path: "/our-alliances",
+  // },
 
   {
     id: 5,

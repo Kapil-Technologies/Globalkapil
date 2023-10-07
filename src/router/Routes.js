@@ -159,10 +159,10 @@ function Routes() {
           element: <Contact />,
         },
 
-        {
-          path: "/our-alliances",
-          element: <Patners />,
-        },
+        // {
+        //   path: "/our-alliances",
+        //   element: <Patners />,
+        // },
 
         {
           path: "privacy-policy",
