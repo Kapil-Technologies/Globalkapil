@@ -12,7 +12,7 @@ import {
   FiChevronLeft,
   FiChevronRight,
 } from "react-icons/fi";
-import IndustriesImage from "../../assets/Banners/Industries2.png";
+import IndustriesImage from "../../assets/Banners/Industries2.jpg";
 // ------------------------------------------- Styled Components
 
 export const MainSliderDiv = styled(Stack)(({ theme }) => ({

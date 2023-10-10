@@ -2,7 +2,7 @@ import { Button, Stack, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavDiv } from "../pages/Home";
-import NotFoundImg from '../assets/Banners/NotFound.png'
+import NotFoundImg from '../assets/Banners/NotFound.jpg'
 
 function NotFound() {
   return (

@@ -32,7 +32,7 @@ import {
 } from "react-icons/fa6";
 import { TbSettingsUp } from "react-icons/tb";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import InforBanner from "../../../../../assets/Banners/BInfor1.png";
+import InforBanner from "../../../../../assets/Banners/BInfor1.jpg";
 import InforCustomization from "../../../../../components/Sliders/InforCustomization";
 import InforManagement from "../../../../../components/Sliders/InforManagement";
 import { FiArrowRight } from "react-icons/fi";

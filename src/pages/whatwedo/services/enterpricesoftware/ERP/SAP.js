@@ -1,7 +1,7 @@
 import React, { Fragment, useRef, useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 
-import SAPBanner from "../../../../../assets/Banners/SAPV.png";
+import SAPBanner from "../../../../../assets/Banners/SAPV.jpg";
 import { Box, Card, Grid, Stack, Tab, Typography } from "@mui/material";
 import {
   ERPDataSAP,

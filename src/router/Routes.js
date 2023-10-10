@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate, useRoutes } from "react-router-dom";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
-import Careers from "../pages/Careers";
+import Careers from "../pages/joinus/Careers";
 import About from "../pages/About/About";
 // import Consulting from "../pages/Consulting";
 import Erp from "../pages/whatwedo/services/enterpricesoftware/ERP/Erp";
@@ -11,9 +11,13 @@ import Patners from "../pages/About/Patners";
 import Ppolicy from "../pages/About/Ppolicy";
 import Infor from "../pages/whatwedo/services/enterpricesoftware/ERP/Infor";
 import SAP from "../pages/whatwedo/services/enterpricesoftware/ERP/SAP";
-import Events from "../pages/Events";
+import Events from "../pages/joinus/Events";
 import DigitalContent from "../pages/whatwedo/services/enterpricesoftware/digitalcontent/DigitalContent";
-// import Industries from "../pages/Industries/Industries";
+import CloudServices from "../pages/whatwedo/services/cloud/cloudservices/CloudServices";
+
+
+// -------------------------------------------------------------------------------------
+
 
 function Routes() {
   const HostName = window.location.hostname;
@@ -101,7 +105,7 @@ function Routes() {
             },
           ],
         },
-
+        // --------------------------------------------------------------------- SERVICES
         {
           path: "/services",
           children: [
@@ -111,29 +115,25 @@ function Routes() {
                 <Navigate to="/services/digital/:digital " exact replace />
               ),
             },
-            // Digital
-            // {
-            //   path: "digital/:digital",
-            //   element: <Consulting />,
-            //   index: true,
-            // },
-
-            // Application devlopemnt
+            // ---------------------------------------------------------- Digital
             {
-              path: "enterprise-software/digital-content-management",
-              element: <DigitalContent />,
+              path: "digital/:page",
+              // element: <Consulting />,
+              index: true,
             },
+
+            // ---------------------------------------------------------- Application devlopemnt
 
             {
               path: "application-development/:page",
               // element: <Consulting />,
             },
-            // Cloud
+            // ---------------------------------------------------------- Cloud
             {
-              path: "cloud/:page",
-              // element: <Consulting />,
+              path: "cloud/cloud-services",
+              element: <CloudServices />,
             },
-            // Enterprice Solutions
+            // ---------------------------------------------------------- Enterprice Solutions
             {
               path: "enterprise-software/erp",
               element: <Erp />,
@@ -150,6 +150,10 @@ function Routes() {
             {
               path: "enterprise-software/:page/oracle",
               element: <SAP />,
+            },
+            {
+              path: "enterprise-software/digital-content-management",
+              element: <DigitalContent />,
             },
           ],
         },

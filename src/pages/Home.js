@@ -17,7 +17,7 @@ import {
 import { ZigZagData } from "../mock/NavbarData";
 
 import { AboutText } from "../mock/MockData";
-import Homepageb from "../assets/Banners/HomepageBanner.png";
+import Homepageb from "../assets/Banners/HomepageBanner.jpg";
 // ---------------------------------------------------------------
 
 const About = [

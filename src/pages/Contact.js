@@ -30,8 +30,8 @@ import {
 import { FiArrowRight, FiMoreVertical, FiSend, FiShare } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { SMedia } from "../mock/FooterData";
-import FormBanner from "../assets/Banners/Form.png";
-import GlobalBanner from "../assets/Banners/Global.png";
+import FormBanner from "../assets/Banners/Form.jpg";
+import GlobalBanner from "../assets/Banners/Global.jpg";
 import { TabsData } from "../mock/ContactData";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 
