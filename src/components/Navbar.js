@@ -326,6 +326,7 @@ function Navbar() {
                 condition={hover}
                 Infor={infor || Alliances || contact }
                 onClick={handleMouseLeaves}
+                onMouseEnter={handleMouseLeaves}
               >
                 {item.title}
               </MainNavLink>

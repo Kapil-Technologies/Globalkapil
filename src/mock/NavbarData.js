@@ -290,7 +290,7 @@ export const NavData = [
     submenu: [
       {
         id: 1,
-        title: "Serach Jobs",
+        title: "Search Jobs",
         path: "/join-us/search-jobs",
       },
       {
