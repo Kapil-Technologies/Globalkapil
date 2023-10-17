@@ -98,9 +98,9 @@ function Footer() {
             HostName === "www.kapiltech.com"
               ? "mailto:info@kapiltech.com"
               : HostName === "ptkcs.com"
-              ? "mailto:contact@ptkcs.com"
+              ? "mailto:info@ptkcs.com"
               : HostName === "kcs-tech.com"
-              ? "mailto:marketing@kcs-tech.com"
+              ? "mailto:info@kcs-tech.com"
               : "mailto:info@kapiltech.com"
           }
           sx={{

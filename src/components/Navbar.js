@@ -15,8 +15,8 @@ export const MainHeader = styled("header")(
     width: "100%",
     height: "15vh",
     position: "fixed",
-    background: NavColor || menuopen ? "#162438" : "transperant",
-    top: visibility ?  0 : "-15vh ",
+    background: NavColor|| menuopen ? "#162438" : "transperant",
+    // top: visibility ?  0 : "-15vh ",
     zIndex: 99999,
 
     // -----------------------------  Responsive
