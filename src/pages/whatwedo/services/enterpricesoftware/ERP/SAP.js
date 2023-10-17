@@ -371,7 +371,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
           Why Choose SAP ?
         </Typography> */}
 
-        <Grid
+        {/* <Grid
           container
           columnGap={2}
           rowGap={2}
@@ -399,7 +399,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
               scrollRef6={handleClick6}
             />
           ))}
-        </Grid>
+        </Grid> */}
 
         <Section backcolor="#F1F7FD">
           <Stack direction="column" alignItems="center">

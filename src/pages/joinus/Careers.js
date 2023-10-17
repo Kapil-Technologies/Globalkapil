@@ -211,7 +211,7 @@ function Careers() {
         justifyContent="center"
         spacing={2}
       >
-        <Typography variant="h4">Kapil Departments</Typography>
+        {/* <Typography variant="h4">Kapil Departments</Typography>
         <Grid
           container
           columnGap={2}
@@ -252,7 +252,7 @@ function Careers() {
               </Typography>
             </Grid>
           ))}
-        </Grid>
+        </Grid> */}
 
         <Grid
           component={"form"}

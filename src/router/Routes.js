@@ -46,31 +46,7 @@ function Routes() {
           element: <Navigate to="/404" exact replace />,
         },
 
-        {
-          path: "/about-us",
-          children: [
-            {
-              path: "our-story",
-              element: <About />,
-              index: true,
-            },
-            {
-              path: "/about-us",
-              element: <Navigate to="/about-us/our-story" exact replace />,
-            },
-
-            {
-              path: "our-battalion",
-              element: <About />,
-            },
-
-            {
-              path: "our-alliances",
-              element: <Patners />,
-            },
-          ],
-        },
-
+        // ---------------------------------------------Join us
         {
           path: "/join-us",
           children: [
@@ -91,86 +67,44 @@ function Routes() {
           ],
         },
 
+        // -------------------------------------------------- What we do
+
         {
-          path: "/solutions",
+          path: "/what-we-do",
           children: [
+          
+          // --------------------------------------------------- Services
             {
-              path: "k-mobillor",
-              element: <Careers />,
-              index: true,
-            },
-            {
-              path: "k-mobillor",
-              element: <Navigate to="/solution/K-mobillor" exact replace />,
-            },
-          ],
-        },
-        // --------------------------------------------------------------------- SERVICES
-        {
-          path: "/services",
-          children: [
-            {
-              path: "/services",
-              element: (
-                <Navigate to="/services/digital/:digital " exact replace />
-              ),
-            },
-            // ---------------------------------------------------------- Digital
-            {
-              path: "digital/:page",
-              // element: <Consulting />,
-              index: true,
-            },
-
-            // ---------------------------------------------------------- Application devlopemnt
-
-            {
-              path: "application-development/:page",
-              // element: <Consulting />,
-            },
-            // ---------------------------------------------------------- Cloud
-            {
-              path: "cloud/cloud-services",
-              element: <CloudServices />,
-            },
-            // ---------------------------------------------------------- Enterprice Solutions
-            {
-              path: "enterprise-software/erp",
-              element: <Erp />,
-            },
-
-            {
-              path: "enterprise-software/:page/infor",
+              path: "services/enterprice-software/infor",
               element: <Infor />,
+             
             },
             {
-              path: "enterprise-software/:page/SAP",
+              path: "services/enterprice-software/sap",
               element: <SAP />,
+           
             },
+
             {
-              path: "enterprise-software/:page/oracle",
+              path: "services/enterprice-software/oracle",
               element: <SAP />,
+             
             },
-            {
-              path: "enterprise-software/digital-content-management",
-              element: <DigitalContent />,
-            },
+
+            // ---------------------------------------- Solution
+
+            
+
+           
+
           ],
         },
+
+        // -------------------------------------------------- Contact Us
 
         {
           path: "/contact-us",
           element: <Contact />,
-        },
-
-        // {
-        //   path: "/our-alliances",
-        //   element: <Patners />,
-        // },
-
-        {
-          path: "privacy-policy",
-          element: <Ppolicy />,
         },
       ],
     },

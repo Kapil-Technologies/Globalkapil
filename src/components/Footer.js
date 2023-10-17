@@ -10,18 +10,18 @@ import { Link, useLocation } from "react-router-dom";
 const Address = [
   {
     id: 1,
-    link: "https://www.google.com/maps/place/Kapil+Technologies/@17.4215664,78.3480859,15z/data=!4m6!3m5!1s0x3bcb93b176920779:0x37fb7ad50cd439fb!8m2!3d17.4215664!4d78.3480859!16s%2Fg%2F11fv1kkttf?entry=ttu",
+    link: "/contact-us",
     title: "INDIA",
   },
   {
     id: 2,
-    link: "https://www.google.com/maps/place/Pt.+KCS+Technologies+Indonesia/@-6.2297209,106.6647007,11z/data=!3m1!4b1!4m6!3m5!1s0x898152fa673815f7:0x3acad220793f1fd5!8m2!3d-6.2297465!4d106.829518!16s%2Fg%2F11v0zlpnhz?entry=ttu",
     title: "INDONESIA",
+    link: "/contact-us",
   },
   {
     id: 3,
-    link: "https://www.google.com/maps/place/Kapil+Technologies/@17.4215664,78.3480859,15z/data=!4m6!3m5!1s0x3bcb93b176920779:0x37fb7ad50cd439fb!8m2!3d17.4215664!4d78.3480859!16s%2Fg%2F11fv1kkttf?entry=ttu",
     title: "USA",
+    link: "/contact-us",
   },
 ];
 
@@ -85,7 +85,7 @@ function Footer() {
       >
         <Stack direction="row" alignItems="center" justifyContent="center" spacing={2}>
           {Address.map((item) => (
-            <MapLink to={item.link} target="blank" key={item.id}>
+            <MapLink to={item.link}  key={item.id}>
               {item.title}
             </MapLink>
           ))}

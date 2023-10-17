@@ -20,111 +20,127 @@ export const DownArrow = styled(FiChevronDown)(({ theme, image }) => ({}));
 
 export const Services = [
   {
-    submenuid: 1,
+    submenudata: 1,
     Mtitle: "Enterprise Software",
     icon: ERP,
     menu3: [
+      // {
+      //   submenudata: 1,
+      //   title: "ERP",
+      //   path: "/services/enterprise-software/erp",
+      // },
+      // {
+      //   submenudata: 2,
+      //   title: "CRM ",
+      //   // path: "/services/enterprise-software/crm",
+      // },
+      // {
+      //   submenudata: 3,
+      //   title: "Industry Platform",
+      //   // path: "/services/enterprise-software/indutry-platform ",
+      // },
+      // {
+      //   submenudata: 4,
+      //   title: "EHS",
+      //   // path: "/services/enterprise-software/ehs",
+      // },
+      // {
+      //   submenudata: 5,
+      //   title: "Digital Content Management ",
+      //   // path: "/services/enterprise-software/digital-content-management",
+      // },
+
       {
-        tlmenuid: 1,
-        title: "ERP",
-        path: "/services/enterprise-software/erp",
+        submenudata: 1,
+        title: "Infor",
+        path: "/services/enterprice-software/infor",
       },
       {
-        tlmenuid: 2,
-        title: "CRM ",
-        // path: "/services/enterprise-software/crm",
+        submenudata: 2,
+        title: "SAP",
+        path: "/services/enterprice-software/sap",
       },
       {
-        tlmenuid: 3,
-        title: "Industry Platform",
-        // path: "/services/enterprise-software/indutry-platform ",
-      },
-      {
-        tlmenuid: 4,
-        title: "EHS",
-        // path: "/services/enterprise-software/ehs",
-      },
-      {
-        tlmenuid: 5,
-        title: "Digital Content Management ",
-        // path: "/services/enterprise-software/digital-content-management",
+        submenudata: 3,
+        title: "Oracle",
+        path: "/services/enterprice-software/oracle",
       },
     ],
   },
   {
-    submenuid: 2,
+    submenudata: 2,
     Mtitle: "Cloud",
     icon: Cloud,
     menu3: [
       {
-        tlmenuid: 1,
+        submenudata: 1,
         title: "Cloud Services",
         // path: "/services/cloud/cloud-services",
       },
       {
-        tlmenuid: 2,
+        submenudata: 2,
         title: "Unified Communication ",
         // path: "/services/cloud/unified-communication",
       },
       {
-        tlmenuid: 3,
+        submenudata: 3,
         title: "Hybrid Workplace ",
         // path: "/services/cloud/hybrid-workplace  ",
       },
       {
-        tlmenuid: 4,
+        submenudata: 4,
         title: "Private Cloud & Infrastructure",
         // path: "/services/cloud/private-cloud-and-infrastructure",
       },
       {
-        tlmenuid: 5,
+        submenudata: 5,
         title: "Cyber Security ",
         // path: "/services/cloud/cyber-security",
       },
       {
-        tlmenuid: 6,
+        submenudata: 6,
         title: "Cloud Hyper Automation Platform ",
         // path: "/services/cloud/cloud-hyper-automation-platform",
       },
     ],
   },
   {
-    submenuid: 3,
+    submenudata: 3,
     Mtitle: " Application Development",
     icon: AppDev,
     menu3: [
       {
-        tlmenuid: 1,
+        submenudata: 1,
         title: "Agile",
         // path: "/services/application-development/agile",
       },
       {
-        tlmenuid: 2,
+        submenudata: 2,
         title: "Site Reliability Engineering ",
         // path: "/services/application-development/site-reliability-engineering",
       },
       {
-        tlmenuid: 3,
+        submenudata: 3,
         title: "Low Code / No Code ",
         // path: "/services/application-development/low-code-no-code  ",
       },
       {
-        tlmenuid: 4,
+        submenudata: 4,
         title: "DevOps",
         // path: "/services/application-development/devops",
       },
       {
-        tlmenuid: 5,
+        submenudata: 5,
         title: "Quality Asurance (QA) & Testing ",
         // path: "/services/application-development/quality-assurance-and-testing",
       },
       {
-        tlmenuid: 6,
+        submenudata: 6,
         title: "API & Microservices ",
         // path: "/services/application-development/api-microservices",
       },
       {
-        tlmenuid: 7,
+        submenudata: 7,
         title: "Legacy Modernization",
         // path: "/services/application-development/legacy-modernization",
       },
@@ -132,32 +148,32 @@ export const Services = [
   },
 
   {
-    submenuid: 4,
+    submenudata: 4,
     Mtitle: "Digital",
     icon: Digital,
     menu3: [
       {
-        tlmenuid: 1,
+        submenudata: 1,
         title: "Customer Experience",
         // path: "/services/digital/customer-experience",
       },
       {
-        tlmenuid: 2,
+        submenudata: 2,
         title: "Data Analysis ",
         // path: "/services/digital/data-analysis",
       },
       {
-        tlmenuid: 3,
+        submenudata: 3,
         title: "SMaaS ",
         // path: "/services/digital/smaas",
       },
       {
-        tlmenuid: 4,
+        submenudata: 4,
         title: "Intelligent Automation",
         // path: "/services/digital/intelligent-automation",
       },
       {
-        tlmenuid: 5,
+        submenudata: 5,
         title: "BlockChain ",
         // path: "/services/digital/blockchain",
       },
@@ -167,23 +183,23 @@ export const Services = [
 
 export const Solutions = [
   {
-    submenuid: 1,
+    submenudata: 1,
     title: "Infor",
     path: "https://partners.infor.com/?q=KCS&ch=false&al=false&dv=false&apac=false&emea=false&gl=false&la=false&na=false#1666",
-    target:"_blank"
+    target: "_blank",
   },
   {
-    submenuid: 2,
+    submenudata: 2,
     title: "K-Mobillor",
     // path: "/solutions/k-mobillor",
   },
   {
-    submenuid: 3,
+    submenudata: 3,
     title: "Enstrapp",
     // path: "/solutions/Enstrapp",
   },
   // {
-  //   submenuid: 4,
+  //   submenudata: 4,
   //   title: "WorkDay",
   //   path: "/solutions/workday",
   // },
@@ -191,22 +207,22 @@ export const Solutions = [
 
 export const AboutData = [
   {
-    submenuid: 1,
+    submenudata: 1,
     title: "Our Story",
     path: "/about-us/our-story",
   },
   // {
-  //   submenuid: 2,
+  //   submenudata: 2,
   //   title: "Our Battalion",
   //   path: "/about-us/our-battalion",
   // },
   // {
-  //   submenuid: 3,
+  //   submenudata: 3,
   //   title: "Our Customers",
   //   path: "/about-us/our-customers",
   // },
   {
-    submenuid: 4,
+    submenudata: 4,
     title: "Our Alliances",
     path: "/about-us/our-alliances",
   },
@@ -246,25 +262,186 @@ export const NavData = [
     submenudata: 1,
   },
 
-  // {
-  //   id: 2,
-  //   title: "What We Do",
-  //   // path: "/services",
-  //   openicon: <UpArrow />,
-  //   closeicon: <DownArrow />,
-  //   submenudata: 2,
-  //   submenu: [
-
-  //   ],
-  // },
-
   {
     id: 2,
-    title: "Services",
+    title: "What we do",
     openicon: <UpArrow />,
     closeicon: <DownArrow />,
     submenudata: 2,
-    submenu: Services,
+    submenu: [
+      {
+        id: 1,
+        title: "Services",
+        submenudata: 1,
+        submenu: [
+          {
+            id: 1,
+            title: "Enterprise Software",
+            // path:""
+            submenudata: 1,
+            submenu: [
+              {
+                id: 1,
+                title: "Infor",
+                path: "/what-we-do/services/enterprice-software/infor",
+              },
+              {
+                id: 2,
+                title: "SAP",
+                path: "/what-we-do/services/enterprice-software/sap",
+              },
+              {
+                id: 3,
+                title: "Oracle",
+                path: "/what-we-do/services/enterprice-software/oracle",
+              },
+            ],
+          },
+
+          {
+            id: 2,
+            title: "Cloud",
+            // path:""
+            submenudata: 2,
+            submenu: [
+              {
+                id: 1,
+                title: "Cloud Services",
+                // path: "/what-we-do/services/cloud/cloud-services",
+              },
+              {
+                id: 2,
+                title: "Unified Communication",
+                // path: "/what-we-do/services/cloud/unified-communication",
+              },
+              {
+                id: 3,
+                title: "hybrid-work-place",
+                // path: "/what-we-do/services/cloud/hybrid-work-place",
+              },
+
+              {
+                id: 4,
+                title: "Private Cloud & Infrastructure",
+                // path: "/what-we-do/services/cloud/private-cloud-and-infrastructure",
+              },
+              {
+                id: 5,
+                title: "Cyber Security",
+                // path: "/what-we-do/services/cloud/cyber-security",
+              },
+              {
+                id: 6,
+                title: "Cloud Hyper Automation Platform",
+                // path: "/what-we-do/services/cloud/cloud-hyper-automation-platform",
+              },
+            ],
+          },
+
+          {
+            id: 3,
+            title: "Application Developement",
+            // path:""
+            submenudata: 3,
+            submenu: [
+              {
+                id: 1,
+                title: "Agile",
+                // path: "/what-we-do/services/application-development/agile",
+              },
+              {
+                id: 2,
+                title: "Site Reliability Engineering",
+                // path: "/what-we-do/services/application-development/site-reliability-engineering",
+              },
+              {
+                id: 3,
+                title: "Low Code / No Code",
+                // path: "/what-we-do/services/application-development/low-code-no-code",
+              },
+
+              {
+                id: 4,
+                title: "DevOps",
+                // path: "/what-we-do/services/application-development/devops",
+              },
+              {
+                id: 5,
+                title: "Quality Asurance (QA) & Testing",
+                // path: "/what-we-do/services/application-development/quality-assurance",
+              },
+              {
+                id: 6,
+                title: "API & Microservices",
+                // path: "/what-we-do/services/application-development/api-and-microservices",
+              },
+            ],
+          },
+          {
+            id: 4,
+            title: "digital",
+            // path:""
+            submenudata: 4,
+            submenu: [
+              {
+                id: 1,
+                title: "Customer Experience",
+                // path: "/what-we-do/services/digital/customer-experience",
+              },
+              {
+                id: 2,
+                title: "Data Analysis",
+                // path: "/what-we-do/services/digital/data-analysis",
+              },
+              {
+                id: 3,
+                title: "SMaas",
+                // path: "/what-we-do/services/digital/smaas",
+              },
+
+              {
+                id: 4,
+                title: "Intelligent Automation",
+                // path: "/what-we-do/services/digital/intelligent-automation",
+              },
+              {
+                id: 5,
+                title: "Block Chain",
+                // path: "/what-we-do/services/digital/block-chain",
+              },
+             
+            ],
+          },
+        ],
+      },
+      {
+        id: 2,
+        title: "Solutions ",
+        // path: "/join-us/events",
+        submenudata: 2,
+        submenu: [
+          {
+            id: 1,
+            title: "Infor",
+            path: "https://partners.infor.com/?q=KCS&ch=false&al=false&dv=false&apac=false&emea=false&gl=false&la=false&na=false#1666",
+            target: "blank",
+            submenudata: 1,
+          },
+          {
+            id: 2,
+            title: "K-Mobillor",
+            // path: "/what-we-do/solutions/k-mobillor",
+            submenudata: 2,
+          },
+          {
+            id: 3,
+            title: "Enstarpp",
+            // path: "/what-we-do/solutions/enstrapp",
+            submenudata: 3,
+          },
+        ],
+      },
+    ],
   },
   // {
   //   id: 3,
@@ -281,12 +458,12 @@ export const NavData = [
   // },
 
   {
-    id: 5,
+    id: 3,
     title: "Join Us",
     // path: "/services",
     openicon: <UpArrow />,
     closeicon: <DownArrow />,
-    submenudata: 5,
+    submenudata: 3,
     submenu: [
       {
         id: 1,
@@ -319,7 +496,7 @@ export const ZigZagData = [
     type: "text",
     content: {
       txt1: "Meet. Greet. Motivate.",
-      txt2: "Collabrate",
+      txt2: "Collaborate",
       txt3: "Professional Services",
       para: "For everlasting Customer relationships.",
     },

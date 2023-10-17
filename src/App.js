@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { customTheme } from "./theme/theme";
@@ -18,12 +18,18 @@ import { useLocation } from "react-router-dom";
 
 function App() {
 
-  const {pathname} = useLocation()
+  const { pathname } = useLocation()
+
+  
+  
+
+ 
+
   return (
     <ThemeProvider theme={customTheme}>
       <HelmetProvider>
         <ScrollToTop />
-        {pathname !== "/404" ? <Navbar /> : null}
+        {pathname !== "/404" ? <Navbar  /> : null}
         {/* <BreadCrums /> */}
 
         <Routes />

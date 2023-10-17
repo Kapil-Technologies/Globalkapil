@@ -44,7 +44,12 @@ export const MainBanner = styled("div")(({ theme, image }) => ({
   backgroundPosition: "center",
   backgroundSize: "cover",
   // backgroundAttachment: 'fixed',
-  maxWidth:'100%'
+  maxWidth: "100%",
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    height: "auto",
+    maxWidth: "100%",
+  },
 }));
 
 export const NavDiv = styled("div")(({ theme }) => ({

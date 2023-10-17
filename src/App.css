@@ -16,8 +16,8 @@
   transition: all 0.8s ease;
 }
 
-.main-submenu {
-  transition: all 1s ease-in-out;
+.submenu {
+  transition: all 3s ease-in-out;
 }
 
 .SAP-cards {
