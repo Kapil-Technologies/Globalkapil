@@ -23,7 +23,8 @@ export const MainHeader = styled("header")(
 
     [theme.breakpoints.down("md")]: {
       width: "100%",
-      height: "15vh",
+      height: "10vh",
+      
     },
 
     [theme.breakpoints.down("xl")]: {
@@ -47,6 +48,12 @@ export const MainNav = styled("nav")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "space-between",
 
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    height: "15vh",
+   
+  },
+
   [theme.breakpoints.up("xl")]: {
     width: "100%",
     height: "15vh",
@@ -56,10 +63,7 @@ export const MainNav = styled("nav")(({ theme }) => ({
     height: "15vh",
   },
 
-  [theme.breakpoints.up("xl")]: {
-    width: "100%",
-    height: "10vh",
-  },
+ 
 }));
 
 //  --------------------------------------------------------  Responsive Components
@@ -105,7 +109,10 @@ export const Logo = styled("img")(({ theme }) => ({
   width: "53px",
   height: "72px",
 
-  [theme.breakpoints.down("xl")]: {},
+  [theme.breakpoints.down("md")]: {
+    width: "45px",
+    height: "62px",
+  },
 }));
 
 //  --------------------------------------------------------  Menu Components
@@ -130,9 +137,9 @@ export const MainNavItem = styled("li")(({ theme }) => ({
   },
 }));
 
-export const MainNavLink = styled(NavLink)(({ theme, condition }) => ({
+export const MainNavLink = styled(NavLink)(({ theme, condition,NavColor }) => ({
   textDecoration: "none",
-  color: condition ? "#1C3667" : "white",
+  color: NavColor || !condition  ?  "white" : "#1C3667" ,
   textTransform: "uppercase",
   padding: "10px",
 
@@ -141,13 +148,13 @@ export const MainNavLink = styled(NavLink)(({ theme, condition }) => ({
   },
 }));
 
-export const MainNavText = styled(Box)(({ theme, condition }) => ({
+export const MainNavText = styled(Box)(({ theme, condition, NavColor }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   textTransform: "uppercase",
   cursor: "pointer",
-  color:condition ? "#1C3667" :"white",
+  color: NavColor || !condition ? "white" : "#1C3667",
 }));
 
 export const SubmenuList = styled("ul")(({ theme, condition }) => ({
@@ -485,11 +492,21 @@ function Navbar({ handleHover }) {
         large: "(min-width: 901px)",
       }}
     >
-      <MainHeader className="MainNav" NavColor={colorChange} menuopen={open} visibility={visible}>
+      <MainHeader
+        className="MainNav"
+        NavColor={colorChange}
+        menuopen={open}
+        visibility={visible}
+        onMouseEnter={handleMouseLeave}
+        onMouseLeave={handleMouseLeave}
+      >
         {/* {window.innerWidth < 900 ? <MainNav>Mobile</MainNav> : null}
       {window.innerWidth > 900 ? <MainNav>Tablets</MainNav> : null} */}
 
-        <MainNav onMouseEnter={handleMouseLeave} onMouseLeave={handleMouseLeave}>
+        <MainNav
+          onMouseEnter={handleMouseLeave}
+          onMouseLeave={handleMouseLeave}
+        >
           <RespContainer onClick={handleMainMenuToggle} className="MainNav">
             {open ? <CloseMenu /> : <OpenMenu />}
           </RespContainer>
@@ -506,13 +523,16 @@ function Navbar({ handleHover }) {
                 {item.path ? (
                   <MainNavLink
                     to={item.path}
-                    condition={Infor || Contactus}  
+                    condition={Infor || Contactus}
+                    NavColor={colorChange}
+                    onMouseEnter={handleMouseLeave}
                   >
                     {item.title}
                   </MainNavLink>
                 ) : (
                   <MainNavText
                     condition={Infor || Contactus}
+                    NavColor={colorChange}
                     onMouseEnter={() => handleMouseEnter(item.id)}
                   >
                     <Typography variant="body1">{item.title}</Typography>
@@ -579,15 +599,12 @@ function Navbar({ handleHover }) {
                                           <SubmenuLink2
                                             to={item.path}
                                             onClick={handleMouseLeave}
-                                            
                                           >
                                             {item.title}
                                           </SubmenuLink2>
                                         ) : (
                                           <SubmenuText2
-                                            condition={
-                                              item.submenu
-                                            }
+                                            condition={item.submenu}
                                           >
                                             {item.title}
                                           </SubmenuText2>
@@ -650,7 +667,7 @@ function Navbar({ handleHover }) {
             ))}
           </MainNavList>
 
-          {/*  Mobile Compactable */}
+          {/* ------------------------------------------------  Mobile Compactable --------------------- */}
 
           <MainNavListMobile menuopen={open} className="MainNav">
             {NavData.map((item) => (
@@ -682,7 +699,10 @@ function Navbar({ handleHover }) {
                         condition={!item.submenu}
                       >
                         {item.path ? (
-                          <SubMenuLinkMobile1 to={item.path}>
+                          <SubMenuLinkMobile1
+                            to={item.path}
+                            onClick={handleMainMenuClose}
+                          >
                             <FiBox />
                             {item.title}
                           </SubMenuLinkMobile1>
@@ -704,6 +724,7 @@ function Navbar({ handleHover }) {
                                   <SubMenuLinkMobile2
                                     to={item.path}
                                     target={item.target}
+                                    onClick={handleMainMenuClose}
                                   >
                                     <FiBox />
                                     {item.title}
@@ -721,7 +742,10 @@ function Navbar({ handleHover }) {
                                     {item.submenu.map((item) => (
                                       <SubMenuItemMobile3>
                                         {item.path ? (
-                                          <SubMenuLinkMobile3 to={item.path}>
+                                          <SubMenuLinkMobile3
+                                            to={item.path}
+                                            onClick={handleMainMenuClose}
+                                          >
                                             <GoDotFill />
                                             {item.title}
                                           </SubMenuLinkMobile3>

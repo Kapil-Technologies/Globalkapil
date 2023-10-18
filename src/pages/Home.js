@@ -1,12 +1,21 @@
 import React, { Fragment, useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import { Box, Button, Stack, Tab, Typography, Tabs, Grid } from "@mui/material";
+import {
+  Box,
+  Button,
+  Stack,
+  Tab,
+  Typography,
+  Tabs,
+  Grid,
+  useMediaQuery,
+} from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import Clients from "../components/Sliders/Clients";
 import Industries from "../components/Sliders/Industries";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import Page from "../components/Page";
-import KapilGrouplogo from '../assets/Logo/Kapilgroup.png'
+import KapilGrouplogo from "../assets/Logo/Kapilgroup.png";
 import {
   FiArrowRight,
   FiChevronRight,
@@ -18,6 +27,12 @@ import { ZigZagData } from "../mock/NavbarData";
 
 import { AboutText } from "../mock/MockData";
 import Homepageb from "../assets/Banners/HomepageBanner.jpg";
+import MainBanners, {
+  BannerImage,
+  BannerImageContainer,
+  BannerImageLayer,
+} from "../components/common/MainBanners";
+
 // ---------------------------------------------------------------
 
 const About = [
@@ -35,22 +50,6 @@ const About = [
 ];
 
 export const HomeContainer = styled("div")(({ theme }) => ({}));
-export const MainBanner = styled("div")(({ theme, image }) => ({
-  width: "100%",
-  height: 580,
-  background: "#B0DAE3",
-  backgroundImage: `url(${image})`,
-  backgroundRepeat: `no-repeat`,
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-  // backgroundAttachment: 'fixed',
-  maxWidth: "100%",
-  [theme.breakpoints.down("md")]: {
-    width: "100%",
-    height: "auto",
-    maxWidth: "100%",
-  },
-}));
 
 export const NavDiv = styled("div")(({ theme }) => ({
   height: "15vh",
@@ -132,37 +131,12 @@ export const ClientSectionsLayer = styled(Stack)(({ theme, image }) => ({
 
 // ---------------------------------------------------------------
 
-export const CTA = ({ text, buttonText }) => {
-  return (
-    <CTASection
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      spacing={2}
-      sx={{
-        textAlign: "center",
-        background: "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
-      }}
-    >
-      <Typography variant="h5" sx={{ opacity: 1, color: "white", width: 500 }}>
-        {text}
-      </Typography>
-      <Button
-        variant="contained"
-        sx={{ background: "orange", color: "#162438" }}
-        startIcon={<FiSend />}
-        component={Link}
-        to="/contact/contact-us"
-      >
-        <b>{buttonText}</b>
-      </Button>
-    </CTASection>
-  );
-};
+//
 // ---------------------------------------------------------------
 
 function Home() {
-
+  const mobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const tab = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const Hostname = window.location.hostname;
   const name =
     Hostname === "www.kapiltech.com"
@@ -190,74 +164,82 @@ function Home() {
   return (
     <HomeContainer>
       <Page name="Home" content="" keywords="" />
-
-      <MainBanner
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        image={Homepageb}
+      <BannerImageContainer
+        contHeight="560px"
+        tabHeight="330px"
+        mobileHeigth="180px"
       >
-        <Grid
-          container
-          columnGap={2}
-          rowGap={2}
-          sx={{
-            p: 3,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "rgba(0,0,0,0.5)",
-            height: 580,
-            position: "relative",
-          }}
+        <BannerImage
+          src={Homepageb}
+          imgHeight="560px"
+          tabHeight="330px"
+          mobileHeight="180px"
+        />
+        <BannerImageLayer
+          textcolor="white"
+          layercolor="rgba(0,0,0,0.5)"
+          tabHeight="330px"
+          mobileHeight="180px"
         >
-          <Grid
-            item
-            sx={{
-              // border: "1px solid white",
-              p: 1,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "left",
-              // flexDirection: "column",
-              color: "white",
-              position: "relative",
-              height: 450,
-            }}
-            xs={12}
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            sx={{ width: "inherit", height: "inherit" }}
           >
-            <Typography
-              variant="h3"
-              className="Home"
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="left"
               sx={{
-                color: "white",
-                // position: "absolute",
-                // bottom: 0,
-                // fontFamily: "h3.fontFamily",
-                fontWeight: "bold",
+                width: "inherit",
+                height: "inherit",
               }}
             >
-              Transforming your <br /> Digital Future
-            </Typography>
-          </Grid>
+              <Typography
+                variant={mobile ? "subtitle" : tab ? "h4" : "h2"}
+                className="Home"
+                sx={{
+                  color: "white",
+                  fontWeight: "bold",
 
-          <Typography
-            variant="h4"
-            sx={{
-              color: "white",
-              fontWeight: "bold",
-              position: "absolute",
-              right: 0,
-              bottom: 0,
-              p: 3,
-            }}
-          >
-            Enabling High Performance
-          </Typography>
-        </Grid>
-      </MainBanner>
+                  pl: 2,
+                  width: "100%",
+                }}
+              >
+                Transforming your <br /> Digital Future
+              </Typography>
+            </Stack>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+              sx={{
+                width: "inherit",
+                height: "inherit",
+                position: "relative",
+              }}
+            >
+              <Typography
+                variant={mobile ? "subtitle" : tab ? "h6" : "h4"}
+                sx={{
+                  color: "white",
+                  fontWeight: "bold",
+                  position: "absolute",
+
+                  right: "5px",
+                  bottom: "5px",
+                  //  pb:2,
+                  // width:'100%'
+                }}
+              >
+                Enabling High Performance
+              </Typography>
+            </Stack>
+          </Stack>
+        </BannerImageLayer>
+      </BannerImageContainer>
+
       <Stack
         direction="column"
         alignItems="center"
@@ -398,7 +380,7 @@ function Home() {
                 color: "black",
                 marginLeft: "5px",
                 height: "auto",
-              
+
                 // border: "1px solid blue",
                 // display: "flex",
                 // alignItems: "center",

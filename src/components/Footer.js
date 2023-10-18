@@ -63,6 +63,7 @@ export const Copyright = () => {
       alignItems="center"
       justifyContent="center"
       spacing={1}
+      sx={{textAlign:'center'}}
     >
       <FaCopyright />
       <Typography>All rights reserved by {condition} 2023</Typography>
