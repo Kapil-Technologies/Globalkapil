@@ -16,6 +16,10 @@
   transition: all 0.8s ease;
 }
 
+.MainHeader {
+  transition: all 0.3s ease;
+}
+
 .submenu {
   transition: all 3s ease-in-out;
 }

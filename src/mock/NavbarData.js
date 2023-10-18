@@ -293,7 +293,7 @@ export const NavData = [
               {
                 id: 3,
                 title: "Oracle",
-                path: "/what-we-do/services/enterprice-software/oracle",
+                // path: "/what-we-do/services/enterprice-software/oracle",
               },
             ],
           },

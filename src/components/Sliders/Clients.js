@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography,useMediaQuery } from "@mui/material";
 import { HomePageClients } from "../../mock/CCData";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
@@ -83,81 +83,88 @@ function SamplePrevArrow(props) {
 
 // ------------------------------------------- Settings
 
-const settings = {
-  className: "center",
-  dots: false,
-  infinite: true,
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  //  centerMode:true,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
 
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        dots: false,
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        //  centerMode:true,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-      },
-    },
-
-    {
-      breakpoint: 900,
-      settings: {
-        dots: false,
-        infinite: true,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        //  centerMode:true,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        dots: false,
-        infinite: true,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        //  centerMode:true,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-      },
-    },
-
-    {
-      breakpoint: 300,
-      settings: {
-        dots: false,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        //  centerMode:true,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-      },
-    },
-  ],
-};
 
 function Clients() {
+  const mobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const tab = useMediaQuery((theme) => theme.breakpoints.down("md"));
+
+
+  const settings = {
+    className: "center",
+    dots: false,
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    //  centerMode:true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          dots: false,
+          infinite: true,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          //  centerMode:true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
+      },
+
+      {
+        breakpoint: 900,
+        settings: {
+          dots: false,
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          //  centerMode:true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
+      },
+      {
+        breakpoint: tab,
+        settings: {
+          dots: false,
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          //  centerMode:true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
+      },
+
+      {
+        breakpoint: mobile,
+        settings: {
+          dots: false,
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          //  centerMode:true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        },
+      },
+
+      
+    ],
+  };
   return (
     <MainSliderDiv>
       <SliderData {...settings}>

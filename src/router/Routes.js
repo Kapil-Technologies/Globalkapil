@@ -85,11 +85,11 @@ function Routes() {
            
             },
 
-            {
-              path: "services/enterprice-software/oracle",
-              element: <SAP />,
+            // {
+            //   path: "services/enterprice-software/oracle",
+            //   element: <SAP />,
              
-            },
+            // },
 
             // ---------------------------------------- Solution
 

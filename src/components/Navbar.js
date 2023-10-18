@@ -15,16 +15,19 @@ export const MainHeader = styled("header")(
     width: "100%",
     height: "15vh",
     position: "fixed",
-    background: NavColor|| menuopen ? "#162438" : "transperant",
+    background: NavColor || menuopen ? "#162438" : "transperant",
     // top: visibility ?  0 : "-15vh ",
     zIndex: 99999,
 
     // -----------------------------  Responsive
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      height: "8vh",
+    },
 
     [theme.breakpoints.down("md")]: {
       width: "100%",
       height: "10vh",
-      
     },
 
     [theme.breakpoints.down("xl")]: {
@@ -50,8 +53,12 @@ export const MainNav = styled("nav")(({ theme }) => ({
 
   [theme.breakpoints.down("md")]: {
     width: "100%",
-    height: "15vh",
-   
+    height: "8vh",
+  },
+
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    height: "10vh",
   },
 
   [theme.breakpoints.up("xl")]: {
@@ -62,8 +69,6 @@ export const MainNav = styled("nav")(({ theme }) => ({
     width: "100%",
     height: "15vh",
   },
-
- 
 }));
 
 //  --------------------------------------------------------  Responsive Components
@@ -386,7 +391,7 @@ function Navbar({ handleHover }) {
   // ------------------------------------------------------------ Scolling Effect
 
   const changeNavbarColor = () => {
-    if (window.scrollY > 80) {
+    if (window.scrollY > 10) {
       setColorChange(true);
     } else {
       setColorChange(false);
