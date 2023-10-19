@@ -28,6 +28,11 @@ import { Link } from "react-router-dom";
 import { TbCertificate2 } from "react-icons/tb";
 import { FaRupeeSign } from "react-icons/fa";
 import Page from "../../components/Page";
+import {
+  BannerImageContainer,
+  BannerImageLayer,
+  BannerImage,
+} from "../../components/common/MainBanners";
 
 // ----------------------------------------------------------------
 
@@ -46,11 +51,11 @@ export const MainContainer = styled(Stack)(({ theme, image, path }) => ({
   },
 }));
 
-export const BannerImage = styled("img")(({ theme, image, path }) => ({
-  width: " 100%",
-  maxWidth: "100%",
-  height: 500,
-}));
+// export const BannerImage = styled("img")(({ theme, image, path }) => ({
+//   width: " 100%",
+//   maxWidth: "100%",
+//   height: 500,
+// }));
 
 export const BannerLayer = styled(Stack)(({ theme, image, path }) => ({
   width: " 100%",
@@ -169,7 +174,52 @@ function Careers() {
       justifyContent="start"
     >
       <Page name="Join Us | Search jobs" content="" keywords="" />
-      <BannerImage src={CareersImage} />
+
+      <BannerImageContainer
+        smHeight="auto"
+        mdHeight="auto"
+        lgHeight="auto"
+        xlHeight="auto"
+        mainHeight="auto"
+      >
+        <BannerImage
+          src={CareersImage}
+          smHeight="auto"
+          mdHeight="auto"
+          lgHeight="auto"
+          xlHeight="auto"
+          mainHeight="auto"
+        />
+        <BannerImageLayer
+          textcolor="white"
+          layercolor="transperent"
+          smHeight="100%"
+          mdHeight="100%"
+          lgHeight="100%"
+          xlHeight="100%"
+          mainHeight="100%"
+        >
+          <Stack
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+            sx={{ height: "100%" }}
+          >
+            <Typography
+              variant="h3"
+              sx={{ fontWeight: "bold", color: "whitesmoke" }}
+            >
+              Find Your Dream Job
+            </Typography>
+
+            <Typography variant="body1" sx={{ color: "whitesmoke" }}>
+              New opportunities to explore every day - find your perfect fit!
+            </Typography>
+          </Stack>
+        </BannerImageLayer>
+      </BannerImageContainer>
+      {/* <BannerImage src={CareersImage} />
       <BannerLayer
         direction="column"
         alignItems="center"
@@ -187,22 +237,7 @@ function Careers() {
         <Typography variant="body1" sx={{ color: "whitesmoke" }}>
           New opportunities to explore every day - find your perfect fit!
         </Typography>
-
-        {/* <Button
-            variant="contained"
-            sx={{
-              background: "white",
-              color: "primary.main",
-              fontWeight: "bold",
-              "&:hover": {
-                background: "white",
-                color: "primary.main",
-              },
-            }}
-          >
-            See Open Positions
-          </Button> */}
-      </BannerLayer>
+      </BannerLayer> */}
 
       <Stack
         sx={{ py: 2, width: "100%" }}

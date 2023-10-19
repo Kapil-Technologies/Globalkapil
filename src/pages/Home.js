@@ -165,21 +165,28 @@ function Home() {
     <HomeContainer>
       <Page name="Home" content="" keywords="" />
       <BannerImageContainer
-        contHeight="560px"
-        tabHeight="330px"
-        mobileHeigth="180px"
+        smHeight="320px"
+        mdHeight="400px"
+        lgHeight="380px"
+        xlHeight="auto"
+        mainHeight="560px"
       >
         <BannerImage
           src={Homepageb}
-          imgHeight="560px"
-          tabHeight="330px"
-          mobileHeight="180px"
+          smHeight="320px"
+          mdHeight="400px"
+          lgHeight="380px"
+          xlHeight="auto"
+          mainHeight="560px"
         />
         <BannerImageLayer
           textcolor="white"
           layercolor="rgba(0,0,0,0.5)"
-          tabHeight="330px"
-          mobileHeight="180px"
+          smHeight="inherit"
+          mdHeight="inherit"
+          lgHeight="inherit"
+          xlHeight="100%"
+          mainHeight="inherit"
         >
           <Stack
             direction="row"
@@ -203,7 +210,7 @@ function Home() {
                   color: "white",
                   fontWeight: "bold",
 
-                  pl: 2,
+                  pl:2,
                   width: "100%",
                 }}
               >

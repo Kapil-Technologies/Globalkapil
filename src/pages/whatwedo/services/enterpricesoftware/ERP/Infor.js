@@ -43,6 +43,11 @@ import {
   FaSortAmountDownAlt,
   FaUsers,
 } from "react-icons/fa";
+import {
+  BannerImage,
+  BannerImageContainer,
+  BannerImageLayer,
+} from "../../../../../components/common/MainBanners";
 
 // ---------------------------------------------------------------------- Styled Components
 
@@ -52,12 +57,12 @@ export const ERPBanner = styled("div")(({ theme }) => ({
   // position:'relative'
 }));
 
-export const BannerImage = styled("img")(({ theme }) => ({
-  maxWidth: "100%",
-  width: "100%",
-  height: "auto",
-  position: "relative",
-}));
+// export const BannerImage = styled("img")(({ theme }) => ({
+//   maxWidth: "100%",
+//   width: "100%",
+//   height: "auto",
+//   position: "relative",
+// }));
 
 export const Section = styled("section")(({ theme, backcolor }) => ({
   width: "100%",
@@ -248,7 +253,6 @@ function Infor() {
   const ref3 = useRef(null);
   const ref4 = useRef(null);
   const ref5 = useRef(null);
-  
 
   const handleClick1 = () => {
     ref1.current?.scrollIntoView({ behavior: "smooth" });
@@ -270,29 +274,71 @@ function Infor() {
     ref5.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  let Country
+  let Country;
 
-   const Hostname = window.location.hostname;
-   const condition =
-     Hostname === "kapiltech.com" || "www.kapiltech.com"
-       ? Country === "India"
-       : Hostname === "kcs-tech.com"
-       ? Country = "Wymoing"
-       : Hostname === "ptkcs.com"
-       ? Country = "Indonesia"
-       : Country = "India";
-  
+  const Hostname = window.location.hostname;
+  const condition =
+    Hostname === "kapiltech.com" || "www.kapiltech.com"
+      ? Country === "India"
+      : Hostname === "kcs-tech.com"
+      ? (Country = "Wymoing")
+      : Hostname === "ptkcs.com"
+      ? (Country = "Indonesia")
+      : (Country = "India");
 
   return (
     <div>
-      <Page
-        name="ERP | Infor Alliance Partner"
-        content=""
-        keywords=""
-      />
-      <ERPBanner>
+      <Page name="ERP | Infor Alliance Partner" content="" keywords="" />
+      {/* <ERPBanner>
         <BannerImage src={InforBanner} alt="Kapil Technologies Infor" />
-      </ERPBanner>
+      </ERPBanner> */}
+
+      <BannerImageContainer
+        smHeight="auto"
+        mdHeight="auto"
+        lgHeight="auto"
+        xlHeight="auto"
+        mainHeight="auto"
+      >
+        <BannerImage
+          src={InforBanner}
+          smHeight="auto"
+          mdHeight="auto"
+          lgHeight="auto"
+          xlHeight="auto"
+          mainHeight="auto"
+        />
+        <BannerImageLayer
+          textcolor="white"
+          layercolor="transperent"
+          smHeight="100%"
+          mdHeight="100%"
+          lgHeight="100%"
+          xlHeight="100%"
+          mainHeight="100%"
+          
+        >
+          <Stack
+            direction="column"
+            alignItems="end"
+            justifyContent="center"
+            spacing={2}
+            sx={{
+              height: "100%",
+              color: "red",
+              width: "100%",
+              textAlign: "right",
+              position: 'relative',
+              right:"30px"
+              
+            }}
+          >
+            <Typography variant="h2" sx={{fontWeight:'bold'}}>
+              Infor <br /> Consulting Services
+            </Typography>
+          </Stack>
+        </BannerImageLayer>
+      </BannerImageContainer>
 
       <Stack
         direction="column"

@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { FiArrowRight, FiBox, FiMenu, FiX } from "react-icons/fi";
 import MainLogo from "../assets/Logo/KTlogo2.png";
@@ -63,7 +63,7 @@ export const MainNav = styled("nav")(({ theme }) => ({
 
   [theme.breakpoints.up("xl")]: {
     width: "100%",
-    height: "15vh",
+    height: "10vh",
   },
   [theme.breakpoints.down("xl")]: {
     width: "100%",
@@ -142,16 +142,17 @@ export const MainNavItem = styled("li")(({ theme }) => ({
   },
 }));
 
-export const MainNavLink = styled(NavLink)(({ theme, condition,NavColor }) => ({
-  textDecoration: "none",
-  color: NavColor || !condition  ?  "white" : "#1C3667" ,
-  textTransform: "uppercase",
-  padding: "10px",
-
-  [theme.breakpoints.down("md")]: {
-    // mobile,
-  },
-}));
+export const MainNavLink = styled(NavLink)(
+  ({ theme, condition, NavColor }) => ({
+    textDecoration: "none",
+    color: NavColor || !condition ? "white" : "#1C3667",
+    textTransform: "uppercase",
+    padding: "10px",
+    "&:focus": {
+      outline: "none",
+    },
+  })
+);
 
 export const MainNavText = styled(Box)(({ theme, condition, NavColor }) => ({
   display: "flex",
@@ -168,7 +169,8 @@ export const SubmenuList = styled("ul")(({ theme, condition }) => ({
   position: "absolute",
   right: condition ? "5%" : null,
   top: "15vh",
-  height: condition ? "90vh" : null,
+  // height: condition ? "90vh" : null,
+  height: "auto",
   borderRadius: "10px",
 
   [theme.breakpoints.up("xl")]: {
@@ -185,12 +187,18 @@ export const SubmenuItem = styled("li")(({ theme, condition }) => ({
 export const SubmenuLink = styled(NavLink)(({ theme, condition }) => ({
   textDecoration: "none",
   color: "#1C3667",
+  "&:focus": {
+    outline: "none",
+  },
 }));
 
 export const SubmenuText = styled(Box)(({ theme, condition }) => ({
   color: "#1C3667",
   textTransform: condition ? "uppercase" : "capitalize",
   fontWeight: "bold",
+  "&:focus": {
+    outline: "none",
+  },
 }));
 
 export const SubmenuItem1 = styled("li")(({ theme, condition }) => ({
@@ -205,13 +213,16 @@ export const SubmenuItem1 = styled("li")(({ theme, condition }) => ({
 export const SubmenuLink1 = styled(NavLink)(({ theme, condition }) => ({
   textDecoration: "none",
   color: "#1C3667",
+  "&:focus": {
+    outline: "none",
+  },
   // fontWeight:'bold'
 }));
 
 export const SubmenuText1 = styled(Box)(({ theme, condition }) => ({
   color: "#1C3667",
   textTransform: condition ? "uppercase" : "capitalize",
-  // fontWeight: "bold",
+  fontWeight: condition ? "bold" : "normal",
 }));
 
 export const SubmenuItem2 = styled("li")(({ theme, condition }) => ({
@@ -223,9 +234,13 @@ export const SubmenuItem2 = styled("li")(({ theme, condition }) => ({
   alignItems: "center",
 }));
 
-export const SubmenuLink2 = styled(NavLink)(({ theme, condition }) => ({
+export const SubmenuLink2 = styled(NavLink)(({ theme, condition, font }) => ({
   textDecoration: "none",
   color: "#1C3667",
+  fontSize: font,
+  "&:focus": {
+    outline: "none",
+  },
   // fontWeight:'bold'
 }));
 
@@ -276,6 +291,9 @@ export const MainNavItemMobile = styled("li")(({ theme }) => ({
 export const MainNavLinkMobile = styled(NavLink)(({ theme }) => ({
   textDecoration: "none",
   color: "white",
+  "&:focus": {
+    outline: "none",
+  },
 }));
 
 export const MainNavTextMobile = styled(Box)(({ theme }) => ({
@@ -305,6 +323,9 @@ export const SubMenuLinkMobile1 = styled(NavLink)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "left",
   gap: 2,
+  "&:focus": {
+    outline: "none",
+  },
 }));
 export const SubMenuTextMobile1 = styled(Box)(({ theme }) => ({
   color: "white",
@@ -331,6 +352,9 @@ export const SubMenuLinkMobile2 = styled(NavLink)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "left",
   gap: 2,
+  "&:focus": {
+    outline: "none",
+  },
 }));
 export const SubMenuTextMobile2 = styled(Box)(({ theme, condition }) => ({
   color: "white",
@@ -339,6 +363,7 @@ export const SubMenuTextMobile2 = styled(Box)(({ theme, condition }) => ({
   gap: 2,
   fontStyle: condition ? "italic" : " normal",
   textTransform: condition ? "uppercase" : "Capitalize",
+  
 }));
 
 export const SubMenuListMobile3 = styled("ul")(({ theme }) => ({
@@ -359,6 +384,9 @@ export const SubMenuLinkMobile3 = styled(NavLink)(({ theme }) => ({
   alignItems: "center",
   paddingLeft: "15px",
   gap: 2,
+  "&:focus": {
+    outline: "none",
+  },
 }));
 export const SubMenuTextMobile3 = styled(Box)(({ theme }) => ({
   color: "white",
@@ -373,7 +401,6 @@ export const SubMenuTextMobile3 = styled(Box)(({ theme }) => ({
 function Navbar({ handleHover }) {
   // scroll
   const [colorChange, setColorChange] = useState(false);
-  
 
   // mainmenu
   const [open, setOpen] = useState(false);
@@ -404,26 +431,24 @@ function Navbar({ handleHover }) {
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
-  
-   const handleScroll = () => {
-     const currentScrollPos = window.pageYOffset;
 
-     setVisible(
-       (prevScrollPos > currentScrollPos &&
-         prevScrollPos - currentScrollPos > 70) ||
-         currentScrollPos < 10
-     );
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
 
-     setPrevScrollPos(currentScrollPos);
-   };
+    setVisible(
+      (prevScrollPos > currentScrollPos &&
+        prevScrollPos - currentScrollPos > 70) ||
+        currentScrollPos < 10
+    );
 
-   useEffect(() => {
-     window.addEventListener("scroll", handleScroll);
+    setPrevScrollPos(currentScrollPos);
+  };
 
-     return () => window.removeEventListener("scroll", handleScroll);
-   }, [prevScrollPos, visible, handleScroll]);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
 
-
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos, visible, handleScroll]);
 
   // ------------------------------------------------------------ Main Menu Toggle
 
@@ -481,14 +506,16 @@ function Navbar({ handleHover }) {
     setmenu3(false);
   };
 
+  const belowScreens = useMediaQuery((theme) => theme.breakpoints.down("xl"));
+
+  const aboveScreens = useMediaQuery((theme) => theme.breakpoints.up("xl"));
+
   // ------------------------------------------------------------ submenu Toggle and Hover
 
   const { pathname } = useLocation();
 
-
   const Infor = pathname === "/what-we-do/services/enterprice-software/infor";
-  const Contactus = pathname ===   "/contact-us";
-
+  const Contactus = pathname === "/contact-us";
 
   return (
     <Media
@@ -505,9 +532,6 @@ function Navbar({ handleHover }) {
         onMouseEnter={handleMouseLeave}
         onMouseLeave={handleMouseLeave}
       >
-        {/* {window.innerWidth < 900 ? <MainNav>Mobile</MainNav> : null}
-      {window.innerWidth > 900 ? <MainNav>Tablets</MainNav> : null} */}
-
         <MainNav
           onMouseEnter={handleMouseLeave}
           onMouseLeave={handleMouseLeave}
@@ -567,7 +591,13 @@ function Navbar({ handleHover }) {
                                 to={item.path}
                               >
                                 <Typography
-                                  variant="body1"
+                                  variant={
+                                    belowScreens
+                                      ? "h6"
+                                      : aboveScreens
+                                      ? "h5"
+                                      : "h6"
+                                  }
                                   sx={{ fontWeight: "bold" }}
                                 >
                                   {item.title}
@@ -596,7 +626,22 @@ function Navbar({ handleHover }) {
                                         {item.title}
                                       </SubmenuLink1>
                                     ) : (
-                                      <SubmenuText>{item.title}</SubmenuText>
+                                      <SubmenuText1 condition={item.submenu}>
+                                        <Typography
+                                          variant="body1"
+                                          sx={{
+                                            fontWeight: "bold",
+                                            // fontStyle:'italic',
+                                            fontSize: belowScreens
+                                              ? "16px"
+                                              : aboveScreens
+                                              ? "18px"
+                                              : "18px",
+                                          }}
+                                        >
+                                          {item.title}
+                                        </Typography>
+                                      </SubmenuText1>
                                     )}
                                     {item.submenu.map((item) => (
                                       <SubmenuItem2>
@@ -604,6 +649,13 @@ function Navbar({ handleHover }) {
                                           <SubmenuLink2
                                             to={item.path}
                                             onClick={handleMouseLeave}
+                                            font={
+                                              belowScreens
+                                                ? "16px"
+                                                : aboveScreens
+                                                ? "16px"
+                                                : "14px"
+                                            }
                                           >
                                             {item.title}
                                           </SubmenuLink2>
@@ -611,7 +663,18 @@ function Navbar({ handleHover }) {
                                           <SubmenuText2
                                             condition={item.submenu}
                                           >
-                                            {item.title}
+                                            <Typography
+                                              variant="body1"
+                                              sx={{
+                                                fontSize: belowScreens
+                                                  ? "16px"
+                                                  : aboveScreens
+                                                  ? "16px"
+                                                  : "14px",
+                                              }}
+                                            >
+                                              {item.title}
+                                            </Typography>
                                           </SubmenuText2>
                                         )}
                                       </SubmenuItem2>
@@ -641,7 +704,20 @@ function Navbar({ handleHover }) {
                                         {item.title}
                                       </SubmenuLink1>
                                     ) : (
-                                      <SubmenuText1>{item.title}</SubmenuText1>
+                                      <SubmenuText1>
+                                        <Typography
+                                          variant="body1"
+                                          sx={{
+                                            fontWeight: belowScreens
+                                              ? "14px"
+                                              : aboveScreens
+                                              ? "16px"
+                                              : "14px",
+                                          }}
+                                        >
+                                          {item.title}
+                                        </Typography>
+                                      </SubmenuText1>
                                     )}
                                   </Grid>
                                 ))}

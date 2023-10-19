@@ -6,42 +6,89 @@ import { Box } from "@mui/material";
 // -----------------------------------------------------------------  Styled Components
 
 export const BannerImageContainer = styled(Box)(
-  ({ theme, contHeight, mobileHeight, tabHeight }) => ({
+  ({ theme, smHeight, mdHeight, lgHeight, xlHeight, mainHeight }) => ({
     width: "100%",
-    height: contHeight,
+    height: mainHeight,
     position: "relative",
 
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.between("xs", "sm")]: {
       width: "100%",
-      height: mobileHeight,
+      height: smHeight,
     },
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.between("sm", "md")]: {
+      // tab
       width: "100%",
-      height: tabHeight,
+      height: mdHeight,
+    },
+
+    [theme.breakpoints.between("md", "lg")]: {
+      // Desktop
+      width: "100%",
+      height: lgHeight,
+    },
+
+    // [theme.breakpoints.between("lg", "xl")]: {
+    //   // large
+    //   width: "100%",
+    //   height: 'auto',
+    // },
+
+    [theme.breakpoints.up("xl")]: {
+      // xlarge
+      width: "100%",
+      height: xlHeight,
     },
   })
 );
 
 export const BannerImage = styled("img")(
-  ({ theme, imgHeight, mobileHeight, tabHeight }) => ({
+  ({ theme, smHeight, mdHeight, lgHeight, xlHeight, mainHeight }) => ({
     width: "100%",
-    height: imgHeight,
+    height: mainHeight,
 
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.between("xs", "sm")]: {
       width: "100%",
-      height: mobileHeight,
+      height: smHeight,
     },
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.between("sm", "md")]: {
+      // tab
       width: "100%",
-      height: tabHeight,
+      height: mdHeight,
+    },
+
+    [theme.breakpoints.between("md", "lg")]: {
+      // Desktop
+      width: "100%",
+      height: lgHeight,
+    },
+
+    // [theme.breakpoints.between("lg", "xl")]: {
+    //   // large
+    //   width: "100%",
+    //   height: 'auto',
+    // },
+
+    [theme.breakpoints.up("xl")]: {
+      // xlarge
+      width: "100%",
+      height: xlHeight,
     },
   })
 );
 
 export const BannerImageLayer = styled(Box)(
-  ({ theme, textcolor, layercolor, mobileHeight, tabHeight }) => ({
+  ({
+    theme,
+    textcolor,
+    layercolor,
+    smHeight,
+    mdHeight,
+    lgHeight,
+    xlHeight,
+    mainHeight,
+  }) => ({
     background: layercolor,
     width: "100%",
     height: "inherit",
@@ -49,18 +96,35 @@ export const BannerImageLayer = styled(Box)(
     color: textcolor,
     top: 0,
 
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.between("xs", "sm")]: {
       width: "100%",
-      height: mobileHeight,
+      height: smHeight,
     },
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.between("sm", "md")]: {
+      // tab
       width: "100%",
-      height: tabHeight,
+      height: mdHeight,
+    },
+
+    [theme.breakpoints.between("md", "lg")]: {
+      // Desktop
+      width: "100%",
+      height: lgHeight,
+    },
+
+    [theme.breakpoints.between("lg", "xl")]: {
+      // large
+      width: "100%",
+      height: mainHeight,
+    },
+
+    [theme.breakpoints.up("xl")]: {
+      // xlarge
+      width: "100%",
+      height: xlHeight,
     },
   })
 );
 
 // -----------------------------------------------------------------  Styled Components
-
-
