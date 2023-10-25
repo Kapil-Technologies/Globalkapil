@@ -9,6 +9,7 @@ import {
   FormGroup,
   Grid,
   Stack,
+  Tab,
   TablePagination,
   TextField,
   Typography,
@@ -16,13 +17,21 @@ import {
 import CareersImage from "../../assets/Banners/Careers.jpg";
 import {
   CareersArray,
+  CarrersTabs,
   Department,
   DepartmentList,
   Locations,
   Modes,
+  carrersArray,
   filters,
 } from "../../mock/CareersData";
-import { FiDollarSign, FiLinkedin, FiMail, FiMapPin } from "react-icons/fi";
+import {
+  FiDollarSign,
+  FiLinkedin,
+  FiMail,
+  FiMapPin,
+  FiSend,
+} from "react-icons/fi";
 import Pagination from "../../components/Pagination";
 import { Link } from "react-router-dom";
 import { TbCertificate2 } from "react-icons/tb";
@@ -33,6 +42,7 @@ import {
   BannerImageLayer,
   BannerImage,
 } from "../../components/common/MainBanners";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
 
 // ----------------------------------------------------------------
 
@@ -91,21 +101,6 @@ function Careers() {
   const [checkedState, setcheckedState] = useState();
   const [selectedFilters, setselectedFilters] = useState([]);
   const [filteredList, setFilteredList] = useState(CareersArray);
-  // let filters = [
-  //   "infor",
-  //   "sap",
-  //   "oracle",
-  //   "sales",
-  //   "hr",
-  //   "others",
-  //   "wfh",
-  //   "onsite",
-  //   "hybrid",
-  //   "IND",
-  //   "IDN",
-  //   "SGP",
-  //   "USA",
-  // ];
 
   const handleFilterQuery = (filter, id) => {
     console.log(id.target.value, id.target.checked);
@@ -167,6 +162,12 @@ function Careers() {
 
   // -------------------------------------------------------------
 
+  const [tabValue, settabValue] = React.useState("1");
+
+  const handleChange = (event, newValue) => {
+    settabValue(newValue);
+  };
+
   return (
     <MainContainer
       direction="column"
@@ -219,414 +220,151 @@ function Careers() {
           </Stack>
         </BannerImageLayer>
       </BannerImageContainer>
-      {/* <BannerImage src={CareersImage} />
-      <BannerLayer
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        spacing={2}
-        sx={{ mt: 10 }}
-      >
-        <Typography
-          variant="h3"
-          sx={{ fontWeight: "bold", color: "whitesmoke" }}
-        >
-          Find Your Dream Job
-        </Typography>
-
-        <Typography variant="body1" sx={{ color: "whitesmoke" }}>
-          New opportunities to explore every day - find your perfect fit!
-        </Typography>
-      </BannerLayer> */}
 
       <Stack
-        sx={{ py: 2, width: "100%" }}
+        sx={{ py: 2, width: "100%", textAlign: "left" }}
         direction="column"
         alignItems="center"
         justifyContent="center"
         spacing={2}
       >
-        {/* <Typography variant="h4">Kapil Departments</Typography>
-        <Grid
-          container
-          columnGap={2}
-          rowGap={2}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "95%",
-          }}
+        <Typography
+          variant="h5"
+          sx={{ fontWeight: "bold", textTransform: "uppercase" }}
         >
-          {Department.map((item) => (
-            <Grid
-              key={item.id}
-              component={Card}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid #E3E3E4",
-                // boxShadow: 2,
-                flexDirection: "column",
-                gap: 2,
-                width: 180,
-                height: 180,
-                borderRadius: 2,
-                textAlign: "center",
-              }}
-            >
-              <img
-                src={item.icon}
-                alt="Kapil Departments"
-                width="auto"
-                height="50px"
+          Open Positions
+        </Typography>
+
+        <TabContext value={tabValue}>
+          <TabList
+            onChange={handleChange}
+            aria-label="lab API tabs example"
+            sx={{
+              "& button": {
+                // borderRadius: 2,
+                fontSize: "18px",
+                fontWeight: "bold",
+              },
+
+              ".Mui-selected": {
+                color: "#162438",
+                fontWeight: "bold",
+                fontSize: "18px",
+              },
+            }}
+          >
+            {CarrersTabs.map((item) => (
+              <Tab
+                key={item.id}
+                label={
+                  <Stack direction="row" alignItems="center" spacing={1}>
+                    <img src={item.tabflag} width="30px" height="30px" />
+                    <Typography
+                      variant="h6"
+                      sx={{ textTransform: "uppercase" }}
+                    >
+                      {item.tabName}
+                    </Typography>
+                  </Stack>
+                }
+                value={item.tabvalue}
+                sx={{
+                  textTransform: "capitalize",
+                }}
               />
-              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                {item.title}
-              </Typography>
-            </Grid>
+            ))}
+          </TabList>
+
+          {carrersArray.map((item) => (
+            <TabPanel value={item.tabvalue} sx={{width:'90%'}}>
+              <Grid
+                container
+                columnGap={1}
+                rowGap={1}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 1,
+                  width:'100%'
+                  // background: "blue",
+                }}
+              >
+                {item.careers.map((item) => (
+                  <Grid
+                    item
+                    xs={3.5}
+                    component={Stack}
+                    direction="column"
+                    alignItems="left"
+                    justifyContent="left"
+                    spacing={3}
+                    sx={{ background: "#F7F7F7", p: 2, height: 220 }}
+                  >
+                    <Typography
+                      variant="body1"
+                      sx={{ textTransform: "uppercase" }}
+                    >
+                      {item.dept}
+                    </Typography>
+
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        textTransform: "uppercase",
+                        fontWeight: "bold",
+                        mb: "5px",
+                      }}
+                    >
+                      {item.jobTitle}
+                    </Typography>
+                    <Stack direction="row" alignItems="center" spacing={2}>
+                      <Typography variant="body1">Experience:</Typography>
+                      <Typography variant="body1">{item.exp}</Typography>
+                    </Stack>
+
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      spacing={2}
+                      sx={{ mb: "10px" }}
+                    >
+                      <Typography variant="body1">
+                        No. of Position(s):
+                      </Typography>
+                      <Typography variant="body1">{item.positions}</Typography>
+                    </Stack>
+
+                    <Typography
+                      variant="body"
+                      sx={{
+                        textTransform: "capitalize",
+                        // fontWeight: "bold",
+                        mb: "5px",
+                      }}
+                    >
+                      {item.type}
+                    </Typography>
+
+                    <Typography
+                      variant="body1"
+                      component={Link}
+                      to={`mailto:hr@kcs-tech.com?subject=Application Regarding ${item.jobTitle}`}
+                      sx={{
+                        textTransform: "uppercase",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Apply Now
+                    </Typography>
+                  </Grid>
+                ))}
+              </Grid>
+            </TabPanel>
           ))}
-        </Grid> */}
 
-        <Grid
-          component={"form"}
-          container
-          columnGap={1}
-          sx={{
-            py: 2,
-            width: "90%",
-            display: "flex",
-            alignItems: "start",
-            justifyContent: "center",
-          }}
-        >
-          <Grid
-            xs={3.5}
-            sx={{ p: 2, border: "1px solid  #d3e1ea", height: 750 }}
-            component={Card}
-          >
-            <Stack
-              direction="column"
-              alignItems="start"
-              justifyContent="left"
-              spacing={2}
-            >
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-                sx={{ width: "100%" }}
-              >
-                <Typography variant="h6">Filter by</Typography>
-
-                <Button variant="contained" type="button" onClick={handleReset}>
-                  Reset
-                </Button>
-              </Stack>
-
-              {filters.map((item) => (
-                <Stack direction="column" alignItems="left" spacing={1}>
-                  <Typography variant="h6">{item.mtitle}</Typography>
-
-                  <FormGroup>
-                    {item.submenu.map((item) => (
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            size="small"
-                            value={item.value}
-                            // checked={item.checked}
-                            ref={(element) => {
-                              checkboxesRef.current.push(element);
-                            }}
-                            id="filters"
-                            name="location"
-                            onChange={(e) => {
-                              handleFilterQuery(item.value, e);
-                            }}
-                          />
-                        }
-                        label={
-                          <Stack
-                            direction="row"
-                            alignItems="center"
-                            justifyContent="center"
-                            spacing={1}
-                          >
-                            {item.img ? (
-                              <img
-                                src={item.img}
-                                alt="Kapil Technologies Global Locations"
-                                width="20px"
-                                height="20px"
-                              />
-                            ) : null}
-                            <Typography>{item.title}</Typography>
-                          </Stack>
-                        }
-                      />
-                    ))}
-                  </FormGroup>
-                </Stack>
-              ))}
-
-              {/* <Stack direction="column" alignItems="left" spacing={1}>
-                <Typography variant="h6">Locations</Typography>
-
-                <FormGroup>
-                  {Locations.map((item) => (
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          size="small"
-                          value={item.value}
-                          name="location"
-                          onChange={() => handleFilterQuery(item.value)}
-                        />
-                      }
-                      label={
-                        <Stack
-                          direction="row"
-                          alignItems="center"
-                          justifyContent="center"
-                          spacing={1}
-                        >
-                          <img
-                            src={item.img}
-                            alt="Kapil Technologies Global Locations"
-                            width="20px"
-                            height="20px"
-                          />
-                          <Typography>{item.title}</Typography>
-                        </Stack>
-                      }
-                    />
-                  ))}
-                </FormGroup>
-              </Stack> */}
-            </Stack>
-          </Grid>
-          <Grid
-            xs={8}
-            sx={{ py: 2, px: 4, border: "1px solid  #d3e1ea", height: "auto" }}
-            component={Card}
-          >
-            <Stack
-              direction="column"
-              alignItems="center"
-              justifyContent="center"
-              spacing={2}
-            >
-              <Stack direction="row" alignItems="center" justifyContent="left">
-                <TablePagination
-                  rowsPerPageOptions={[2, 4, 6, 8]}
-                  component="div"
-                  count={filteredList.length}
-                  rowsPerPage={rowsPerPage}
-                  page={page}
-                  onPageChange={handleChangePage}
-                  onRowsPerPageChange={handleChangeRowsPerPage}
-                  labelRowsPerPage="Jobs per page"
-                  labelDisplayedRows={({ from, to, count }) =>
-                    `Showing ${from}-${to} of  ${count} Jobs`
-                  }
-                />
-              </Stack>
-              {filteredList.length === 0 ? (
-                <Typography>No Jobs Found</Typography>
-              ) : (
-                filteredList
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((item) => (
-                    <JobOpeningCard>
-                      <Stack
-                        direction="column"
-                        alignItems="left"
-                        justifyContent="left"
-                        spacing={1}
-                      >
-                        <Stack
-                          direction="row"
-                          alignItems="center"
-                          justifyContent="space-between"
-                          sx={{ width: "100%" }}
-                        >
-                          <Stack
-                            direction="row"
-                            alignItems="center"
-                            justifyContent="center"
-                            spacing={1}
-                          >
-                            {item.deptimg ? (
-                              <img
-                                src={item.deptimg}
-                                alt="Kapil Tech Departments"
-                                width="auto"
-                                height="25px"
-                                style={
-                                  {
-                                    // marginTop: "-3px",
-                                  }
-                                }
-                              />
-                            ) : null}
-                            <Typography
-                              variant="body1"
-                              sx={{ textTransform: "capitalize" }}
-                            >
-                              {item.department}
-                            </Typography>
-                          </Stack>
-                          <Stack
-                            direction="row"
-                            alignItems="center"
-                            justifyContent="center"
-                            spacing={2}
-                          >
-                            {item.linkedin ? (
-                              <Button
-                                variant="contained"
-                                component={Link}
-                                to={item.linkedin}
-                                target="_blank"
-                                startIcon={
-                                  <FiLinkedin style={{ marginBottom: 2 }} />
-                                }
-                              >
-                                Apply through Linkedin
-                              </Button>
-                            ) : null}
-                            <Button
-                              variant="contained"
-                              component={Link}
-                              to={item.mailto}
-                              startIcon={<FiMail />}
-                            >
-                              Send mail to HR
-                            </Button>
-                          </Stack>
-                        </Stack>
-                        <Typography
-                          variant="h5"
-                          sx={{
-                            fontWeight: "bold",
-                            textTransform: "capitalize",
-                          }}
-                        >
-                          {item.job_title}
-                        </Typography>
-                        <Stack
-                          direction="row"
-                          alignItems="center"
-                          justifyContent="space-between"
-                          spacing={2}
-                          sx={{ width: "100%" }}
-                        >
-                          <Stack
-                            direction="row"
-                            alignItems="center"
-                            justifyContent="space-between"
-                            spacing={1}
-                          >
-                            <img
-                              src={item.locationFlag}
-                              width="20px"
-                              height="20px"
-                            />
-                            <Typography>{item.location}</Typography>
-                          </Stack>
-
-                          <Typography
-                            variant="body1"
-                            sx={{ textTransform: "capitalize" }}
-                          >
-                            {item.type}
-                          </Typography>
-
-                          <Stack
-                            direction="row"
-                            alignItems="center"
-                            justifyContent="center"
-                            spacing={1}
-                          >
-                            <FaRupeeSign />
-                            <Typography
-                              variant="body1"
-                              sx={{ textTransform: "capitalize" }}
-                            >
-                              Salary : {item.salary}
-                            </Typography>
-                          </Stack>
-
-                          <Stack
-                            direction="row"
-                            alignItems="center"
-                            justifyContent="center"
-                            spacing={1}
-                          >
-                            <TbCertificate2 />
-                            <Typography
-                              variant="body1"
-                              sx={{ textTransform: "capitalize" }}
-                            >
-                              Experience : {item.experience}
-                            </Typography>
-                          </Stack>
-                        </Stack>
-                        <Box sx={{ width: "100%" }}>
-                          <hr />
-                        </Box>
-                        <Stack
-                          direction="column"
-                          alignItems="left"
-                          justifyContent="left"
-                          spacing={1.5}
-                        >
-                          <Typography variant="h6">Requirement</Typography>
-                          <Typography variant="body">
-                            We are looking for the candidates with the following
-                            skills
-                          </Typography>
-
-                          <Stack
-                            direction="row"
-                            alignItems="left"
-                            justifyContent="left"
-                            spacing={2}
-                          >
-                            {item.skillset.map((item) => (
-                              <SkillTag key={item.id}>
-                                <Typography
-                                  variant="body1"
-                                  sx={{ textTransform: "capitalize" }}
-                                >
-                                  {item.skill}
-                                </Typography>
-                              </SkillTag>
-                            ))}
-                          </Stack>
-                        </Stack>
-                      </Stack>
-                    </JobOpeningCard>
-                  ))
-              )}
-
-              {/* <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="left"
-                sx={{ width: "100%" }}
-                spacing={1}
-              >
-                <Typography variant="body1">
-                  Interested Candidate can send their resumes  to
-                </Typography>
-                <Link to="mailto:hr@kcs-tech.com">hr@kcs-tec.com</Link>
-              </Stack> */}
-            </Stack>
-          </Grid>
-        </Grid>
+          
+        </TabContext>
       </Stack>
     </MainContainer>
   );

@@ -2,15 +2,12 @@ import India from "../assets/Flags/roundedIndia.png";
 import Singapore from "../assets/Flags/roundedSingapore.png";
 import USA from "../assets/Flags/roundedUSA.png";
 import Indonesia from "../assets/Flags/roundedIndonesi.png";
-import InforLogo from '../assets/Partners/infor1.png'
-import SAPlogo from '../assets/Partners/saplogo.png'
-import OracleLogo from '../assets/Partners/oraclelogo.png'
-import HR from '../assets/Partners/hr.png'
+import InforLogo from "../assets/Partners/infor1.png";
+import SAPlogo from "../assets/Partners/saplogo.png";
+import OracleLogo from "../assets/Partners/oraclelogo.png";
+import HR from "../assets/Partners/hr.png";
 import Sales from "../assets/Partners/sales.png";
 import WBT from "../assets/Partners/Wbt.png";
-
-
-
 
 export const Department = [
   {
@@ -227,25 +224,124 @@ export const Locations = [
     id: 1,
     title: "Indonesia",
     value: "IDN",
-    img:Indonesia
+    img: Indonesia,
   },
   {
     id: 2,
     title: "India",
     value: "IND",
-    img:India
+    img: India,
   },
   {
     id: 3,
     title: "Singapore",
     value: "SGP",
-    img:Singapore
+    img: Singapore,
   },
   {
     id: 4,
     title: "USA",
     value: "USA",
-    img:USA
+    img: USA,
+  },
+];
+
+export const CarrersTabs = [
+  {
+    id: 1,
+    tabvalue: "1",
+    tabName: "India",
+    tabflag: India,
+  },
+  {
+    id: 2,
+    tabvalue: "2",
+    tabName: "Indonesia",
+    tabflag: Indonesia,
+  },
+  {
+    id: 3,
+    tabvalue: "3",
+    tabName: "USA",
+    tabflag: USA,
+  },
+];
+
+export const carrersArray = [
+  {
+    id: 1,
+    tabvalue: "1",
+    careers: [
+      {
+        id: 1,
+        dept: "Sales",
+        jobTitle: "Staffing Sales Representative",
+        exp: "4+years",
+        type: "Onsite",
+        positions: 1,
+      },
+      {
+        id: 2,
+        dept: "SAP",
+        jobTitle: "SAP ABAP Consultant",
+        positions: 1,
+        exp: "6+years",
+        type: "remote",
+      },
+      {
+        id: 3,
+        dept: "ORACLE",
+        jobTitle: "Oracle OAF",
+        positions: 1,
+        exp: "6+years",
+        type: "Remote",
+      },
+    ],
+  },
+
+  {
+    id: 2,
+    tabvalue: "2",
+    careers: [
+      {
+        id: 1,
+        dept: "SAP",
+        jobTitle: "SAP ABAP Consultant",
+        positions: 1,
+        exp: "6+years",
+        type: "remote",
+      },
+      {
+        id: 2,
+        dept: "ORACLE",
+        jobTitle: "Oracle OAF",
+        positions: 1,
+        exp: "6+years",
+        type: "Remote",
+      },
+    ],
+  },
+  {
+    id: 3,
+    tabvalue: "3",
+    careers: [
+      {
+        id: 1,
+        dept: "SAP",
+        jobTitle: "SAP ABAP Consultant",
+        positions: 1,
+        exp: "6+years",
+        type: "remote",
+      },
+      {
+        id: 2,
+        dept: "ORACLE",
+        jobTitle: "Oracle OAF",
+        positions: 1,
+        exp: "6+years",
+        type: "Remote",
+      },
+    ],
   },
 ];
 
@@ -405,4 +501,3 @@ export const CareersArray = [
     modevalue: "onsite",
   },
 ];
-

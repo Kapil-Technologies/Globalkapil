@@ -185,7 +185,7 @@ function Home() {
           smHeight="inherit"
           mdHeight="inherit"
           lgHeight="inherit"
-          xlHeight="100%"
+          xlHeight="98%"
           mainHeight="inherit"
         >
           <Stack
