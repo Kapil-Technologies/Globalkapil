@@ -48,7 +48,7 @@ import {
   BannerImageContainer,
   BannerImageLayer,
 } from "../../../../../components/common/MainBanners";
-
+import InforAliiancePatrner from "../../../../../assets/Partners/Infor.png";
 // ---------------------------------------------------------------------- Styled Components
 
 export const ERPBanner = styled("div")(({ theme }) => ({
@@ -316,7 +316,6 @@ function Infor() {
           lgHeight="100%"
           xlHeight="100%"
           mainHeight="100%"
-          
         >
           <Stack
             direction="column"
@@ -328,14 +327,19 @@ function Infor() {
               color: "red",
               width: "100%",
               textAlign: "right",
-              position: 'relative',
-              right:"30px"
-              
+              position: "relative",
+              right: "30px",
             }}
           >
-            <Typography variant="h2" sx={{fontWeight:'bold'}}>
+            <Typography variant="h2" sx={{ fontWeight: "bold" }}>
               Infor <br /> Consulting Services
             </Typography>
+            <img
+              src={InforAliiancePatrner}
+              alt="Infor Alliance Partner "
+              height="72px"
+            />
+
           </Stack>
         </BannerImageLayer>
       </BannerImageContainer>

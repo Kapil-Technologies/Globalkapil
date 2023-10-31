@@ -70,17 +70,17 @@ function Routes() {
         // -------------------------------------------------- What we do
 
         {
-          path: "/what-we-do",
+          path: "/services",
           children: [
           
           // --------------------------------------------------- Services
             {
-              path: "services/enterprice-software/infor",
+              path: "infor-consulting-services",
               element: <Infor />,
              
             },
             {
-              path: "services/enterprice-software/sap",
+              path: "sap-consulting-services",
               element: <SAP />,
            
             },

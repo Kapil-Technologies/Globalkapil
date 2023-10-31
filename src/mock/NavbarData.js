@@ -10,13 +10,17 @@ import AppDev from "../assets/IconImages/APD.png";
 import Cloud from "../assets/IconImages/cloud.png";
 import ERP from "../assets/IconImages/ERP.png";
 import { styled } from "@mui/material/styles";
-import { FiChevronDown, FiChevronUp, FiMenu, FiX } from "react-icons/fi";
+import { FiChevronDown, FiChevronLeft, FiChevronRight, FiChevronUp, FiMenu, FiX } from "react-icons/fi";
 import ServiceIcon from "../assets/IconImages/Services.png";
 import SolutionIcon from "../assets/IconImages/solutions.png";
 
 export const UpArrow = styled(FiChevronUp)(({ theme, image }) => ({}));
 
 export const DownArrow = styled(FiChevronDown)(({ theme, image }) => ({}));
+
+export const LeftArrow = styled(FiChevronLeft)(({ theme, image }) => ({}));
+
+export const RightArrow = styled(FiChevronRight)(({ theme, image }) => ({}));
 
 export const Services = [
   {
@@ -264,180 +268,113 @@ export const NavData = [
 
   {
     id: 2,
-    title: "What we do",
+    title: "Services",
     openicon: <UpArrow />,
     closeicon: <DownArrow />,
     submenudata: 2,
     submenu: [
       {
         id: 1,
-        title: "Services",
-        submenudata: 1,
+        title: "Infor Consutling",
+        path: "/services/infor-consulting-services",
+      },
+      {
+        id: 2,
+        title: "SAP Consulting",
+        path: "/services/sap-consulting-services",
+      },
+      {
+        id: 3,
+        title: "Oracle Consulting ",
+        // path:' /services/oracle-consulting-services',
+      },
+
+      {
+        id: 4,
+        title: "Salesforce",
+        path: "",
+      },
+
+      {
+        id: 5,
+        title: "Microsoft Dynamics",
+        path: "",
+      },
+      {
+        id: 6,
+        title: "Application Development",
+        submenudata: 6,
+        openicon: <LeftArrow />,
+        closeicon: <RightArrow />,
         submenu: [
           {
             id: 1,
-            title: "Enterprise Software",
-            // path:""
-            submenudata: 1,
-            submenu: [
-              {
-                id: 1,
-                title: "Infor",
-                path: "/what-we-do/services/enterprice-software/infor",
-              },
-              {
-                id: 2,
-                title: "SAP",
-                path: "/what-we-do/services/enterprice-software/sap",
-              },
-              {
-                id: 3,
-                title: "Oracle",
-                // path: "/what-we-do/services/enterprice-software/oracle",
-              },
-            ],
+            title: "Agile",
+            // path: "/services/application-development/agile",
           },
-
           {
             id: 2,
-            title: "Cloud",
-            // path:""
-            submenudata: 2,
-            submenu: [
-              {
-                id: 1,
-                title: "Cloud Services",
-                // path: "/what-we-do/services/cloud/cloud-services",
-              },
-              {
-                id: 2,
-                title: "Unified Communication",
-                // path: "/what-we-do/services/cloud/unified-communication",
-              },
-              {
-                id: 3,
-                title: "hybrid-work-place",
-                // path: "/what-we-do/services/cloud/hybrid-work-place",
-              },
-
-              {
-                id: 4,
-                title: "Private Cloud & Infrastructure",
-                // path: "/what-we-do/services/cloud/private-cloud-and-infrastructure",
-              },
-              {
-                id: 5,
-                title: "Cyber Security",
-                // path: "/what-we-do/services/cloud/cyber-security",
-              },
-              {
-                id: 6,
-                title: "Cloud Hyper Automation Platform",
-                // path: "/what-we-do/services/cloud/cloud-hyper-automation-platform",
-              },
-            ],
+            title: "Site Reliability Engineering",
+            // path: "/services/application-development/site-reliability-engineering",
           },
-
           {
             id: 3,
-            title: "Application Developement",
-            // path:""
-            submenudata: 3,
-            submenu: [
-              {
-                id: 1,
-                title: "Agile",
-                // path: "/what-we-do/services/application-development/agile",
-              },
-              {
-                id: 2,
-                title: "Site Reliability Engineering",
-                // path: "/what-we-do/services/application-development/site-reliability-engineering",
-              },
-              {
-                id: 3,
-                title: "Low Code / No Code",
-                // path: "/what-we-do/services/application-development/low-code-no-code",
-              },
-
-              {
-                id: 4,
-                title: "DevOps",
-                // path: "/what-we-do/services/application-development/devops",
-              },
-              {
-                id: 5,
-                title: "Quality Asurance (QA) & Testing",
-                // path: "/what-we-do/services/application-development/quality-assurance",
-              },
-              {
-                id: 6,
-                title: "API & Microservices",
-                // path: "/what-we-do/services/application-development/api-and-microservices",
-              },
-            ],
+            title: "Low Code / No Code ",
+            // path: "/services/application-development/low-code-no-code  ",
           },
           {
             id: 4,
-            title: "digital",
-            // path:""
-            submenudata: 4,
-            submenu: [
-              {
-                id: 1,
-                title: "Customer Experience",
-                // path: "/what-we-do/services/digital/customer-experience",
-              },
-              {
-                id: 2,
-                title: "Data Analysis",
-                // path: "/what-we-do/services/digital/data-analysis",
-              },
-              {
-                id: 3,
-                title: "SMaas",
-                // path: "/what-we-do/services/digital/smaas",
-              },
-
-              {
-                id: 4,
-                title: "Intelligent Automation",
-                // path: "/what-we-do/services/digital/intelligent-automation",
-              },
-              {
-                id: 5,
-                title: "Block Chain",
-                // path: "/what-we-do/services/digital/block-chain",
-              },
-             
-            ],
+            title: "DevOps",
+            // path: "/services/application-development/devops",
+          },
+          {
+            id: 5,
+            title: "Quality Asurance (QA) & Testing ",
+            // path: "/services/application-development/quality-assurance-and-testing",
+          },
+          {
+            id: 6,
+            title: "API & Microservices ",
+            // path: "/services/application-development/api-microservices",
+          },
+          {
+            id: 7,
+            title: "Legacy Modernization",
+            // path: "/services/application-development/legacy-modernization",
           },
         ],
       },
       {
-        id: 2,
-        title: "Solutions ",
-        // path: "/join-us/events",
-        submenudata: 2,
+        id: 7,
+        title: "Digital",
+        submenudata: 6,
+        openicon: <LeftArrow />,
+        closeicon: <RightArrow />,
         submenu: [
           {
             id: 1,
-            title: "Infor",
-            path: "https://partners.infor.com/?q=KCS&ch=false&al=false&dv=false&apac=false&emea=false&gl=false&la=false&na=false#1666",
-            target: "blank",
-            submenudata: 1,
+            title: "Customer Experience",
+            // path: "/services/digital/customer-experience",
           },
           {
             id: 2,
-            title: "K-Mobillor",
-            // path: "/what-we-do/solutions/k-mobillor",
-            submenudata: 2,
+            title: "Data Analysis ",
+            // path: "/services/digital/data-analysis",
           },
           {
             id: 3,
-            title: "Enstarpp",
-            // path: "/what-we-do/solutions/enstrapp",
-            submenudata: 3,
+            title: "SMaaS ",
+            // path: "/services/digital/smaas",
+          },
+          {
+            id: 4,
+            title: "Intelligent Automation",
+            // path: "/services/digital/intelligent-automation",
+          },
+          {
+            id: 5,
+            title: "BlockChain ",
+            // path: "/services/digital/blockchain",
           },
         ],
       },
@@ -488,11 +425,156 @@ export const ZigZagData = [
   {
     id: 1,
     type: "image",
-    url: Zz3,
+    url: Zz2,
   },
 
   {
     id: 2,
+    type: "text",
+    content: {
+      txt1: "A clear path to ",
+      txt2: "good business",
+      txt3: "ERP Practices",
+      para: "Efficiently manage day to day business activities, ensure effective control in real time.",
+    },
+    bgcolor: "#F9B463",
+    // bgcolor: "#05E2DB",
+    textalign: "right",
+    txt1color: "#0E366A",
+    paracolor: "black",
+    subcats: [
+      {
+        id: 1,
+        li: "Infor |",
+        font: "",
+      },
+      {
+        id: 2,
+        li: "SAP |",
+        font: "",
+      },
+      {
+        id: 3,
+        li: "Oracle |",
+        font: "",
+      },
+      {
+        id: 4,
+        li: "Microsoft",
+        font: "",
+      },
+    ],
+  },
+  {
+    id: 3,
+    type: "text",
+    content: {
+      txt1: "Reimagine. Build. Grow.",
+      txt2: "Business Intelligence",
+      txt3: "",
+      para: "Powers better business-critical decision-making with the help of meaningful insights and data visualizations.",
+    },
+    bdcolor: "#55B0B7",
+    // bgcolor: "#D7D7D7",
+    textalign: "left",
+    txt1color: "#0E366A",
+    paracolor: "black",
+    subcats: [
+      {
+        id: 1,
+        li: "Power BI |",
+        font: "",
+      },
+      {
+        id: 2,
+        li: "Qlik |",
+        font: "",
+      },
+      {
+        id: 3,
+        li: "Tableau",
+        font: "",
+      },
+      // {
+      //   id: 4,
+      //   li: "MicroSoft",
+      //   font: "",
+      // },
+    ],
+  },
+  {
+    id: 5,
+    type: "image",
+    url: Zz5,
+  },
+
+  {
+    id: 8,
+    type: "image",
+    url: Zz1,
+  },
+  {
+    id: 7,
+    type: "text",
+    content: {
+      txt1: "Develop. Test. Deploy.",
+      txt2: "Resolve",
+      txt3: "Application Development",
+      para: "When you need the most - Ensuring Business continuity all times.",
+    },
+    bgcolor: "#C7D9CD",
+    textalign: "right",
+    txt1color: "#0E366A",
+    paracolor: "black",
+  },
+
+  {
+    id: 6,
+    type: "text",
+    content: {
+      txt1: "New. Now. Always",
+      txt2: "Disruptive Technologies",
+      // txt3: "Application Development",
+      para: "Advances that will transform life, business, and the global economy.",
+    },
+    bgcolor: "#D7D7D7",
+    textalign: "left",
+    txt1color: "#0E366A",
+    paracolor: "black",
+  },
+  {
+    id: 4,
+    type: "image",
+    url: Zz6,
+  },
+
+  // {
+  //   id: 12,
+  //   type: "image",
+  //   url: Zz4,
+  // },
+  // {
+  //   id: 11,
+  //   type: "text",
+  //   content: {
+  //     txt1: "Get Closure to",
+  //     txt2: "Digital Future",
+  //     txt3: "CRM Practice",
+  //     para: "Simple, predictable & robust applications to drive meaningful digital transformation and optimize your service delivery.",
+  //   },
+  //   bgcolor: "#B0DAE3",
+  //   txt1color: "#0E366A",
+  //   paracolor: "black",
+  //   textalign: "right",
+  // },
+
+  {
+    id: 9,
+    type: "image",
+    url: Zz3,
+  },
+  {
+    id: 10,
     type: "text",
     content: {
       txt1: "Meet. Greet. Motivate.",
@@ -504,104 +586,5 @@ export const ZigZagData = [
     textalign: "left",
     txt1color: "#0E366A",
     paracolor: "black",
-  },
-  {
-    id: 3,
-    type: "text",
-    content: {
-      txt1: "New. Now. Always",
-      txt2: "Disruptive Technologies",
-      txt3: "Application Development",
-      para: "Transform your core business operations with emerging technologies to enable better human interaction and end user experiences.",
-    },
-    bgcolor: "#D7D7D7",
-    textalign: "right",
-    txt1color: "#0E366A",
-    paracolor: "black",
-  },
-  {
-    id: 4,
-    type: "image",
-    url: Zz6,
-  },
-  {
-    id: 5,
-    type: "image",
-    url: Zz1,
-  },
-  {
-    id: 6,
-    type: "text",
-    content: {
-      txt1: "Reimagine. Build. Grow.",
-      txt2: "Business Intelligence",
-      txt3: "",
-      para: "Transform your core business operations with web technologies to enable better human interaction and end user experiences.",
-    },
-    bdcolor: "#55B0B7",
-    // bgcolor: "#D7D7D7",
-    textalign: "right",
-    txt1color: "#0E366A",
-    paracolor: "black",
-  },
-
-  {
-    id: 7,
-    type: "text",
-    content: {
-      txt1: "Develop. Test. Deploy.",
-      txt2: "Resolve",
-      txt3: "Application Development",
-      para: "When you need the most - Ensuring Business continuity all times.",
-    },
-    bgcolor: "#C7D9CD",
-    textalign: "left",
-    txt1color: "#0E366A",
-    paracolor: "black",
-  },
-  {
-    id: 8,
-    type: "image",
-    url: Zz5,
-  },
-  {
-    id: 9,
-    type: "image",
-    url: Zz2,
-  },
-  {
-    id: 10,
-    type: "text",
-    content: {
-      txt1: "A clear path to ",
-      txt2: "good business",
-      txt3: "ERP Practice",
-      para: "Efficiently manage day to day business activities, ensure effective control real time.",
-    },
-    bgcolor: "#F9B463",
-    // bgcolor: "#05E2DB",
-    textalign: "right",
-    txt1color: "#0E366A",
-    paracolor: "black",
-  },
-
-  {
-    id: 11,
-    type: "text",
-    content: {
-      txt1: "Get Closure to",
-      txt2: "Digital Future",
-      txt3: "CRM Practice",
-      para: "Simple, predictable & robust applications to drive meaningful digital transformation and optimize your service delivery.",
-    },
-    bgcolor: "#B0DAE3",
-    txt1color: "#0E366A",
-    paracolor: "black",
-    textalign: "left",
-  },
-  {
-    id: 12,
-    type: "image",
-    url: Zz4,
   },
 ];

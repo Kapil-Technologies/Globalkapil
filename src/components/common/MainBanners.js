@@ -2,6 +2,7 @@ import React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // -----------------------------------------------------------------  Styled Components
 

@@ -2,7 +2,7 @@ import React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import { Stack, Typography } from "@mui/material";
 import { SocialMedia } from "./SiteMap";
-import { FaCopyright } from "react-icons/fa6";
+import { FaCopyright, FaRegCopyright } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
 
 // ----------------------------------------------------------------
@@ -63,9 +63,9 @@ export const Copyright = () => {
       alignItems="center"
       justifyContent="center"
       spacing={1}
-      sx={{textAlign:'center'}}
+      sx={{ textAlign: "center" }}
     >
-      <FaCopyright />
+      <FaRegCopyright />
       <Typography>All rights reserved by {condition} 2023</Typography>
     </Stack>
   );
@@ -84,13 +84,13 @@ function Footer() {
         justifyContent="space-between"
         sx={{ color: "white", height: "inherit", p: 2 }}
       >
-        <Stack direction="row" alignItems="center" justifyContent="center" spacing={2}>
+        {/* <Stack direction="row" alignItems="center" justifyContent="center" spacing={2}>
           {Address.map((item) => (
             <MapLink to={item.link}  key={item.id}>
               {item.title}
             </MapLink>
           ))}
-        </Stack>
+        </Stack> */}
         <Copyright />
         <Typography
           variant="body1"

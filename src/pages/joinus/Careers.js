@@ -235,7 +235,7 @@ function Careers() {
           Open Positions
         </Typography>
 
-        <TabContext value={tabValue}>
+        <TabContext value={tabValue} >
           <TabList
             onChange={handleChange}
             aria-label="lab API tabs example"
@@ -276,7 +276,10 @@ function Careers() {
           </TabList>
 
           {carrersArray.map((item) => (
-            <TabPanel value={item.tabvalue} sx={{width:'90%'}}>
+            <TabPanel
+              value={item.tabvalue}
+              sx={{ width: "90%", flexWrap: "wrap" }}
+            >
               <Grid
                 container
                 columnGap={1}
@@ -286,7 +289,7 @@ function Careers() {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: 1,
-                  width:'100%'
+                  width: "100%",
                   // background: "blue",
                 }}
               >
@@ -362,8 +365,6 @@ function Careers() {
               </Grid>
             </TabPanel>
           ))}
-
-          
         </TabContext>
       </Stack>
     </MainContainer>

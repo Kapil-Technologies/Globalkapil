@@ -7,7 +7,8 @@ import MainLogo from "../assets/Logo/KTlogo2.png";
 import { NavData } from "../mock/NavbarData";
 import Media from "react-media";
 import { GoDotFill } from "react-icons/go";
-
+import Contact from "../pages/Contact";
+import InforAliiancePatrner from '../assets/Partners/Infor Logos/inforAPTransperant2.png'
 // ---------------------------------------------------------------- Styled Component
 
 export const MainHeader = styled("header")(
@@ -20,22 +21,31 @@ export const MainHeader = styled("header")(
     zIndex: 99999,
 
     // -----------------------------  Responsive
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      height: "8vh",
-    },
 
-    [theme.breakpoints.down("md")]: {
-      width: "100%",
-      height: "10vh",
-    },
-
-    [theme.breakpoints.down("xl")]: {
+    [theme.breakpoints.between("xs", "sm")]: {
+      // Mobile
       width: "100%",
       height: "15vh",
     },
 
+    [theme.breakpoints.between("sm", "md")]: {
+      // tab
+      width: "100%",
+      height: "10vh",
+    },
+
+    [theme.breakpoints.between("md", "lg")]: {
+      // Desktop
+      width: "100%",
+      height: "10vh",
+    },
+
+    // [theme.breakpoints.between("lg", "xl")]: {
+    //   // large
+    // },
+
     [theme.breakpoints.up("xl")]: {
+      // xlarge
       width: "100%",
       height: "10vh",
     },
@@ -180,7 +190,7 @@ export const SubmenuList = styled("ul")(({ theme, condition }) => ({
 
 export const SubmenuItem = styled("li")(({ theme, condition }) => ({
   listStyle: "none",
-  padding: "15px",
+  padding: "10px",
   color: "#1C3667",
 }));
 
@@ -195,12 +205,30 @@ export const SubmenuLink = styled(NavLink)(({ theme, condition }) => ({
 export const SubmenuText = styled(Box)(({ theme, condition }) => ({
   color: "#1C3667",
   textTransform: condition ? "uppercase" : "capitalize",
+  display: "flex",
+  alignItems: "center",
+  gap: 2,
+  cursor: "pointer",
   fontWeight: "bold",
   "&:focus": {
     outline: "none",
   },
 }));
 
+export const SubmenuList1 = styled("ul")(({ theme, condition }) => ({
+  width: condition ? "90%" : "auto",
+  background: condition ? "white" : "white",
+  position: "absolute",
+  right: condition ? "5%" : null,
+  top: "15vh",
+  // height: condition ? "90vh" : null,
+  height: "auto",
+  borderRadius: "10px",
+
+  [theme.breakpoints.up("xl")]: {
+    top: "10vh",
+  },
+}));
 export const SubmenuItem1 = styled("li")(({ theme, condition }) => ({
   listStyle: "none",
   width: "100%",
@@ -363,7 +391,6 @@ export const SubMenuTextMobile2 = styled(Box)(({ theme, condition }) => ({
   gap: 2,
   fontStyle: condition ? "italic" : " normal",
   textTransform: condition ? "uppercase" : "Capitalize",
-  
 }));
 
 export const SubMenuListMobile3 = styled("ul")(({ theme }) => ({
@@ -399,6 +426,24 @@ export const SubMenuTextMobile3 = styled(Box)(({ theme }) => ({
 // ---------------------------------------------------------------- Main Component
 
 function Navbar({ handleHover }) {
+  // Media Quieries
+
+  const isMobile = useMediaQuery((theme) =>
+    theme.breakpoints.between("xs", "sm")
+  );
+  const isTab = useMediaQuery((theme) => theme.breakpoints.between("sm", "md"));
+  const isDesktop = useMediaQuery((theme) =>
+    theme.breakpoints.between("md", "lg")
+  );
+
+  const isLarge = useMediaQuery((theme) =>
+    theme.breakpoints.between("lg", "xl")
+  );
+
+  const isXLarge = useMediaQuery((theme) => theme.breakpoints.up("xl"));
+
+  // ---------------------------------------------------------------- Quirers
+
   // scroll
   const [colorChange, setColorChange] = useState(false);
 
@@ -407,6 +452,10 @@ function Navbar({ handleHover }) {
 
   // submenu hover
   const [Hover, setHover] = useState(false);
+
+  const [Hover1, setHover1] = useState(false);
+  const [Hover2, setHover2] = useState(false);
+  const [Hover3, setHover3] = useState(false);
 
   // submenu1 click
   const [menu1, setmenu1] = useState(false);
@@ -475,6 +524,24 @@ function Navbar({ handleHover }) {
     setHover(false);
   };
 
+  const handleMouseEnter1 = (id) => {
+    setmenuid(id);
+    setHover1(true);
+  };
+
+  const handleMouseLeave1 = () => {
+    setHover1(false);
+  };
+
+  const handleMouseEnter2 = (id) => {
+    setmenuid(id);
+    setHover2(true);
+  };
+
+  const handleMouseLeave2 = () => {
+    setHover2(false);
+  };
+
   // menu1
 
   const handleSubmenuOpen1 = (id) => {
@@ -506,250 +573,101 @@ function Navbar({ handleHover }) {
     setmenu3(false);
   };
 
-  const belowScreens = useMediaQuery((theme) => theme.breakpoints.down("xl"));
-
-  const aboveScreens = useMediaQuery((theme) => theme.breakpoints.up("xl"));
-
   // ------------------------------------------------------------ submenu Toggle and Hover
 
   const { pathname } = useLocation();
 
-  const Infor = pathname === "/what-we-do/services/enterprice-software/infor";
+  const Infor = pathname === "/services/infor-consulting-services";
   const Contactus = pathname === "/contact-us";
 
   return (
-    <Media
-      queries={{
-        small: "(max-width: 900px)",
-        large: "(min-width: 901px)",
-      }}
+    <MainHeader
+      className="MainNav"
+      NavColor={colorChange}
+      menuopen={open}
+      visibility={visible}
+      // onMouseEnter={handleMouseLeave}
+      // onMouseLeave={handleMouseLeave}
     >
-      <MainHeader
-        className="MainNav"
-        NavColor={colorChange}
-        menuopen={open}
-        visibility={visible}
-        onMouseEnter={handleMouseLeave}
-        onMouseLeave={handleMouseLeave}
-      >
-        <MainNav
-          onMouseEnter={handleMouseLeave}
-          onMouseLeave={handleMouseLeave}
-        >
-          <RespContainer onClick={handleMainMenuToggle} className="MainNav">
-            {open ? <CloseMenu /> : <OpenMenu />}
-          </RespContainer>
-          <LogoContainer to="/home">
+      <MainNav>
+        <RespContainer onClick={handleMainMenuToggle} className="MainNav">
+          {open ? <CloseMenu /> : <OpenMenu />}
+        </RespContainer>
+        <LogoContainer to="/home">
+          {/* {Infor ? (
+            <img src={InforAliiancePatrner} alt="Infor Alliance Partner " height="72px"  />
+          ) : (
             <Logo
               src={MainLogo}
               alt="Kapil Technologies , Pt. KCS Technologies, KCS Technologies Inc"
             />
-          </LogoContainer>
+          )} */}
+          <Logo
+            src={MainLogo}
+            alt="Kapil Technologies , Pt. KCS Technologies, KCS Technologies Inc"
+          />
+          {/* 
+          <img
+            src={InforAliiancePatrner}
+            alt="Infor Alliance Partner "
+            height="70px"
+          /> */}
+        </LogoContainer>
 
-          <MainNavList className="MainNav">
-            {NavData.map((item) => (
-              <MainNavItem key={item.id}>
-                {item.path ? (
-                  <MainNavLink
-                    to={item.path}
-                    condition={Infor || Contactus}
-                    NavColor={colorChange}
-                    onMouseEnter={handleMouseLeave}
-                  >
-                    {item.title}
-                  </MainNavLink>
-                ) : (
-                  <MainNavText
-                    condition={Infor || Contactus}
-                    NavColor={colorChange}
-                    onMouseEnter={() => handleMouseEnter(item.id)}
-                  >
-                    <Typography variant="body1">{item.title}</Typography>
-                    {item.submenu && Hover && item.submenudata === menuid
-                      ? item.openicon
-                      : item.submenu
-                      ? item.closeicon
-                      : null}
-                  </MainNavText>
-                )}
-                {item.submenu && Hover && item.submenudata === menuid ? (
-                  <SubmenuList
-                    condition={item.id === 2}
-                    className="submenu"
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    {item.id === 2
-                      ? item.submenu.map((item) => (
-                          <SubmenuItem key={item.id}>
-                            {item.path ? (
-                              <SubmenuLink to={item.path}>
-                                {item.title}
-                              </SubmenuLink>
-                            ) : (
-                              <SubmenuText
-                                condition={item.submenu}
-                                to={item.path}
-                              >
-                                <Typography
-                                  variant={
-                                    belowScreens
-                                      ? "h6"
-                                      : aboveScreens
-                                      ? "h5"
-                                      : "h6"
-                                  }
-                                  sx={{ fontWeight: "bold" }}
-                                >
-                                  {item.title}
-                                </Typography>
-                              </SubmenuText>
-                            )}
-                            {item.submenu && item.id === 1 ? (
-                              <Grid
-                                container
-                                sx={{
-                                  display: "flex",
-                                  alignItems: "start",
-                                  justifyContent: "center",
-                                  marginTop: "10px",
-                                  // border: "1px solid blue",
-                                }}
-                              >
-                                {item.submenu.map((item) => (
-                                  <Grid
-                                    xs={3}
-                                    // sx={{ border: "1px solid blue" }}
-                                    key={item.id}
-                                  >
-                                    {item.path ? (
-                                      <SubmenuLink1 to={item.path}>
-                                        {item.title}
-                                      </SubmenuLink1>
-                                    ) : (
-                                      <SubmenuText1 condition={item.submenu}>
-                                        <Typography
-                                          variant="body1"
-                                          sx={{
-                                            fontWeight: "bold",
-                                            // fontStyle:'italic',
-                                            fontSize: belowScreens
-                                              ? "16px"
-                                              : aboveScreens
-                                              ? "18px"
-                                              : "18px",
-                                          }}
-                                        >
-                                          {item.title}
-                                        </Typography>
-                                      </SubmenuText1>
-                                    )}
-                                    {item.submenu.map((item) => (
-                                      <SubmenuItem2>
-                                        {item.path ? (
-                                          <SubmenuLink2
-                                            to={item.path}
-                                            onClick={handleMouseLeave}
-                                            font={
-                                              belowScreens
-                                                ? "16px"
-                                                : aboveScreens
-                                                ? "16px"
-                                                : "14px"
-                                            }
-                                          >
-                                            {item.title}
-                                          </SubmenuLink2>
-                                        ) : (
-                                          <SubmenuText2
-                                            condition={item.submenu}
-                                          >
-                                            <Typography
-                                              variant="body1"
-                                              sx={{
-                                                fontSize: belowScreens
-                                                  ? "16px"
-                                                  : aboveScreens
-                                                  ? "16px"
-                                                  : "14px",
-                                              }}
-                                            >
-                                              {item.title}
-                                            </Typography>
-                                          </SubmenuText2>
-                                        )}
-                                      </SubmenuItem2>
-                                    ))}
-                                  </Grid>
-                                ))}
-                              </Grid>
-                            ) : null}
+        <MainNavList>
+          {NavData.map((item) => (
+            <MainNavItem>
+              {item.path ? (
+                <MainNavLink
+                  to={item.path}
+                  condition={Infor || Contactus}
+                  NavColor={colorChange}
+                >
+                  {item.title}
+                </MainNavLink>
+              ) : (
+                <MainNavText
+                  onClick={() => handleMouseEnter(item.id)}
+                  condition={Infor || Contactus}
+                  NavColor={colorChange}
+                >
+                  <Typography variant="body1">{item.title}</Typography>
+                  {item.submenu && Hover && item.submenudata === menuid
+                    ? item.openicon
+                    : item.submenu
+                    ? item.closeicon
+                    : null}
+                </MainNavText>
+              )}
+              {item.submenu && Hover && item.submenudata === menuid ? (
+                <SubmenuList>
+                  {item.submenu.map((item) => (
+                    <SubmenuItem>
+                      {item.path ? (
+                        <SubmenuLink to={item.path} onClick={handleMouseLeave}>
+                          {item.title}
+                        </SubmenuLink>
+                      ) : (
+                        <SubmenuText onClick={handleMouseLeave}>
+                          <Typography variant="body1">{item.title}</Typography>
+                          {item.submenu && Hover1 && item.submenudata === menuid
+                            ? item.openicon
+                            : item.submenu
+                            ? item.closeicon
+                            : null}
+                        </SubmenuText>
+                      )}
+                    </SubmenuItem>
+                  ))}
+                </SubmenuList>
+              ) : null}
+            </MainNavItem>
+          ))}
+        </MainNavList>
 
-                            {item.submenu && item.id === 2 ? (
-                              <Grid
-                                container
-                                sx={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  justifyContent: "left",
-                                  marginTop: "10px",
-                                }}
-                              >
-                                {item.submenu.map((item) => (
-                                  <Grid xs={3} key={item.id}>
-                                    {item.path ? (
-                                      <SubmenuLink1
-                                        to={item.path}
-                                        target={item.target}
-                                      >
-                                        {item.title}
-                                      </SubmenuLink1>
-                                    ) : (
-                                      <SubmenuText1>
-                                        <Typography
-                                          variant="body1"
-                                          sx={{
-                                            fontWeight: belowScreens
-                                              ? "14px"
-                                              : aboveScreens
-                                              ? "16px"
-                                              : "14px",
-                                          }}
-                                        >
-                                          {item.title}
-                                        </Typography>
-                                      </SubmenuText1>
-                                    )}
-                                  </Grid>
-                                ))}
-                              </Grid>
-                            ) : null}
-                          </SubmenuItem>
-                        ))
-                      : item.submenudata === 3
-                      ? item.submenu.map((item) => (
-                          <SubmenuItem>
-                            {item.path ? (
-                              <SubmenuLink to={item.path}>
-                                {item.title}
-                              </SubmenuLink>
-                            ) : (
-                              <SubmenuText>
-                                <Typography variant="body1">
-                                  {item.title}
-                                </Typography>
-                              </SubmenuText>
-                            )}
-                          </SubmenuItem>
-                        ))
-                      : null}
-                  </SubmenuList>
-                ) : null}
-              </MainNavItem>
-            ))}
-          </MainNavList>
+        {/* ------------------------------------------------  Mobile Compactable --------------------- */}
 
-          {/* ------------------------------------------------  Mobile Compactable --------------------- */}
-
+        {isMobile || isTab ? (
           <MainNavListMobile menuopen={open} className="MainNav">
             {NavData.map((item) => (
               <MainNavItemMobile key={item.id}>
@@ -853,9 +771,9 @@ function Navbar({ handleHover }) {
               </MainNavItemMobile>
             ))}
           </MainNavListMobile>
-        </MainNav>
-      </MainHeader>
-    </Media>
+        ) : null}
+      </MainNav>
+    </MainHeader>
   );
 }
 

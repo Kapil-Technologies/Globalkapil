@@ -32,6 +32,11 @@ import MainBanners, {
   BannerImageContainer,
   BannerImageLayer,
 } from "../components/common/MainBanners";
+import INAP1 from '../assets/Partners/Infor Logos/inforalliancepartner.png'
+import INAP2 from "../assets/Partners/Infor Logos/inforalliancep1.png";
+import INAP3 from "../assets/Partners/Infor Logos/inforalliancepartner transpernt.png";
+import INAP4 from "../assets/Partners/Infor Logos/inforAPTransperant2.png";
+
 
 // ---------------------------------------------------------------
 
@@ -195,12 +200,13 @@ function Home() {
             sx={{ width: "inherit", height: "inherit" }}
           >
             <Stack
-              direction="row"
+              direction="column"
               alignItems="center"
-              justifyContent="left"
+              justifyContent="center"
               sx={{
                 width: "inherit",
-                height: "inherit",
+                height: "560px",
+                // background:'blue'
               }}
             >
               <Typography
@@ -210,23 +216,31 @@ function Home() {
                   color: "white",
                   fontWeight: "bold",
 
-                  pl:2,
+                  pl: 2,
                   width: "100%",
                 }}
               >
                 Transforming your <br /> Digital Future
               </Typography>
+              {/* <img src={INAP1} alt="Infor Alliance Partner " height="72px" />
+              <img src={INAP2} alt="Infor Alliance Partner " height="72px" />
+              <img src={INAP3} alt="Infor Alliance Partner " height="72px" />
+              <img src={INAP4} alt="Infor Alliance Partner " height="72px" /> */}
             </Stack>
             <Stack
-              direction="row"
+              direction="column"
               alignItems="center"
               justifyContent="center"
               sx={{
                 width: "inherit",
-                height: "inherit",
+                height: "560px",
                 position: "relative",
               }}
             >
+              {/* <img src={INAP1} alt="Infor Alliance Partner " height="72px" />
+              <img src={INAP2} alt="Infor Alliance Partner " height="72px" />
+              <img src={INAP3} alt="Infor Alliance Partner " height="72px" /> */}
+              <img src={INAP4} alt="Infor Alliance Partner " height="72px" style={{marginTop:'22vh',marginLeft:'15vh'}} />
               <Typography
                 variant={mobile ? "subtitle" : tab ? "h6" : "h4"}
                 sx={{
@@ -260,6 +274,7 @@ function Home() {
           transactions and create memorable experiences.
         </Typography>
       </Stack>
+
       <Grid
         container
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
@@ -292,7 +307,13 @@ function Home() {
                   direction="column"
                   alignItems={item.textalign}
                   justifyContent="center"
-                  sx={{ textAlign: item.textalign, height: "inherit", px: 4 }}
+                  sx={{
+                    textAlign: item.textalign,
+                    height: "inherit",
+                    px: 4,
+                    position: "relative",
+                    width: "auto",
+                  }}
                 >
                   <Typography
                     variant="h3"
@@ -318,6 +339,37 @@ function Home() {
                   >
                     {item.content.para}
                   </Typography>
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="center"
+                    spacing={2}
+                    sx={{
+                      position: "absolute",
+                      bottom: "20px",
+                      textAlign: "center",
+                      width: "90%",
+                      color: item.txt1color,
+                      // background: "blue",
+                    }}
+                  >
+                    {item.subcats
+                      ? item.subcats.map((item) => (
+                          <Typography
+                            variant="h4"
+                            key={item.id}
+                            sx={{
+                              // textTransform: "uppercase",
+                              // fontSize: "16px",
+                              color: "inherit",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            {item.li}
+                          </Typography>
+                        ))
+                      : null}
+                  </Stack>
                 </Stack>
               </Grid>
             );
@@ -332,7 +384,7 @@ function Home() {
       >
         <Clients />
       </ClientSectionsLayer>
-      <Industries />
+      {/* <Industries /> */}
 
       <Stack
         direction="row"
