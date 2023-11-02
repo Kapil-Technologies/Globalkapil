@@ -240,7 +240,7 @@ function Home() {
               {/* <img src={INAP1} alt="Infor Alliance Partner " height="72px" />
               <img src={INAP2} alt="Infor Alliance Partner " height="72px" />
               <img src={INAP3} alt="Infor Alliance Partner " height="72px" /> */}
-              <img src={INAP4} alt="Infor Alliance Partner " height="72px" style={{marginTop:'22vh',marginLeft:'15vh'}} />
+              {/* <img src={INAP4} alt="Infor Alliance Partner " height="72px" style={{marginTop:'22vh',marginLeft:'15vh'}} /> */}
               <Typography
                 variant={mobile ? "subtitle" : tab ? "h6" : "h4"}
                 sx={{

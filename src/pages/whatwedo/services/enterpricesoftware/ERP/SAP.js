@@ -344,7 +344,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
         <BannerImage src={SAPBanner} alt="ERP SAPnConsulting Services" />
       </ERPBanner>
 
-      <Stack
+      {/* <Stack
         direction="column"
         alignItems="center"
         justifyContent="center"
@@ -358,7 +358,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
           is fully committed to helping you achieve your business goals by
           providing top-notch services.
         </Typography>
-      </Stack>
+      </Stack> */}
 
       <Stack
         direction="column"
@@ -413,7 +413,7 @@ s 4hana,sap r3,sap b1,sap products,sap pp,sap india post,Kapil SAP Services,sap 
           >
             <Typography variant="body1">
               Kapil Technologies Recruiting & Staffing services is one of the
-              leading Infor related services in {Country}
+              leading SAP related services in India
             </Typography>
 
             <Card sx={{ width: "80%", p: 3 }}>

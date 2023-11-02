@@ -10,27 +10,27 @@ export const SocialMedia = [
   {
     id: 1,
     icon: <FiLinkedin />,
-    link: "",
+    link: "https://www.linkedin.com/company/kapil-technologies/",
     target: "blank",
   },
   {
     id: 2,
     icon: <FiInstagram />,
-    link: "",
+    link: "https://www.instagram.com/kapil_technologies/?next=%2F",
     target: "blank",
   },
 
   {
     id: 3,
     icon: <FiYoutube />,
-    link: "",
+    link: "https://www.youtube.com/@kcstechnologies7392",
     target: "blank",
   },
 
   {
     id: 4,
     icon: <FiFacebook />,
-    link: "",
+    link: "https://www.facebook.com/KapilTechnologies",
     target: "blank",
   },
 ];

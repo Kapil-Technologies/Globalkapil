@@ -13,11 +13,11 @@
 
 
 .MainNav {
-  transition: all 0.8s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .MainHeader {
-  transition: all 0.3s ease;
+  transition: all 0.8s ;
 }
 
 .submenu {

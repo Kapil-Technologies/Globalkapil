@@ -274,11 +274,6 @@ export const NavData = [
     submenudata: 2,
     submenu: [
       {
-        id: 1,
-        title: "Infor Consutling",
-        path: "/services/infor-consulting-services",
-      },
-      {
         id: 2,
         title: "SAP Consulting",
         path: "/services/sap-consulting-services",
@@ -377,6 +372,11 @@ export const NavData = [
             // path: "/services/digital/blockchain",
           },
         ],
+      },
+      {
+        id: 1,
+        title: "Infor Consutling",
+        path: "/services/infor-consulting-services",
       },
     ],
   },

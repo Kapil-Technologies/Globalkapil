@@ -717,10 +717,10 @@ export const SAPHSServicesM = [
     id: 4,
     list: "HR Success Factors.",
   },
-  {
-    id: 5,
-    list: "PS Work Break Down Structures.",
-  },
+  // {
+  //   id: 5,
+  //   list: "PS Work Break Down Structures.",
+  // },
   {
     id: 6,
     list: "Security",
@@ -944,14 +944,14 @@ export const SAPFiori2 = [
     id: 6,
     li: "Leveraging SAP HANA Cloud Platform (HCP) for development.",
   },
-  {
-    id: 7,
-    li: "Providing support based on SAP Fiori/SAPUI5 solutions and best practices.",
-  },
-  {
-    id: 8,
-    li: "Offering specialized UX expertise in connection with Suite on S/4HANA.",
-  },
+  // {
+  //   id: 7,
+  //   li: "Providing support based on SAP Fiori/SAPUI5 solutions and best practices.",
+  // },
+  // {
+  //   id: 8,
+  //   li: "Offering specialized UX expertise in connection with Suite on S/4HANA.",
+  // },
 ];
 
 export const SAPTrainingList = [
