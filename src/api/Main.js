@@ -10,14 +10,14 @@ export const postEnquiry = async (data) => {
     `${APIURL}kapil-Enquiry`,
     JSON.stringify({
       fname: data.fname,
-      lname: data.lnamw,
-      cName: data.cName,
+      lname: data.lname,
+      cName: data.cname,
       email: data.cemail,
       businessVertical:data.industry,
       location: data.location,
       country:data.country,
       ccode: data.ccode,
-      mobileNumber: data.mobileNumber,
+      mobileNumber: data.mobile,
       message: data.message,
     }),
     {
@@ -27,5 +27,6 @@ export const postEnquiry = async (data) => {
       },
     }
   );
+  // console.log(data)
   return response;
 };

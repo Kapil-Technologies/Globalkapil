@@ -82,19 +82,17 @@ function Contactform() {
       <Typography variant="h5">Reach Our Team!</Typography>
 
       <Stack direction="row" alignItems="center" justifyContent="center">
-        {setTimeout(() => {
-          Message === "success" ? (
-            <Alert severity="success">
-              "Thank you for reaching out and expressing interest in our
-              services.Our Sales Representative will react out to you with in 24
-              business hours."
-            </Alert>
-          ) : Message === "error" ? (
-            <Alert severity="warning">
-              Something Went Wrong ! Please Try again Later.
-            </Alert>
-          ) : null;
-        }, 2000)}
+        {Message === "success" ? (
+          <Alert severity="success">
+            "Thank you for reaching out and expressing interest in our
+            services.Our Sales Representative will react out to you with in 24
+            business hours."
+          </Alert>
+        ) : Message === "error" ? (
+          <Alert severity="warning">
+            Something Went Wrong ! Please Try again Later.
+          </Alert>
+        ) : null}
       </Stack>
 
       <Stack
