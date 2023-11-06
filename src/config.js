@@ -6,5 +6,5 @@ import { useMediaQuery } from "@mui/material";
 
 // ------------------------------------------------------------------   API URL
 
-export const APIURL = ""
+export const APIURL = process.env.REACT_APP_SERVER_URL;
 

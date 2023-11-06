@@ -214,7 +214,7 @@ function Navbar() {
   const handleMouseDelayLeave = () => {
     setTimeout(() => {
       setHover(false);
-    }, 5000);
+    }, 1000);
   };
 
   // ------------------------------------------------------------- Click Functions
@@ -291,7 +291,7 @@ function Navbar() {
             ) : null}
             {isDesktop || isLargeScreen || isXLarge ? (
               item.submenu && Hover && item.submenudata === hoverMenuid ? (
-                <SubNavList condition={Infor}>
+                <SubNavList condition={Infor} >
                   {item.submenu.map((item) => (
                     <SubNavItem>
                       {item.path ? (

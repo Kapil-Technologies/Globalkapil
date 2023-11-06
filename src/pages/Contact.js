@@ -69,7 +69,7 @@ function Contact() {
         smHeight="320px"
         mdHeight="400px"
         lgHeight="380px"
-        xlHeight="auto"
+        xlHeight="auto" 
         mainHeight="auto"
       >
         <BannerImage
@@ -254,18 +254,17 @@ function Contact() {
 
             <Typography variant="body1">{item.add1}</Typography>
             <Typography variant="body1">{item.add2}</Typography>
-           {item.add3 ? ( <Typography variant="body1">{item.add3}</Typography>) : null}
-            {
-              item.add4 ? ( <Typography variant="body1">{item.add4}</Typography>) : null
-           }
-           
+            {item.add3 ? (
+              <Typography variant="body1">{item.add3}</Typography>
+            ) : null}
+            {item.add4 ? (
+              <Typography variant="body1">{item.add4}</Typography>
+            ) : null}
 
             <Stack direction="row" alignItems="center" spacing={1}>
               <FiPhone />
               <NavigateLink2 to={item.number1}>{item.number}</NavigateLink2>
             </Stack>
-
-          
           </Grid>
         ))}
       </Grid>

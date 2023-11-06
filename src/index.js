@@ -14,7 +14,7 @@ root.render(
 );
 
 // ReactGA.pageview(window.location.pathname + window.location.search);
-ReactGA.event({ category: "Button", action: "Click", label: "Contact Us" });
+ReactGA.event({ category: "Button", action: "Click", label: "ContactUs_KAPILTECH" });
 
 const SendAnalytics = () => {
   ReactGA.send({
