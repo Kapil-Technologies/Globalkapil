@@ -5,7 +5,8 @@ console.log(APIURL)
 
 
 
-export const postEnquiry = async (data) => {
+export const postEnquiry = async (data, code) => {
+  console.log(code)
   const response = await axios.post(
     `${APIURL}kapil-Enquiry`,
     JSON.stringify({
@@ -16,7 +17,7 @@ export const postEnquiry = async (data) => {
       businessVertical:data.industry,
       location: data.location,
       country:data.country,
-      ccode: data.ccode,
+      ccode: code,
       mobileNumber: data.mobile,
       message: data.message,
     }),

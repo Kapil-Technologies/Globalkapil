@@ -19,18 +19,20 @@ import { postEnquiry } from "../../api/Main";
 const schema = yup.object({
   fname: yup.string(),
   lname: yup.string(),
-  cname: yup.string(),
-  cemail: yup.string(),
+  cname: yup.string().required("Mention Company Name"),
+  cemail: yup.string().email("Invalid Email formatt!"),
   industry: yup.string(),
   location: yup.string(),
   country: yup.string(),
-  ccode: yup.string(),
+
   mobile: yup.string(),
   message: yup.string(),
 });
 
 function Contactform() {
   const [Message, setMessage] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+
   const defaultValues = {
     fname: "",
     lname: "",
@@ -39,7 +41,6 @@ function Contactform() {
     industry: "",
     location: "",
     country: "",
-    ccode: "",
     mobile: "",
     message: "",
   };
@@ -55,8 +56,8 @@ function Contactform() {
   });
 
   const onSubmit = (data) => {
-    console.log("form Data", data);
-    postEnquiry(data)
+    console.log("form Data", data, countryCode);
+    postEnquiry(data, countryCode)
       .then((res) => {
         console.log(res);
         const status = res.data.code;
@@ -69,6 +70,7 @@ function Contactform() {
         setMessage("error");
       });
   };
+
   return (
     <Stack
       direction="column"
@@ -81,20 +83,6 @@ function Contactform() {
     >
       <Typography variant="h5">Reach Our Team!</Typography>
 
-      <Stack direction="row" alignItems="center" justifyContent="center">
-        {Message === "success" ? (
-          <Alert severity="success">
-            "Thank you for reaching out and expressing interest in our
-            services.Our Sales Representative will react out to you with in 24
-            business hours."
-          </Alert>
-        ) : Message === "error" ? (
-          <Alert severity="warning">
-            Something Went Wrong ! Please Try again Later.
-          </Alert>
-        ) : null}
-      </Stack>
-
       <Stack
         direction="row"
         alignItems="center"
@@ -102,8 +90,18 @@ function Contactform() {
         spacing={1}
         sx={{ width: "100%" }}
       >
-        <TextField label="First Name" {...register("fname")} fullWidth />
-        <TextField label="Last Name" {...register("lname")} fullWidth />
+        <TextField
+          label="First Name"
+          {...register("fname")}
+          fullWidth
+          autoCapitalize
+        />
+        <TextField
+          label="Last Name"
+          {...register("lname")}
+          fullWidth
+          autoCapitalize
+        />
       </Stack>
       <Stack
         direction="row"
@@ -112,7 +110,12 @@ function Contactform() {
         spacing={2}
         sx={{ width: "100%" }}
       >
-        <TextField label="Company" {...register("cname")} fullWidth />
+        <TextField
+          label="Company"
+          {...register("cname")}
+          fullWidth
+          autoCapitalize
+        />
         <TextField label="Email" {...register("cemail")} fullWidth />
       </Stack>
       <Stack
@@ -157,6 +160,7 @@ function Contactform() {
                 options={countrys}
                 onChange={(e, newValue) => {
                   onChange(newValue ? newValue.label : null);
+                  setCountryCode(newValue.dail);
                 }}
                 renderInput={(params) => (
                   <TextField {...params} label="Country" />
@@ -166,34 +170,12 @@ function Contactform() {
           }}
         />
 
-        <Controller
-          name="ccode"
-          control={control}
-          render={({ field }) => {
-            const { onChange, value } = field;
-            return (
-              <Autocomplete
-                fullWidth
-                value={
-                  value
-                    ? countrys.find((option) => {
-                        return value == option.dail;
-                      }) ?? null
-                    : null
-                }
-                getOptionLabel={(option) => {
-                  return `${option.id} - (${option.dail})`;
-                }}
-                options={countrys}
-                onChange={(e, newValue) => {
-                  onChange(newValue ? newValue.dail : null);
-                }}
-                renderInput={(params) => (
-                  <TextField {...params} label="Country Code" />
-                )}
-              />
-            );
-          }}
+        <TextField
+          label="Code"
+          value={countryCode}
+          width="20%"
+          onChange={(e) => setCountryCode(e.target.value)}
+          disabled={countryCode !== ""}
         />
 
         <TextField label="Phone Number" {...register("mobile")} fullWidth />
@@ -214,13 +196,24 @@ function Contactform() {
       </Stack>
       <Stack
         direction="row"
-        alignItems="left"
-        justifyContent="left"
+        alignItems="center"
+        justifyContent="space-between"
         sx={{ width: "100%" }}
       >
         <Button variant="contained" type="submit" endIcon={<VscSend />}>
           Send
         </Button>
+        <Stack direction="row" alignItems="center" justifyContent="center" width="80%">
+          {Message === "success" ? (
+            <Alert severity="success">
+              Thank you for your interest in our Services, We will get back to you with in 24 business hours.
+            </Alert>
+          ) : Message === "error" ? (
+            <Alert severity="warning">
+              Something Went Wrong ! Please Try again Later.
+            </Alert>
+          ) : null}
+        </Stack>
       </Stack>
     </Stack>
   );
