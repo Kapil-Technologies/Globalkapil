@@ -5,14 +5,17 @@ import Zz3 from "../assets/Zigzag/3.jpg";
 import Zz4 from "../assets/Zigzag/4.png";
 import Zz5 from "../assets/Zigzag/5.jpg";
 import Zz6 from "../assets/Zigzag/6.jpg";
-import Digital from "../assets/IconImages/digital.png";
-import AppDev from "../assets/IconImages/APD.png";
-import Cloud from "../assets/IconImages/cloud.png";
-import ERP from "../assets/IconImages/ERP.png";
+
 import { styled } from "@mui/material/styles";
-import { FiChevronDown, FiChevronLeft, FiChevronRight, FiChevronUp, FiMenu, FiX } from "react-icons/fi";
-import ServiceIcon from "../assets/IconImages/Services.png";
-import SolutionIcon from "../assets/IconImages/solutions.png";
+import {
+  FiArrowDownRight,
+  FiChevronDown,
+  FiChevronLeft,
+  FiChevronRight,
+  FiChevronUp,
+  FiMenu,
+  FiX,
+} from "react-icons/fi";
 
 export const UpArrow = styled(FiChevronUp)(({ theme, image }) => ({}));
 
@@ -26,7 +29,7 @@ export const Services = [
   {
     submenudata: 1,
     Mtitle: "Enterprise Software",
-    icon: ERP,
+
     menu3: [
       // {
       //   submenudata: 1,
@@ -74,7 +77,7 @@ export const Services = [
   {
     submenudata: 2,
     Mtitle: "Cloud",
-    icon: Cloud,
+
     menu3: [
       {
         submenudata: 1,
@@ -111,7 +114,7 @@ export const Services = [
   {
     submenudata: 3,
     Mtitle: " Application Development",
-    icon: AppDev,
+
     menu3: [
       {
         submenudata: 1,
@@ -154,7 +157,7 @@ export const Services = [
   {
     submenudata: 4,
     Mtitle: "Digital",
-    icon: Digital,
+
     menu3: [
       {
         submenudata: 1,
@@ -274,125 +277,140 @@ export const NavData = [
     submenudata: 2,
     submenu: [
       {
-        id: 2,
-        title: "SAP Consulting",
-        path: "/services/sap-consulting-services",
-      },
-      {
-        id: 3,
-        title: "Oracle Consulting ",
-        // path:' /services/oracle-consulting-services',
-      },
-
-      {
-        id: 4,
-        title: "Salesforce",
-        path: "",
-      },
-
-      {
-        id: 5,
-        title: "Microsoft Dynamics",
-        path: "",
-      },
-      {
-        id: 6,
-        title: "Application Development",
-        submenudata: 6,
-        openicon: <LeftArrow />,
-        closeicon: <RightArrow />,
+        id: 1,
+        title: "Professional Services",
+        submenul3: 1,
         submenu: [
           {
             id: 1,
-            title: "Agile",
-            // path: "/services/application-development/agile",
+            title: "Infor Consulting Services",
+            path: "/services/infor-consulting-services",
+            icon: <FiArrowDownRight />,
           },
           {
             id: 2,
-            title: "Site Reliability Engineering",
-            // path: "/services/application-development/site-reliability-engineering",
+            title: "Digital Transformation",
+            // path: "/services/infor-consulting-services/ref2",
+            icon: <FiArrowDownRight />,
           },
           {
             id: 3,
-            title: "Low Code / No Code ",
-            // path: "/services/application-development/low-code-no-code  ",
+            title: "Data & Analytics",
+            icon: <FiArrowDownRight />,
+            // path: "/services/infor-consulting-services/ref3",
           },
           {
             id: 4,
-            title: "DevOps",
-            // path: "/services/application-development/devops",
+            title: "Enterprise Software Development",
+            icon: <FiArrowDownRight />,
+            // path: "/services/infor-consulting-services/ref4",
           },
           {
             id: 5,
-            title: "Quality Asurance (QA) & Testing ",
-            // path: "/services/application-development/quality-assurance-and-testing",
+            title: "Automation",
+            icon: <FiArrowDownRight />,
+            // path: "/services/infor-consulting-services/ref5",
+          },
+        ],
+      },
+      {
+        id: 2,
+        // title: "Managed Services",
+        submenul3: 2,
+
+        submenu: [
+          {
+            id: 1,
+            title: "Managed Services",
+            submenul3: 2,
+            submenu: [
+              {
+                id: 1,
+                title: "Managed Services for Infor",
+                icon: <FiArrowDownRight />,
+                path: "/services/infor-consulting-services",
+              },
+              {
+                id: 2,
+                title: "Managed Services for SAP",
+                icon: <FiArrowDownRight />,
+                path: "/services/managed-services-of-sap",
+              },
+              // {
+              //   id: 3,
+              //   title: "Managed Services for SAP",
+              //   icon: <FiArrowDownRight />,
+              //   // path: "/services/infor-consulting-services",
+              // },
+            ],
+          },
+          {
+            id: 2,
+            title: "Other Services",
+            submenul3: 2,
+            submenu: [
+              {
+                id: 1,
+                title: "Staffing Services",
+                icon: <FiArrowDownRight />,
+                // path: "/services/infor-consulting-services",
+              },
+              {
+                id: 2,
+                title: "TaaS (Testing as a Service)",
+                icon: <FiArrowDownRight />,
+                // path: "/services/infor-consulting-services",
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: 3,
+        title: "Products",
+        submenul3: 3,
+        submenu: [
+          {
+            id: 1,
+            title: " KT Finstaa",
+            icon: <FiArrowDownRight />,
+            // path: "",
+          },
+          {
+            id: 2,
+            title: "KT Fleet Management",
+            icon: <FiArrowDownRight />,
+            // path: "",
+          },
+          {
+            id: 3,
+            title: "KT Mobillor",
+            icon: <FiArrowDownRight />,
+            // path: "",
+          },
+          {
+            id: 4,
+            title: "KT MES (Manufacturing Excecution System)",
+            icon: <FiArrowDownRight />,
+            // path: "",
+          },
+          {
+            id: 5,
+            title: "KT MIP (Manufacturing Integration Platform)",
+            icon: <FiArrowDownRight />,
+            // path: "",
           },
           {
             id: 6,
-            title: "API & Microservices ",
-            // path: "/services/application-development/api-microservices",
-          },
-          {
-            id: 7,
-            title: "Legacy Modernization",
-            // path: "/services/application-development/legacy-modernization",
+            title: "KT APS (Advanced Planning & Scheduling System)",
+            icon: <FiArrowDownRight />,
+            // path: "",
           },
         ],
-      },
-      {
-        id: 7,
-        title: "Digital",
-        submenudata: 6,
-        openicon: <LeftArrow />,
-        closeicon: <RightArrow />,
-        submenu: [
-          {
-            id: 1,
-            title: "Customer Experience",
-            // path: "/services/digital/customer-experience",
-          },
-          {
-            id: 2,
-            title: "Data Analysis ",
-            // path: "/services/digital/data-analysis",
-          },
-          {
-            id: 3,
-            title: "SMaaS ",
-            // path: "/services/digital/smaas",
-          },
-          {
-            id: 4,
-            title: "Intelligent Automation",
-            // path: "/services/digital/intelligent-automation",
-          },
-          {
-            id: 5,
-            title: "BlockChain ",
-            // path: "/services/digital/blockchain",
-          },
-        ],
-      },
-      {
-        id: 1,
-        title: "Infor Consutling",
-        path: "/services/infor-consulting-services",
       },
     ],
   },
-  // {
-  //   id: 3,
-  //   title: "Solutions",
-  //   openicon: <UpArrow />,
-  //   closeicon: <DownArrow />,
-  //   submenudata: 3,
-  //   submenu: Solutions,
-  // },
-  // {
-  //   id: 4,
-  //   title: "Our Alliances",
-  //   path: "/our-alliances",
-  // },
 
   {
     id: 3,
@@ -415,7 +433,7 @@ export const NavData = [
     ],
   },
   {
-    id: 6,
+    id: 4,
     title: "Contact Us ",
     path: "/contact-us",
   },

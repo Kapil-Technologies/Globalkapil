@@ -72,31 +72,23 @@ function Routes() {
         {
           path: "/services",
           children: [
-          
-          // --------------------------------------------------- Services
+            // --------------------------------------------------- Services
             {
               path: "infor-consulting-services",
               element: <Infor />,
-             
             },
             {
-              path: "sap-consulting-services",
+              path: "managed-services-of-sap",
               element: <SAP />,
-           
             },
 
             // {
             //   path: "services/enterprice-software/oracle",
             //   element: <SAP />,
-             
+
             // },
 
             // ---------------------------------------- Solution
-
-            
-
-           
-
           ],
         },
 
