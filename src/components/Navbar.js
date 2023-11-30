@@ -314,7 +314,7 @@ function Navbar() {
         {MainMenuOpen ? <MenuClose /> : <MenuOpen />}
       </RespContainer>
       <LogoContainer to="/home" scroll={HoverCondition} Infor={Infor || SAP}>
-        <LOGO />
+        <Logo src={KapilLogo}   />
       </LogoContainer>
 
       <MainNavList>
