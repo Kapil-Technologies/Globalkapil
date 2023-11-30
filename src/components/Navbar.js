@@ -7,6 +7,7 @@ import KapilLogo from "../assets/Logo/KTlogo2.png";
 import { NavData } from "../mock/NavbarData";
 import InforAlliancePartner1 from "../assets/Partners/Infor Logos/inforAPTransperant2.png";
 import InforAlliancePartner2 from "../assets/Partners/Infor.png";
+import LOGO from "./common/LOGO";
 
 // -------------------------------------------------------------  Styled Components
 
@@ -298,24 +299,22 @@ function Navbar() {
   const SAP = pathname === "/services/managed-services-of-sap";
 
   const HoverCondition =
-    (Hover && hoverMenuid === 2) || (Hover && hoverMenuid === 3);
+    (Hover && hoverMenuid === 2) ||
+    (Hover && hoverMenuid === 3) ||
+    (Hover && hoverMenuid === 4);
 
   return (
     <MainContainer
       className="MainHeader"
       scroll={scrollData}
-      condition={(Hover && hoverMenuid === 2) || (Hover && hoverMenuid === 3)}
+      condition={HoverCondition}
       onMouseLeave={handleMouseLeaves}
     >
       <RespContainer onClick={handleOpenMainMenu}>
         {MainMenuOpen ? <MenuClose /> : <MenuOpen />}
       </RespContainer>
-      <LogoContainer
-        to="/home"
-        scroll={(Hover && hoverMenuid === 2) || (Hover && hoverMenuid === 3)}
-        Infor={Infor || SAP}
-      >
-        <Logo src={KapilLogo} width="52px" height="72px" />
+      <LogoContainer to="/home" scroll={HoverCondition} Infor={Infor || SAP}>
+        <LOGO />
       </LogoContainer>
 
       <MainNavList>
@@ -329,9 +328,7 @@ function Navbar() {
                 to={item.path}
                 Infor={Infor || SAP}
                 scroll={scrollData}
-                hover={
-                  (Hover && hoverMenuid === 2) || (Hover && hoverMenuid === 3)
-                }
+                hover={HoverCondition}
               >
                 {item.title}
               </MainNavLink>
@@ -344,9 +341,7 @@ function Navbar() {
                 // onMouseLeave={handleMouseDelayLeave}
                 Infor={Infor || SAP}
                 scroll={scrollData}
-                hover={
-                  (Hover && hoverMenuid === 2) || (Hover && hoverMenuid === 3)
-                }
+                hover={HoverCondition}
               >
                 <Typography variant="body">{item.title}</Typography>
 
@@ -367,12 +362,12 @@ function Navbar() {
             {isDesktop || isLargeScreen || isXLarge ? (
               item.submenu && Hover && item.submenudata === hoverMenuid ? (
                 <SubNavList
-                  condition={item.submenudata === 2}
+                  condition={item.submenudata === 3}
                   scroll={scrollData}
                   onMouseLeave={handleMouseLeaves}
                   className="MainHeader"
                 >
-                  {item.submenudata === 2 ? (
+                  {item.submenudata === 3 ? (
                     <Stack
                       direction="row"
                       alignItems="start"
@@ -495,7 +490,7 @@ function Navbar() {
                         </Stack>
                       ))}
                     </Stack>
-                  ) : item.submenudata === 3 ? (
+                  ) : item.submenudata === 2 || item.submenudata === 4 ? (
                     item.submenu.map((item) => (
                       <SubNavItem>
                         {item.path ? (
@@ -515,17 +510,19 @@ function Navbar() {
         ))}
       </MainNavList>
 
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="center"
-        sx={{ background: "white", marginRight: "10px" }}
-      >
-        <InforLogo
-          src={InforAlliancePartner2}
-          alt="Kapil Technologies and Infor Alliance Partner "
-        />
-      </Stack>
+      {!SAP ? (
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+          sx={{ background: "white", marginRight: "10px" }}
+        >
+          <InforLogo
+            src={InforAlliancePartner2}
+            alt="Kapil Technologies and Infor Alliance Partner "
+          />
+        </Stack>
+      ) : null}
     </MainContainer>
   );
 }
