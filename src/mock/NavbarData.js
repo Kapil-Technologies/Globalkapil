@@ -25,242 +25,6 @@ export const LeftArrow = styled(FiChevronLeft)(({ theme, image }) => ({}));
 
 export const RightArrow = styled(FiChevronRight)(({ theme, image }) => ({}));
 
-export const Services = [
-  {
-    submenudata: 1,
-    Mtitle: "Enterprise Software",
-
-    menu3: [
-      // {
-      //   submenudata: 1,
-      //   title: "ERP",
-      //   path: "/services/enterprise-software/erp",
-      // },
-      // {
-      //   submenudata: 2,
-      //   title: "CRM ",
-      //   // path: "/services/enterprise-software/crm",
-      // },
-      // {
-      //   submenudata: 3,
-      //   title: "Industry Platform",
-      //   // path: "/services/enterprise-software/indutry-platform ",
-      // },
-      // {
-      //   submenudata: 4,
-      //   title: "EHS",
-      //   // path: "/services/enterprise-software/ehs",
-      // },
-      // {
-      //   submenudata: 5,
-      //   title: "Digital Content Management ",
-      //   // path: "/services/enterprise-software/digital-content-management",
-      // },
-
-      {
-        submenudata: 1,
-        title: "Infor",
-        path: "/services/enterprice-software/infor",
-      },
-      {
-        submenudata: 2,
-        title: "SAP",
-        path: "/services/enterprice-software/sap",
-      },
-      {
-        submenudata: 3,
-        title: "Oracle",
-        path: "/services/enterprice-software/oracle",
-      },
-    ],
-  },
-  {
-    submenudata: 2,
-    Mtitle: "Cloud",
-
-    menu3: [
-      {
-        submenudata: 1,
-        title: "Cloud Services",
-        // path: "/services/cloud/cloud-services",
-      },
-      {
-        submenudata: 2,
-        title: "Unified Communication ",
-        // path: "/services/cloud/unified-communication",
-      },
-      {
-        submenudata: 3,
-        title: "Hybrid Workplace ",
-        // path: "/services/cloud/hybrid-workplace  ",
-      },
-      {
-        submenudata: 4,
-        title: "Private Cloud & Infrastructure",
-        // path: "/services/cloud/private-cloud-and-infrastructure",
-      },
-      {
-        submenudata: 5,
-        title: "Cyber Security ",
-        // path: "/services/cloud/cyber-security",
-      },
-      {
-        submenudata: 6,
-        title: "Cloud Hyper Automation Platform ",
-        // path: "/services/cloud/cloud-hyper-automation-platform",
-      },
-    ],
-  },
-  {
-    submenudata: 3,
-    Mtitle: " Application Development",
-
-    menu3: [
-      {
-        submenudata: 1,
-        title: "Agile",
-        // path: "/services/application-development/agile",
-      },
-      {
-        submenudata: 2,
-        title: "Site Reliability Engineering ",
-        // path: "/services/application-development/site-reliability-engineering",
-      },
-      {
-        submenudata: 3,
-        title: "Low Code / No Code ",
-        // path: "/services/application-development/low-code-no-code  ",
-      },
-      {
-        submenudata: 4,
-        title: "DevOps",
-        // path: "/services/application-development/devops",
-      },
-      {
-        submenudata: 5,
-        title: "Quality Asurance (QA) & Testing ",
-        // path: "/services/application-development/quality-assurance-and-testing",
-      },
-      {
-        submenudata: 6,
-        title: "API & Microservices ",
-        // path: "/services/application-development/api-microservices",
-      },
-      {
-        submenudata: 7,
-        title: "Legacy Modernization",
-        // path: "/services/application-development/legacy-modernization",
-      },
-    ],
-  },
-
-  {
-    submenudata: 4,
-    Mtitle: "Digital",
-
-    menu3: [
-      {
-        submenudata: 1,
-        title: "Customer Experience",
-        // path: "/services/digital/customer-experience",
-      },
-      {
-        submenudata: 2,
-        title: "Data Analysis ",
-        // path: "/services/digital/data-analysis",
-      },
-      {
-        submenudata: 3,
-        title: "SMaaS ",
-        // path: "/services/digital/smaas",
-      },
-      {
-        submenudata: 4,
-        title: "Intelligent Automation",
-        // path: "/services/digital/intelligent-automation",
-      },
-      {
-        submenudata: 5,
-        title: "BlockChain ",
-        // path: "/services/digital/blockchain",
-      },
-    ],
-  },
-];
-
-export const Solutions = [
-  {
-    submenudata: 1,
-    title: "Infor",
-    path: "https://partners.infor.com/?q=KCS&ch=false&al=false&dv=false&apac=false&emea=false&gl=false&la=false&na=false#1666",
-    target: "_blank",
-  },
-  {
-    submenudata: 2,
-    title: "K-Mobillor",
-    // path: "/solutions/k-mobillor",
-  },
-  {
-    submenudata: 3,
-    title: "Enstrapp",
-    // path: "/solutions/Enstrapp",
-  },
-  // {
-  //   submenudata: 4,
-  //   title: "WorkDay",
-  //   path: "/solutions/workday",
-  // },
-];
-
-export const AboutData = [
-  {
-    submenudata: 1,
-    title: "Our Story",
-    path: "/about-us/our-story",
-  },
-  // {
-  //   submenudata: 2,
-  //   title: "Our Battalion",
-  //   path: "/about-us/our-battalion",
-  // },
-  // {
-  //   submenudata: 3,
-  //   title: "Our Customers",
-  //   path: "/about-us/our-customers",
-  // },
-  {
-    submenudata: 4,
-    title: "Our Alliances",
-    path: "/about-us/our-alliances",
-  },
-];
-
-export const ContactData = [
-  {
-    id: 1,
-    title: "Contact Us",
-    path: "/contact/contact-us",
-  },
-  {
-    id: 2,
-    title: "Our Global Presence ",
-    path: "/contact/our-global-presence",
-  },
-];
-
-export const JoinUsData = [
-  {
-    id: 1,
-    title: "Serach Jobs",
-    path: "/join-us/search-jobs",
-  },
-  {
-    id: 2,
-    title: "Events ",
-    // path: "/join-us/events",
-  },
-];
-
 export const NavData = [
   {
     id: 1,
@@ -269,12 +33,37 @@ export const NavData = [
     submenudata: 1,
   },
 
+  // {
+  //   id: 2,
+  //   title: "About Us",
+  //   openicon: <UpArrow />,
+  //   closeicon: <DownArrow />,
+  //   submenudata: 2,
+  //   submenu: [
+  //     {
+  //       id: 1,
+  //       title: "Company",
+  //       // path: "/join-us/search-jobs",
+  //     },
+  //     {
+  //       id: 2,
+  //       title: "Our Team",
+  //       // path: "/join-us/events",
+  //     },
+  //     {
+  //       id: 3,
+  //       title: "Life @ KCS",
+  //       // path: "/join-us/events",
+  //     },
+  //   ],
+  // },
+
   {
-    id: 2,
+    id: 3,
     title: "Services",
     openicon: <UpArrow />,
     closeicon: <DownArrow />,
-    submenudata: 2,
+    submenudata: 3,
     submenu: [
       {
         id: 1,
@@ -283,7 +72,7 @@ export const NavData = [
         submenu: [
           {
             id: 1,
-            title: "Infor Consulting Services",
+            title: "Infor  Consulting Services ",
             path: "/services/infor-consulting-services",
             icon: <FiArrowDownRight />,
           },
@@ -389,36 +178,36 @@ export const NavData = [
             icon: <FiArrowDownRight />,
             // path: "",
           },
-          {
-            id: 4,
-            title: "KT MES (Manufacturing Excecution System)",
-            icon: <FiArrowDownRight />,
-            // path: "",
-          },
-          {
-            id: 5,
-            title: "KT MIP (Manufacturing Integration Platform)",
-            icon: <FiArrowDownRight />,
-            // path: "",
-          },
-          {
-            id: 6,
-            title: "KT APS (Advanced Planning & Scheduling System)",
-            icon: <FiArrowDownRight />,
-            // path: "",
-          },
+          // {
+          //   id: 4,
+          //   title: "KT MES (Manufacturing Excecution System)",
+          //   icon: <FiArrowDownRight />,
+          //   // path: "",
+          // },
+          // {
+          //   id: 5,
+          //   title: "KT MIP (Manufacturing Integration Platform)",
+          //   icon: <FiArrowDownRight />,
+          //   // path: "",
+          // },
+          // {
+          //   id: 6,
+          //   title: "KT APS (Advanced Planning & Scheduling System)",
+          //   icon: <FiArrowDownRight />,
+          //   // path: "",
+          // },
         ],
       },
     ],
   },
 
   {
-    id: 3,
+    id: 4,
     title: "Join Us",
     // path: "/services",
     openicon: <UpArrow />,
     closeicon: <DownArrow />,
-    submenudata: 3,
+    submenudata: 4,
     submenu: [
       {
         id: 1,
@@ -433,7 +222,7 @@ export const NavData = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Contact Us ",
     path: "/contact-us",
   },

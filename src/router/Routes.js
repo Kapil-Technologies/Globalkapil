@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
@@ -14,15 +14,61 @@ import SAP from "../pages/whatwedo/services/enterpricesoftware/ERP/SAP";
 import Events from "../pages/joinus/Events";
 import DigitalContent from "../pages/whatwedo/services/enterpricesoftware/digitalcontent/DigitalContent";
 import CloudServices from "../pages/whatwedo/services/cloud/cloudservices/CloudServices";
+import { useMediaQuery } from "@mui/material";
+import { ViewCount } from "../api/Main";
 
 
 // -------------------------------------------------------------------------------------
 
 
 function Routes() {
-  const HostName = window.location.hostname;
+  // ----------------------------------------------------- Browser Details
 
-  console.log(HostName);
+  const Browser = navigator.userAgentData.brands[0];
+
+  const BrowserData = `${Browser.brand} | V - ${Browser.version}`;
+
+  // console.log(BrowserData);
+
+  // ----------------------------------------------------- Device Details
+
+  const Mobile = useMediaQuery((theme) =>
+    theme.breakpoints.between("xs", "sm")
+  );
+  const Tab = useMediaQuery((theme) => theme.breakpoints.between("sm", "md"));
+  const Desktop = useMediaQuery((theme) =>
+    theme.breakpoints.between("md", "lg")
+  );
+
+  const Large = useMediaQuery((theme) => theme.breakpoints.between("lg", "xl"));
+
+  const XstraLarge = useMediaQuery((theme) => theme.breakpoints.up("xl"));
+
+  let Devices;
+
+  Mobile
+    ? (Devices = "Mobile | (0-600px)")
+    : Tab
+    ? (Devices = "Tab | (600px-900px)")
+    : Desktop
+    ? (Devices = "Desktop | (900px-1200px)")
+    : Large
+    ? (Devices = "Large | (1200px-1536px)")
+    : XstraLarge
+    ? (Devices = "TV | (>1536px)")
+    : (Devices = "Devices More Than 1536px");
+
+  // ----------------------------------------------------------------- View Count
+
+  useEffect(() => {
+    ViewCount(BrowserData, Devices)
+      .then((res) => {
+        // console.log(res);
+      })
+      .catch((err) => {
+        // console.log(err);
+      });
+  }, []);
 
   return useRoutes([
     {

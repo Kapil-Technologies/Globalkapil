@@ -19,7 +19,6 @@ export const customTheme = createTheme({
         color: "red",
       },
     },
-    
   },
 
   palette: {
@@ -28,8 +27,7 @@ export const customTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: ['Fira Sans', " sans-serif"].join(","),
-    
+    fontFamily: ["Work Sans", " sans-serif"].join(","),
 
     // h2: {
     //   fontFamily: ["Dancing Script", "cursive"].join(","),
