@@ -112,7 +112,7 @@ export const MainNavList = styled("ul")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  width: "100%",
+  // width: "100%",
   // background:'blue'
 }));
 
@@ -296,7 +296,7 @@ function Navbar() {
   const { pathname } = useLocation();
 
   const Infor = pathname === "/services/infor-consulting-services";
-  const SAP = pathname === "/services/managed-services-of-sap";
+  const SAP = pathname === "/services/managed-services-of-infor";
 
   const HoverCondition =
     (Hover && hoverMenuid === 2) ||
@@ -314,7 +314,7 @@ function Navbar() {
         {MainMenuOpen ? <MenuClose /> : <MenuOpen />}
       </RespContainer>
       <LogoContainer to="/home" scroll={HoverCondition} Infor={Infor || SAP}>
-        <Logo src={KapilLogo}   />
+        <Logo src={KapilLogo} />
       </LogoContainer>
 
       <MainNavList>
@@ -508,21 +508,20 @@ function Navbar() {
             ) : null}
           </MainNavItem>
         ))}
+        {SAP ? (
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            sx={{ background: "white", marginRight: "10px" }}
+          >
+            <InforLogo
+              src={InforAlliancePartner2}
+              alt="Kapil Technologies and Infor Alliance Partner "
+            />
+          </Stack>
+        ) : null}
       </MainNavList>
-
-      {!SAP ? (
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          sx={{ background: "white", marginRight: "10px" }}
-        >
-          <InforLogo
-            src={InforAlliancePartner2}
-            alt="Kapil Technologies and Infor Alliance Partner "
-          />
-        </Stack>
-      ) : null}
     </MainContainer>
   );
 }
