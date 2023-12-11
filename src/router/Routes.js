@@ -120,11 +120,11 @@ function Routes() {
           children: [
             // --------------------------------------------------- Services
             {
-              path: "infor-consulting-services",
+              path: "managed-services-of-infor",
               element: <Infor />,
             },
             {
-              path: "managed-services-of-sap",
+              path: "sap-consulting-services",
               element: <SAP />,
             },
 

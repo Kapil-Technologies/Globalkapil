@@ -72,8 +72,8 @@ export const NavData = [
         submenu: [
           {
             id: 1,
-            title: "Infor  Consulting Services ",
-            path: "/services/infor-consulting-services",
+            title: "SAP Consulting Services ",
+            path: "/services/sap-consulting-services",
             icon: <FiArrowDownRight />,
           },
           {
@@ -117,14 +117,14 @@ export const NavData = [
                 id: 1,
                 title: "Managed Services for Infor",
                 icon: <FiArrowDownRight />,
-                path: "/services/infor-consulting-services",
+                path: "/services/managed-services-of-infor",
               },
-              {
-                id: 2,
-                title: "Managed Services for SAP",
-                icon: <FiArrowDownRight />,
-                path: "/services/managed-services-of-sap",
-              },
+              // {
+              //   id: 2,
+              //   title: "Managed Services for SAP",
+              //   icon: <FiArrowDownRight />,
+              //   path: "/services/managed-services-of-sap",
+              // },
               // {
               //   id: 3,
               //   title: "Managed Services for SAP",
