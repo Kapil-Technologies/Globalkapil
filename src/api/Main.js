@@ -33,12 +33,15 @@ export const postEnquiry = async (data, code) => {
   return response;
 };
 
-export const ViewCount = async (browser, device) => {
+export const ViewCount = async (data) => {
   const response = await axios.post(
     `${APIURL}visitors`,
     JSON.stringify({
-      browserDetails: browser,
-      deviceDetails: device,
+      browsername: data.browsername,
+      browserversion: data.browserversion,
+      deviceSizeType: data.deviceSizeType,
+      deviceVP: data.deviceVP,
+      visitedPage: data.page,
       domain: "kapiltech.com",
     }),
     {
