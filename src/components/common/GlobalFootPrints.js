@@ -69,82 +69,87 @@ function GlobalFootPrints({ SelectedCountry }) {
       sx={{
         display: "flex",
         alignItems: "start",
-        justifyContent: "left",
+        justifyContent: "center",
         width: "100%",
         gap: 2,
       }}
     >
-      {OfficeAddress.sort(function (a, b) {
-        if (a.country < b.country) {
-          return -1;
-        }
-        if (a.country > b.country) {
-          return 1;
-        }
-        return 0;
-      })
-        .filter((item) =>
-          item.countryCode.includes(SelectedCountry)
-        )
-        .map((item) => (
-          <Grid
-            item
-            sx={{
-              border: "1px solid black",
-              p: 1,
-              display: "flex",
-              alignItems: "left",
-              justifyContent: "left",
-              flexDirection: "column",
-              gap: 0.5,
-              height: 300,
-            }}
-            xs={12}
-            sm={12}
-            md={3.8}
-            lg={3.8}
-            xl={3.8}
-          >
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: "bold", textTransform: "uppercase" }}
-              >
-                {item.country}
-              </Typography>
-            </Stack>
+      {OfficeAddress.filter((item) =>
+        item.countryCode.includes(SelectedCountry)
+      ).map((item) => (
+        <Grid
+          item
+          key={item.id}
+          sx={{
+            border: "1px solid black",
+            p: 1,
+            display: "flex",
+            alignItems: "left",
+            justifyContent: "left",
+            flexDirection: "column",
+            gap: 0.5,
+            height: "auto",
+          }}
+          xs={12}
+          sm={12}
+          md={4}
+          lg={4.8}
+          xl={4}
+        >
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                color: "#D6000D",
+              }}
+            >
+              {item.country}
+            </Typography>
+          </Stack>
 
+          {item.compName ? (
             <Typography variant="body1" sx={{ fontWeight: "bold" }}>
               {item.compName}
             </Typography>
-
-            <Typography variant="body1" sx={{ fontStyle: "italic" }}>
+          ) : item.careof ? (
+            <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+              {item.careof}
+            </Typography>
+          ) : null}
+          {item.SubComp ? (
+            <Typography variant="body2" sx={{ fontStyle: "italic" }}>
               {item.SubComp}
             </Typography>
+          ) : null}
 
-            <Typography variant="body1">{item.add1},</Typography>
-            <Typography variant="body1">{item.add2},</Typography>
-            {/* <Typography variant="body1">{item.add3}</Typography> */}
-            {item.add3 ? (
-              <Typography variant="body1">{item.add3},</Typography>
-            ) : null}
-            {item.add4 ? (
-              <Typography variant="body1">{item.add4}</Typography>
-            ) : null}
-            {item.contactManager ? (
-              <Stack direction="row" alignItems="center" spacing={1}>
-                <Typography variant="body1">Contact Person :</Typography>
-                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                  {item.contactManager}
-                </Typography>
-              </Stack>
-            ) : null}
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <FiMail />
-              <NavigateLink to={item.mailto}>{item.email}</NavigateLink>
-            </Stack>
-          </Grid>
-        ))}
+          <Typography variant="body1">{item.add1}</Typography>
+          {item.add2 ? (
+            <Typography variant="body1">{item.add2}</Typography>
+          ) : null}
+
+          {item.add3 || item.add4 ? (
+            <Typography variant="body1">
+              {item.add3},{item.add4}
+            </Typography>
+          ) : null}
+
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+              {item.contactManager}
+            </Typography>
+
+            <Typography variant="body1">|</Typography>
+
+            <NavigateLink to={item.mailto}>{item.email}</NavigateLink>
+          </Stack>
+          {/* 
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <FiMail />
+          </Stack> */}
+        </Grid>
+      ))}
     </Grid>
   );
 }

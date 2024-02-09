@@ -15,6 +15,8 @@ import Events from "../pages/joinus/Events";
 import DigitalContent from "../pages/whatwedo/services/enterpricesoftware/digitalcontent/DigitalContent";
 import CloudServices from "../pages/whatwedo/services/cloud/cloudservices/CloudServices";
 import { useMediaQuery } from "@mui/material";
+import JobDescription from "../pages/joinus/Jobdescription";
+import JobClosed from "../components/common/JobClosed";
 
 
 
@@ -59,6 +61,16 @@ function Routes() {
             {
               path: "/join-us",
               element: <Navigate to="/join-us/search-jobs" exact replace />,
+            },
+
+            {
+              path: "application/:jobid",
+              element: <JobDescription />,
+            },
+
+            {
+              path: "application/:jobid/closed",
+              element: <JobClosed />,
             },
 
             {

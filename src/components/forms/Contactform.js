@@ -14,7 +14,7 @@ import { VscSend } from "react-icons/vsc";
 import { countrys } from "../../mock/ContactData";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { postEnquiry } from "../../api/Main";
+import { Enquiry, postEnquiry } from "../../api/Main";
 
 const schema = yup.object({
   fname: yup.string(),
@@ -57,7 +57,7 @@ function Contactform() {
 
   const onSubmit = (data) => {
     console.log("form Data", data, countryCode);
-    postEnquiry(data, countryCode)
+    Enquiry(data, countryCode)
       .then((res) => {
         console.log(res);
         const status = res.data.code;
@@ -203,10 +203,16 @@ function Contactform() {
         <Button variant="contained" type="submit" endIcon={<VscSend />}>
           Send
         </Button>
-        <Stack direction="row" alignItems="center" justifyContent="center" width="80%">
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+          width="80%"
+        >
           {Message === "success" ? (
             <Alert severity="success">
-              Thank you for your interest in our Services, We will get back to you with in 24 business hours.
+              Thank you for your interest in our Services, We will get back to
+              you with in 24 business hours.
             </Alert>
           ) : Message === "error" ? (
             <Alert severity="warning">

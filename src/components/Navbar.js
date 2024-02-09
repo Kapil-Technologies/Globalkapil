@@ -11,55 +11,51 @@ import InforAlliancePartner2 from "../assets/Partners/Infor.png";
 
 // -------------------------------------------------------------  Styled Components
 
-export const MainContainer = styled("header")(
-  ({ theme, scroll, condition }) => ({
-    width: "100%",
-    height: scroll ? "12vh" : "15vh",
-    background: condition
-      ? "#efefef"
-      : scroll
-      ? "rgba(22, 36, 56,0.8)"
-      : "transperant",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    position: "fixed",
-    zIndex: 9999,
-    backdropFilter: scroll ? "blur(5px)" : null,
-    WebkitBackdropFilter: scroll ? "blur(5px)" : null,
+export const MainContainer = styled("header")(({ theme, scroll, condition,job }) => ({
+  width: "100%",
+  height: scroll ? "12vh" : "15vh",
+  background: condition
+    ? "#efefef"
+    : scroll
+    ? "rgba(22, 36, 56,0.8)"
+    : "transperant",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  position: job ? "relative" : "fixed",
+  zIndex: 9999,
+  backdropFilter: scroll ? "blur(5px)" : null,
+  WebkitBackdropFilter: scroll ? "blur(5px)" : null,
 
-    [theme.breakpoints.between("xs", "sm")]: {
-      //  mobile
-    },
+  [theme.breakpoints.between("xs", "sm")]: {
+    //  mobile
+  },
 
-    [theme.breakpoints.between("sm", "md")]: {
-      // tab
-    },
+  [theme.breakpoints.between("sm", "md")]: {
+    // tab
+  },
 
-    [theme.breakpoints.between("md", "lg")]: {
-      // Desktop
-    },
+  [theme.breakpoints.between("md", "lg")]: {
+    // Desktop
+  },
 
-    [theme.breakpoints.up("xl")]: {
-      height: "10vh",
-    },
-  })
-);
+  [theme.breakpoints.up("xl")]: {
+    height: "10vh",
+  },
+}));
 
 // ----------------------------------------------------- Logo Components
 
-export const LogoContainer = styled(Link)(
-  ({ theme, scroll, Infor, condition }) => ({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "10px",
-    textDecoration: "none",
-    fontSize: "28px",
-    color: scroll ? "black" : Infor ? "white" : "white",
-    // color: condition ? "white" :"black",
-  })
-);
+export const LogoContainer = styled(Link)(({ theme, scroll, Infor, condition,job }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "10px",
+  textDecoration: "none",
+  fontSize: "28px",
+  color: scroll || job ? "black" : Infor ? "white" : "white",
+  // color: condition ? "white" :"black",
+}));
 
 export const Logo = styled("img")(({ theme }) => ({
   width: "53px",
@@ -123,18 +119,18 @@ export const MainNavItem = styled("li")(({ theme }) => ({
 }));
 
 export const MainNavLink = styled(NavLink)(
-  ({ theme, Infor, scroll, hover }) => ({
+  ({ theme, Infor, scroll, hover,job }) => ({
     textDecoration: "none",
     textTransform: "uppercase",
     // color: Infor || hover ? "#162438" : Infor && scroll ? "white" : "#162438",
-    color: (Infor && !scroll) || hover ? "#162438" : "white",
+     color: (Infor && !scroll) || hover || job ? "#162438" : "white",
   })
 );
 
-export const MainNavText = styled("div")(({ theme, Infor, scroll, hover }) => ({
+export const MainNavText = styled("div")(({ theme, Infor, scroll, hover ,job}) => ({
   textTransform: "uppercase",
   // color: Infor || hover ? "#162438" : Infor && scroll ? "white" : "#162438",
-  color: (Infor && !scroll) || hover ? "#162438" : "white",
+   color: (Infor && !scroll) || hover || job ? "#162438" : "white",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -210,7 +206,7 @@ export const SubNavText1 = styled("div")(({ theme }) => ({}));
 
 // -------------------------------------------------------------  Main  Components
 
-function Navbar() {
+function Navbar({ jobid }) {
   // ------------------------------------------------------------- Media Quires
 
   const isMobile = useMediaQuery((theme) =>
@@ -297,6 +293,7 @@ function Navbar() {
 
   const Infor = pathname === "/services/infor-consulting-services";
   const SAP = pathname === "/services/managed-services-of-infor";
+  const jobdescription = pathname === `/join-us/application/${jobid}`;
 
   const HoverCondition =
     (Hover && hoverMenuid === 2) ||
@@ -309,11 +306,17 @@ function Navbar() {
       scroll={scrollData}
       condition={HoverCondition}
       onMouseLeave={handleMouseLeaves}
+      job={jobdescription}
     >
       <RespContainer onClick={handleOpenMainMenu}>
         {MainMenuOpen ? <MenuClose /> : <MenuOpen />}
       </RespContainer>
-      <LogoContainer to="/home" scroll={HoverCondition} Infor={Infor || SAP}>
+      <LogoContainer
+        to="/home"
+        scroll={HoverCondition}
+        Infor={Infor || SAP}
+        job={jobdescription}
+      >
         <Logo src={KapilLogo} />
       </LogoContainer>
 
@@ -329,6 +332,7 @@ function Navbar() {
                 Infor={Infor || SAP}
                 scroll={scrollData}
                 hover={HoverCondition}
+                job={jobdescription}
               >
                 {item.title}
               </MainNavLink>
@@ -342,6 +346,7 @@ function Navbar() {
                 Infor={Infor || SAP}
                 scroll={scrollData}
                 hover={HoverCondition}
+                job={jobdescription}
               >
                 <Typography variant="body">{item.title}</Typography>
 
@@ -366,6 +371,7 @@ function Navbar() {
                   scroll={scrollData}
                   onMouseLeave={handleMouseLeaves}
                   className="MainHeader"
+                  job={jobdescription}
                 >
                   {item.submenudata === 3 ? (
                     <Stack

@@ -5,17 +5,14 @@ import { useMediaQuery } from "@mui/material";
 export const Paths = {
   Home: "/home",
   about: "",
-  Infor: "/services/infor-consulting-services",
-  sap: "/services/managed-services-of-sap",
+  Infor: "/services/managed-services-of-infor",
+  sap: "/services/sap-consulting-services",
   digitalTransformation: "",
   staffing: "/services/others/staffing",
   contactus: "/contact-us",
   jobopenings: "/join-us/search-jobs",
 };
 
-
-
 // ------------------------------------------------------------------   API URL
 
 export const APIURL = process.env.REACT_APP_SERVER_URL;
-

@@ -15,26 +15,25 @@ import BreadCrums from "./components/BreadCrums";
 import ScrollToTop from "./components/ScrollToTop";
 import { useLocation } from "react-router-dom";
 
-
 function App() {
+  const { pathname } = useLocation();
 
-  const { pathname } = useLocation()
+  const cid = pathname.split("/")[3];
+  const condition1 = pathname === "/404";
 
-  
-  
-
- 
+  const condition2 = pathname === `/join-us/application/${cid}`;
+  const condition3 = pathname === `/join-us/application/${cid}/closed`;
 
   return (
     <ThemeProvider theme={customTheme}>
       <HelmetProvider>
         <ScrollToTop />
-        {pathname !== "/404" ? <Navbar  /> : null}
+        {!condition1 ? <Navbar jobid={cid} /> : null}
         {/* <BreadCrums /> */}
 
         <Routes />
-        {/* {pathname !== "/404" ? <SiteMap /> : null} */}
-        {pathname !== "/404" ? <Footer /> : null}
+
+        {!condition1 ? <Footer /> : null}
       </HelmetProvider>
     </ThemeProvider>
   );

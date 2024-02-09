@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import { useSnackbar } from "notistack";
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Box,
   Button,
   Card,
@@ -13,6 +17,7 @@ import {
   TablePagination,
   TextField,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import CareersImage from "../../assets/Banners/Careers.jpg";
 import {
@@ -26,6 +31,7 @@ import {
   filters,
 } from "../../mock/CareersData";
 import {
+  FiChevronDown,
   FiDollarSign,
   FiLinkedin,
   FiMail,
@@ -33,9 +39,9 @@ import {
   FiSend,
 } from "react-icons/fi";
 import Pagination from "../../components/Pagination";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TbCertificate2 } from "react-icons/tb";
-import { FaRupeeSign } from "react-icons/fa";
+import { FaDotCircle, FaRupeeSign } from "react-icons/fa";
 import Page from "../../components/Page";
 import {
   BannerImageContainer,
@@ -43,8 +49,42 @@ import {
   BannerImage,
 } from "../../components/common/MainBanners";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
+import { getOpenings, getPositions } from "../../api/Main";
 
 // ----------------------------------------------------------------
+
+const filtersData = [
+  {
+    id: 1,
+    filtername: "All",
+    filtervalue: "All",
+  },
+  {
+    id: 2,
+    filtername: "Infor",
+    filtervalue: "Infor",
+  },
+  {
+    id: 3,
+    filtername: "SAP",
+    filtervalue: "SAP",
+  },
+  {
+    id: 4,
+    filtername: "Web Technologies",
+    filtervalue: "Web Technologies",
+  },
+  {
+    id: 5,
+    filtername: "Oracle",
+    filtervalue: "Oracle",
+  },
+  {
+    id: 6,
+    filtername: "Others",
+    filtervalue: "Others",
+  },
+];
 
 export const MainContainer = styled(Stack)(({ theme, image, path }) => ({
   // backgroundColor: "#162438",
@@ -61,12 +101,6 @@ export const MainContainer = styled(Stack)(({ theme, image, path }) => ({
   },
 }));
 
-// export const BannerImage = styled("img")(({ theme, image, path }) => ({
-//   width: " 100%",
-//   maxWidth: "100%",
-//   height: 500,
-// }));
-
 export const BannerLayer = styled(Stack)(({ theme, image, path }) => ({
   width: " 100%",
   height: 500,
@@ -75,98 +109,114 @@ export const BannerLayer = styled(Stack)(({ theme, image, path }) => ({
   top: 0,
 }));
 
-export const JobOpeningCard = styled(Card)(({ theme, image, path }) => ({
-  width: " 100%",
+export const JobContainer = styled(Stack)(({ theme, image, path }) => ({
+  width: "100%",
   height: "auto",
-  borderRadius: "25px",
-  border: "1px solid #d3e1ea",
-  padding: "15px",
+  // border: "1px solid #d3e1ea",
+  padding: "20px",
+
+  marginBottom: "10px",
 }));
 
-export const SkillTag = styled(Box)(({ theme, image, path }) => ({
-  width: " auto",
+export const FilterContainer = styled(Grid)(({ theme, image, path }) => ({
   height: "auto",
-  paddingLeft: "15px",
-  paddingRight: "15px",
-  paddingTop: "5px",
-  paddingBottom: "5px",
-  border: "1px solid #162438",
-  borderRadius: "20px",
+  border: "1px solid blue",
+  padding: "10px",
+  display: "flex",
+  alignItems: "start",
+  justifyContent: "left",
+  flexDirection: "column",
+}));
+
+export const OpeningsContainer = styled(Grid)(({ theme, image, path }) => ({
+  height: 200,
+  width: 100 % 0,
+  // border: "1px solid blue",
+  padding: "10px",
+  display: "flex",
+  alignItems: "start",
+  justifyContent: "left",
+  flexDirection: "column",
+  backgroundColor: "#fff",
+  gap: 2,
+  position: "relative",
+  borderRadius: "10px",
+  border: "1px solid #d3e1ea",
+  boxShadow: "inset #fff 0px 0px 60px -12px",
+}));
+
+export const JobOpeningCard = styled(Card)(({ theme, image, path }) => ({
+  width: "100%",
+  border: "1px solid #d3e1ea",
+  padding: "10px",
+  borderRadius: "10px",
+}));
+
+export const JobDot = styled(Box)(({ theme, image, path }) => ({
+  width: 8,
+  height: 8,
+  background: "black",
+  borderRadius: "50%",
+  position: "relative",
+  top: "10px",
 }));
 
 // ---------------------------------------------------------------
 
-function Careers() {
-  const checkboxesRef = useRef([]);
-  const [checkedState, setcheckedState] = useState();
-  const [selectedFilters, setselectedFilters] = useState([]);
-  const [filteredList, setFilteredList] = useState(CareersArray);
+function Careers({ careersid }) {
+  const Navigate = useNavigate();
+  const [expanded, setExpanded] = React.useState(false);
 
-  const handleFilterQuery = (filter, id) => {
-    console.log(id.target.value, id.target.checked);
-    setcheckedState(id.target.checked);
-    if (selectedFilters.includes(filter)) {
-      let filters = selectedFilters.filter((el) => el !== filter);
-      setselectedFilters(filters);
-    } else {
-      setselectedFilters([...selectedFilters, filter]);
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  const handleNavigate = (job) => {
+    if (job.status === "active") {
+      Navigate(`/join-us/application/${job.jobid}`);
+    } else if (job.status === "closed") {
+      Navigate(`/join-us/application/${job.jobid}/closed`);
     }
-  };
-
-  useEffect(() => {
-    filterItems();
-  }, [selectedFilters]);
-
-  console.log(selectedFilters);
-
-  const filterItems = () => {
-    if (selectedFilters.length > 0) {
-      let tempItems = selectedFilters.map((selectedCategory) => {
-        console.log(selectedCategory);
-        let temp1 = CareersArray.filter(
-          (item) => item.deptvalue === selectedCategory
-        );
-        return temp1;
-      });
-
-      console.log(tempItems.flat());
-      setFilteredList(tempItems.flat());
-    } else {
-      setFilteredList([...CareersArray]);
-    }
-  };
-
-  const uncheckAll = () => {};
-
-  const handleReset = (e) => {
-    setselectedFilters("");
-    checkboxesRef.current.forEach((checkbox) => {
-      checkbox.checked = false;
-    });
-  };
-
-  // ---------------------------------------------------- Pagination
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(2);
-
-  // Avoid a layout jump when reaching the last page with empty rows.
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
   };
 
   // -------------------------------------------------------------
 
-  const [tabValue, settabValue] = React.useState("1");
+  const Mobile = useMediaQuery((theme) =>
+    theme.breakpoints.between("xs", "sm")
+  );
+  const Tab = useMediaQuery((theme) => theme.breakpoints.between("sm", "md"));
+  const Desktop = useMediaQuery((theme) =>
+    theme.breakpoints.between("md", "lg")
+  );
 
-  const handleChange = (event, newValue) => {
-    settabValue(newValue);
-  };
+  const Large = useMediaQuery((theme) => theme.breakpoints.between("lg", "xl"));
+
+  const XstraLarge = useMediaQuery((theme) => theme.breakpoints.up("xl"));
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const [currentOPenings, setCurrentOpenings] = useState([]);
+
+  useEffect(() => {
+    getOpenings()
+      .then((res) => {
+        // console.log(res);
+        const status = res.data.success;
+        if (status === true) {
+          // enqueueSnackbar(res.data.message, { variant: "success" });
+          setCurrentOpenings(res.data.response);
+        } else {
+          // enqueueSnackbar(res.data.message, { variant: "error" });
+        }
+      })
+      .catch((err) => {
+        // console.log(err);
+        enqueueSnackbar(err.message, { variant: "error" });
+        enqueueSnackbar(err, { variant: "error" });
+      });
+  }, []);
+
+  // -------------------------------------------------------------
 
   return (
     <MainContainer
@@ -221,152 +271,175 @@ function Careers() {
         </BannerImageLayer>
       </BannerImageContainer>
 
-      <Stack
-        sx={{ py: 2, width: "100%", textAlign: "left" }}
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        spacing={2}
+      <Typography variant="h5" sx={{ p: 2, fontWeight: "bold" }}>
+        Current Openings
+      </Typography>
+
+      {/* <Grid
+        container
+        sx={{
+          width: "60%",
+          direction: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
       >
-        <Typography
-          variant="h5"
-          sx={{ fontWeight: "bold", textTransform: "uppercase" }}
-        >
-          Open Positions
-        </Typography>
-
-        <TabContext value={tabValue} >
-          <TabList
-            onChange={handleChange}
-            aria-label="lab API tabs example"
+        {filtersData.map((item) => (
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            key={item.id}
             sx={{
-              "& button": {
-                // borderRadius: 2,
-                fontSize: "18px",
-                fontWeight: "bold",
-              },
-
-              ".Mui-selected": {
-                color: "#162438",
-                fontWeight: "bold",
-                fontSize: "18px",
-              },
+              py: 1,
+              px: 3,
+              bgcolor: "#012C54",
+              color: "white",
+              cursor: "pointer",
+              borderRadius: "10px",
             }}
           >
-            {CarrersTabs.map((item) => (
-              <Tab
-                key={item.id}
-                label={
-                  <Stack direction="row" alignItems="center" spacing={1}>
-                    <img src={item.tabflag} width="30px" height="30px" />
-                    <Typography
-                      variant="h6"
-                      sx={{ textTransform: "uppercase" }}
-                    >
-                      {item.tabName}
-                    </Typography>
-                  </Stack>
-                }
-                value={item.tabvalue}
-                sx={{
-                  textTransform: "capitalize",
-                }}
-              />
-            ))}
-          </TabList>
+            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              {item.filtername}
+            </Typography>
+          </Stack>
+        ))}
+      </Grid> */}
 
-          {carrersArray.map((item) => (
-            <TabPanel
-              value={item.tabvalue}
-              sx={{ width: "90%", flexWrap: "wrap" }}
-            >
-              <Grid
-                container
-                columnGap={1}
-                rowGap={1}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 1,
-                  width: "100%",
-                  // background: "blue",
-                }}
+      <JobContainer
+        direction="row"
+        alignItems="start"
+        justifyContent="center"
+        component={Grid}
+        container
+        columnGap={1}
+        rowGap={1}
+      >
+        {currentOPenings.length === 0 ? (
+          <Typography>No Positions Found</Typography>
+        ) : (
+          currentOPenings.map((item) =>
+            item.status === "active" ? (
+              <Accordion
+                sx={{ width: "90%", background: "#d3e1ea" }}
+                key={item.id}
               >
-                {item.careers.map((item) => (
-                  <Grid
-                    item
-                    xs={3.5}
-                    component={Stack}
+                <AccordionSummary
+                  expandIcon={<FiChevronDown />}
+                  aria-controls="panel1-content"
+                  id={item.id}
+                  sx={{ borderBottom: "1px solid grey" }}
+                >
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    sx={{ width: "100%" }}
+                  >
+                    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                      {item.jobtitle}
+                    </Typography>
+                    {Mobile || Tab ? (
+                      <Button
+                        variant="contained"
+                        onClick={() => handleNavigate(item.jobid)}
+                        sx={{ mr: 3 }}
+                      >
+                        Apply
+                      </Button>
+                    ) : (
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="space-between"
+                        sx={{ width: "30%" }}
+                      >
+                        <Typography
+                          variant="body1"
+                          sx={{ pr: 2, fontWeight: "bold" }}
+                        >
+                          {item.jobid}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          sx={{ pr: 2, fontWeight: "bold" }}
+                        >
+                          {item.category}
+                        </Typography>
+                        <Button
+                          variant="contained"
+                          onClick={() => handleNavigate(item)}
+                          sx={{ mr: 3 }}
+                        >
+                          Apply
+                        </Button>
+                      </Stack>
+                    )}
+                  </Stack>
+                </AccordionSummary>
+                <AccordionDetails sx={{ width: "100%" }}>
+                  <Stack
                     direction="column"
                     alignItems="left"
                     justifyContent="left"
-                    spacing={3}
-                    sx={{ background: "#F7F7F7", p: 2, height: 220 }}
+                    spacing={2}
+                    sx={{ width: "100%" }}
                   >
-                    <Typography
-                      variant="body1"
-                      sx={{ textTransform: "uppercase" }}
-                    >
-                      {item.dept}
-                    </Typography>
-
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        textTransform: "uppercase",
-                        fontWeight: "bold",
-                        mb: "5px",
-                      }}
-                    >
-                      {item.jobTitle}
-                    </Typography>
-                    <Stack direction="row" alignItems="center" spacing={2}>
-                      <Typography variant="body1">Experience:</Typography>
-                      <Typography variant="body1">{item.exp}</Typography>
-                    </Stack>
-
                     <Stack
                       direction="row"
                       alignItems="center"
-                      spacing={2}
-                      sx={{ mb: "10px" }}
+                      sx={{ width: "100%%" }}
+                      spacing={1}
                     >
-                      <Typography variant="body1">
-                        No. of Position(s):
+                      <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                        Experience
                       </Typography>
-                      <Typography variant="body1">{item.positions}</Typography>
+                      <Typography variant="body1">:</Typography>
+                      <Typography variant="body1">{item.experience}</Typography>
                     </Stack>
-
-                    <Typography
-                      variant="body"
-                      sx={{
-                        textTransform: "capitalize",
-                        // fontWeight: "bold",
-                        mb: "5px",
-                      }}
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      sx={{ width: "100%%" }}
+                      spacing={1}
                     >
-                      {item.type}
-                    </Typography>
-
-                    <Typography
-                      variant="body1"
-                      component={Link}
-                      to={`mailto:hr@kcs-tech.com?subject=Application Regarding ${item.jobTitle}`}
-                      sx={{
-                        textTransform: "uppercase",
-                        textDecoration: "none",
-                      }}
+                      <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                        Job Type
+                      </Typography>
+                      <Typography variant="body1">:</Typography>
+                      <Typography variant="body1">{item.jobtype}</Typography>
+                    </Stack>
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      sx={{ width: "100%%" }}
+                      spacing={1}
                     >
-                      Apply Now
-                    </Typography>
-                  </Grid>
-                ))}
-              </Grid>
-            </TabPanel>
-          ))}
-        </TabContext>
-      </Stack>
+                      <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                        Duration
+                      </Typography>
+                      <Typography variant="body1">:</Typography>
+                      <Typography variant="body1">{item.duration}</Typography>
+                    </Stack>
+                    <Stack
+                      direction="row"
+                      alignItems="center"
+                      sx={{ width: "100%%" }}
+                      spacing={1}
+                    >
+                      <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                        Job Mode
+                      </Typography>
+                      <Typography variant="body1">:</Typography>
+                      <Typography variant="body1">{item.jobmode}</Typography>
+                    </Stack>
+                  </Stack>
+                </AccordionDetails>
+              </Accordion>
+            ) : null
+          )
+        )}
+      </JobContainer>
     </MainContainer>
   );
 }
