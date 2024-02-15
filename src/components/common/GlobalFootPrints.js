@@ -140,7 +140,7 @@ function GlobalFootPrints({ SelectedCountry }) {
               {item.contactManager}
             </Typography>
 
-            <Typography variant="body1">|</Typography>
+            {/* <Typography variant="body1">|</Typography> */}
 
             <NavigateLink to={item.mailto}>{item.email}</NavigateLink>
           </Stack>

@@ -17,6 +17,8 @@ import CloudServices from "../pages/whatwedo/services/cloud/cloudservices/CloudS
 import { useMediaQuery } from "@mui/material";
 import JobDescription from "../pages/joinus/Jobdescription";
 import JobClosed from "../components/common/JobClosed";
+import SAP2 from "../pages/whatwedo/services/enterpricesoftware/ERP/SAP2";
+// import SAP2 from "../pages/whatwedo/services/enterpricesoftware/ERP/SAP2";
 
 
 
@@ -92,7 +94,7 @@ function Routes() {
             },
             {
               path: "sap-consulting-services",
-              element: <SAP />,
+              element: <SAP2 />,
             },
 
             // {

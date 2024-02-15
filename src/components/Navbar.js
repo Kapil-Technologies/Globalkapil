@@ -7,6 +7,7 @@ import KapilLogo from "../assets/Logo/KTlogo2.png";
 import { NavData } from "../mock/NavbarData";
 import InforAlliancePartner1 from "../assets/Partners/Infor Logos/inforAPTransperant2.png";
 import InforAlliancePartner2 from "../assets/Partners/Infor.png";
+import LOGO from "./common/LOGO";
 
 
 // -------------------------------------------------------------  Styled Components
@@ -317,7 +318,7 @@ function Navbar({ jobid }) {
         Infor={Infor || SAP}
         job={jobdescription}
       >
-        <Logo src={KapilLogo} />
+        <LOGO />
       </LogoContainer>
 
       <MainNavList>

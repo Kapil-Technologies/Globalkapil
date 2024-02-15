@@ -334,11 +334,7 @@ function Infor() {
             <Typography variant="h2" sx={{ fontWeight: "bold" }}>
               Infor <br /> Consulting Services
             </Typography>
-            <img
-              src={InforAliiancePatrner}
-              alt="Infor Alliance Partner "
-              height="72px"
-            />
+         
 
           </Stack>
         </BannerImageLayer>

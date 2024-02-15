@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import BreadCrums from "./components/BreadCrums";
 import ScrollToTop from "./components/ScrollToTop";
 import { useLocation } from "react-router-dom";
+import { SnackbarProvider } from "notistack";
 
 function App() {
   const { pathname } = useLocation();
@@ -27,13 +28,15 @@ function App() {
   return (
     <ThemeProvider theme={customTheme}>
       <HelmetProvider>
-        <ScrollToTop />
-        {!condition1 ? <Navbar jobid={cid} /> : null}
-        {/* <BreadCrums /> */}
+        <SnackbarProvider maxSnack={3} autoHideDuration={3000}>
+          <ScrollToTop />
+          {!condition1 ? <Navbar jobid={cid} /> : null}
+          {/* <BreadCrums /> */}
 
-        <Routes />
+          <Routes />
 
-        {!condition1 ? <Footer /> : null}
+          {!condition1 ? <Footer /> : null}
+        </SnackbarProvider>
       </HelmetProvider>
     </ThemeProvider>
   );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Page from "../Page";
 import { useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import {
@@ -99,11 +100,11 @@ const schema = yup.object({
   ctc: yup
     .string()
     .required("CTC is Required")
-    .matches(/^[0-9]/, "Enter Numbers Only !"),
+    .matches(/^\d{2}\.\d{2}$/, 'Invalid format. Please use "00.00" format.'),
   ectc: yup
     .string()
     .required("Expected CTC is Required")
-    .matches(/^[0-9]/, "Enter Numbers Only !"),
+    .matches(/^\d{2}\.\d{2}$/, 'Invalid format. Please use "00.00" format.'),
   notice: yup.string().required("Notice Period is Required"),
   date: yup.string().required("Availability is Required"),
   referance: yup.string().required("Select one Option"),
