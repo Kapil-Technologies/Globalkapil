@@ -162,22 +162,22 @@ export const NavData = [
         submenu: [
           {
             id: 1,
-            title: " KT Finstaa",
+            title: "Finstaa",
             icon: <FiArrowDownRight />,
             // path: "",
           },
-          {
-            id: 2,
-            title: "KT Fleet Management",
-            icon: <FiArrowDownRight />,
-            // path: "",
-          },
-          {
-            id: 3,
-            title: "KT Mobillor",
-            icon: <FiArrowDownRight />,
-            // path: "",
-          },
+          // {
+          //   id: 2,
+          //   title: "KT Fleet Management",
+          //   icon: <FiArrowDownRight />,
+          //   // path: "",
+          // },
+          // {
+          //   id: 3,
+          //   title: "KT Mobillor",
+          //   icon: <FiArrowDownRight />,
+          //   // path: "",
+          // },
           // {
           //   id: 4,
           //   title: "KT MES (Manufacturing Excecution System)",
