@@ -100,11 +100,11 @@ const schema = yup.object({
   ctc: yup
     .string()
     .required("CTC is Required")
-    .matches(/^\d{2}\.\d{1}$/, 'Invalid format. try ex: "2.6'),
+    .matches(/^\d+(\.\d+)?$/, "Invalid format"),
   ectc: yup
     .string()
     .required("Expected CTC is Required")
-    .matches(/^\d{2}\.\d{1}$/, 'Invalid format. try ex: "2.6'),
+    .matches(/^\d+(\.\d+)?$/, "Invalid format"),
   notice: yup.string().required("Notice Period is Required"),
   date: yup.string().required("Availability is Required"),
   referance: yup.string().required("Select one Option"),
