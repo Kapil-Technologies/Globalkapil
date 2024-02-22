@@ -84,6 +84,9 @@ export const ApplyJob = async (data) => {
   formdata.append("ctc", data.ctc);
   formdata.append("ectc", data.ectc);
   formdata.append("notice", data.notice);
+  formdata.append("domain", "kapiltech.com");
+  formdata.append("relocation", data.relocation);
+
 
   const response = await axios.post(
     `${APIURL}create-application`,

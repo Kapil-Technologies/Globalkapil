@@ -11,6 +11,8 @@ export const Paths = {
   staffing: "/services/others/staffing",
   contactus: "/contact-us",
   jobopenings: "/join-us/search-jobs",
+  description: "/join-us/application",
+  webinars: "join-us/webinars",
 };
 
 // ------------------------------------------------------------------   API URL

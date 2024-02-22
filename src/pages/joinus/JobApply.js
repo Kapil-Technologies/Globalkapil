@@ -48,6 +48,19 @@ const NpArray = [
   },
 ];
 
+const yesorno = [
+  {
+    id: 1,
+    label: "Yes",
+    value: "yes",
+  },
+  {
+    id: 2,
+    label: "No",
+    value: "no",
+  },
+];
+
 const emailregex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$";
 
 const decimalornumber = "/^[0-50]*.?[0-9]*$/";
@@ -106,7 +119,7 @@ const schema = yup.object({
     .required("Expected CTC is Required")
     .matches(/^\d+(\.\d+)?$/, "Invalid format"),
   notice: yup.string().required("Notice Period is Required"),
-  date: yup.string().required("Availability is Required"),
+  relocation: yup.string().required("Relocation is Required"),
   referance: yup.string().required("Select one Option"),
   empid: yup.string(),
   empname: yup.string(),
@@ -157,6 +170,7 @@ function JobApply({ JobopeningData }) {
     empid: "",
     empname: "",
     status: "applied",
+    relocation: "",
     file: null,
   };
 
@@ -203,9 +217,10 @@ function JobApply({ JobopeningData }) {
       ctc: ctcdetails,
       ectc: ectcdetails,
       notice: data.notice,
+      relocation: data.relocation,
     };
 
-    // console.log(ReqData);
+    console.log(ReqData);
 
     ApplyJob(ReqData)
       .then((res) => {
@@ -616,13 +631,35 @@ function JobApply({ JobopeningData }) {
           spacing={1}
           sx={{ width: "100%" }}
         >
-          <TextField
-            type="text"
-            fullWidth
-            {...register("date")}
-            autoComplete="off"
-            size="small"
-            label="Availability (dd/mm/yyyy)"
+          <Controller
+            name="relocation"
+            control={control}
+            render={({ field }) => {
+              const { onChange, value } = field;
+              return (
+                <Autocomplete
+                  sx={{ width: "100%" }}
+                  size="small"
+                  value={
+                    value
+                      ? yesorno.find((option) => {
+                          return value == option.value;
+                        }) ?? null
+                      : null
+                  }
+                  getOptionLabel={(option) => {
+                    return option.label;
+                  }}
+                  options={yesorno}
+                  onChange={(e, newValue) => {
+                    onChange(newValue ? newValue.value : null);
+                  }}
+                  renderInput={(params) => (
+                    <TextField {...params} label="Willing to relocate" />
+                  )}
+                />
+              );
+            }}
           />
 
           <ErrorMessage
